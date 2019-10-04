@@ -97,7 +97,6 @@ F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\PathwayReports.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\PathwayReports.pdb
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\DrectSoft.Core.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\WebService.dll
-F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\YidanSoft.Tool.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\SendOrder.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
@@ -107,7 +106,6 @@ F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\Microsoft.Practices.Unity.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\Oracle.DataAccess.dll
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\WebService.pdb
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\DrectSoft.Core.pdb
-F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\YidanSoft.Tool.pdb
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\SendOrder.pdb
 F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.pdb
 F:\Demo\pathway\Pathway\PathwayReports\obj\Debug\PathwayReports.csprojResolveAssemblyReference.cache
@@ -140,3 +138,5 @@ F:\Demo\pathway\Pathway\PathwayReports\obj\Debug\YidanEHRReport.ReportPathVariat
 F:\Demo\pathway\Pathway\PathwayReports\obj\Debug\PathwayReports.csproj.GenerateResource.Cache
 F:\Demo\pathway\Pathway\PathwayReports\obj\Debug\PathwayReports.dll
 F:\Demo\pathway\Pathway\PathwayReports\obj\Debug\PathwayReports.pdb
+F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\DrectSoft.Tool.dll
+F:\Demo\pathway\Pathway\PathwayReports\bin\Debug\DrectSoft.Tool.pdb

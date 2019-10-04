@@ -1,21 +1,16 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
 using YidanEHRApplication.Views.ChildWindows;
-using System.Collections.ObjectModel;
 namespace YidanEHRApplication.Views
 {
     public partial class CP_DiagNurExecCategoryDetailMainPage : Page
@@ -27,7 +22,7 @@ namespace YidanEHRApplication.Views
             RegisterKeyEvent();
         }
 
-      
+
         // 当用户导航到此页面时执行。
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -72,7 +67,7 @@ namespace YidanEHRApplication.Views
                     cbxInsert.IsEnabled = true;
                     txtInsert.IsEnabled = true;
                     txtPy.IsEnabled = true;
-                   
+
                     btnAdd.IsEnabled = false;
                     btnUpdate.IsEnabled = false;
                     this.btnEnableCode.IsEnabled = false;
@@ -120,7 +115,7 @@ namespace YidanEHRApplication.Views
             CurrentState = OperationState.VIEW;
             BindGridView();
             BindCbx();
-             
+
         }
         /// <summary>
         /// 行选中改变事件
@@ -139,7 +134,7 @@ namespace YidanEHRApplication.Views
                     m_dnedetail = (CP_DiagNurExecCategoryDetail)GridViewNur.SelectedItem;
                     Bind_Data(m_dnedetail);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -159,20 +154,20 @@ namespace YidanEHRApplication.Views
                 this.cbxInsert.SelectedItem = ((List<CP_DiagNurExecCategory>)cbxInsert.ItemsSource).First(where => where.Lbxh.Equals(_cpDigNur.Lbxh));
                 this.txtInsert.Text = _cpDigNur.Name;
                 this.txtPy.Text = _cpDigNur.Py;
-               
+
             }
             else
             {
                 m_dnedetail = new CP_DiagNurExecCategoryDetail();
                 this.cbxInsert.SelectedItem = null;
                 this.txtInsert.Text = "";
-                this.txtPy.Text ="";
+                this.txtPy.Text = "";
             }
         }
         /// <summary>
         /// 修改按钮事件
         /// </summary>
-        private void btnUpdate_Click(object sender, RoutedEventArgs e) 
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -181,11 +176,11 @@ namespace YidanEHRApplication.Views
                     PublicMethod.RadAlterBox("请选中要修改的行！", "提示");
                     return;
                 }
-                 
+
                 m_dnedetail = (CP_DiagNurExecCategoryDetail)GridViewNur.SelectedItem;
                 CurrentState = OperationState.EDIT;
                 txtInsert.Focus();
-                 
+
             }
             catch (Exception ex)
             {
@@ -202,7 +197,7 @@ namespace YidanEHRApplication.Views
                 CurrentState = OperationState.NEW;
                 NewAdviceGroupDetail();
                 txtInsert.Focus();
-                 
+
             }
             catch (Exception ex)
             {
@@ -216,13 +211,13 @@ namespace YidanEHRApplication.Views
         /// <param name="e"></param>
         private void btnQuery_Click(object sender, RoutedEventArgs e)
         {
-            
+
             //String operation = "select";
 
             int Lbxh = (cbxQuery.SelectedItem != null) ? (cbxQuery.SelectedItem as CP_DiagNurExecCategory).Lbxh : -1;
             int Yxjl = (cbxYxjlQuery.SelectedItem != null) ? (cbxYxjlQuery.SelectedIndex) : -1;
             int Sfsy = (cbxSfsyQuery.SelectedItem != null) ? (cbxSfsyQuery.SelectedIndex) : -1;
-            
+
             //集合类型初始化
             List<CP_DiagNurExecCategoryDetail> t_listsouce = m_listsouce.ToList();
 
@@ -249,7 +244,7 @@ namespace YidanEHRApplication.Views
 
             GridViewNur.ItemsSource = t_listsouce.ToList();
 
-             
+
         }
         /// <summary>
         /// 创建
@@ -278,7 +273,7 @@ namespace YidanEHRApplication.Views
                 isLoad = false;
                 return;
             }
-            
+
             //foreach (CP_DiagNurExecCategoryDetail item in GridViewNur.Items)
             //{
             //    if (txtInsert.Text.Trim() == item.MxName)
@@ -298,36 +293,36 @@ namespace YidanEHRApplication.Views
             //    isLoad = false;
             //    return;
             //}
-            
+
             CP_DiagNurExecCategoryDetail _dnedetail = new CP_DiagNurExecCategoryDetail();
 
             _dnedetail.Name = txtInsert.Text.Trim();
             _dnedetail.Lbxh = (cbxInsert.SelectedItem != null) ? (cbxInsert.SelectedItem as CP_DiagNurExecCategory).Lbxh : 1;
-            _dnedetail.Yxjl=1;
-            _dnedetail.Sfsy=0;
+            _dnedetail.Yxjl = 1;
+            _dnedetail.Sfsy = 0;
             _dnedetail.Create_Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             _dnedetail.Create_User = Global.LogInEmployee.Zgdm;
-            _dnedetail.Cancel_Time ="";
-            _dnedetail.Cancel_User ="";
-            _dnedetail.OrderValue=0;
-            _dnedetail.JkType=0;
-            _dnedetail.Tbzd="";
-            _dnedetail.Zdly="";
+            _dnedetail.Cancel_Time = "";
+            _dnedetail.Cancel_User = "";
+            _dnedetail.OrderValue = 0;
+            _dnedetail.JkType = 0;
+            _dnedetail.Tbzd = "";
+            _dnedetail.Zdly = "";
             _dnedetail.Py = txtPy.Text.Trim();
-            _dnedetail.Wb="";
-            _dnedetail.Jkdm ="";
-            _dnedetail.Scdm ="";
-            _dnedetail.Memo ="";
-            _dnedetail.Extension="";
-            _dnedetail.Extension1="";
+            _dnedetail.Wb = "";
+            _dnedetail.Jkdm = "";
+            _dnedetail.Scdm = "";
+            _dnedetail.Memo = "";
+            _dnedetail.Extension = "";
+            _dnedetail.Extension1 = "";
             _dnedetail.Extension2 = "";
 
-            
+
             #endregion
 
             if (CurrentState == OperationState.NEW)
             {
-                
+
 
                 serviceCon = PublicMethod.YidanClient;
                 serviceCon.InsertDiagNurCategoryDetailsCompleted +=
@@ -359,11 +354,11 @@ namespace YidanEHRApplication.Views
             {
 
                 _dnedetail.Mxxh = m_dnedetail.Mxxh;
-               
+
                 YidanEHRDataServiceClient Client = PublicMethod.YidanClient;
                 Client.UpdateDiagNurExecCategoryDetailCompleted += (sb, ea) =>
                 {
-                    if (ea.Result>=1)
+                    if (ea.Result >= 1)
                     {
                         PublicMethod.RadAlterBox("项目名称重复，请检查后重新输入！", "提示");
                         //弹框之后还原数据信息
@@ -387,8 +382,8 @@ namespace YidanEHRApplication.Views
                     }
                 };
                 Client.UpdateDiagNurExecCategoryDetailAsync(_dnedetail);
-              
-                
+
+
                 CurrentState = OperationState.VIEW;
             }
 
@@ -409,7 +404,7 @@ namespace YidanEHRApplication.Views
                     PublicMethod.RadAlterBox("请选择一项", "提示");
                     return;
                 }
-               
+
                 //YidanPathWayMessageBox mess = new YidanPathWayMessageBox("请问是否删除选中的信息吗？", "提示", YiDanMessageBoxButtons.YesNo);
                 //mess.ShowDialog();
                 //mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);
@@ -503,7 +498,7 @@ namespace YidanEHRApplication.Views
                 {
                     YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
                 }
-               
+
             }
             else
             {
@@ -561,7 +556,7 @@ namespace YidanEHRApplication.Views
                 {
                     YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
                 }
-               
+
             }
             else
             {
@@ -585,8 +580,8 @@ namespace YidanEHRApplication.Views
             BindGridView();
             BindCbx();
         }
-        
-        
+
+
         #region  输入框加回车事件
         private void RegisterKeyEvent()
         {
@@ -614,7 +609,7 @@ namespace YidanEHRApplication.Views
             if (e.Key == Key.Enter)
                 btnCreateCode.Focus();
         }
-        
+
         //private void cmbYxjl_KeyUp(object sender, KeyEventArgs e)
         //{
         //    if (e.Key == Key.Enter)
@@ -658,7 +653,7 @@ namespace YidanEHRApplication.Views
                     }
                 };
 
-                Client.GetDiagNurExecCategoryDetailsAsync(1,true);
+                Client.GetDiagNurExecCategoryDetailsAsync(1, true);
                 Client.CloseAsync();
             }
             catch (Exception ex)
@@ -674,18 +669,18 @@ namespace YidanEHRApplication.Views
         {
             try
             {
- 
+
                 YidanEHRDataServiceClient Client = PublicMethod.YidanClient;
                 Client.GetDiagNurExecCategoryCompleted +=
                 (obj, e) =>
                 {
-                   
+
                     if (e.Error == null)
                     {
                         cbxQuery.ItemsSource = e.Result.ToList();
                         cbxInsert.ItemsSource = e.Result.ToList();
                         cbxInsert.SelectedIndex = 0;
-                       
+
                     }
                     else
                     {
@@ -702,10 +697,10 @@ namespace YidanEHRApplication.Views
             }
         }
 
-        
+
         #endregion
 
-        
+
 
         private void btnClearCode_Click(object sender, RoutedEventArgs e)
         {
@@ -718,7 +713,7 @@ namespace YidanEHRApplication.Views
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             CurrentState = OperationState.VIEW;
-            
+
             //NewAdviceGroupDetail();
             //txtInsert.Text = "";
             //txtPy.Text = "";

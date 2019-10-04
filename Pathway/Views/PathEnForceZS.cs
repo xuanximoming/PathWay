@@ -1,8 +1,11 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
@@ -11,9 +14,6 @@ using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.UserControls;
 using YidanEHRApplication.WorkFlow.Designer;
-using YidanSoft.Tool;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace YidanEHRApplication.Views
 {
@@ -147,7 +147,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                if (!(radGridViewCYOrderList.ItemsSource  == null && m_DelCYOrder.Count == 0))
+                if (!(radGridViewCYOrderList.ItemsSource == null && m_DelCYOrder.Count == 0))
                 {
                     if (radGridViewCYOrderList.ItemsSource == null && m_DelCYOrder.Count == 0)
                     {
@@ -392,7 +392,7 @@ namespace YidanEHRApplication.Views
             try
             {
                 if (radGridViewCYOrderList.SelectedItems == null)
-                    return;  
+                    return;
 
                 ObservableCollection<CP_DoctorOrder> listorder = new ObservableCollection<CP_DoctorOrder>();
                 foreach (CP_DoctorOrder o in radGridViewCYOrderList.SelectedItems)
@@ -413,7 +413,7 @@ namespace YidanEHRApplication.Views
                     }
                     ((ObservableCollection<CP_DoctorOrder>)radGridViewCYOrderList.ItemsSource).Remove(order);
                 }
- 
+
             }
             catch (Exception ex)
             {
@@ -480,7 +480,7 @@ namespace YidanEHRApplication.Views
                             List<CP_DoctorOrder> list = GetCyOrderListByCYXDFMX(e.Result.ToList(), order);
 
 
-                            if (list!=null&&list.Count > 0)
+                            if (list != null && list.Count > 0)
                             {
                                 foreach (CP_DoctorOrder _order in list)
                                 {
@@ -687,7 +687,7 @@ namespace YidanEHRApplication.Views
                 GridViewRow row = radGridViewCYOrderList.SelectedItems as GridViewRow;
                 List<CP_AdviceGroupDetail> listsOrder = new List<CP_AdviceGroupDetail>();
                 var RadMenu = sender as ContextMenu;
-                Boolean isSelectItemsHaveDefferentGroup = false; 
+                Boolean isSelectItemsHaveDefferentGroup = false;
                 bool IsShowMemu = false;
                 foreach (MenuItem item in RadMenu.Items)
                 {
@@ -757,7 +757,7 @@ namespace YidanEHRApplication.Views
                                     item.Visibility = System.Windows.Visibility.Collapsed;
                                 }
                             }
-                                                 
+
                         }
                     }
                     //判断 如果有右键菜单显示则显示空间
@@ -1070,12 +1070,12 @@ namespace YidanEHRApplication.Views
         private void radGridViewCYOrderList_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             try
-            { 
+            {
                 if (e.Row.GetIndex() < 0)
                     return;
 
                 ContextMenu rowContextMenu = new ContextMenu(); //新建一个右键菜单
-                rowContextMenu.Width = 200; 
+                rowContextMenu.Width = 200;
 
                 MenuItem mEdit = new MenuItem();
                 mEdit.Header = "编辑医嘱";
@@ -1097,13 +1097,13 @@ namespace YidanEHRApplication.Views
                 {
                     e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("000000");
                     //CP_DoctorOrder order = e.Row.Item as CP_DoctorOrder;
-                     
+
                     if ((order.Yzzt == (decimal)OrderStatus.OrderInptut || order.Yzzt == 0))
                     {
                         //新增的已经发送医嘱显示为蓝色
                         if (order.Tbbz == 1 && (order.Yzzt == (decimal)OrderStatus.OrderInptut || order.Yzzt == 0))
                         {
-                            e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("0000FF"); 
+                            e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("0000FF");
                         }
 
                         //未保存可选医嘱
@@ -1120,19 +1120,19 @@ namespace YidanEHRApplication.Views
                     }
                     else if (order.Yzzt == (decimal)OrderStatus.OrderVerify)
                     {
-                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("FFB90F"); 
+                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("FFB90F");
                     }
                     else if (order.Yzzt == (decimal)OrderStatus.OrderEnforce)
                     {
-                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("A2CD5A"); 
+                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("A2CD5A");
                     }
                     else if (order.Yzzt == (decimal)OrderStatus.OrderStop)
                     {
-                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("7F7F7F"); 
+                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("7F7F7F");
                     }
                     else if (order.Yzzt == (decimal)OrderStatus.OrderDC)
                     {
-                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("FFC0CB"); 
+                        e.Row.Foreground = ConvertColor.GetColorBrushFromHx16("FFC0CB");
                     }
                     e.Row.Background = new SolidColorBrush(Colors.White);
                 }
@@ -1161,7 +1161,7 @@ namespace YidanEHRApplication.Views
                 //send
                 OrderPanelBarCategory barItemTag = (OrderPanelBarCategory)(int.Parse(order.Yzlb.ToString()));
                 InitModifyOrderControl(barItemTag, order);
-                 
+
             }
             catch (Exception ex)
             {
@@ -1180,7 +1180,7 @@ namespace YidanEHRApplication.Views
             try
             {
                 if (radGridViewCYOrderList.SelectedItem == null)
-                    return;  
+                    return;
                 RemoveCYOrder();
             }
             catch (Exception ex)
@@ -1194,7 +1194,7 @@ namespace YidanEHRApplication.Views
         #region  add by luff 20130828 调整医嘱排序的方法，比如上移、下移、置顶
         //定义一个医嘱列表是否已排序的开关，默认为false为没有排序
         bool isSortOrder = false;
-       
+
         /// <summary>
         /// 调整医嘱排序的方法 
         /// </summary>
@@ -1207,10 +1207,10 @@ namespace YidanEHRApplication.Views
                 return;
             if (m_AddOrder.Count > 0 || m_DelOrder.Count > 0)
             {
-                PublicMethod.RadAlterBox("请先保存医嘱！再移动医嘱！","");
+                PublicMethod.RadAlterBox("请先保存医嘱！再移动医嘱！", "");
                 return;
             }
-            if (m_AddOrder.Count == 0 || m_DelOrder.Count == 0 )
+            if (m_AddOrder.Count == 0 || m_DelOrder.Count == 0)
             {
                 isSortOrder = true;//没有编辑医嘱，已经排序置为true，为了解决医嘱没有变化，无需保存的问题
             }
@@ -1318,7 +1318,7 @@ namespace YidanEHRApplication.Views
                     //重新给排序后的医嘱列表该行实体排序字段赋值
                     newList[i].OrderValue = i;
                 }
-                
+
 
             }
             #endregion
@@ -1326,7 +1326,7 @@ namespace YidanEHRApplication.Views
             #region 向下移动一行
             if (type == "-1")
             {
-                if (maxindex>= oldList.Count-1)
+                if (maxindex >= oldList.Count - 1)
                 {
                     return;//选择的该行已经在列表最底下了
                 }
@@ -1349,37 +1349,37 @@ namespace YidanEHRApplication.Views
                 }
 
 
-            //记录下移是已经移动到第几条
-            int downindex = 0;
-            foreach (CP_DoctorOrder o in oldList)
-            {
-                o.IsModify = true;
-                int i = oldList.IndexOf(o);
-                
-                if (i <= maxindex - selectList.Count)//坐标在需要调整行上面直接加载到新集合中
+                //记录下移是已经移动到第几条
+                int downindex = 0;
+                foreach (CP_DoctorOrder o in oldList)
                 {
-                    newList.Add(o);
-                }
-                else if ( i <= maxindex + downrowcount - selectList.Count )//坐标在需要改动行最后一行 将需要下移的最后一行加入到新集合中
-                {
-                    newList.Add(oldList[i + selectList.Count]);
-                }
-                else if (i > maxindex + downrowcount - selectList.Count && i <= maxindex + downrowcount)//坐标在需要改动行新下移行中 将下移行加载到新集合中
-                {
-                    newList.Add(selectList[downindex]);
-                    downindex++;
+                    o.IsModify = true;
+                    int i = oldList.IndexOf(o);
+
+                    if (i <= maxindex - selectList.Count)//坐标在需要调整行上面直接加载到新集合中
+                    {
+                        newList.Add(o);
+                    }
+                    else if (i <= maxindex + downrowcount - selectList.Count)//坐标在需要改动行最后一行 将需要下移的最后一行加入到新集合中
+                    {
+                        newList.Add(oldList[i + selectList.Count]);
+                    }
+                    else if (i > maxindex + downrowcount - selectList.Count && i <= maxindex + downrowcount)//坐标在需要改动行新下移行中 将下移行加载到新集合中
+                    {
+                        newList.Add(selectList[downindex]);
+                        downindex++;
+
+                    }
+                    else//坐标在需要调整行之后 直接将原有数据加载到新集合中
+                    {
+                        newList.Add(o);
+                    }
+                    //重新给排序后的医嘱列表该行实体排序字段赋值
+                    newList[i].OrderValue = i;
 
                 }
-                else//坐标在需要调整行之后 直接将原有数据加载到新集合中
-                {
-                    newList.Add(o);
-                }
-                //重新给排序后的医嘱列表该行实体排序字段赋值
-                newList[i].OrderValue = i;
-               
             }
-        }
-        #endregion
+            #endregion
 
             #region 置顶
             if (type == "0")
@@ -1413,11 +1413,11 @@ namespace YidanEHRApplication.Views
                     //indexnum = oldList.IndexOf(o);
                     indexnum++;
                     newList.Add(o);
-                    
+
                 }
 
-               
-                 
+
+
             }
             #endregion
 

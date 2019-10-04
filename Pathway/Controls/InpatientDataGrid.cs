@@ -1,26 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
+﻿using System.Threading;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.DataService;
-using YidanEHRApplication.Helpers;
-using System.Windows.Navigation;
-using YidanEHRApplication.Models;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
-using YidanEHRApplication.Views.ChildWindows;
-using YidanEHRApplication.Views.NursingNotes;
-using System.Windows.Data;
-using YidanEHRApplication.ChildWindows;
-using YidanEHRApplication.NurModule;
-using System.Threading;
 
 
 namespace YidanEHRApplication.Controls
@@ -35,7 +15,7 @@ namespace YidanEHRApplication.Controls
         /// </summary>
         /// <value><c>true</c> if clicked; otherwise, <c>false</c>.</value>
         private bool Clicked { get; set; }
- 
+
         /// <summary>
         /// 控件
         /// </summary>
@@ -66,7 +46,7 @@ namespace YidanEHRApplication.Controls
         /// <param name="e"></param>
         public void HandleClick(object sender, MouseButtonEventArgs e)
         {
-            lock(this)
+            lock (this)
             {
                 if (this.Clicked)
                 {
@@ -125,6 +105,6 @@ namespace YidanEHRApplication.Controls
             if (handler != null)
                 handler(sender, e);
         }
-    
+
     }
 }

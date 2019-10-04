@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DrectSoft.Tool;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.Models;
-
-using System.Collections.ObjectModel;
-using YidanSoft.Tool;
 using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views
 {
@@ -25,7 +17,7 @@ namespace YidanEHRApplication.Views
     /// </summary>
     public partial class W_AdviceSuitCategory : Page
     {
-       
+
         #region 事件
 
         /// <summary>
@@ -80,7 +72,7 @@ namespace YidanEHRApplication.Views
                 YidanPathWayMessageBox mess = new YidanPathWayMessageBox("确定删除吗？删除后不能恢复!", "提示", YiDanMessageBoxButtons.YesNo);
                 mess.ShowDialog();
                 mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);
-                
+
             }
             catch (Exception ex)
             {
@@ -145,7 +137,7 @@ namespace YidanEHRApplication.Views
                     {
                         if (ea.Error == null)
                         {
-                            
+
                             cp_AdviceSuitTypeList.Remove(adviceSuitCategory);
                             adviceSuitCategory = null;
                             ClearTextBox();
@@ -169,7 +161,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                if (adviceSuitCategory==null)
+                if (adviceSuitCategory == null)
                 {
                     PublicMethod.RadAlterBox("请选择一行数据!", "提示");
                     return;
@@ -221,7 +213,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                if (txtName.Text.Trim()==String.Empty)
+                if (txtName.Text.Trim() == String.Empty)
                 {
                     PublicMethod.RadAlterBox("类别名称不能为空！", "提示");
                     return;
@@ -246,9 +238,9 @@ namespace YidanEHRApplication.Views
                             #region 添加分类
                             client.InsertAndSelectCP_AdviceSuitCategoryCompleted += (objc, rea) =>
                                 {
-                                    if (rea.Result.ToList()!=null)
+                                    if (rea.Result.ToList() != null)
                                     {
-                                        
+
                                         cp_AdviceSuitTypeList = rea.Result;
                                         gvW_AdviceSuitCategory.ItemsSource = cp_AdviceSuitTypeList;
                                         m_funstate = EditState.None;
@@ -258,12 +250,12 @@ namespace YidanEHRApplication.Views
                                         PublicMethod.RadAlterBox("添加成功！", "提示");
                                     }
                                 };
-                            client.InsertAndSelectCP_AdviceSuitCategoryAsync(adviceSuitCategory,String.Empty);
+                            client.InsertAndSelectCP_AdviceSuitCategoryAsync(adviceSuitCategory, String.Empty);
                             #endregion
                         };
                     client.InsertCheckInfoAsync(Name);
                 }
-                if (m_funstate==EditState.Edit)
+                if (m_funstate == EditState.Edit)
                 {
                     #region 改变实体的值
                     adviceSuitCategory.Name = txtName.Text;
@@ -282,7 +274,7 @@ namespace YidanEHRApplication.Views
                                 {
                                     if (rea.Error == null)
                                     {
-                                        
+
                                         m_funstate = EditState.None;
                                         BindBtnState();
                                         PublicMethod.RadAlterBox("修改成功！", "提示");
@@ -314,22 +306,22 @@ namespace YidanEHRApplication.Views
             {
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
                 CP_AdviceSuitCategory AdviceSuitCategory = new CP_AdviceSuitCategory();
-                AdviceSuitCategory.CategoryId=String.Empty;
+                AdviceSuitCategory.CategoryId = String.Empty;
                 AdviceSuitCategory.Name = String.Empty;
                 AdviceSuitCategory.Memo = String.Empty;
                 AdviceSuitCategory.Zgdm = String.Empty;
-                client.InsertAndSelectCP_AdviceSuitCategoryCompleted += (obj, e) => 
+                client.InsertAndSelectCP_AdviceSuitCategoryCompleted += (obj, e) =>
                 {
-                    if (e.Error==null)
+                    if (e.Error == null)
                     {
                         cp_AdviceSuitTypeList = e.Result;
-                        if (cp_AdviceSuitTypeList!=null)
+                        if (cp_AdviceSuitTypeList != null)
                         {
                             gvW_AdviceSuitCategory.ItemsSource = cp_AdviceSuitTypeList;
                         }
                     }
                 };
-                client.InsertAndSelectCP_AdviceSuitCategoryAsync(AdviceSuitCategory,String.Empty);
+                client.InsertAndSelectCP_AdviceSuitCategoryAsync(AdviceSuitCategory, String.Empty);
             }
             catch (Exception ex)
             {

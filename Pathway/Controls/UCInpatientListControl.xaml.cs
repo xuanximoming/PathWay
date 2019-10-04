@@ -1,25 +1,19 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+using Telerik.Windows.Controls;
+using YidanEHRApplication.ChildWindows;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
-using System.Windows.Navigation;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
 using YidanEHRApplication.Views.ChildWindows;
 using YidanEHRApplication.Views.NursingNotes;
-using System.Windows.Data;
-using YidanEHRApplication.ChildWindows;
-using YidanEHRApplication.NurModule;
 
 
 namespace YidanEHRApplication.Controls
@@ -28,8 +22,8 @@ namespace YidanEHRApplication.Controls
     {
         List<int> itemCount = new List<int>();//用于DataPager的数据提供
 
-       string ljzt = string.Empty;
-       
+        string ljzt = string.Empty;
+
         //2013-05-16,WangGuojin
         public int m_iCurrentPage = 1;
         //
@@ -51,7 +45,7 @@ namespace YidanEHRApplication.Controls
             //    //自己的菜单
             //};
             Loaded += new RoutedEventHandler(UCInpatientListControl_Loaded);
-            
+
         }
 
         //add by luff 20130308
@@ -60,7 +54,7 @@ namespace YidanEHRApplication.Controls
             QcEventArgs qcargs = new QcEventArgs();
             //初始DataGrid双击事件
             DataGridDoubleClick();
-             
+
             if (qcargs.Brzt == "1503" || qcargs.Brzt == "1502")
             {
                 //this.PathZx.IsEnabled = false;
@@ -72,7 +66,7 @@ namespace YidanEHRApplication.Controls
             }
         }
 
-       
+
 
         void qcPatientInfoControl1_AfterSumaryInfoClicked(object sender, RoutedEventArgs e)
         {
@@ -114,7 +108,7 @@ namespace YidanEHRApplication.Controls
                 //radGridViewInpatient.ItemsSource = m_InpatientList.Where(cp => cp.Ljzt == Convert.ToString((int)PathStatus.DonePath));
             }
             QcEventArgs qcargs = new QcEventArgs();
-            
+
             GetPageCount(qcargs, ljzt);
             bandDataGrid(0, ljzt);
             if (qcargs.Brzt == "1503" || qcargs.Brzt == "1502")
@@ -215,7 +209,7 @@ namespace YidanEHRApplication.Controls
         #region 行双击事件
         private void _gridClickManager_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-          try
+            try
             {
                 CP_InpatinetList cp = (CP_InpatinetList)radGridViewInpatient.SelectedItem;
                 if (cp == null) return;
@@ -274,7 +268,7 @@ namespace YidanEHRApplication.Controls
         private void ResultsGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.MouseLeftButtonUp += _gridClickManager.HandleClick;
-             
+
         }
         /// <summary>
         /// 弹出窗口关闭事件
@@ -297,7 +291,7 @@ namespace YidanEHRApplication.Controls
                 catch (Exception ex)
                 {
                     YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -305,7 +299,7 @@ namespace YidanEHRApplication.Controls
             }
 
         }
-        private void radGridViewInpatient_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) 
+        private void radGridViewInpatient_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             try
             {
@@ -524,7 +518,7 @@ namespace YidanEHRApplication.Controls
                 //this.PathZx.IsEnabled = false;
                 this.rabInPath.IsEnabled = false;
             }
-            referenceClient.GetInpatientListAsync(querykind, ksdm, m_DoctorID, hzxm, zyhm, bedno, queryPathInfoControl1.StartDate, queryPathInfoControl1.EndDate,brzt, ljzt, 18, pageIndex);
+            referenceClient.GetInpatientListAsync(querykind, ksdm, m_DoctorID, hzxm, zyhm, bedno, queryPathInfoControl1.StartDate, queryPathInfoControl1.EndDate, brzt, ljzt, 18, pageIndex);
             referenceClient.CloseAsync();
         }
 
@@ -627,12 +621,12 @@ namespace YidanEHRApplication.Controls
             bedno = queryPathInfoControl1.BedNo.Replace(" ", "");
             //}
             //若科室代码为空的时候 就用全局的科室代码否则就用子控制的科室代码
-            ksdm = queryPathInfoControl1.Ksdm==""?Global.LogInEmployee.Ksdm:queryPathInfoControl1.Ksdm;
+            ksdm = queryPathInfoControl1.Ksdm == "" ? Global.LogInEmployee.Ksdm : queryPathInfoControl1.Ksdm;
 
             //获得病人状态
             brzt = queryPathInfoControl1.Brzt == "" ? "1501" : queryPathInfoControl1.Brzt;
 
-            referenceClient.GetInpatientCountAsync(querykind, ksdm, m_DoctorID, hzxm, zyhm, bedno, qcargs.StartDate, qcargs.EndDate,brzt,ljzt);
+            referenceClient.GetInpatientCountAsync(querykind, ksdm, m_DoctorID, hzxm, zyhm, bedno, qcargs.StartDate, qcargs.EndDate, brzt, ljzt);
             referenceClient.CloseAsync();
 
         }
@@ -670,7 +664,7 @@ namespace YidanEHRApplication.Controls
                 };
             int querykind = string.IsNullOrEmpty(strDoctorID) ? 3 : 2;
 
-            referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate,strBrzt, "", 18, 1);
+            referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate, strBrzt, "", 18, 1);
             referenceClient.CloseAsync();
         }
 
@@ -685,7 +679,7 @@ namespace YidanEHRApplication.Controls
         /// <param name="strBedNo">床位号</param>
         /// <param name="strStartDate">开始日期</param>
         /// <param name="strEndDate">结束日期</param>
-        private void GetInpatientList2(String strKsdm, String strDoctorID, String strHzxm, String strZyhm, String strBedNo, String strStartDate, String strEndDate,String strBrzt)
+        private void GetInpatientList2(String strKsdm, String strDoctorID, String strHzxm, String strZyhm, String strBedNo, String strStartDate, String strEndDate, String strBrzt)
         {
             YidanEHRDataServiceClient referenceClient = PublicMethod.YidanClient;
             referenceClient.GetInpatientListCompleted +=
@@ -706,7 +700,7 @@ namespace YidanEHRApplication.Controls
                 };
             int querykind = string.IsNullOrEmpty(strDoctorID) ? 3 : 2;
 
-            referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate,strBrzt, "", 18, 0);
+            referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate, strBrzt, "", 18, 0);
             referenceClient.CloseAsync();
         }
 
@@ -866,7 +860,7 @@ namespace YidanEHRApplication.Controls
             //调用委托事件
             //AfterNavigateToPage(this, new OpreateEventArgs(true, Global.InpatientListCurrent));
         }
- 
+
 
         private void txtLjzt_Loaded(object sender, RoutedEventArgs e)
         {
@@ -879,12 +873,12 @@ namespace YidanEHRApplication.Controls
                     //txt.Foreground = ConvertColor.GetColorBrushFromHx16("25A0DA");
                     txt.Text = "";
                     //txt.Foreground = new SolidColorBrush(Colors.Transparent);
-                    
+
                 }
                 else if (txt.Text.Trim() == "1")
                 {
                     txt.Background = ConvertColor.GetColorBrushFromHx16("CC6752");
-                    txt.Foreground =  ConvertColor.GetColorBrushFromHx16("CC6752");
+                    txt.Foreground = ConvertColor.GetColorBrushFromHx16("CC6752");
                     txt.Text = "";
                 }
                 else if (txt.Text.Trim() == "2")
@@ -908,12 +902,12 @@ namespace YidanEHRApplication.Controls
                 else
                 {
                     txt.Background = ConvertColor.GetColorBrushFromHx16("FFFFFF");
-                    txt.Foreground =  ConvertColor.GetColorBrushFromHx16("FFFFFF");
+                    txt.Foreground = ConvertColor.GetColorBrushFromHx16("FFFFFF");
                     txt.Text = "";
                 }
             }
         }
- 
- 
+
+
     }
 }

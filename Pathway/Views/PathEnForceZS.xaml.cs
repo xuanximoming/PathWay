@@ -1,39 +1,27 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.DragDrop;
 using Telerik.Windows.Controls.GridView;
 using Telerik.Windows.Controls.TreeView;
-using YidanEHRApplication;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.ChildWindows;
+using YidanEHRApplication.Views.UserControls;
 using YidanEHRApplication.WorkFlow;
 using YidanEHRApplication.WorkFlow.Designer;
-using YidanSoft.Tool;
-using YidanEHRApplication.Views.UserControls;
 
 namespace YidanEHRApplication.Views
 {
@@ -413,13 +401,13 @@ namespace YidanEHRApplication.Views
             try
             {
                 int iIndex = 0;
-                
+
                 ////判断的选择行 是否为第一行或最后一行,显示相关的按钮
                 //if (radGridViewOrderList.ItemsSource != null)
                 //{
                 //  ObservableCollection<CP_DoctorOrder> listSource = (ObservableCollection<CP_DoctorOrder>)radGridViewOrderList.ItemsSource;
                 //  iIndex = listSource.IndexOf(radGridViewOrderList.SelectedItems[0]);
-                  
+
                 //  if (iIndex == 0 && listSource.Count>1)
                 //  {
                 //      this.btnUpMove.IsEnabled = false;
@@ -443,8 +431,8 @@ namespace YidanEHRApplication.Views
                 //      this.btnTopMove.IsEnabled = true;
                 //  }
                 //}
-                  
-                
+
+
                 //foreach (CP_DoctorOrder dr in radGridViewOrderList.SelectedItems)
                 //{
                 //    radGridViewOrderList.row
@@ -1649,7 +1637,7 @@ namespace YidanEHRApplication.Views
             #endregion
             if (radGridViewOrderList.ItemsSource != null)
             {
-                 
+
                 foreach (CP_DoctorOrder order in listOrder)
                 {
                     if (order.Yzxh == 0)
@@ -1748,7 +1736,7 @@ namespace YidanEHRApplication.Views
                 {
                     //if (e.Result.ToString().Substring(0, 1).IndexOf("F") > -1)
                     //{
-                    
+
                     RadWindow wndTemp = new RadWindow();
                     PublicMethod.ShowAlertWindow(ref wndTemp, e.Result.ToString(), m_StrTitle, null, null);
 
@@ -3041,7 +3029,7 @@ namespace YidanEHRApplication.Views
                 {
                     string ypgg = order.Ypgg == "" ? "" : "  [" + order.Ypgg + "]  ";
                     order.Yznr = order.Ypmc + ypgg + order.Ypjl.ToString() + order.Jldw + "  " + order.YfdmName + "  " + order.PcdmName + "   " + order.Ztnr;
-                    
+
                 }
                 ObservableCollection<CP_DoctorOrder> listOrder = this.radGridViewOrderList.ItemsSource as ObservableCollection<CP_DoctorOrder>;
                 order.OrderValue = listOrder.Count;
@@ -3085,7 +3073,7 @@ namespace YidanEHRApplication.Views
                 //this.radGridViewOrderList.ItemsSource = listOrder;
 
                 ((ObservableCollection<CP_DoctorOrder>)radGridViewOrderList.ItemsSource).Add(order);
-                
+
                 radGridViewOrderList.ScrollIntoView(order, radGridViewOrderList.Columns[0]);
                 //radGridViewOrderList.SelectedItem = order;
                 //xjt,选中新增医嘱
@@ -3670,7 +3658,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
+                YiDanMessageBox.Show(ex, "错误提示！");
             }
         }
         /// <summary>
@@ -3697,8 +3685,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
         }
         #endregion
@@ -4511,7 +4499,7 @@ namespace YidanEHRApplication.Views
         private void btnSendOrder_Click(object sender, RoutedEventArgs e)
         {
             try
-            { 
+            {
                 radBusyIndicator.IsBusy = true;
                 //找出保存后的医嘱数据源  将保存后的医嘱发送到HIS中
                 ObservableCollection<CP_DoctorOrder> Orderlist = new ObservableCollection<CP_DoctorOrder>();
@@ -4590,8 +4578,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
 
 
@@ -4686,8 +4674,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
         }
 
@@ -4701,7 +4689,7 @@ namespace YidanEHRApplication.Views
                 //if ((e.Row is DataGridRow) || (e.Row is DataGridRow)) return;
                 if (e.Row.GetIndex() < 0)
                     return;
-                 
+
                 ContextMenu rowContextMenu = new ContextMenu(); //新建一个右键菜单
                 rowContextMenu.Width = 200;
                 //rowContextMenu.Items.Add(new MenuItem() { Header = "编辑医嘱", Tag = TagName.Edit });
@@ -4793,13 +4781,13 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
         }
 
-       
-         
+
+
         /// <summary>
         /// 右键编辑医嘱菜单事件
         /// </summary>
@@ -4818,8 +4806,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
         }
 
@@ -4839,8 +4827,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
         }
 
@@ -4928,8 +4916,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
 
 
@@ -4985,13 +4973,13 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,"错误提示！");
-                
+                YiDanMessageBox.Show(ex, "错误提示！");
+
             }
         }
 
- 
-       #region 上移、下移、置顶相关事件
+
+        #region 上移、下移、置顶相关事件
         private void btnUpMove_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -5031,8 +5019,8 @@ namespace YidanEHRApplication.Views
 
             }
         }
-       #endregion
- 
+        #endregion
+
 
     }
 }

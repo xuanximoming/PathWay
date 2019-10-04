@@ -1,5 +1,5 @@
-F:\Demo\pathway\Pathway\SendOrder\obj\Debug\SendOrder.csprojResolveAssemblyReference.cache
 F:\Demo\pathway\publish\SendOrder.dll
 F:\Demo\pathway\publish\SendOrder.pdb
+F:\Demo\pathway\Pathway\SendOrder\obj\Debug\SendOrder.csprojResolveAssemblyReference.cache
 F:\Demo\pathway\Pathway\SendOrder\obj\Debug\SendOrder.dll
 F:\Demo\pathway\Pathway\SendOrder\obj\Debug\SendOrder.pdb

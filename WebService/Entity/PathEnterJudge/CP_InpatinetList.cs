@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Data;
 using System.Data.SqlClient;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 namespace Yidansoft.Service.Entity
 {
     public partial class CP_InpatinetList : System.Object

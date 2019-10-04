@@ -1114,35 +1114,35 @@
       <FileName>Entity\ReportForms\Rpt_PathEnterStatistics.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="YidanSoft.Tool.WorkFlowTool" Collapsed="true">
+  <Class Name="DrectSoft.Tool.WorkFlowTool" Collapsed="true">
     <Position X="10" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\WorkFlowTool.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="YidanSoft.Tool.MyRule" Collapsed="true">
+  <Class Name="DrectSoft.Tool.MyRule" Collapsed="true">
     <Position X="18.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAEAAAACAAAAUAAAAAAAAAAAAAAAAgAAAAAgA=</HashCode>
       <FileName>Tool\WorkFlowTool.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="YidanSoft.Tool.MyActivity" Collapsed="true">
+  <Class Name="DrectSoft.Tool.MyActivity" Collapsed="true">
     <Position X="15.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAACBAgAQAAAAAAAAAAAAAAAAAAAgQABA=</HashCode>
       <FileName>Tool\WorkFlowTool.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="YidanSoft.Tool.MyActiveChildren" Collapsed="true">
+  <Class Name="DrectSoft.Tool.MyActiveChildren" Collapsed="true">
     <Position X="13.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAwAAAAAAAAABAAAAAAQAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tool\WorkFlowTool.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="YidanSoft.Tool.MyActivitys" Collapsed="true">
+  <Class Name="DrectSoft.Tool.MyActivitys" Collapsed="true">
     <Position X="17" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAEAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>

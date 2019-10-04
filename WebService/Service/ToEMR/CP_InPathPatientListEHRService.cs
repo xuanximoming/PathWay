@@ -40,17 +40,17 @@ namespace Yidansoft.Service
                 if (dataTable != null && dataTable.Rows.Count > 0)
                 {
                     p = new CP_InPathPatientList();
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Syxh"]))    p.Syxh = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Syxh"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Cwys"]))    p.Cwys = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Cwys"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Id"]))      p.Id = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Id"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Hissyxh"])) p.Hissyxh = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Hissyxh"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Jrsj"]))    p.Jrsj = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Jrsj"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Syxh"]))    p.Syxh = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Syxh"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Cwys"]))    p.Cwys = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Cwys"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Id"]))      p.Id = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Id"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Hissyxh"])) p.Hissyxh = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Hissyxh"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Jrsj"]))    p.Jrsj = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Jrsj"]);
 
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Ljdm"]))    p.Ljdm = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljdm"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Ljts"]))    p.Ljts = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljts"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Ljzt"]))    p.Ljzt = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljzt"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Tcsj"]))    p.Tcsj = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Tcsj"]);
-                    if (Convert.IsDBNull(dataTable.Rows[0]["Wcsj"]))    p.Wcsj = System.Data.SqlTypes.SqlString.Null; else p.Syxh = YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Wcsj"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Ljdm"]))    p.Ljdm = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljdm"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Ljts"]))    p.Ljts = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljts"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Ljzt"]))    p.Ljzt = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljzt"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Tcsj"]))    p.Tcsj = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Tcsj"]);
+                    if (Convert.IsDBNull(dataTable.Rows[0]["Wcsj"]))    p.Wcsj = System.Data.SqlTypes.SqlString.Null; else p.Syxh = DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Wcsj"]);
                 }
                 return p;
 

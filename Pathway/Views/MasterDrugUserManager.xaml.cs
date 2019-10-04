@@ -1,22 +1,16 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
 
 namespace YidanEHRApplication.Views
 {
@@ -299,7 +293,7 @@ namespace YidanEHRApplication.Views
                 if (this.treeViewUser.SelectedItem == null)
                 {
                     //PublicMethod.RadAlterBox("请选择用户！", "提示");
-                    PublicMethod.RadAlterBoxRe("请选择用户！", "提示",this.txtQuery);
+                    PublicMethod.RadAlterBoxRe("请选择用户！", "提示", this.txtQuery);
                     isTrue = false;
                     return;
                 }

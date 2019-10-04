@@ -1,23 +1,17 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.Models;
-using System.Collections.ObjectModel;
-using YidanSoft.Tool;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
 namespace YidanEHRApplication.Views.Permission
 {
     public partial class EhrtoHisApp : Page
@@ -97,7 +91,7 @@ namespace YidanEHRApplication.Views.Permission
                 }
                 else
                 {
-                     
+
                     YidanPathWayMessageBox mess = new YidanPathWayMessageBox("请问是否删除选中的配置信息吗？", "提示", YiDanMessageBoxButtons.YesNo);
                     mess.ShowDialog();
                     mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);

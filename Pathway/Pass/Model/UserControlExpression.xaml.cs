@@ -1,23 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using YidanEHRApplication.YidanEHRServiceReference;
 using Telerik.Windows.Controls;
-using YidanEHRApplication.Models;
-using System.Text;
-using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
-using YidanEHRApplication.Pass.Model;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
+using YidanEHRApplication.Pass.Model;
 
 namespace YidanEHRApplication.Controls
 {
@@ -45,38 +34,41 @@ namespace YidanEHRApplication.Controls
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        { try{
-            if (_expression != null)
+        {
+            try
             {
-                this.labExpression.Text = _expression.ExpressionsName == null ? "" : _expression.ExpressionsName.ToString();
-
-                this.txtDescribe.Text = _expression.ExpressionsDescribe == null ? "" : _expression.ExpressionsDescribe.ToString();
-
-                //清空参数控件
-                warppanel.Children.Clear();
-                m_radnumberList.Clear();
-
-                //动态添加计算公式中的参数输入框
-                foreach (ParameterProperty par in _expression.ExpressionsParameter)
+                if (_expression != null)
                 {
-                    ObjectCell cell = CreateObjectCollection(par);
+                    this.labExpression.Text = _expression.ExpressionsName == null ? "" : _expression.ExpressionsName.ToString();
 
-                    if (cell == null)
-                        continue;
-                    else
+                    this.txtDescribe.Text = _expression.ExpressionsDescribe == null ? "" : _expression.ExpressionsDescribe.ToString();
+
+                    //清空参数控件
+                    warppanel.Children.Clear();
+                    m_radnumberList.Clear();
+
+                    //动态添加计算公式中的参数输入框
+                    foreach (ParameterProperty par in _expression.ExpressionsParameter)
                     {
-                        m_radnumberList.Add(cell);
+                        ObjectCell cell = CreateObjectCollection(par);
 
-                        warppanel.Children.Add(cell.ObjTextBlock);
-                        warppanel.Children.Add(cell.ObjNumericUpDown);
+                        if (cell == null)
+                            continue;
+                        else
+                        {
+                            m_radnumberList.Add(cell);
+
+                            warppanel.Children.Add(cell.ObjTextBlock);
+                            warppanel.Children.Add(cell.ObjNumericUpDown);
+                        }
+
                     }
-
                 }
-            } }
-         catch (Exception ex)
-         {
-            YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
-         }
+            }
+            catch (Exception ex)
+            {
+                YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
+            }
 
         }
 
@@ -155,7 +147,7 @@ namespace YidanEHRApplication.Controls
             }
         }
 
-        
+
 
 
 

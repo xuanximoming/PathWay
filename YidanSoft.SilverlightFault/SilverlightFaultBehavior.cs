@@ -4,7 +4,7 @@ using System.ServiceModel.Configuration;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 
-namespace YidanSoft
+namespace DrectSoft
 {
     public class SilverlightFaultBehavior : BehaviorExtensionElement, IEndpointBehavior
     {

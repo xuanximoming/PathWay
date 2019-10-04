@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 namespace Yidansoft.Service.Entity
 {
     [DataContract()]

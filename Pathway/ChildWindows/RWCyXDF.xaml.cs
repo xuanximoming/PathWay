@@ -1,28 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.Models;
+using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Controls;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
     public partial class RWCyXDF
     {
-       
 
-         #region 事件
+
+        #region 事件
         /// <summary>
         /// 删除按钮事件
         /// </summary>
@@ -74,7 +66,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
-        void OnDeleteMaster(object sender, WindowClosedEventArgs e) 
+        void OnDeleteMaster(object sender, WindowClosedEventArgs e)
         {
             if (e.DialogResult == true)
             {
@@ -114,7 +106,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             try
             {
-                if (this.revCyXDF.SelectedItem== null)
+                if (this.revCyXDF.SelectedItem == null)
                 {
                     //PublicMethod.RadAlterBox("请选中要修改的行！", "提示");
                     YiDanMessageBox.Show("请选中要修改的行!");
@@ -193,7 +185,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     YiDanMessageBox.Show("处方付数不能为空！", txtfs);
                     return;
                 }
-                if (autoCompleteBoxDeptYf.Text.Trim() == "" || autoCompleteBoxDeptYf.SelectedItem==null)
+                if (autoCompleteBoxDeptYf.Text.Trim() == "" || autoCompleteBoxDeptYf.SelectedItem == null)
                 {
                     //PublicMethod.RadAlterBoxRe("默认药房不能为空！", "提示", autoCompleteBoxDeptYf); isLoad = false;
                     YiDanMessageBox.Show("默认药房不能为空！", autoCompleteBoxDeptYf);
@@ -212,14 +204,14 @@ namespace YidanEHRApplication.Views.ChildWindows
                 _cyxdfdetail.zxyjr = "0";
                 _cyxdfdetail.tsbz = 0;
                 _cyxdfdetail.Yfdm = autoCompleteBoxDept.SelectedItem == null ? "" : ((CP_DepartmentList)(autoCompleteBoxDeptYf.SelectedItem)).Ksdm;
-                _cyxdfdetail.Zxksdm = autoCompleteBoxDept.SelectedItem == null ? "" : ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Ksdm; 
+                _cyxdfdetail.Zxksdm = autoCompleteBoxDept.SelectedItem == null ? "" : ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Ksdm;
                 _cyxdfdetail.mbbz = 0;
                 _cyxdfdetail.czyh = Global.LogInEmployee.Zgdm;
                 _cyxdfdetail.Ksdm = Global.LogInEmployee.Ksdm;
 
                 _cyxdfdetail.cfts = int.Parse(this.txtfs.Text.Trim());
                 _cyxdfdetail.jlzt = 0;
-                _cyxdfdetail.jdcfbz =1;
+                _cyxdfdetail.jdcfbz = 1;
                 _cyxdfdetail.Yzkx = 1;
                 _cyxdfdetail.Isjj = 0;
                 _cyxdfdetail.sqdmbxh = 0;
@@ -232,36 +224,36 @@ namespace YidanEHRApplication.Views.ChildWindows
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
                 if (m_funstate == EditState.Add)
                 {
-                     
-                    #region 验证分类名称是否重复
-                     client.InsertCYXDFCompleted += (obj, ea) =>
-                         {
-                             if (ea.Result == 1)
-                             {
-                         
-                                 revCyXDF.SelectedItem = null;
-                                 BindBtnState();
-                                 ClearTextBox();
-                                 GetCYXDFCategory();
-                                 YiDanMessageBox.Show("添加成功！");
-                                 //PublicMethod.RadAlterBox("添加成功！", "提示");
-                                
-                             }
-                             //else if (ea.Result == 2)
-                             //{
 
-                            
-                             //    PublicMethod.RadAlterBoxRe("该项目已存在，请重新输入！", "提示", txtCyXDFName); isLoad = false;
-                             //    return;
-                             //}
-                             else
-                             {
-                                 PublicMethod.RadAlterBox(ea.Error.ToString(), "提示");
-                             }
-                             
-                         };
-                     client.InsertCYXDFAsync(_cyxdfdetail);
-                     m_funstate = EditState.View;
+                    #region 验证分类名称是否重复
+                    client.InsertCYXDFCompleted += (obj, ea) =>
+                        {
+                            if (ea.Result == 1)
+                            {
+
+                                revCyXDF.SelectedItem = null;
+                                BindBtnState();
+                                ClearTextBox();
+                                GetCYXDFCategory();
+                                YiDanMessageBox.Show("添加成功！");
+                                //PublicMethod.RadAlterBox("添加成功！", "提示");
+
+                            }
+                            //else if (ea.Result == 2)
+                            //{
+
+
+                            //    PublicMethod.RadAlterBoxRe("该项目已存在，请重新输入！", "提示", txtCyXDFName); isLoad = false;
+                            //    return;
+                            //}
+                            else
+                            {
+                                PublicMethod.RadAlterBox(ea.Error.ToString(), "提示");
+                            }
+
+                        };
+                    client.InsertCYXDFAsync(_cyxdfdetail);
+                    m_funstate = EditState.View;
                     #endregion
                 }
                 if (m_funstate == EditState.Edit)
@@ -286,7 +278,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                             //}
                             if (ea.Result == 1)
                             {
-                                
+
                                 revCyXDF.SelectedItem = null;
                                 NewAdviceGroupDetail();
                                 BindBtnState();
@@ -301,7 +293,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                         };
                     client.UpdateCYXDFAsync(_cyxdfdetail);
                     m_funstate = EditState.View;
-                    
+
                 }
             }
             catch (Exception ex)
@@ -321,7 +313,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 isLoad = true;
                 return;
             }
-            
+
             //绑定GirdView控件
             IntiComboBoxDeptYf();
             IntiComboBoxDept();
@@ -358,7 +350,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     txtfs.Text = cyxdfCategory.cfts.ToString();
                     autoCompleteBoxDept.SelectedItem = ((ObservableCollection<CP_DepartmentList>)autoCompleteBoxDept.ItemsSource).FirstOrDefault(cp => cp.Ksdm.Equals(cyxdfCategory.Zxksdm));
                     autoCompleteBoxDeptYf.SelectedItem = ((ObservableCollection<CP_DepartmentList>)autoCompleteBoxDept.ItemsSource).FirstOrDefault(cp => cp.Ksdm.Equals(cyxdfCategory.Yfdm));
-                   
+
                     BindBtnState();
                     //txtCyXDFName.IsEnabled = false;
                     //txtylm.IsEnabled = false;
@@ -368,8 +360,8 @@ namespace YidanEHRApplication.Views.ChildWindows
                     //autoCompleteBoxDeptYf.IsEnabled = false;
                     #endregion
                 }
-                
-                 
+
+
             }
             catch (Exception ex)
             {
@@ -380,7 +372,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         #region  输入框加回车事件
         private void RegisterKeyEvent()
         {
-             
+
             txtCyXDFName.KeyUp += new KeyEventHandler(txtCyXDFName_KeyUp);
             //txtPy.KeyUp += new KeyEventHandler(txtPy_KeyUp);
             //txtWb.KeyUp += new KeyEventHandler(txtWb_KeyUp);
@@ -395,7 +387,7 @@ namespace YidanEHRApplication.Views.ChildWindows
 
         }
 
-         
+
 
         private void txtCyXDFName_KeyUp(object sender, KeyEventArgs e)
         {
@@ -445,7 +437,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             if (e.Key == Key.Enter)
                 btnSave.Focus();
         }
-        
+
         private void btnSave_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -585,7 +577,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         /// <param name="bl2">状态2</param>
         private void SetEnabled(Boolean bl1, Boolean bl2)
         {
-            txtCyXDFName.IsEnabled  = btnSave.IsEnabled = bl1;
+            txtCyXDFName.IsEnabled = btnSave.IsEnabled = bl1;
             this.btnAdd.IsEnabled = bl2;
             this.btnDel.IsEnabled = bl2;
             this.btnUpdate.IsEnabled = bl2;
@@ -610,7 +602,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             txtylm.Text = String.Empty;
             autoCompleteBoxDeptYf.SelectedItem = null;
             autoCompleteBoxDeptYf.Text = String.Empty;
-            
+
         }
 
         /// <summary>
@@ -638,7 +630,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             else if (m_funstate == EditState.Edit)
             {
                 SetEnabled(true, false);
-                
+
                 txtCyXDFName.IsEnabled = true;
                 txtPy.IsEnabled = false;
                 txtWb.IsEnabled = false;
@@ -687,7 +679,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             //cbxInsert.SelectedIndex = -1;
             txtCyXDFName.Text = "";
-           
+
         }
 
     }

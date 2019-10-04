@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using YidanEHRApplication.Models;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.ObjectModel;
-using YidanSoft.Tool;
-using YidanEHRApplication.Helpers;
+using System.Windows;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -52,7 +42,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         }
 
         private void RadWindow_Loaded(object sender, RoutedEventArgs e)
-        { 
+        {
         }
 
         //private void InitPage()
@@ -84,7 +74,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         //    client.CloseAsync();
         //}
 
-        
+
         private void radButtonConfirm_Click(object sender, RoutedEventArgs e)
         {
             try

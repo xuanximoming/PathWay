@@ -7,7 +7,6 @@ F:\Demo\pathway\Pathway\Pathway.Web\bin\Telerik.ReportViewer.Silverlight.dll
 F:\Demo\pathway\Pathway\Pathway.Web\bin\Telerik.ReportViewer.WebForms.dll
 F:\Demo\pathway\Pathway\Pathway.Web\bin\WebService.dll
 F:\Demo\pathway\Pathway\Pathway.Web\bin\DrectSoft.Core.dll
-F:\Demo\pathway\Pathway\Pathway.Web\bin\YidanSoft.Tool.dll
 F:\Demo\pathway\Pathway\Pathway.Web\bin\SendOrder.dll
 F:\Demo\pathway\Pathway\Pathway.Web\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll
 F:\Demo\pathway\Pathway\Pathway.Web\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
@@ -25,9 +24,10 @@ F:\Demo\pathway\Pathway\Pathway.Web\bin\Telerik.ReportViewer.WebForms.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\bin\Telerik.ReportViewer.WebForms.xml
 F:\Demo\pathway\Pathway\Pathway.Web\bin\WebService.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\bin\DrectSoft.Core.pdb
-F:\Demo\pathway\Pathway\Pathway.Web\bin\YidanSoft.Tool.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\bin\SendOrder.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\bin\Microsoft.Practices.EnterpriseLibrary.Data.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\obj\Release\Pathway.Web.csprojResolveAssemblyReference.cache
 F:\Demo\pathway\Pathway\Pathway.Web\obj\Release\Pathway.Web.dll
 F:\Demo\pathway\Pathway\Pathway.Web\obj\Release\Pathway.Web.pdb
+F:\Demo\pathway\Pathway\Pathway.Web\bin\DrectSoft.Tool.dll
+F:\Demo\pathway\Pathway\Pathway.Web\bin\DrectSoft.Tool.pdb

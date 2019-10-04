@@ -13,7 +13,7 @@ using System.Text;
 using System.IO;
 using System.IO.Compression;
 using System.Configuration;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using System.Collections.ObjectModel;
 
 namespace Yidansoft.Service

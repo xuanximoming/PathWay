@@ -1,37 +1,26 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
+using System.Windows.Browser;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Telerik.Windows;
 using Telerik.Windows.Controls;
-using YidanEHRApplication.Helpers;
+using Telerik.Windows.Controls.DragDrop;
+using Telerik.Windows.Controls.GridView;
+using Telerik.Windows.Controls.TreeView;
 using YidanEHRApplication.DataService;
-using System.ComponentModel;
-using System.Windows.Data;
-using System.Xml.Linq;
-using System.IO;
-using System.Collections.ObjectModel;
+using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.ChildWindows;
-using System.ServiceModel;
-using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
-using System.Collections;
-using Telerik.Windows.Controls.DragDrop;
-using Telerik.Windows.Controls.TreeView;
-using System.Collections.Specialized;
-using YidanEHRApplication.WorkFlow.Designer;
 using YidanEHRApplication.WorkFlow;
-using YidanSoft.Tool;
-using System.Windows.Browser;
-using YidanEHRApplication;
+using YidanEHRApplication.WorkFlow.Designer;
 namespace YidanEHRApplication.Views
 {
     public partial class PathEnForceBack : Page
@@ -134,7 +123,7 @@ namespace YidanEHRApplication.Views
                 };
                 client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent,
                 m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                       m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                       m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                 client.CloseAsync();
             }
             catch (Exception ex)
@@ -804,7 +793,7 @@ namespace YidanEHRApplication.Views
             {
                 if (Global.InpatientListCurrent == null || string.IsNullOrEmpty(Global.InpatientListCurrent.Ljdm))
                 {
-                    
+
                     EnableButtonState(false);
                     this.btnShowDetail.IsEnabled = false;
                     this.btnAdviceList.IsEnabled = false;
@@ -1115,7 +1104,7 @@ namespace YidanEHRApplication.Views
                         m_UnDoOrder.Clear();
                         m_NewOrder.Clear();
                         m_DelOrder.Clear();
-                        
+
                         Activitys_WorkFlow_ActivitySelectChanged(m_WorkFlow.Activitys.CurrentActivity);
                         m_AddOrder.Clear();
                         m_IsLeadIn = false;
@@ -1509,7 +1498,7 @@ namespace YidanEHRApplication.Views
                 };
                 client.UpdateEnForceInfoAsync(Global.InpatientListCurrent, m_WorkFlow.WorkFlowXml,
                         m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                       m_ListUnEnforceReason, null, null, m_IsLeadIn, listLjdm, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                       m_ListUnEnforceReason, null, null, m_IsLeadIn, listLjdm, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
             }
             catch (Exception ex)
             {
@@ -1672,7 +1661,7 @@ namespace YidanEHRApplication.Views
                             {
                                 Global.InpatientListCurrent.Ljzt = Convert.ToString((int)PathStatus.QuitPath);
                                 //m_IsDone = true;//check
-                                
+
                                 EnableButtonState(false);
                                 PublicMethod.RadAlterBox("成功退出路径", m_StrTitle);
                             }

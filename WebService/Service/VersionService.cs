@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.ServiceModel;
-using System.Data.SqlClient;
+﻿using DrectSoft.Tool;
+using System;
 using System.Data;
-using YidanSoft.Tool;
-using YidanSoft.Core;
+using System.ServiceModel;
 
 namespace Yidansoft.Service
 {
@@ -22,7 +16,7 @@ namespace Yidansoft.Service
             try
             {
                 //DataTable dataTable = SqlHelper.ExecuteDataTable("usp_CP_Data_Version");
-                DataTable dataTable = SqlHelper.ExecuteDataTable("SELECT * FROM CP_Data_Version order by ID desc");                
+                DataTable dataTable = SqlHelper.ExecuteDataTable("SELECT * FROM CP_Data_Version order by ID desc");
                 if (dataTable != null && dataTable.Rows.Count > 0)            //很重要,是否存在
                 {
                     version.ID = ConvertMy.ToString(dataTable.Rows[0]["ID"]);

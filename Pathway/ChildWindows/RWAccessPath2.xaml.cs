@@ -1,22 +1,14 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Telerik.Windows.Controls;
-
+using Telerik.Windows.Controls.GridView;
+using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
-using YidanEHRApplication.DataService;
 namespace YidanEHRApplication
 {
     public partial class RWAccessPath2
@@ -138,7 +130,7 @@ namespace YidanEHRApplication
                 this.DialogResult = false;
                 ObservableCollection<CP_PatientPathEnterJudgeConditionRecord> CP_PatientPathEnterJudgeConditionRecords = new ObservableCollection<CP_PatientPathEnterJudgeConditionRecord>();
                 #region 进入检查
-                
+
                 if (radGridViewPathList.SelectedItem == null)
                 {
                     ConditionGrid.ItemsSource = null;
@@ -212,25 +204,26 @@ namespace YidanEHRApplication
                     RecordTemp.Bz = item.Bz;
                     CP_PatientPathEnterJudgeConditionRecords.Add(RecordTemp);
                 }
-                
+
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
                 radBusyIndicator.IsBusy = true;
                 m_Inpatient.Ljdm = _Path.Ljdm;
-                client.InsertCP_PatientPathEnterJudgeConditionRecordCompleted += (send, ea) => {
-                        if (ea.Error == null)
+                client.InsertCP_PatientPathEnterJudgeConditionRecordCompleted += (send, ea) =>
+                {
+                    if (ea.Error == null)
+                    {
+                        if (ea.Result == -1)
                         {
-                            if (ea.Result == -1)
-                            {
-                                PublicMethod.RadAlterBox("该病人已经进入该路径，请不要重复进入！", "提示");
-                                return;
-                            }
-                            radBusyIndicator.IsBusy = false; 
-
+                            PublicMethod.RadAlterBox("该病人已经进入该路径，请不要重复进入！", "提示");
+                            return;
                         }
-                    };
+                        radBusyIndicator.IsBusy = false;
+
+                    }
+                };
                 client.InsertCP_PatientPathEnterJudgeConditionRecordAsync(CP_PatientPathEnterJudgeConditionRecords, Global.LogInEmployee.Zgdm, m_Inpatient);
                 client.CloseAsync();
-             
+
                 #endregion
                 this.DialogResult = true;
                 this.Close();

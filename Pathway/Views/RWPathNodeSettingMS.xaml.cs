@@ -1,25 +1,22 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Collections;
+using System.Windows.Media;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
-using YidanEHRApplication.Models;
-using YidanEHRApplication.WorkFlow.Designer;
-using YidanEHRApplication.Views.UserControls;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.NurModule;
-using YidanEHRApplication.Views.ChildWindows;
-using YidanSoft.Tool;
 using YidanEHRApplication.DataService;
-using System.Windows.Data;
-using System.Windows.Media;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
+using YidanEHRApplication.Views.ChildWindows;
+using YidanEHRApplication.Views.UserControls;
+using YidanEHRApplication.WorkFlow.Designer;
 
 namespace YidanEHRApplication.Views
 {
@@ -401,7 +398,7 @@ namespace YidanEHRApplication.Views
             List<CP_AdviceGroupDetail> LongList = oldList.Where(a => a.Yzbz.ToString().Equals("2703")).ToList();
             //临时医嘱
             List<CP_AdviceGroupDetail> TempList = oldList.Where(b => b.Yzbz.ToString().Equals("2702")).ToList();
- 
+
 
             #region  向上移动一行
 
@@ -448,10 +445,10 @@ namespace YidanEHRApplication.Views
                             maxindex = LongList.IndexOf(o);
                         }
                     }
-                if (minIndex < 1)
-                    return;
-                
-                int uprowcount = 0;
+                    if (minIndex < 1)
+                        return;
+
+                    int uprowcount = 0;
                     //判断选中记录上一行是否为成组医嘱
                     if (((CP_AdviceGroupDetail)LongList[minIndex - 1]).Flag != "")
                     {
@@ -505,7 +502,7 @@ namespace YidanEHRApplication.Views
 
                 #region 选中的为临时医嘱
 
-                if (m_selectorder.Yzbz ==  2702)
+                if (m_selectorder.Yzbz == 2702)
                 {
                     add_Temp = true; //临时医嘱进行上移下移操作时
                     //添加判断 如果选中医嘱中有成组医嘱 将同一组的医嘱放到selectList中
@@ -605,7 +602,7 @@ namespace YidanEHRApplication.Views
             #region 向下移动一行
             if (type == "-1")
             {
-                
+
 
                 #region 选中的为长期医嘱
                 if (m_selectorder.Yzbz == 2703)
@@ -700,7 +697,7 @@ namespace YidanEHRApplication.Views
 
                     }
                 }
-               
+
                 #endregion
 
                 #region 选中的为临时医嘱
@@ -795,7 +792,7 @@ namespace YidanEHRApplication.Views
 
                     }
                 }
-                
+
                 #endregion
             }
             #endregion
@@ -806,7 +803,7 @@ namespace YidanEHRApplication.Views
             {
 
                 #region 选中的是长期医嘱
-               
+
                 if (m_selectorder.Yzbz == 2703)
                 {
                     add_Long = true; //选中长期医嘱是进行的操作
@@ -872,7 +869,7 @@ namespace YidanEHRApplication.Views
                         newList.Add(o);
                         //newList[i]._OrderValue = i;
                     }
-                    
+
                 }
 
                 #endregion
@@ -950,8 +947,8 @@ namespace YidanEHRApplication.Views
                 #endregion
             }
             #endregion
-            
-           // GridViewYZXX.ItemsSource = newList;
+
+            // GridViewYZXX.ItemsSource = newList;
             //操作临时医嘱，没有操作长期医嘱
             if (add_Temp == true && add_Long == false)
             {
@@ -996,7 +993,7 @@ namespace YidanEHRApplication.Views
                                             }
                                             if (ea.Result == -1)
                                             {
-                                                PublicMethod.RadAlterBox("移动失败!","提示");
+                                                PublicMethod.RadAlterBox("移动失败!", "提示");
                                             }
                                         }
                                         else
@@ -1005,11 +1002,11 @@ namespace YidanEHRApplication.Views
                                         }
                                     };
             client.UpdateInfoAsync(newList);
-  
+
             //InitData(newList);
-            
+
         }
-        
+
 
         /// <summary>
         /// 在前台呈现上移下移是否有用

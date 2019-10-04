@@ -1,21 +1,12 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
 namespace YidanEHRApplication
 {
     public partial class RWAccessNode
@@ -75,8 +66,8 @@ namespace YidanEHRApplication
                             //stkReason.Visibility = Visibility.Visible;
                             txtReason.IsEnabled = true;
                         }
-                        else 
-                        { 
+                        else
+                        {
                             //stkReason.Visibility = Visibility.Collapsed; 
                             txtReason.IsEnabled = false;
                         }
@@ -174,7 +165,7 @@ namespace YidanEHRApplication
                     RecordTemp.Bz = item.Bz;
                     CP_PatientPathEnterJudgeConditionRecords.Add(RecordTemp);
                 }
-                
+
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
                 radBusyIndicator.IsBusy = true;
 

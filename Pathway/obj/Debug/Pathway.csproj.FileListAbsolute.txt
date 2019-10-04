@@ -1,3 +1,4 @@
+F:\Demo\pathway\Pathway\Pathway\obj\Debug\Pathway.g.resources
 F:\Demo\pathway\Pathway\Pathway.Web\ClientBin\Pathway.dll
 F:\Demo\pathway\Pathway\Pathway.Web\ClientBin\Pathway.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\ClientBin\AppManifest.xaml
@@ -204,7 +205,6 @@ F:\Demo\pathway\Pathway\Pathway\obj\Debug\WorkFlow\Designer\Rule.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\WorkFlow\Designer\RuleMenu.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\WorkFlow\Designer\RuleTurnPoint.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YiDanCommon\Ctrs\YidanPathWayMessageBox.g.cs
-F:\Demo\pathway\Pathway\Pathway\obj\Debug\Pathway.g.resources
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YidanEHRApplication.Assets.Resources.ApplicationStrings.resources
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YidanEHRApplication.Assets.Resources.ErrorResources.resources
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YidanEHRApplication.Assets.Resources.SecurityQuestions.resources

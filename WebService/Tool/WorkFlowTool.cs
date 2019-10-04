@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using System.Linq;
-namespace YidanSoft.Tool
+namespace DrectSoft.Tool
 {
     public class WorkFlowTool
     {

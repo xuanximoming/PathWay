@@ -1,19 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-
-using YidanEHRApplication.DataService;
-using YidanEHRApplication.Models;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls.GridView;
 using System.Windows.Data;
-using System.Collections;
+using System.Windows.Navigation;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.GridView;
+using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
-using System.Collections.ObjectModel;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views
 {
@@ -43,7 +41,7 @@ namespace YidanEHRApplication.Views
             {
                 String Ljmc = this.autoCompleteBoxQueryPath.SelectedItem == null ? this.autoCompleteBoxQueryPath.Text : ((CP_ClinicalPathList)this.autoCompleteBoxQueryPath.SelectedItem).Name;
                 String Ksdm = this.autoCompleteBoxQueryDept.SelectedItem == null ? string.Empty : ((CP_DepartmentList)this.autoCompleteBoxQueryDept.SelectedItem).Ksdm;
-                GetPathCut(Ljmc.Replace("'",""), Ksdm);
+                GetPathCut(Ljmc.Replace("'", ""), Ksdm);
             }
             catch (Exception ex)
             {
@@ -189,9 +187,9 @@ namespace YidanEHRApplication.Views
                                     return;
                                 }
                                 oldCp = ea.Result.ToList()[0];                  //存储过程是返回List类型，其实根据Ljdm只有一个结果
-                                                                                //之前存在问题，跟据路径代码却取不出路径，后测试发现
-                                                                                //裁剪是查出所有路径，而管理不查无效路径，就出现了选中一条
-                                                                                //路径后，准备裁剪，集合为0。
+                                //之前存在问题，跟据路径代码却取不出路径，后测试发现
+                                //裁剪是查出所有路径，而管理不查无效路径，就出现了选中一条
+                                //路径后，准备裁剪，集合为0。
                                 textBoxPathName.IsEnabled = true;
                                 radNumericUpDownVersion.IsEnabled = true;
                                 radNumericUpDownInDays.IsEnabled = true;
@@ -384,17 +382,17 @@ namespace YidanEHRApplication.Views
                             List<CP_PathCutQuery> pathcut = e.Result.pathCutQuery.ToList();
                             GridViewPathCut.AutoGenerateColumns = false;
 
-                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "路径名", DataMemberBinding = new Binding("Ljmc"), UniqueName = "Ljmc" , Width = 200 });         //固有列
-                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "科室", DataMemberBinding = new Binding("deptName"), UniqueName = "deptName" , Width = 100  });
+                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "路径名", DataMemberBinding = new Binding("Ljmc"), UniqueName = "Ljmc", Width = 200 });         //固有列
+                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "科室", DataMemberBinding = new Binding("deptName"), UniqueName = "deptName", Width = 100 });
                             GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "路径状态", DataMemberBinding = new Binding("Yxjl"), UniqueName = "Yxjl", Width = 50 });
                             GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "科室代码", DataMemberBinding = new Binding("Syks"), UniqueName = "Syks", IsVisible = false });//固有列
-                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "变异总数", DataMemberBinding = new Binding("AllCount") , Width = 80 });   //固有列
+                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "变异总数", DataMemberBinding = new Binding("AllCount"), Width = 80 });   //固有列
 
-                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "路径代码", DataMemberBinding = new Binding("Ljdm"), UniqueName = "Ljdm" , Width = 80 });//8.2 由于按钮取消，则用列代替
+                            GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = "路径代码", DataMemberBinding = new Binding("Ljdm"), UniqueName = "Ljdm", Width = 80 });//8.2 由于按钮取消，则用列代替
 
                             foreach (CP_PathCutQuery path in pathcut)                                                                                   //遍历表头
                             {
-                                GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = path.Bymc, DataMemberBinding = new Binding(path.Bydm) , Width = 65 });//添加列
+                                GridViewPathCut.Columns.Add(new GridViewDataColumn { Header = path.Bymc, DataMemberBinding = new Binding(path.Bydm), Width = 65 });//添加列
                             }
 
                             //GridViewColumn btnCol = new GridViewDataColumn { Header = "裁剪" };                 //按钮行
@@ -455,7 +453,7 @@ namespace YidanEHRApplication.Views
             }
             if (this.textBoxPathName.Text.Trim().Length >= 60)
             {
-                PublicMethod.RadAlterBox("路径名称长度不能超过30位","提示");
+                PublicMethod.RadAlterBox("路径名称长度不能超过30位", "提示");
                 this.textBoxPathName.Focus();
                 return false;
             }

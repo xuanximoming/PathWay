@@ -1,15 +1,10 @@
 ﻿namespace YidanEHRReport
 {
     using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Telerik.Reporting;
-    using Telerik.Reporting.Drawing;
-    using System.Data;
-    using YidanSoft.Tool;
-    using System.Data.SqlClient;
     using System.Collections.Generic;
+    using System.Data;
+    using System.Data.SqlClient;
+    using Telerik.Reporting;
     using Yidansoft.Service;
 
     /// <summary>
@@ -23,7 +18,7 @@
         public List<string> m_listId = null;
         public List<string> m_listMc = null;
         public List<string> m_listCqYz = null;
-        public List<string> m_listCqYzId = null;        
+        public List<string> m_listCqYzId = null;
         public List<string> m_listLsYz = null;
         public List<string> m_listLsYzId = null;
         ReportSqlHelp m_sqlHelp = null;
@@ -39,9 +34,9 @@
             }
             catch (Exception)
             {
-                
+
                 throw;
-            }       
+            }
         }
         //
         private void InitializeControl()
@@ -59,7 +54,7 @@
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -77,7 +72,7 @@
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -112,7 +107,7 @@
                 //*******************************************
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -151,7 +146,7 @@
                 GetDoctorInfo(seq);
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -192,7 +187,7 @@
                 }
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -207,7 +202,7 @@
                 txtSydx.Value = "";
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -228,7 +223,7 @@
                 this.txtTime.Value = sinfo;
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -249,10 +244,10 @@
                         sinfo = sinfo + "□" + list[i].ToString() + Environment.NewLine;
                     }
                     this.txtZd.Value = sinfo;
-                }                
+                }
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -263,12 +258,12 @@
             {
                 string pathDetailId = this.m_listId[seq].ToString();
                 List<string> list = new List<string>();
-                m_sqlHelp.GetDiagNurExecRecordInfo(this.m_sSyxh, this.m_sLjdm, 
+                m_sqlHelp.GetDiagNurExecRecordInfo(this.m_sSyxh, this.m_sLjdm,
                     pathDetailId, 2, ref list);
                 if (list.Count > 0)
                 {
                     string sinfo = "";//Environment.NewLine
-                    for (int i = 0; i < list.Count; i ++)
+                    for (int i = 0; i < list.Count; i++)
                     {
                         sinfo = sinfo + "□" + list[i].ToString() + Environment.NewLine;
                     }
@@ -297,7 +292,7 @@
                         sinfo = sinfo + "□" + list[i].ToString() + Environment.NewLine;
                     }
                     this.txtZl.Value = sinfo;
-                }                
+                }
             }
             catch (Exception)
             {
@@ -321,12 +316,12 @@
                         }
                     }
                     this.txtZl.Value = sinfo;
-                } 
+                }
                 this.txtCqyz.Value = sinfo;
                 this.txtLcyz.Value = sinfo;
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -349,12 +344,12 @@
                     for (int i = 0; i < list.Count; i++)
                     {
                         sinfo = sinfo + (i + 1).ToString() + "." + list[i].ToString() + Environment.NewLine;
-                    }                    
+                    }
                 }
                 this.txtBy.Value = sinfo;
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -367,7 +362,7 @@
                 this.txtNurse.Value = sinfo;
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -380,7 +375,7 @@
                 this.txtDoctor.Value = sinfo;
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
         }
@@ -397,7 +392,7 @@
                         new SqlParameter("@Ljxh",ljxh)
                     };
                 DataSet ds = YidanSoft.Core.DataAccessFactory.DefaultDataAccess.ExecuteDataSet("usp_CP_RWPathSummary", parameters, CommandType.StoredProcedure);
-                if (ds.Tables.Count > 0)            
+                if (ds.Tables.Count > 0)
                     foreach (DataRow row in ds.Tables[0].Rows)
                     {
                         /*
@@ -431,7 +426,7 @@
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }

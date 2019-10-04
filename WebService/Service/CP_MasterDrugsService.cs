@@ -14,7 +14,7 @@ using System.Text;
 using System.IO;
 using System.IO.Compression;
 using System.Configuration;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 
 namespace Yidansoft.Service
 {
@@ -174,15 +174,15 @@ namespace Yidansoft.Service
 
                 };
                 DataTable dt = null;
-                if (Operation.Contains(YidanSoft.Tool.Operation.Insert.ToString()) || Operation.Contains(YidanSoft.Tool.Operation.Delete.ToString()))
+                if (Operation.Contains(DrectSoft.Tool.Operation.Insert.ToString()) || Operation.Contains(DrectSoft.Tool.Operation.Delete.ToString()))
                 {
                     SqlHelper.ExecuteNoneQuery("usp_CP_MasterDrug2Role", parameters, CommandType.StoredProcedure);
                 }
-                if (Operation.Contains(YidanSoft.Tool.Operation.Select.ToString()))
+                if (Operation.Contains(DrectSoft.Tool.Operation.Select.ToString()))
                 {
                     dt = SqlHelper.ExecuteDataTable("usp_CP_MasterDrug2Role", parameters, CommandType.StoredProcedure);
                 }
-                if (dt != null && Operation.Contains(YidanSoft.Tool.Operation.Select.ToString()))
+                if (dt != null && Operation.Contains(DrectSoft.Tool.Operation.Select.ToString()))
                     foreach (DataRow item in dt.Rows)
                     {
                         CP_MasterDrug2Role Temp = new CP_MasterDrug2Role();
@@ -254,16 +254,16 @@ namespace Yidansoft.Service
 
 
                 DataTable dt = null;
-                if (Operation.Contains(YidanSoft.Tool.Operation.Delete.ToString()) || Operation.Contains(YidanSoft.Tool.Operation.Insert.ToString()))
+                if (Operation.Contains(DrectSoft.Tool.Operation.Delete.ToString()) || Operation.Contains(DrectSoft.Tool.Operation.Insert.ToString()))
                 {
                     SqlHelper.ExecuteNoneQuery("usp_CP_MasterDrug2User", parameters, CommandType.StoredProcedure);
                 }
-                if (Operation.Contains(YidanSoft.Tool.Operation.Select.ToString()))
+                if (Operation.Contains(DrectSoft.Tool.Operation.Select.ToString()))
                 {
                     dt = SqlHelper.ExecuteDataTable("usp_CP_MasterDrug2User", parameters, CommandType.StoredProcedure);
                 }
 
-                if (dt != null && Operation.Contains(YidanSoft.Tool.Operation.Select.ToString()))
+                if (dt != null && Operation.Contains(DrectSoft.Tool.Operation.Select.ToString()))
                     foreach (DataRow item in dt.Rows)
                     {
                         CP_MasterDrug2User Temp = new CP_MasterDrug2User();

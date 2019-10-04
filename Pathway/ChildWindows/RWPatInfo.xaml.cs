@@ -1,20 +1,16 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.DataService;
-using System.Collections.ObjectModel;
-using YidanEHRApplication.Models;
-using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
 using Telerik.Windows.Controls;
+using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -29,7 +25,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         public string m_sNew_Auto_Ryzd = "";
         public CP_InpatinetList m_CurrentPat = null;
         public bool isRyzdChanged = false;
-        
+
         public RWAccessPath2 accessWindow;
 
         public int m_iaccess = 0;
@@ -94,7 +90,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 //if (ValidControls())
                 //{ 
                 if (txt_sfzh.Text.Length > 18)
-                { 
+                {
                     PublicMethod.RadAlterBoxRe("身份证号码长度超出!", "提示", txt_sfzh);
                     isTrue = false;
                     return;
@@ -118,7 +114,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 //    return;
                 //}
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
-                CP_InPatient patInfo = UpdatePatientInfo();                
+                CP_InPatient patInfo = UpdatePatientInfo();
                 client.UpdatePatInfoCompleted +=
                    (obj, ea) =>
                    {
@@ -129,9 +125,9 @@ namespace YidanEHRApplication.Views.ChildWindows
                            this.m_sNew_Auto_Ryzd = this.auto_ryzd.Text.Trim();
                            if (this.m_sNew_Auto_Ryzd != null && this.m_sOld_Auto_Ryzd != this.m_sNew_Auto_Ryzd)
                                this.isRyzdChanged = true;
-                           
+
                            if (this.auto_ryzd.SelectedItem != null)//this.isRyzdChanged == true)
-                           {                               
+                           {
                                //根据IDC码获取名称,2013-05-10,WangGuojin.
                                //m_CurrentPat.Ryzd = patInfo.Ryzd;
                                m_CurrentPat.RyzdCode = patInfo.Ryzd;// patInfo.RyzdCode;
@@ -143,7 +139,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                                //parameters.CancelButtonContent = "否";
                                //parameters.Closed = OnInPathDialog;//进入路径
                                //RadWindow.Confirm(parameters);
-                               if (this.tabItem1.IsSelected == true&&Global.InpatientListCurrent.Ljdm == "")
+                               if (this.tabItem1.IsSelected == true && Global.InpatientListCurrent.Ljdm == "")
                                {
                                    YidanPathWayMessageBox mess = new YidanPathWayMessageBox("更新成功. 请问是否需要进入路经评估？", "提示", YiDanMessageBoxButtons.YesNo);
                                    mess.ShowDialog();
@@ -284,10 +280,10 @@ namespace YidanEHRApplication.Views.ChildWindows
             {
                 if (e.DialogResult == true)
                 {
-                   
+
                     accessWindow = new RWAccessPath2(m_CurrentPat, this.m_iPage);
                     accessWindow.Closed += new EventHandler<WindowClosedEventArgs>(accessWindow_Closed);
-                    accessWindow.ShowDialog();                   
+                    accessWindow.ShowDialog();
                     m_iaccess = 1;
                     //this.Close();
                 }
@@ -734,7 +730,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 //自己的菜单
             };
             RegisterKeyEvent();
-           
+
         }
 
         /// <summary>
@@ -789,8 +785,8 @@ namespace YidanEHRApplication.Views.ChildWindows
             //***2013-05-10,WangGuojin,add it.获取IDC和IDC码***
             patInfo.RyzdCode = "";// SqlCommand.//(this.auto_ryzd.SelectedItem == null) ? string.Empty : ((Modal_Diagnosis)this.auto_ryzd.SelectedItem).Zdbs;            
 
-             //***********************************
-             patInfo.Csrq = this.datePicker1.Text;
+            //***********************************
+            patInfo.Csrq = this.datePicker1.Text;
             patInfo.Xsnl = this.txt_nl.Text;
 
             patInfo.Zjxy = this.txt_zjxy.Text;

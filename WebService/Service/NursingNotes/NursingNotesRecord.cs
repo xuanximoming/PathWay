@@ -13,7 +13,7 @@ using System.Text;
 using System.IO;
 using System.IO.Compression;
 using System.Configuration;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using Yidansoft.Service.Entity.NursingNotes;
 
 namespace Yidansoft.Service
@@ -88,7 +88,7 @@ namespace Yidansoft.Service
                   cp.ActivityId = dr["ActivityId"].ToString();
                   cp.ActivityChildId = dr["ActivityChildId"].ToString();
                   cp.Ljdm = dr["Ljdm"].ToString();
-                  cp.Ljxh = YidanSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
+                  cp.Ljxh = DrectSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
 
                   CPCollection.CP_VitalSignsRecordCollection.Add(cp);
                }
@@ -125,7 +125,7 @@ namespace Yidansoft.Service
                   cp.ActivityId = dr["ActivityId"].ToString();
                   cp.ActivityChildId = dr["ActivityChildId"].ToString();
                   cp.Ljdm = dr["Ljdm"].ToString();
-                  cp.Ljxh = YidanSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
+                  cp.Ljxh = DrectSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
 
 
                   CPCollection.CP_PatientInOutRecordInCollection.Add(cp);
@@ -173,7 +173,7 @@ namespace Yidansoft.Service
                   cp.ActivityId = dr["ActivityId"].ToString();
                   cp.ActivityChildId = dr["ActivityChildId"].ToString();
                   cp.Ljdm = dr["Ljdm"].ToString();
-                  cp.Ljxh = YidanSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
+                  cp.Ljxh = DrectSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
 
 
                   CPCollection.CP_PatientInOutRecordOutCollection.Add(cp);
@@ -202,7 +202,7 @@ namespace Yidansoft.Service
                   cp.ActivityId = dr["ActivityId"].ToString();
                   cp.ActivityChildId = dr["ActivityChildId"].ToString();
                   cp.Ljdm = dr["Ljdm"].ToString();
-                  cp.Ljxh = YidanSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
+                  cp.Ljxh = DrectSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
 
                   CPCollection.CP_TreatmentFlowCollection.Add(cp);
                }
@@ -237,7 +237,7 @@ namespace Yidansoft.Service
                   cp.ActivityId = dr["ActivityId"].ToString();
                   cp.ActivityChildId = dr["ActivityChildId"].ToString();
                   cp.Ljdm = dr["Ljdm"].ToString();
-                  cp.Ljxh = YidanSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
+                  cp.Ljxh = DrectSoft.Tool.ConvertMy.ToDecimal(dr["Ljxh"].ToString());
 
                   CPCollection.CP_VitalSignSpecialRecordCollection.Add(cp);
                }

@@ -1,20 +1,15 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
-using YidanEHRApplication.Models;
-using YidanSoft.Tool;
 using Telerik.Windows.Controls;
-using System.Collections.ObjectModel;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views
 {
@@ -64,7 +59,7 @@ namespace YidanEHRApplication.Views
                 if (GridView.SelectedItem == null)
                 {
                     //PublicMethod.RadAlterBox("请选择一个角色再点击修改", "提示");
-                    PublicMethod.RadAlterBoxRe("请选择一个角色再点击修改", "提示",this.txtRoleName);
+                    PublicMethod.RadAlterBoxRe("请选择一个角色再点击修改", "提示", this.txtRoleName);
                     isTrue = false;
                     return;
                 }
@@ -277,15 +272,15 @@ namespace YidanEHRApplication.Views
                         else
                         {
                             GridView.ItemsSource = ea.Result;
-                            
+
                             m_listsouceDR = (ObservableCollection<CP_MasterDrugRoles>)GridView.ItemsSource;
                             CurrentState = OperationState.VIEW;
                         }
                     }
                 };
                 Client.MaintainCP_MasterDrugRolesAsync(temp, Operation.DeleteAndSelect.ToString());
-               
-               
+
+
             }
         }
         #endregion
@@ -302,7 +297,7 @@ namespace YidanEHRApplication.Views
         private void btnQuery_Click(object sender, RoutedEventArgs e)
         {
             string para = this.txt_JSMC.Text;
-      
+
             string para1 = this.txt_TJR.Text;
             //集合类型初始化
             List<CP_MasterDrugRoles> t_listsouce = m_listsouceDR.ToList();
@@ -313,14 +308,14 @@ namespace YidanEHRApplication.Views
                 t_listsouce = t_listsouce.Select(s => s).Where(s => s.Jsmc.IndexOf(para) > -1).ToList();
 
             }
-           
+
             if (para1.Trim().Length > 0)
             {
                 t_listsouce = t_listsouce.Select(s => s).Where(s => s.ZgdmCjName.IndexOf(para1) > -1).ToList();
 
             }
 
- 
+
 
 
             GridView.ItemsSource = t_listsouce.ToList();
@@ -341,7 +336,7 @@ namespace YidanEHRApplication.Views
             btnSave.KeyUp += new KeyEventHandler(btnSave_KeyUp);
 
             this.txt_JSMC.KeyUp += new KeyEventHandler(tbQuery_KeyUp);
-           
+
             this.txt_TJR.KeyUp += new KeyEventHandler(tbQuery_KeyUp);
         }
 

@@ -1,20 +1,15 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
-using YidanEHRApplication.Models;
-using YidanSoft.Tool;
 using Telerik.Windows.Controls;
-using System.Collections.ObjectModel;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views
 {
@@ -70,7 +65,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                
+
                 if (GridView.SelectedItem == null)
                 {
                     PublicMethod.RadAlterBox("请选择一个药品", "提示");
@@ -93,7 +88,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                
+
                 if (GridView.SelectedItem == null)
                 {
                     PublicMethod.RadAlterBox("请选择一个药品再点击删除", "提示");
@@ -250,7 +245,7 @@ namespace YidanEHRApplication.Views
         {
             CP_PlaceOfDrug deptList = (CP_PlaceOfDrug)item;
             return ((deptList.Py.StartsWith(strFilter.ToUpper())) || (deptList.Py.Contains(strFilter.ToUpper())));
-        
+
         }
 
         void mess_PageClosedEvent(object sender, bool e)
@@ -289,14 +284,14 @@ namespace YidanEHRApplication.Views
         /// <param name="e"></param>
         private void RegisterKeyEvent()
         {
-            
+
             btnSave.KeyUp += new KeyEventHandler(btnSave_KeyUp);
 
             this.txt_YPMC.KeyUp += new KeyEventHandler(tbQuery_KeyUp);
             this.txt_CJMC.KeyUp += new KeyEventHandler(tbQuery_KeyUp);
-            this.txt_TJR.KeyUp+=new KeyEventHandler(tbQuery_KeyUp);
+            this.txt_TJR.KeyUp += new KeyEventHandler(tbQuery_KeyUp);
         }
-         
+
         private void btnSave_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -317,7 +312,7 @@ namespace YidanEHRApplication.Views
         /// <param name="e"></param>
         private void btnQuery_Click(object sender, RoutedEventArgs e)
         {
-            string para =  this.txt_YPMC.Text;
+            string para = this.txt_YPMC.Text;
             string para1 = this.txt_CJMC.Text;
             string para2 = this.txt_TJR.Text;
             //集合类型初始化
@@ -340,14 +335,14 @@ namespace YidanEHRApplication.Views
                 t_listsouce = t_listsouce.Select(s => s).Where(s => s.Cjmc.IndexOf(para1) > -1).ToList();
 
             }
-            
+
 
             if (para2.Trim().Length > 0)
             {
                 t_listsouce = t_listsouce.Select(s => s).Where(s => s.ZgdmCjName.IndexOf(para2) > -1).ToList();
 
             }
-             
+
 
             GridView.ItemsSource = t_listsouce.ToList();
 
@@ -356,12 +351,12 @@ namespace YidanEHRApplication.Views
             //    GridView.ItemsSource = m_listsouce;
             //}
         }
-        
+
 
         //查询重置
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-             
+
             this.txt_YPMC.Text = string.Empty;
             this.txt_CJMC.Text = string.Empty;
             this.txt_TJR.Text = string.Empty;

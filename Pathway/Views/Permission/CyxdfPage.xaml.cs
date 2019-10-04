@@ -1,25 +1,16 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Telerik.Windows.Controls;
-using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
-using YidanEHRApplication.Helpers;
+using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.ChildWindows;
-using System.Collections.ObjectModel;
-using System.Text;
-using YidanSoft.Tool;
-using YidanEHRApplication.DataService;
 
 namespace YidanEHRApplication.Views.Permission
 {
@@ -56,7 +47,7 @@ namespace YidanEHRApplication.Views.Permission
 
                 if (value == OperationState.NEW)
                 {
-                   
+
 
                     autoCompleteBoxCyf.IsEnabled = true;
                     autoCompleteBoxOrder.IsEnabled = true;
@@ -95,7 +86,7 @@ namespace YidanEHRApplication.Views.Permission
                     this.btnAdd.IsEnabled = false;
                     this.btnDel.IsEnabled = false;
                     this.btnUpdate.IsEnabled = false;
-                     
+
                     this.btnClear.IsEnabled = true;
 
                     this.btnSave.IsEnabled = true;
@@ -1113,7 +1104,7 @@ namespace YidanEHRApplication.Views.Permission
         {
             CurrentState = OperationState.VIEW;
 
-            
+
         }
 
         /// <summary>
@@ -1132,11 +1123,11 @@ namespace YidanEHRApplication.Views.Permission
         {
             //刷新数据源
             BindGridView();
-            
+
         }
-        
+
         #endregion
 
-        
+
     }
 }

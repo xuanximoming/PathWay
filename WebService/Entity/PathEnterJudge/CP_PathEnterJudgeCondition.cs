@@ -1,8 +1,7 @@
+using DrectSoft.Tool;
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using YidanSoft.Tool;
 namespace Yidansoft.Service.Entity
 {
     [Serializable]
@@ -58,7 +57,7 @@ namespace Yidansoft.Service.Entity
             //return notSubset;
             #endregion
 
-            
+
             this.IsEnetr = false;
             if (patient.PatientExamItems[this.Jcxm] == null)
             {
@@ -73,14 +72,15 @@ namespace Yidansoft.Service.Entity
                 this.IsEnetr = true;
                 MatchResult = MatchResultState.Match;
             }
-            else {
+            else
+            {
                 MatchResult = MatchResultState.NoMatch;
-                
+
             }
             return IsEnetr;
 
         }
-        
+
         #region 属性
         [DataMember]
         /// <summary>
@@ -358,7 +358,7 @@ namespace Yidansoft.Service.Entity
                 if (Xmlb == 1) _XmlbName = "检查项";
                 if (Xmlb == 2) _XmlbName = "ICD-10";
                 if (Xmlb == 3) _XmlbName = "描述项";
-            
+
                 return _XmlbName;
             }
             set { _XmlbName = value; }
@@ -390,14 +390,16 @@ namespace Yidansoft.Service.Entity
         [DataMember]
         public String MatchResultName
         {
-            get {
+            get
+            {
                 if (MatchResult == MatchResultState.Match)
                 { _MatchResultName = "满足条件"; }
                 if (MatchResult == MatchResultState.NoMatch)
                 { _MatchResultName = "不满足条件"; }
                 if (MatchResult == MatchResultState.NoExist)
                 { _MatchResultName = "病人没有该检查项"; }
-                return _MatchResultName; }
+                return _MatchResultName;
+            }
             set { _MatchResultName = value; }
         }
         private MatchResultState _MatchResult = MatchResultState.NoExist;

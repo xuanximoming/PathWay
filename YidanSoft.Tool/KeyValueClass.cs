@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-namespace YidanSoft.Tool
+namespace DrectSoft.Tool
 {
     public class KeyValue
     {
-        public KeyValue( )
+        public KeyValue()
         {
-          
+
 
         }
         public KeyValue(String key, String value)
         {
             Key = key;
             Value = value;
-            
+
         }
-        public KeyValue(String key, String value,String name)
+        public KeyValue(String key, String value, String name)
         {
             Key = key;
             Value = value;

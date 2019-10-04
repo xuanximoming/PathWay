@@ -86,10 +86,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="autoInstall.js" />
+    <Content Include="css\EHRDefault.css" />
+    <Content Include="js\autoInstall.js" />
     <Content Include="ClientBin\logo.jpg" />
     <Content Include="ClientBin\Pathway.xap" />
-    <Content Include="favicon.ico" />
+    <Content Include="img\favicon.ico" />
     <Content Include="Help\临床路径使用手册.html" />
     <Content Include="Help\临床路径使用手册\0.files\colorschememapping.xml" />
     <Content Include="Help\临床路径使用手册\0.files\filelist.xml" />
@@ -294,8 +295,9 @@
     <Content Include="Help\临床路径使用手册\___dtree.css" />
     <Content Include="Help\临床路径使用手册\___dtree.js" />
     <Content Include="Help\临床路径使用手册\___left.htm" />
+    <Content Include="js\EHRDefault.js" />
     <Content Include="ReportService.svc" />
-    <Content Include="Silverlight.js" />
+    <Content Include="js\Silverlight.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

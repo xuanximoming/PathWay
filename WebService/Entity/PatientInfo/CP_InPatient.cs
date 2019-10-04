@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using System.Data;
 
 namespace Yidansoft.Service

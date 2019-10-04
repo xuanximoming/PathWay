@@ -1,21 +1,14 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Windows.Navigation;
-using YidanEHRApplication.Models;
 using Telerik.Windows.Controls;
-using System.Collections.ObjectModel;
 using Telerik.Windows.Controls.GridView;
-using YidanSoft.Tool;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
 namespace YidanEHRApplication.Views
 {
     public partial class MasterDrug2Role : Page
@@ -81,10 +74,11 @@ namespace YidanEHRApplication.Views
                         });
                     }
                     YidanEHRDataServiceClient Client = PublicMethod.YidanClient;
-                    Client.MaintainCP_MasterDrug2RoleUpdateCompleted += (sb, eb) => {
+                    Client.MaintainCP_MasterDrug2RoleUpdateCompleted += (sb, eb) =>
+                    {
 
                         PublicMethod.RadAlterBox("保存成功！", "提示");
-                    
+
                     };
                     Client.MaintainCP_MasterDrug2RoleUpdateAsync(role.Jsbm, Drug2Roles);
                 }

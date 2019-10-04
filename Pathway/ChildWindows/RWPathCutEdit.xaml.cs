@@ -1,24 +1,23 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Collections;
+using System.Windows.Media;
+using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
-using YidanEHRApplication.Models;
-using YidanEHRApplication.WorkFlow.Designer;
 using YidanEHRApplication.DataService;
-using YidanEHRApplication.Views.UserControls;
 using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 using YidanEHRApplication.NurModule;
 using YidanEHRApplication.Views.ChildWindows;
-using YidanSoft.Tool;
-using System.Windows.Media;
+using YidanEHRApplication.Views.UserControls;
+using YidanEHRApplication.WorkFlow.Designer;
 namespace YidanEHRApplication.Views
 {
     /// <summary>
@@ -248,8 +247,8 @@ namespace YidanEHRApplication.Views
                 //                this.txtjjlx.Visibility = Visibility.Visible;
                 //                this.cbxJJLX.Visibility = Visibility.Visible;
 
-                                _cp_AdviceGroupDetail.Jjlx = cbxJJLX.SelectedIndex == -1 ? 1 : int.Parse(cbxJJLX.SelectedValue.ToString());
-                                //_cp_AdviceGroupDetail.Jjlxmc = cbxJJLX.Text.ToString();
+                _cp_AdviceGroupDetail.Jjlx = cbxJJLX.SelectedIndex == -1 ? 1 : int.Parse(cbxJJLX.SelectedValue.ToString());
+                //_cp_AdviceGroupDetail.Jjlxmc = cbxJJLX.Text.ToString();
 
                 //            }
                 //            else
@@ -502,7 +501,7 @@ namespace YidanEHRApplication.Views
                                     {
                                         if (ea.Error == null)
                                         {
-                                            
+
                                             BindGridData(((RadPanelBarItem)this.OrderPanelBar.SelectedItem).Tag.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                             zdm.Clear();
                                             zxsj.Clear();
@@ -536,7 +535,7 @@ namespace YidanEHRApplication.Views
                                     {
                                         if (ea.Error == null)
                                         {
-                                            
+
                                             BindGridData(((RadPanelBarItem)this.OrderPanelBar.SelectedItem).Tag.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                             PublicMethod.RadAlterBox(ea.Result, HeaderText);
                                         }
@@ -924,7 +923,7 @@ namespace YidanEHRApplication.Views
                                 {
                                     if (e.Error == null)
                                     {
-                                        
+
                                         BindGridData(CP_AdviceGroupDetailProptery.Yzlb.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                         NewAdviceGroupDetail();
                                         PublicMethod.RadAlterBox(e.Result, HeaderText);
@@ -945,7 +944,7 @@ namespace YidanEHRApplication.Views
                             {
                                 if (e.Error == null)
                                 {
-                                    
+
                                     BindGridData(CP_AdviceGroupDetailProptery.Yzlb.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                     NewAdviceGroupDetail();
                                     PublicMethod.RadAlterBox(e.Result, HeaderText);
@@ -965,7 +964,7 @@ namespace YidanEHRApplication.Views
                     {
                         if (e.Error == null)
                         {
-                            
+
                             BindGridData(CP_AdviceGroupDetailProptery.Yzlb.ToString(), nodestr.ToString().Split('&')[0].ToString());
                             NewAdviceGroupDetail();
                             PublicMethod.RadAlterBox(e.Result, HeaderText);
@@ -1012,7 +1011,7 @@ namespace YidanEHRApplication.Views
                             PublicMethod.RadWaringBox(e.Error);
                         }
                     };
-            client.GetAdviceGroupDetailInfoAsync(selectitem, nodeid,m_clinicalPathInfo.Ljdm);
+            client.GetAdviceGroupDetailInfoAsync(selectitem, nodeid, m_clinicalPathInfo.Ljdm);
             client.CloseAsync();
         }
         /// <summary>
@@ -1063,7 +1062,7 @@ namespace YidanEHRApplication.Views
                      {
                          if (ea.Error == null)
                          {
-                             
+
                              BindGridData(((RadPanelBarItem)this.OrderPanelBar.SelectedItem).Tag.ToString(), nodestr.ToString().Split('&')[0].ToString());
                              PublicMethod.RadAlterBox(ea.Result, HeaderText);
                          }
@@ -1349,8 +1348,8 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
-                               // BindSSGridData(nodestr.ToString().Split('&')[0].ToString());
+
+                                // BindSSGridData(nodestr.ToString().Split('&')[0].ToString());
                                 BindGridData(((RadPanelBarItem)this.OrderPanelBar.SelectedItem).Tag.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                 NewSSAdviceDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -1388,7 +1387,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 //BindSSGridData(nodestr.ToString().Split('&')[0].ToString());
                                 BindGridData(((RadPanelBarItem)this.OrderPanelBar.SelectedItem).Tag.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -1672,7 +1671,7 @@ namespace YidanEHRApplication.Views
                        {
                            if (ea.Error == null)
                            {
-                               
+
                                //BindSSGridData(nodestr.ToString().Split('&')[0].ToString());
                                BindGridData(((RadPanelBarItem)this.OrderPanelBar.SelectedItem).Tag.ToString(), nodestr.ToString().Split('&')[0].ToString());
                                NewSSAdviceDetail();
@@ -1821,7 +1820,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 BindGridData(Convert.ToString((int)OrderPanelBarCategory.RisLis), nodestr.ToString().Split('&')[0].ToString());
                                 NewAdviceGroupDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -1872,7 +1871,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 BindGridData(Convert.ToString((int)OrderPanelBarCategory.RisLis), nodestr.ToString().Split('&')[0].ToString());
                                 NewAdviceGroupDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2111,7 +2110,7 @@ namespace YidanEHRApplication.Views
                     {
                         if (ea.Error == null)
                         {
-                            
+
                             BindGridData(Convert.ToString((int)OrderPanelBarCategory.Meal), nodestr.ToString().Split('&')[0].ToString());
                             NewAdviceGroupDetail();
                             PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2157,7 +2156,7 @@ namespace YidanEHRApplication.Views
                             {
                                 if (ea.Error == null)
                                 {
-                                    
+
                                     BindGridData(Convert.ToString((int)OrderPanelBarCategory.Meal), nodestr.ToString().Split('&')[0].ToString());
                                     NewAdviceGroupDetail();
                                     PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2378,7 +2377,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 BindGridData(Convert.ToString((int)OrderPanelBarCategory.Observation), nodestr.ToString().Split('&')[0].ToString());
                                 NewAdviceGroupDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2425,7 +2424,7 @@ namespace YidanEHRApplication.Views
                     {
                         if (ea.Error == null)
                         {
-                            
+
                             BindGridData(Convert.ToString((int)OrderPanelBarCategory.Observation), nodestr.ToString().Split('&')[0].ToString());
                             NewAdviceGroupDetail();
                             PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2646,7 +2645,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 BindGridData(Convert.ToString((int)OrderPanelBarCategory.Activity), nodestr.ToString().Split('&')[0].ToString());
                                 NewAdviceGroupDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2692,7 +2691,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 BindGridData(Convert.ToString((int)OrderPanelBarCategory.Activity), nodestr.ToString().Split('&')[0].ToString());
                                 NewAdviceGroupDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2914,7 +2913,7 @@ namespace YidanEHRApplication.Views
                             {
                                 if (ea.Error == null)
                                 {
-                                    
+
                                     BindGridData(Convert.ToString((int)OrderPanelBarCategory.Care), nodestr.ToString().Split('&')[0].ToString());
                                     NewAdviceGroupDetail();
                                     PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -2960,7 +2959,7 @@ namespace YidanEHRApplication.Views
                         {
                             if (ea.Error == null)
                             {
-                                
+
                                 BindGridData(Convert.ToString((int)OrderPanelBarCategory.Care), nodestr.ToString().Split('&')[0].ToString());
                                 NewAdviceGroupDetail();
                                 PublicMethod.RadAlterBox(ea.Result, HeaderText);
@@ -3338,7 +3337,7 @@ namespace YidanEHRApplication.Views
                         careGrid.Visibility = Visibility.Visible;
                         break;
                     case OrderPanelBarCategory.EnterCondition:
-                           YPGrid.Visibility = Visibility.Collapsed;
+                        YPGrid.Visibility = Visibility.Collapsed;
                         SSGrid.Visibility = Visibility.Collapsed;
                         rislisGrid.Visibility = Visibility.Collapsed;
                         mealGrid.Visibility = Visibility.Collapsed;
@@ -3390,7 +3389,7 @@ namespace YidanEHRApplication.Views
                         InitJJTypeInfo(cbxJJLX);// add by luff 20130121 初始化计价类型
                         IntiComboBoxDept();// add by luff 20130121 初始化科室
                         #region add by luff 20130313 获得配置表关于医嘱可选不算变异参数 若值为1表示可选，0表示必须
-                         
+
                         List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("Yziskx") > -1).ToList();
                         if (t_listApp.Count > 0)
                         {
@@ -3821,7 +3820,7 @@ namespace YidanEHRApplication.Views
                 radBusyIndicatorNur.IsBusy = false;
                 if (e.Error == null)
                 {
-                    
+
                     GetNurPathInfo(m_NurExecInfos, nodestr.ToString().Split('&')[0].ToString());
                     PublicMethod.RadAlterBox("保存成功", HeaderText);
                 }
@@ -3942,7 +3941,7 @@ namespace YidanEHRApplication.Views
                     radBusyIndicatorVariation.IsBusy = false;
                     if (t.Error == null)
                     {
-                        
+
                         GetVariationToPathInfo(m_PathVariation, nodestr.ToString().Split('&')[0].ToString());
                         PublicMethod.RadAlterBox("保存成功", HeaderText);
                     }
@@ -4413,7 +4412,7 @@ namespace YidanEHRApplication.Views
             {
                 object c = list[i];
                 if (c is RadButton)
-                { 
+                {
                     RadButton button = c as RadButton;
                     if (button.Tag != null && button.Tag.ToString().Trim() != "")
                     {
@@ -4492,10 +4491,10 @@ namespace YidanEHRApplication.Views
                 {
                     AdviceGroupPathCut("");
                 }
-                else 
+                else
                 {
                     AdviceGroupPathCut((((RadButton)sender).Tag).ToString());
-                }    
+                }
             }
             catch (Exception ex)
             {
@@ -4514,8 +4513,8 @@ namespace YidanEHRApplication.Views
             if (jddm != "")              //点击的节点
             {
                 List<CP_AdviceGroupPathCut> newAdviceGroupPathCut = new List<CP_AdviceGroupPathCut>();
-                    
-                if(tag == "0")            //新增
+
+                if (tag == "0")            //新增
                 {
                     newAdviceGroupPathCut = adviceGroupPathCut.Where(s => s.ActivityId == jddm).Where(s => s.Ctmxxh == 0).ToList();       //提取当前节点医嘱
                 }
@@ -4536,15 +4535,15 @@ namespace YidanEHRApplication.Views
         /// </summary>
         private void AdviceGroupCut_Click(object sender, RoutedEventArgs e)
         {
-            try 
+            try
             {
                 InsertAdviceGroupPathCut();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
-            
+
         }
         /// <summary>
         /// 插入医嘱6.7
@@ -4584,7 +4583,7 @@ namespace YidanEHRApplication.Views
         }
         #endregion
 
- 
+
     }
     //#region 设定临时，长期医嘱类别
     //public class OrderTypeName

@@ -1,22 +1,14 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Windows.Navigation;
-using System.Xml.Linq;
 using System.Windows.Browser;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.Models;
-using YidanSoft.Tool;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Navigation;
 using YidanEHRApplication.DataService;
-using YidanEHRApplication;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.Login
 {
@@ -64,7 +56,7 @@ namespace YidanEHRApplication.Views.Login
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
 
@@ -83,7 +75,7 @@ namespace YidanEHRApplication.Views.Login
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
 
@@ -144,7 +136,7 @@ namespace YidanEHRApplication.Views.Login
             catch (Exception ex)
             {
                 Is_root = false;
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
 
 
@@ -159,10 +151,10 @@ namespace YidanEHRApplication.Views.Login
                 {
                     YiDanMessageBox.Show("用户无使用权限，请联系管理员！");
                     return;
-                } 
+                }
                 this.textBlockWarning.Text = string.Empty;
                 if (this.textBoxName.Text.Trim() == string.Empty)
-                { 
+                {
                     YiDanMessageBox.Show("请输入用户名", this.textBoxName);
                     return;
                 }
@@ -189,7 +181,7 @@ namespace YidanEHRApplication.Views.Login
                           this.textBlockWarning.Text = "用户不存在";
 
                           YiDanMessageBox.Show("用户不存在！", this.textBoxName);
-                          this.radBusyIndicator.IsBusy = false; 
+                          this.radBusyIndicator.IsBusy = false;
 
                       }
                       else
@@ -243,7 +235,7 @@ namespace YidanEHRApplication.Views.Login
                       if (e.Error != null)
                       {
                           //PublicMethod.RadWaringBox(e.Error);
-                          YiDanMessageBox.Show(e.Error,this.GetType().FullName);
+                          YiDanMessageBox.Show(e.Error, this.GetType().FullName);
                           return;
                       }
                       string strOutMessage = string.Empty;
@@ -251,7 +243,7 @@ namespace YidanEHRApplication.Views.Login
                       if (e.Result == null || e.Result.VersionID == string.Empty)
                       {
                           this.textBlockWarning.Text = "版本号不存在";
-                          YiDanMessageBox.Show("版本号不存在", this.textBoxName); 
+                          YiDanMessageBox.Show("版本号不存在", this.textBoxName);
                       }
                       else
                       {
@@ -289,7 +281,7 @@ namespace YidanEHRApplication.Views.Login
                       else
                       {
                           this.textBlockWarning.Text = "该用户无角色权限！";
-                          YiDanMessageBox.Show("该用户无角色权限！", this.textBoxName); 
+                          YiDanMessageBox.Show("该用户无角色权限！", this.textBoxName);
                           this.radBusyIndicator.IsBusy = false;
                           this.textBoxName.Focus();
                       }
@@ -446,7 +438,7 @@ namespace YidanEHRApplication.Views.Login
             catch (Exception ex)
             {
 
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
 
@@ -512,7 +504,7 @@ namespace YidanEHRApplication.Views.Login
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
 
@@ -525,7 +517,7 @@ namespace YidanEHRApplication.Views.Login
             }
             catch (Exception ex)
             {
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
     }

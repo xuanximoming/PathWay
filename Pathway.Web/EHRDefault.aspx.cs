@@ -54,17 +54,8 @@ namespace DrectSoftEHRApplication.Web
                     sb.Append(string.Format(",{0}={1}", "Patid", patid));
                 if (!String.IsNullOrEmpty(StartPagePathExecute))
                     sb.Append(string.Format(",{0}={1}", "StartPagePathExecute", StartPagePathExecute));
-
-
             }
-
-
-
             this.SLInitParams.Text = string.Format("<param name=\"InitParams\" value=\"{0}\" />", sb.ToString());
-
-
-
-
         }
 
 

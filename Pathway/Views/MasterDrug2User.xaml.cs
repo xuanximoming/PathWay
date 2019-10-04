@@ -1,22 +1,15 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.Models;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
 using Telerik.Windows.Controls;
-using YidanSoft.Tool;
+using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
 namespace YidanEHRApplication.Views
 {
     public partial class MasterDrug2User : Page
@@ -145,60 +138,60 @@ namespace YidanEHRApplication.Views
                 if (cbxUser.SelectedItem == null)
                 {
                     //PublicMethod.RadAlterBox("请选择一个用户！","提示");
-                    PublicMethod.RadAlterBoxRe("请选择一个用户！", "提示",cbxUser);
+                    PublicMethod.RadAlterBoxRe("请选择一个用户！", "提示", cbxUser);
                     isTrue = false;
                     return;
                 }
-            String Zgdm = ""; ;
-            if (CurrentState == OperationState.NEW)
-                Zgdm = ((CP_Employee)cbxUser.SelectedItem).Zgdm;
+                String Zgdm = ""; ;
+                if (CurrentState == OperationState.NEW)
+                    Zgdm = ((CP_Employee)cbxUser.SelectedItem).Zgdm;
 
-          Roleusers = new ObservableCollection<CP_MasterDrug2User>();
-            foreach (var item in this.GridViewRole.SelectedItems)
-            {
-                CP_MasterDrugRoles role = ((CP_MasterDrugRoles)item);
-                CP_MasterDrug2User Roleuser = new CP_MasterDrug2User();
-                Roleuser.Zgdm = Zgdm;
-                Roleuser.Jsbm = role.Jsbm;
-                Roleuser.Cjsj = DateTime.Now.ToString();
-                Roleuser.Xgsj = DateTime.Now.ToString();
-                Roleuser.ZgdmCj = Global.LogInEmployee.Zgdm;
-                Roleuser.ZgdmXg = Global.LogInEmployee.Zgdm;
+                Roleusers = new ObservableCollection<CP_MasterDrug2User>();
+                foreach (var item in this.GridViewRole.SelectedItems)
+                {
+                    CP_MasterDrugRoles role = ((CP_MasterDrugRoles)item);
+                    CP_MasterDrug2User Roleuser = new CP_MasterDrug2User();
+                    Roleuser.Zgdm = Zgdm;
+                    Roleuser.Jsbm = role.Jsbm;
+                    Roleuser.Cjsj = DateTime.Now.ToString();
+                    Roleuser.Xgsj = DateTime.Now.ToString();
+                    Roleuser.ZgdmCj = Global.LogInEmployee.Zgdm;
+                    Roleuser.ZgdmXg = Global.LogInEmployee.Zgdm;
 
-                Roleusers.Add(Roleuser);
+                    Roleusers.Add(Roleuser);
 
-            }
-           
-            if (CurrentState == OperationState.EDIT)
-                Zgdm = ((CP_MasterDrug2User)this.GridView.SelectedItem).Zgdm;
-           Roleusers = new ObservableCollection<CP_MasterDrug2User>();
-            foreach (var item in this.GridViewRole.SelectedItems)
-            {
-                CP_MasterDrugRoles role = ((CP_MasterDrugRoles)item);
-                CP_MasterDrug2User Roleuser = new CP_MasterDrug2User();
-                Roleuser.Zgdm = Zgdm;
-                Roleuser.Jsbm = role.Jsbm;
-                Roleuser.Cjsj = DateTime.Now.ToString();
-                Roleuser.Xgsj = DateTime.Now.ToString();
-                Roleuser.ZgdmCj = Global.LogInEmployee.Zgdm;
-                Roleuser.ZgdmXg = Global.LogInEmployee.Zgdm;
+                }
 
-                Roleusers.Add(Roleuser);
+                if (CurrentState == OperationState.EDIT)
+                    Zgdm = ((CP_MasterDrug2User)this.GridView.SelectedItem).Zgdm;
+                Roleusers = new ObservableCollection<CP_MasterDrug2User>();
+                foreach (var item in this.GridViewRole.SelectedItems)
+                {
+                    CP_MasterDrugRoles role = ((CP_MasterDrugRoles)item);
+                    CP_MasterDrug2User Roleuser = new CP_MasterDrug2User();
+                    Roleuser.Zgdm = Zgdm;
+                    Roleuser.Jsbm = role.Jsbm;
+                    Roleuser.Cjsj = DateTime.Now.ToString();
+                    Roleuser.Xgsj = DateTime.Now.ToString();
+                    Roleuser.ZgdmCj = Global.LogInEmployee.Zgdm;
+                    Roleuser.ZgdmXg = Global.LogInEmployee.Zgdm;
 
-            }
-            YidanEHRDataServiceClient Client = PublicMethod.YidanClient;
-            Client.MaintainP_MasterDrug2UserUpdateCompleted += (sb, eb) =>
-            {
+                    Roleusers.Add(Roleuser);
 
-                BindGridView();
-                PublicMethod.RadAlterBox("保存成功！", "提示");
+                }
+                YidanEHRDataServiceClient Client = PublicMethod.YidanClient;
+                Client.MaintainP_MasterDrug2UserUpdateCompleted += (sb, eb) =>
+                {
 
-            };
-            Client.MaintainP_MasterDrug2UserUpdateAsync(Roleusers, Zgdm);
-            CurrentState = OperationState.VIEW;
-                
-            cbxUser.SelectedItem = null;
-            cbxUser.Text = "";
+                    BindGridView();
+                    PublicMethod.RadAlterBox("保存成功！", "提示");
+
+                };
+                Client.MaintainP_MasterDrug2UserUpdateAsync(Roleusers, Zgdm);
+                CurrentState = OperationState.VIEW;
+
+                cbxUser.SelectedItem = null;
+                cbxUser.Text = "";
 
             }
             catch (Exception ex)

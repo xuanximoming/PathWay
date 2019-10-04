@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Data;
 using System.Data.SqlClient;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using System.Text;
 namespace Yidansoft.Service.Entity
 {

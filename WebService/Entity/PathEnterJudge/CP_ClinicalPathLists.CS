@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using System.Data;
 using System.Data.SqlClient;
 namespace Yidansoft.Service.Entity

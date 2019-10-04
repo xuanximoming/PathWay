@@ -1,40 +1,28 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.ServiceModel;
 using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.DragDrop;
 using Telerik.Windows.Controls.GridView;
 using Telerik.Windows.Controls.TreeView;
-using YidanEHRApplication;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.ChildWindows;
+using YidanEHRApplication.Views.UserControls;
 using YidanEHRApplication.WorkFlow;
 using YidanEHRApplication.WorkFlow.Designer;
-using YidanSoft.Tool;
-using YidanEHRApplication.Views.UserControls;
- 
+
 namespace YidanEHRApplication.Views
 {
     public partial class PathEnForce : Page
@@ -139,8 +127,8 @@ namespace YidanEHRApplication.Views
                     {
                         if (t_listApp[0].Value == "1")//参数值为1表示在”下一步路径“按钮上判断变异
                         {
-                              //判断如果页面选择的是节点西药节点医嘱列表还是草药医嘱列表 add by luff 20130725
-                            if (sVal=="0")
+                            //判断如果页面选择的是节点西药节点医嘱列表还是草药医嘱列表 add by luff 20130725
+                            if (sVal == "0")
                             {
                                 #region 西药医嘱，检验检测，纯医嘱 变异检查流程
                                 if (NewCheck(out strWaring))
@@ -163,7 +151,7 @@ namespace YidanEHRApplication.Views
                                     };
                                     client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent,
                    m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                          m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                          m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                                     client.CloseAsync();
                                 }
                                 else
@@ -197,16 +185,16 @@ namespace YidanEHRApplication.Views
                                     };
                                     client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent,
                    m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                          m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"1");
+                          m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "1");
                                     client.CloseAsync();
                                 }
                                 else
                                 {
- 
+
                                     YidanPathWayMessageBox mess = new YidanPathWayMessageBox(strWaring, m_StrTitle, YiDanMessageBoxButtons.YesNo);
                                     mess.ShowDialog();
                                     mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);
-                                 
+
                                 }
                                 #endregion
                             }
@@ -231,7 +219,7 @@ namespace YidanEHRApplication.Views
                                 };
                                 client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent,
                m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                      m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                      m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                                 client.CloseAsync();
                                 #endregion
                             }
@@ -256,7 +244,7 @@ namespace YidanEHRApplication.Views
                             };
                             client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent,
                m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                      m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                      m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                             client.CloseAsync();
 
                         }
@@ -282,7 +270,7 @@ namespace YidanEHRApplication.Views
                         };
                         client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent,
                m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                      m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                      m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                         client.CloseAsync();
                     }
 
@@ -1517,7 +1505,7 @@ namespace YidanEHRApplication.Views
                                     }
                                 };
                                 client.UpdatePathStatusDoneAsync(Global.InpatientListCurrent, m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                           m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                           m_ListUnEnforceReason, null, null, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                                 client.CloseAsync();
                             }
                             else
@@ -2084,7 +2072,7 @@ namespace YidanEHRApplication.Views
                             if (t_listApp[0].Value == "1")
                             {
                                 //判断如果页面选择的是节点西药节点医嘱列表还是草药医嘱列表 add by luff 20130725
-                                if (sVal=="0")
+                                if (sVal == "0")
                                 {
                                     #region 西药医嘱，检验检测，纯医嘱 检查变异流程
                                     if (NewCheck(out strWaring))
@@ -2106,7 +2094,7 @@ namespace YidanEHRApplication.Views
                                     }
                                     #endregion
                                 }
-                                else if (sVal=="1")
+                                else if (sVal == "1")
                                 {
                                     #region 草药方 检查变异流程
                                     if (CyfCheck(out strWaring))
@@ -2137,7 +2125,7 @@ namespace YidanEHRApplication.Views
                                     radBusyIndicator.IsBusy = false;
                                     #endregion
                                 }
-                              
+
                             }
                             else
                             {
@@ -2222,8 +2210,8 @@ namespace YidanEHRApplication.Views
                     {
                         if (t_listApp[0].Value == "1")
                         {
-                             //判断如果页面选择的是节点西药节点医嘱列表还是草药医嘱列表 add by luff 20130725
-                            if (sVal=="0")
+                            //判断如果页面选择的是节点西药节点医嘱列表还是草药医嘱列表 add by luff 20130725
+                            if (sVal == "0")
                             {
                                 #region 西药医嘱，检验检测，纯医嘱 变异检查流程
                                 if (NewCheck(out strWaring))
@@ -2255,7 +2243,7 @@ namespace YidanEHRApplication.Views
                                 }
                                 #endregion
                             }
-                            else if (sVal=="1")
+                            else if (sVal == "1")
                             {
                                 #region 草药医嘱 变异检查流程
                                 if (CyfCheck(out strWaring))
@@ -2360,7 +2348,7 @@ namespace YidanEHRApplication.Views
             try
             {
                 // mod by luff 20130726
-                if (sVal=="0")
+                if (sVal == "0")
                 {
                     ObservableCollection<String> listLjdm = GetListLjdm();
                     YidanEHRDataServiceClient client = PublicMethod.YidanClient;
@@ -2383,9 +2371,9 @@ namespace YidanEHRApplication.Views
                     };
                     client.UpdateEnForceInfoAsync(Global.InpatientListCurrent, m_WorkFlow.WorkFlowXml,
                             m_WorkFlow.Activitys.CurrentViewActivity.CurrentViewActiveChildren.ActivityChildrenID,
-                           m_ListUnEnforceReason, null, null, m_IsLeadIn, listLjdm, m_WorkFlow.Activitys.CurrentActivity.UniqueID,"0");
+                           m_ListUnEnforceReason, null, null, m_IsLeadIn, listLjdm, m_WorkFlow.Activitys.CurrentActivity.UniqueID, "0");
                 }
-                else if (sVal=="1")
+                else if (sVal == "1")
                 {
                     ObservableCollection<String> listLjdm = GetListLjdm();
                     YidanEHRDataServiceClient client = PublicMethod.YidanClient;
@@ -2936,7 +2924,7 @@ namespace YidanEHRApplication.Views
         ObservableCollection<CP_DoctorOrder> m_OrderListCt = new ObservableCollection<CP_DoctorOrder>();
         int sx_Val = 0;
         //mod by luff 20130628
-        private void OtherOrderControl_AfterDrugCinfirmeddEvent(object sender,CP_DoctorOrder e)
+        private void OtherOrderControl_AfterDrugCinfirmeddEvent(object sender, CP_DoctorOrder e)
         {
             m_OrderListCt = ((UCOtherOrder)sender).m_Orderlist2;
             sx_Val = ((UCOtherOrder)sender).sxVal;
@@ -4478,7 +4466,7 @@ namespace YidanEHRApplication.Views
                 //((RadTabItem)radTabControlPathManager.Items[0]).Visibility = Visibility.Visible;
                 //((RadTabItem)radTabControlPathManager.Items[1]).Visibility = Visibility.Collapsed;
                 sVal = "0";
-                 
+
             }
             else
             {

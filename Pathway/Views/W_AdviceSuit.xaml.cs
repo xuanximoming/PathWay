@@ -1,22 +1,17 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using tc = Telerik.Windows.Controls;
 using Telerik.Windows.Controls;
-using YidanEHRApplication.Models;
 using YidanEHRApplication.DataService;
-using YidanEHRApplication.Views.ChildWindows;
 using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
-using System.Collections.ObjectModel;
+using YidanEHRApplication.Models;
+using YidanEHRApplication.Views.ChildWindows;
+using tc = Telerik.Windows.Controls;
 
 namespace YidanEHRApplication.Views
 {
@@ -98,10 +93,10 @@ namespace YidanEHRApplication.Views
 
         #region 事件
         RadTreeViewItem selectedItem;//选中节点
-       // List<RadTreeViewItem> SelectItemTree;//选中节点的上级列表,包括选中节点
+        // List<RadTreeViewItem> SelectItemTree;//选中节点的上级列表,包括选中节点
         List<RadTreeViewItem> AllTreeVewItems;//所有节点
-        public List<String> CategoryIdList=new List<string>();//选中节点的所有上级节点categoryID
-  
+        public List<String> CategoryIdList = new List<string>();//选中节点的所有上级节点categoryID
+
 
         private void tvList_SelectionChanged(object sender, tc.SelectionChangedEventArgs e)
         {
@@ -152,13 +147,13 @@ namespace YidanEHRApplication.Views
                             String currentId = CategoryIdList[0];
                             if (parentId2 == currentId)
                             {
-                                if(!CategoryIdList.Contains(((CP_AdviceSuitCategory)((RadTreeViewItem)item).Tag).ParentID))
+                                if (!CategoryIdList.Contains(((CP_AdviceSuitCategory)((RadTreeViewItem)item).Tag).ParentID))
                                     CategoryIdList.Insert(0, ((CP_AdviceSuitCategory)((RadTreeViewItem)item).Tag).ParentID);
 
                             }
                         }
                     }
-                    
+
 
                 }
             }
@@ -275,7 +270,7 @@ namespace YidanEHRApplication.Views
             //img.Source = img.se "/Pathway;component/Images/使用原因.png";
             try
             {
- 
+
                 if (Ctyzxh == null)
                 {
                     PublicMethod.RadAlterBox("请选中一条医嘱套餐数据!", "提示");
@@ -299,7 +294,7 @@ namespace YidanEHRApplication.Views
             {
                 PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
-             
+
         }
 
         void mess_PageClosedEvent(object sender, bool e)
@@ -467,7 +462,7 @@ namespace YidanEHRApplication.Views
                 //}
                 RadWindow w = new RadWindow();
                 w.Closed += new EventHandler<WindowClosedEventArgs>(UserReason_Closed);
-             
+
                 CP_AdviceSuit suit = (CP_AdviceSuit)((RadTreeViewItem)tvList.SelectedItem).Tag; /****** update by dxj 2011/7/15 ****/
                 String[] UserReason = new String[3];
                 UserReason[0] = suit.UserReason1;
@@ -480,7 +475,7 @@ namespace YidanEHRApplication.Views
                 }
                 else
                 {
-                    PublicMethod.RadAlterBox("没有相关使用原因","提示");
+                    PublicMethod.RadAlterBox("没有相关使用原因", "提示");
                 }
             }
             catch (Exception ex)
@@ -536,7 +531,7 @@ namespace YidanEHRApplication.Views
                         {
                             suit.UserReason3 = ((TextBox)u).Text.Trim();
                         }
-                    } 
+                    }
                 }
                 YidanEHRDataServiceClient ServiceClient = PublicMethod.YidanClient;
                 ServiceClient.EditCP_AdviceSuitCompleted +=
@@ -619,10 +614,10 @@ namespace YidanEHRApplication.Views
             btn.Width = 50;
             btn.Margin = new Thickness(10, 0, 10, 0);
 
-             
+
 
             RadButton btnCancel = new RadButton();
-            btnCancel.Content = "取消"; 
+            btnCancel.Content = "取消";
 
             btnCancel.CommandParameter = w;
             btnCancel.Click += new RoutedEventHandler(btnCancel_Click);
@@ -709,7 +704,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                RWAdviceMaintain w = new RWAdviceMaintain(Ctyzxh, ManualType.New, null,0);
+                RWAdviceMaintain w = new RWAdviceMaintain(Ctyzxh, ManualType.New, null, 0);
                 w.ShowDialog();
                 w.Closed += new EventHandler<WindowClosedEventArgs>(w_Closed);
                 w.RefreshEventHandler += new EventHandler(RefreshEventHandler);
@@ -737,12 +732,12 @@ namespace YidanEHRApplication.Views
         #region 编辑医嘱
         void btnKeShiEditDetail_Click(object sender, RoutedEventArgs e)
         {
-            if (GridViewYaoPin.SelectedItems.Count != 1) 
-            { 
+            if (GridViewYaoPin.SelectedItems.Count != 1)
+            {
                 PublicMethod.RadAlterBox("请选中一条医嘱，再进行相关操作！", "提示");
-                return; 
+                return;
             }
-            RadWindow w = new RWAdviceMaintain(Ctyzxh, ManualType.Edit, CP_AdviceSuitDetail,0);
+            RadWindow w = new RWAdviceMaintain(Ctyzxh, ManualType.Edit, CP_AdviceSuitDetail, 0);
             w.Closed += new EventHandler<WindowClosedEventArgs>(w_Closed);
             w.ShowDialog();
         }
@@ -866,38 +861,38 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                if (GridViewYaoPin.SelectedItems.Count < 2) 
-                { 
+                if (GridViewYaoPin.SelectedItems.Count < 2)
+                {
                     PublicMethod.RadAlterBox("请选多条医嘱，再进行相关操作！", "提示");
-                    return; 
+                    return;
                 }
 
                 ObservableCollection<CP_AdviceSuitDetail> CP_AdviceSuitDetailList = new ObservableCollection<CP_AdviceSuitDetail>();
                 CP_AdviceSuitDetail d = null;
- 
+
                 foreach (object o in GridViewYaoPin.SelectedItems)
                 {
                     //判断用法与频次
-                    for (int i= 0; i < GridViewYaoPin.SelectedItems.Count; i++)
+                    for (int i = 0; i < GridViewYaoPin.SelectedItems.Count; i++)
                     {
                         if (((CP_AdviceSuitDetail)GridViewYaoPin.SelectedItems[i]).Yfdm != ((CP_AdviceSuitDetail)o).Yfdm //用法判断
                             || ((CP_AdviceSuitDetail)GridViewYaoPin.SelectedItems[i]).Pcdm != ((CP_AdviceSuitDetail)o).Pcdm) //频次判断  
                         {
                             PublicMethod.RadAlterBox("所选医嘱中【用法、频次】存在不一致，无法成组！", "提示");
-                            return ;
+                            return;
                         }
                     }
 
                     if (d != null && d.Yzbz != ((CP_AdviceSuitDetail)o).Yzbz)
-                    { 
+                    {
                         PublicMethod.RadAlterBox("请确保选中的医嘱是相同的医嘱类型，再进行相关操作！", "提示");
-                        return; 
+                        return;
                     }
                     d = (CP_AdviceSuitDetail)o;
-                    if (d.Fzbz != "3500" && !String.IsNullOrEmpty(d.Fzbz)) 
-                    { 
+                    if (d.Fzbz != "3500" && !String.IsNullOrEmpty(d.Fzbz))
+                    {
                         PublicMethod.RadAlterBox("请确定选中医嘱都未成组，再进行相关操作！", "提示");
-                        return; 
+                        return;
                     }
                     CP_AdviceSuitDetailList.Add(d);
                 }
@@ -930,7 +925,7 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                if (GridViewYaoPin.SelectedItems.Count >0)
+                if (GridViewYaoPin.SelectedItems.Count > 0)
                 {
                     YidanEHRDataServiceClient ServiceClient = PublicMethod.YidanClient;
                     ServiceClient.CancleGroupCP_AdviceSuitDetailCompleted +=
@@ -944,8 +939,9 @@ namespace YidanEHRApplication.Views
                                 {
                                     if (CP_AdviceSuitDetail.Fzxh.Equals(CP_AdviceSuitDetail.Ctmxxh.ToString()) && GridViewYaoPin.SelectedItems.Count > 1)
                                     {
-                                        if (!(CP_AdviceSuitDetail.Fzbz != "3500" && !String.IsNullOrEmpty(CP_AdviceSuitDetail.Fzbz))) {
-                                            PublicMethod.RadAlterBox("请选择成组医嘱!","提示");
+                                        if (!(CP_AdviceSuitDetail.Fzbz != "3500" && !String.IsNullOrEmpty(CP_AdviceSuitDetail.Fzbz)))
+                                        {
+                                            PublicMethod.RadAlterBox("请选择成组医嘱!", "提示");
                                         }
                                         else
                                         {
@@ -964,7 +960,7 @@ namespace YidanEHRApplication.Views
                                     //}
                                     else if (GridViewYaoPin.SelectedItems.Count == 1)
                                     {
-                                        PublicMethod.RadAlterBox("请选择多条医嘱在进行操作！","提示信息");
+                                        PublicMethod.RadAlterBox("请选择多条医嘱在进行操作！", "提示信息");
                                         return;
                                     }
                                     else
@@ -974,15 +970,15 @@ namespace YidanEHRApplication.Views
                                     }
                                 }
                             };
-                    ServiceClient.CancleGroupCP_AdviceSuitDetailAsync(CP_AdviceSuitDetail.Fzxh);                                          
+                    ServiceClient.CancleGroupCP_AdviceSuitDetailAsync(CP_AdviceSuitDetail.Fzxh);
                     ServiceClient.CloseAsync();
                 }
                 else
                 {
-                    PublicMethod.RadAlterBox("请只选中一条医嘱，再进行相关操作！","提示");
+                    PublicMethod.RadAlterBox("请只选中一条医嘱，再进行相关操作！", "提示");
                     return;
                 }
-                
+
                 //判断是否选择数据，否则给予提示。
                 /*
                 if (GridViewYaoPin.SelectedItems.Count != 1) 
@@ -1017,7 +1013,7 @@ namespace YidanEHRApplication.Views
                 //    ServiceClient.CancleGroupCP_AdviceSuitDetailAsync(CP_AdviceSuitDetail.Fzxh);
                 //    ServiceClient.CloseAsync();
                 //    //
-                    
+
                 //}
             }
             catch (Exception ex)
@@ -1077,17 +1073,18 @@ namespace YidanEHRApplication.Views
         #region 绑定GridView
         void BindGridViewYaoPin()
         {
-            if (Ctyzxh == null) 
-            { 
-               //add by luff 20120813 
+            if (Ctyzxh == null)
+            {
+                //add by luff 20120813 
                 GridViewYaoPin.ItemsSource = null;
-                return; }
+                return;
+            }
             YidanEHRDataServiceClient ServiceClient = PublicMethod.YidanClient;
             ServiceClient.GetCP_AdviceSuitDetailCompleted += new EventHandler<GetCP_AdviceSuitDetailCompletedEventArgs>(BindGridViewYaoPin);
             ServiceClient.GetCP_AdviceSuitDetailAsync(String.Format(" and Ctyzxh={0} ", Ctyzxh));
             ServiceClient.CloseAsync();
         }
-        
+
         void BindGridViewYaoPin(object sender, GetCP_AdviceSuitDetailCompletedEventArgs e)
         {
             if (e.Error != null) PublicMethod.RadWaringBox(e.Error);
@@ -1147,22 +1144,22 @@ namespace YidanEHRApplication.Views
                         //添加一个套餐名称不能为空的判断
                         //时间：2013年8月13日 11:31:35
                         //修改人：Jhonny
-                        if (suit.Name !=string.Empty)
+                        if (suit.Name != string.Empty)
                         {
-                        if (ea.Result > 0)
-                        {
-                            GetCP_AdviceSuitCategory(); /****** update by dxj 2011/7/15 ****/
-                        }
-                        else//修改后的名称为重复名称
-                        {
-                            PublicMethod.RadAlterBox("该套餐名称已存在！", "提示");
-                        }
+                            if (ea.Result > 0)
+                            {
+                                GetCP_AdviceSuitCategory(); /****** update by dxj 2011/7/15 ****/
+                            }
+                            else//修改后的名称为重复名称
+                            {
+                                PublicMethod.RadAlterBox("该套餐名称已存在！", "提示");
+                            }
                         }
                         else
                         {
-                            PublicMethod.RadAlterBox("套餐名称不能为空!","提示");
+                            PublicMethod.RadAlterBox("套餐名称不能为空!", "提示");
                         }
-                    }                        
+                    }
                 };
                 ServiceClient.EditCP_AdviceSuitAsync(suit);
                 ServiceClient.CloseAsync();
@@ -1235,7 +1232,7 @@ namespace YidanEHRApplication.Views
                             tvList.Items.Clear();
                         if (AllTreeVewItems == null) AllTreeVewItems = new List<RadTreeViewItem>();
                         AllTreeVewItems.Clear();
-                      
+
                         AddTreeView(String.Empty, null, ea.Result.ToList(), ea.Result.ToList());
                     }
                     //if(CategoryIdList!=null)
@@ -1270,7 +1267,7 @@ namespace YidanEHRApplication.Views
         /// <param name="sunCategoryList">符合条件的数据源</param>
         private void AddTreeView(String parentId, RadTreeViewItem subitem, List<CP_AdviceSuitCategory> CategoryList, List<CP_AdviceSuitCategory> sunCategoryList)
         {
-            
+
             foreach (CP_AdviceSuitCategory row in sunCategoryList.Where(c => c.ParentID.Equals(parentId)))
             {
                 RadTreeViewItem item1 = new RadTreeViewItem();

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
-using System.IO;
-using YidanSoft.Core;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text;
+using YidanSoft.Core;
 
 namespace SendOrder
 {
@@ -350,7 +348,7 @@ namespace SendOrder
                     {
                         lcxmdm = dr["ypdm"].ToString();
                     }
-                    string ypmc = this.DealQuoteString(dr["ypmc"].ToString()); 
+                    string ypmc = this.DealQuoteString(dr["ypmc"].ToString());
                     //此处添加判断 如果其他医嘱编码中有“.”则将“。”后面编码作为项目代码   且想项目改为临床项目 3103  临床项目序号为“.”前代码
                     if (dr["ypdm"].ToString().Trim().IndexOf(".") > -1)
                     {
@@ -369,7 +367,7 @@ namespace SendOrder
                         lcxmdm = "0";
                         yzlb = "3105";
                     }
-                    
+
                     string sybpno = "0";
                     string sqdxh = "0";
                     if (iscqls)
@@ -507,7 +505,7 @@ namespace SendOrder
         ///// <returns></returns>
         //private string SaveCyAdvises()
         //{ 
-        
+
         //}
 
         /// <summary>
@@ -583,8 +581,6 @@ namespace SendOrder
 
                 _sqlhelper.BeginUseSingleConnection();
                 _sqlhelper.BeginTransaction();
-                //sqlcmd = "exec usp_bq_yzlr '" + wkdz + "',1," + syxh + ",''," + "0,'',0,'',0,0,'','',0,'',0,'','','','','',''";
-                //DataTable dtret = _sqlhelper.ExecuteDataTable(sqlcmd, CommandType.Text);
                 DataTable dtret = _sqlhelper.ExecuteDataTable("usp_bq_yzlr", parameters, CommandType.StoredProcedure);
                 if ((dtret == null) || (dtret.Rows.Count == 0))
                 {
@@ -1010,11 +1006,8 @@ namespace SendOrder
                         };
 
 
-                    //string sql = "exec usp_bq_yzlr '" + wkdz + "', 2," + syxh + ",'00'," + ", " + yzno + ",'" + docid + "'," + yzlb + ",'" + ksrq + "'," + xmlb + "," + idm + ",'" + xmdm + "','" + zxks + "'," + ypjl + ",'" + jldw + "'," + dwbz + "," + dwlb + ",'" + yfdm + "','" + yznr + "','" + ztnr + "','" + pcdm + "','" + zdm + "','" + zxsj + "'," + zbbz + "0,,0," + tzxh + ",'" + tzrq + "','" + mzdm + "','" + zdys + "'," + ybspbz + ",'" + ybspbh + "','" + lcxmdm + "','" + ypmc + "'," + sybpno + "," + sqdxh + "," + yzxh + "," + zyzxh + ",'" + shczy + "','" + shrq + "','" + qxysdm + "','" + qxrq + "'," + blyzzt + "," + ypzsl + "," + mq + ",'" + lyjzsj + "','" + memo + "','" + sqdxmbz + "','" + bbzlId + "','" + bbzl + "'," + sqdjjbz;
-                    //errMsg = errMsg + "\r\n" + sql;
+
                     DataTable dtstep2ret = _sqlhelper.ExecuteDataTable("usp_bq_yzlr", parameters, CommandType.StoredProcedure);
-                    //DataTable dtstep2ret = _sqlhelper.ExecuteDataTable(sql, CommandType.Text);
-                    //errMsg = errMsg + "\r\n exec step2 " + i.ToString();
                     if ((dtstep2ret == null) || (dtstep2ret.Rows.Count == 0))
                     {
                         spRet = "F执行存储步骤2失败!";

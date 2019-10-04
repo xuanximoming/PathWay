@@ -1,27 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.Models;
+using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Controls;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
-    public partial class RWDiagNurExecCategory 
+    public partial class RWDiagNurExecCategory
     {
-     
-       //add by luff 20130403
+
+        //add by luff 20130403
         #region 事件
         /// <summary>
         /// 删除按钮事件
@@ -72,7 +63,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
-        void OnDeleteMaster(object sender, WindowClosedEventArgs e) 
+        void OnDeleteMaster(object sender, WindowClosedEventArgs e)
         {
             if (e.DialogResult == true)
             {
@@ -112,7 +103,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             try
             {
-                if (this.rgvExecCategory.SelectedItem== null)
+                if (this.rgvExecCategory.SelectedItem == null)
                 {
                     PublicMethod.RadAlterBox("请选中要修改的行！", "提示");
                     return;
@@ -203,33 +194,33 @@ namespace YidanEHRApplication.Views.ChildWindows
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
                 if (m_funstate == EditState.Add)
                 {
-                     
-                    #region 验证分类名称是否重复
-                     client.InsertDiagNurCategoryCompleted += (obj, ea) =>
-                         {
-                             if (ea.Result == 2)
-                             {
-                                 PublicMethod.RadAlterBoxRe("该项目已存在，请重新输入！", "提示", txtName); isLoad = false;
-                                 return;
-                             }
-                             else if (ea.Result == 1)
-                             {
-                                 //m_funstate = EditState.None;
-                                 rgvExecCategory.SelectedItem = null;
-                                 BindBtnState();
-                                 ClearTextBox();
-                                 GetExecCategory();
-                                 PublicMethod.RadAlterBox("添加成功！", "提示");
 
-                             }
-                             else
-                             {
-                                 PublicMethod.RadAlterBox(ea.Error.ToString(), "提示");
-                             }
-                             
-                         };
-                     client.InsertDiagNurCategoryAsync(_diagneCategory);
-                     m_funstate = EditState.View;
+                    #region 验证分类名称是否重复
+                    client.InsertDiagNurCategoryCompleted += (obj, ea) =>
+                        {
+                            if (ea.Result == 2)
+                            {
+                                PublicMethod.RadAlterBoxRe("该项目已存在，请重新输入！", "提示", txtName); isLoad = false;
+                                return;
+                            }
+                            else if (ea.Result == 1)
+                            {
+                                //m_funstate = EditState.None;
+                                rgvExecCategory.SelectedItem = null;
+                                BindBtnState();
+                                ClearTextBox();
+                                GetExecCategory();
+                                PublicMethod.RadAlterBox("添加成功！", "提示");
+
+                            }
+                            else
+                            {
+                                PublicMethod.RadAlterBox(ea.Error.ToString(), "提示");
+                            }
+
+                        };
+                    client.InsertDiagNurCategoryAsync(_diagneCategory);
+                    m_funstate = EditState.View;
                     #endregion
                 }
                 if (m_funstate == EditState.Edit)
@@ -247,7 +238,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                             //}
                             if (ea.Result == 1)
                             {
-                                
+
                                 rgvExecCategory.SelectedItem = null;
                                 NewAdviceGroupDetail();
                                 BindBtnState();
@@ -261,7 +252,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                         };
                     client.UpdateDiagNurExecCategoryAsync(_diagneCategory);
                     m_funstate = EditState.View;
-                    
+
                 }
             }
             catch (Exception ex)
@@ -312,8 +303,8 @@ namespace YidanEHRApplication.Views.ChildWindows
                     cmbYxjl.Text = diagneCategory.Yxjl.ToString();
                     #endregion
                 }
-                
-                 
+
+
             }
             catch (Exception ex)
             {
@@ -324,14 +315,14 @@ namespace YidanEHRApplication.Views.ChildWindows
         #region  输入框加回车事件
         private void RegisterKeyEvent()
         {
-             
+
             txtName.KeyUp += new KeyEventHandler(txtName_KeyUp);
             cmbYxjl.KeyUp += new KeyEventHandler(cmbYxjl_KeyUp);
             btnSave.KeyUp += new KeyEventHandler(btnSave_KeyUp);
 
         }
 
-         
+
 
         private void txtName_KeyUp(object sender, KeyEventArgs e)
         {
@@ -339,7 +330,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 cmbYxjl.Focus();
         }
 
-        
+
         private void cmbYxjl_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -367,7 +358,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             RegisterKeyEvent();
         }
 
-      
+
 
         /// <summary>
         /// 获取诊疗护理执行类别表
@@ -386,7 +377,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                         rgvExecCategory.ItemsSource = ea.Result;
                     }
                 };
-                client.GetDiagNurExecCategoryAsync(1,true);
+                client.GetDiagNurExecCategoryAsync(1, true);
             }
             catch (Exception ex)
             {
@@ -401,7 +392,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         /// <param name="bl2">状态2</param>
         private void SetEnabled(Boolean bl1, Boolean bl2)
         {
-            txtName.IsEnabled  = btnSave.IsEnabled = bl1;
+            txtName.IsEnabled = btnSave.IsEnabled = bl1;
             this.btnAdd.IsEnabled = bl2;
             this.btnDel.IsEnabled = bl2;
             this.btnUpdate.IsEnabled = bl2;
@@ -415,7 +406,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             //txtLbxh.Text = "自动生成";
             txtName.Text = String.Empty;
-             
+
             cmbYxjl.SelectedIndex = 0;
             //m_funstate = EditState.View;
         }
@@ -465,9 +456,9 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             //cbxInsert.SelectedIndex = -1;
             txtName.Text = "";
-           
+
         }
-        
+
     }
 }
 

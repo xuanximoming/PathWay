@@ -1,29 +1,24 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Controls;
-using YidanEHRApplication.Models;
-using System.Text;
-using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
 using System.Windows.Threading;
+using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.UserControls
 {
     public partial class UCCyXDF : UserControl
     {
-       
+
         private const string m_strTitle = "医嘱提示"; //定义弹出框标题栏
 
         private ManualType m_ManualType = ManualType.New;
@@ -104,19 +99,22 @@ namespace YidanEHRApplication.Views.UserControls
             InitializeComponent();
         }
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        { try{
-            OnAfterDrugLoadedEvent(e); }
-         catch (Exception ex)
-         {
-            YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
-         }
+        {
+            try
+            {
+                OnAfterDrugLoadedEvent(e);
+            }
+            catch (Exception ex)
+            {
+                YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
+            }
 
         }
 
         private void InitPage()
         {
             InitDrugInfo();//初始化药品信息//项目下拉框
-             
+
             IntiComboBoxDept();
             //add by luff 20130313 获得配置表关于医嘱可选不算变异参数 若值为1表示可选，0表示必须
             //List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("Yziskx") > -1).ToList();
@@ -157,11 +155,11 @@ namespace YidanEHRApplication.Views.UserControls
             //        {
             //            if (e.Error == null && e.Result > -1)
             //            {
-                            this.txtjjlx.Visibility = Visibility.Visible;
-                            this.cbxJJLX.Visibility = Visibility.Visible;
+            this.txtjjlx.Visibility = Visibility.Visible;
+            this.cbxJJLX.Visibility = Visibility.Visible;
 
-                            InitJJTypeInfo(cbxJJLX);
-                            cbxJJLX.SelectedIndex = 0;
+            InitJJTypeInfo(cbxJJLX);
+            cbxJJLX.SelectedIndex = 0;
 
             //            }
             //            else
@@ -184,7 +182,7 @@ namespace YidanEHRApplication.Views.UserControls
             #endregion
 
         }
-        
+
         /// <summary>
         /// 初始化计费类型数据 add by luff 20130118
         /// </summary>
@@ -296,33 +294,35 @@ namespace YidanEHRApplication.Views.UserControls
 
         #region 频次后面的周代码和时间
         private void CheckBoxWeek_Loaded(object sender, RoutedEventArgs e)
-        { try{
-            cplist = (List<CP_PCSJ>)cbxSJ.ItemsSource;
-
-            for (int i = 0; i < cplist.Count; i++)
+        {
+            try
             {
-                CheckBox ck = sender as CheckBox;
-                if (cplist[i].DwFlag != "Week") // Week为数据库AS出来的值
-                {
-                    ck.IsEnabled = false;
-                }
-                else
-                {
-                    for (int j = 0; j < cplist[i].Zdm.Length; j++)
-                    {
+                cplist = (List<CP_PCSJ>)cbxSJ.ItemsSource;
 
-                        if (ck.Tag.ToString() == cplist[i].Zdm.Substring(j, 1).ToString())
+                for (int i = 0; i < cplist.Count; i++)
+                {
+                    CheckBox ck = sender as CheckBox;
+                    if (cplist[i].DwFlag != "Week") // Week为数据库AS出来的值
+                    {
+                        ck.IsEnabled = false;
+                    }
+                    else
+                    {
+                        for (int j = 0; j < cplist[i].Zdm.Length; j++)
                         {
-                            ck.IsChecked = true;
+
+                            if (ck.Tag.ToString() == cplist[i].Zdm.Substring(j, 1).ToString())
+                            {
+                                ck.IsChecked = true;
+                            }
                         }
                     }
                 }
             }
-             }
-         catch (Exception ex)
-         {
-            YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
-         }
+            catch (Exception ex)
+            {
+                YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
+            }
 
         }
         private void CheckBoxWeek_Checked(object sender, RoutedEventArgs e)
@@ -460,75 +460,75 @@ namespace YidanEHRApplication.Views.UserControls
                         cbxMDDW.ItemsSource = m_ListDrugUnit;
                         if (m_ListDrugUnit.Count > 0)
                             cbxMDDW.SelectedIndex = 0;
-                         
+
                         #endregion
                     }
 
-                        #region 数量
-                        nudMDSL.Value = 1;
-                        #endregion
+                    #region 数量
+                    nudMDSL.Value = 1;
+                    #endregion
 
-                        #region 用法
-                        Client.GetDrugUseageCompleted +=
-                            (obj, ea) =>
+                    #region 用法
+                    Client.GetDrugUseageCompleted +=
+                        (obj, ea) =>
+                        {
+                            if (ea.Error == null)
                             {
-                                if (ea.Error == null)
+                                cbxMDYF.ItemsSource = ea.Result;
+                                //cbxMDYF.SelectedValue = _cp_AdviceGroupDetail.Yfdm;
+                                if (ea.Result.Count > 0)
                                 {
-                                    cbxMDYF.ItemsSource = ea.Result;
-                                    //cbxMDYF.SelectedValue = _cp_AdviceGroupDetail.Yfdm;
-                                    if (ea.Result.Count > 0)
+                                    cbxMDYF.SelectedIndex = 0;
+                                    if (_cp_AdviceGroupDetail.Yfdm != null)
                                     {
-                                        cbxMDYF.SelectedIndex = 0;
-                                        if (_cp_AdviceGroupDetail.Yfdm != null)
-                                        {
-                                            cbxMDYF.SelectedValue = _cp_AdviceGroupDetail.Yfdm;
-                                            //cbxMDYF.SelectedItem = ((ObservableCollection<CP_DrugUseage>)cbxMDYF.ItemsSource).First(where => where.Yfdm.Equals(_cp_AdviceGroupDetail.Yfdm));   //7.25 序列不包含在元素中     ZM
-                                        }
+                                        cbxMDYF.SelectedValue = _cp_AdviceGroupDetail.Yfdm;
+                                        //cbxMDYF.SelectedItem = ((ObservableCollection<CP_DrugUseage>)cbxMDYF.ItemsSource).First(where => where.Yfdm.Equals(_cp_AdviceGroupDetail.Yfdm));   //7.25 序列不包含在元素中     ZM
                                     }
                                 }
-                                else
-                                {
-                                    PublicMethod.RadWaringBox(ea.Error);
-                                }
-                            };
-                        Client.GetDrugUseageAsync(((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Jxdm);
-                        #endregion
-
-                        #region 频次代码
-                        //if (cbxPC.Items.Count == 0)
-                        //{
-                        Client.GetAdviceFrequencyCompleted +=
-                            (obj, ea) =>
+                            }
+                            else
                             {
-                                if (ea.Error == null)
+                                PublicMethod.RadWaringBox(ea.Error);
+                            }
+                        };
+                    Client.GetDrugUseageAsync(((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Jxdm);
+                    #endregion
+
+                    #region 频次代码
+                    //if (cbxPC.Items.Count == 0)
+                    //{
+                    Client.GetAdviceFrequencyCompleted +=
+                        (obj, ea) =>
+                        {
+                            if (ea.Error == null)
+                            {
+                                cbxPC.ItemsSource = ea.Result;
+                                //cbxPC.SelectedValue = _cp_AdviceGroupDetail.Pcdm;
+                                if (ea.Result.Count > 0)
                                 {
-                                    cbxPC.ItemsSource = ea.Result;
-                                    //cbxPC.SelectedValue = _cp_AdviceGroupDetail.Pcdm;
-                                    if (ea.Result.Count > 0)
+                                    cbxPC.SelectedIndex = 0;
+                                    if (_cp_AdviceGroupDetail.Pcdm != null)
                                     {
-                                        cbxPC.SelectedIndex = 0;
-                                        if (_cp_AdviceGroupDetail.Pcdm != null)
-                                        {
-                                            cbxPC.SelectedItem = ((ObservableCollection<CP_AdviceFrequency>)cbxPC.ItemsSource).First(where => where.Pcdm.Equals(_cp_AdviceGroupDetail.Pcdm));
-                                        }
+                                        cbxPC.SelectedItem = ((ObservableCollection<CP_AdviceFrequency>)cbxPC.ItemsSource).First(where => where.Pcdm.Equals(_cp_AdviceGroupDetail.Pcdm));
                                     }
                                 }
-                                else
-                                {
-                                    PublicMethod.RadWaringBox(ea.Error);
-                                }
-                            };
-                        Client.GetAdviceFrequencyAsync(null);
-                        //}
-                        //else
-                        //{
-                        //    //cbxPC.SelectedValue = _cp_AdviceGroupDetail.Pcdm;
-                        //    cbxPC.SelectedIndex = 0;
-                        //}
-                        #endregion
-                    
+                            }
+                            else
+                            {
+                                PublicMethod.RadWaringBox(ea.Error);
+                            }
+                        };
+                    Client.GetAdviceFrequencyAsync(null);
+                    //}
+                    //else
+                    //{
+                    //    //cbxPC.SelectedValue = _cp_AdviceGroupDetail.Pcdm;
+                    //    cbxPC.SelectedIndex = 0;
+                    //}
+                    #endregion
 
-                        //this.autoCompleteBoxDept.SelectedItem = ((ObservableCollection<CP_DepartmentList>)autoCompleteBoxDept.ItemsSource).FirstOrDefault(cp => cp.Ksdm.Equals(((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Memo));
+
+                    //this.autoCompleteBoxDept.SelectedItem = ((ObservableCollection<CP_DepartmentList>)autoCompleteBoxDept.ItemsSource).FirstOrDefault(cp => cp.Ksdm.Equals(((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Memo));
                     Client.CloseAsync();
                 }
             }
@@ -595,8 +595,8 @@ namespace YidanEHRApplication.Views.UserControls
                 PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
-         
-	
+
+
 
         private void btnMDXYZ_Click(object sender, RoutedEventArgs e)
         {
@@ -692,7 +692,7 @@ namespace YidanEHRApplication.Views.UserControls
                 }
                 else
                 {
-                    
+
                 }
             }
             catch (Exception ex)
@@ -704,7 +704,7 @@ namespace YidanEHRApplication.Views.UserControls
         private bool Check()
         {
             #region 保存之前判断
-            if (autoCompleteBoxOrder.SelectedItem == null || cbxMDYF.SelectedItem == null || cbxPC.SelectedItem == null ||  cbxSJ.SelectedItem == null)
+            if (autoCompleteBoxOrder.SelectedItem == null || cbxMDYF.SelectedItem == null || cbxPC.SelectedItem == null || cbxSJ.SelectedItem == null)
             {
                 string AlterMessage =
                      (autoCompleteBoxOrder.SelectedItem == null ? "\r\n" + "草药项目必须选择" : "")
@@ -733,15 +733,15 @@ namespace YidanEHRApplication.Views.UserControls
 
             //if (((OrderTypeName)cbxMDYZBZ.SelectedItem).OrderValue == 2703)    //在添加长期医嘱的时候需要判断是否存在相同的项目
             //{
-                for (int i = 0; i < listJudgeSame.Count; i++)
+            for (int i = 0; i < listJudgeSame.Count; i++)
+            {
+                if (listJudgeSame[i].Ypdm == ((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Ypdm
+                    && listJudgeSame[i].Yzbz == 2799) //  && CurrentState == PageState.New                        
                 {
-                    if (listJudgeSame[i].Ypdm == ((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Ypdm
-                        && listJudgeSame[i].Yzbz == 2799) //  && CurrentState == PageState.New                        
-                    {
-                        PublicMethod.RadAlterBox("存在相同项目医嘱,无法继续添加", m_strTitle);
-                        return false;
-                    }
+                    PublicMethod.RadAlterBox("存在相同项目医嘱,无法继续添加", m_strTitle);
+                    return false;
                 }
+            }
             //}
             #endregion
             return true;
@@ -756,7 +756,7 @@ namespace YidanEHRApplication.Views.UserControls
             if (this.ManualType == Helpers.ManualType.Edit)//草药房处方修改，需要考虑草药协定方明细去，建议去草药方维护中去修改
             {
                 _cp_AdviceGroupDetail.Yzbz = 2799;
-                _cp_AdviceGroupDetail.YzbzName ="草药处方项目";
+                _cp_AdviceGroupDetail.YzbzName = "草药处方项目";
 
                 _cp_AdviceGroupDetail.Cdxh = ConvertMy.ToDecimal(((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Cdxh);
                 _cp_AdviceGroupDetail.Ggxh = ConvertMy.ToDecimal(((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Ggxh);
@@ -768,7 +768,7 @@ namespace YidanEHRApplication.Views.UserControls
                 _cp_AdviceGroupDetail.Ypgg = ((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Ypgg;
                 _cp_AdviceGroupDetail.Ypjl = Convert.ToDecimal(nudMDSL.Value);
                 _cp_AdviceGroupDetail.Ypjl = Convert.ToDecimal(nudMDSL.Value);
-                _cp_AdviceGroupDetail.Jldw = (((CyDrugUnitsType)cbxMDDW.SelectedItem).UnitNameCy)==""?"g":((CyDrugUnitsType)cbxMDDW.SelectedItem).UnitNameCy;
+                _cp_AdviceGroupDetail.Jldw = (((CyDrugUnitsType)cbxMDDW.SelectedItem).UnitNameCy) == "" ? "g" : ((CyDrugUnitsType)cbxMDDW.SelectedItem).UnitNameCy;
                 _cp_AdviceGroupDetail.Yfdm = ((CP_DrugUseage)cbxMDYF.SelectedItem).Yfdm;
                 _cp_AdviceGroupDetail.YfdmName = ((CP_DrugUseage)cbxMDYF.SelectedItem).Name;
                 _cp_AdviceGroupDetail.Pcdm = ((CP_AdviceFrequency)cbxPC.SelectedItem).Pcdm;
@@ -791,8 +791,8 @@ namespace YidanEHRApplication.Views.UserControls
                 //                this.txtjjlx.Visibility = Visibility.Visible;
                 //                this.cbxJJLX.Visibility = Visibility.Visible;
 
-                                _cp_AdviceGroupDetail.Jjlx = int.Parse(cbxJJLX.SelectedValue.ToString());
-                                _cp_AdviceGroupDetail.Jjlxmc = cbxJJLX.Text.ToString();
+                _cp_AdviceGroupDetail.Jjlx = int.Parse(cbxJJLX.SelectedValue.ToString());
+                _cp_AdviceGroupDetail.Jjlxmc = cbxJJLX.Text.ToString();
 
                 //            }
                 //            else
@@ -814,9 +814,9 @@ namespace YidanEHRApplication.Views.UserControls
                 //}
 
                 #endregion
-                _cp_AdviceGroupDetail.Zxksdm = autoCompleteBoxDept.SelectedItem ==null?"":((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Ksdm;
-                _cp_AdviceGroupDetail.Zxksdmmc = autoCompleteBoxDept.SelectedItem == null ? "" : ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Name; 
-                
+                _cp_AdviceGroupDetail.Zxksdm = autoCompleteBoxDept.SelectedItem == null ? "" : ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Ksdm;
+                _cp_AdviceGroupDetail.Zxksdmmc = autoCompleteBoxDept.SelectedItem == null ? "" : ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Name;
+
                 //草药用法名称
                 _cp_AdviceGroupDetail.Extension2 = ((CP_DrugUseage)cbxMDYF.SelectedItem).Name;
                 //草药协定方名称
@@ -851,7 +851,7 @@ namespace YidanEHRApplication.Views.UserControls
                 if (Global.InpatientListCurrent == null)
                     _cp_AdviceGroupDetail.Syxh = 0;
                 else
-                _cp_AdviceGroupDetail.Syxh = ConvertMy.ToDecimal(Global.InpatientListCurrent.Syxh);
+                    _cp_AdviceGroupDetail.Syxh = ConvertMy.ToDecimal(Global.InpatientListCurrent.Syxh);
                 _cp_AdviceGroupDetail.Bqdm = Global.LogInEmployee.Bqdm;
                 _cp_AdviceGroupDetail.Ksdm = Global.LogInEmployee.Ksdm;
                 _cp_AdviceGroupDetail.Lrysdm = Global.LogInEmployee.Zgdm;
@@ -894,7 +894,7 @@ namespace YidanEHRApplication.Views.UserControls
                 _cp_AdviceGroupDetail.Zxdw = ((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Zxdw;
                 _cp_AdviceGroupDetail.Ypgg = ((CP_CYFUnion)autoCompleteBoxOrder.SelectedItem).Ypgg;
                 _cp_AdviceGroupDetail.Dwxs = 1;//单位系数不知道为何。。。
-                _cp_AdviceGroupDetail.Dwlb = cbxMDDW.SelectedValue == null ? 3007 : ((CyDrugUnitsType)cbxMDDW.SelectedItem).UnitIDCy; 
+                _cp_AdviceGroupDetail.Dwlb = cbxMDDW.SelectedValue == null ? 3007 : ((CyDrugUnitsType)cbxMDDW.SelectedItem).UnitIDCy;
                 _cp_AdviceGroupDetail.Zxcs = ((CP_AdviceFrequency)cbxPC.SelectedItem).Zxcs;
                 _cp_AdviceGroupDetail.Zxzq = ((CP_AdviceFrequency)cbxPC.SelectedItem).Zxzq;
                 _cp_AdviceGroupDetail.Zxzqdw = ((CP_AdviceFrequency)cbxPC.SelectedItem).Zxzqdw;
@@ -916,7 +916,7 @@ namespace YidanEHRApplication.Views.UserControls
                 _cp_AdviceGroupDetail.Yzzt = 3200;
                 _cp_AdviceGroupDetail.Fzxh = 0;
                 _cp_AdviceGroupDetail.Yzlb = (int)PanelCategory;//草药医嘱类别
-                _cp_AdviceGroupDetail.Zxts = ConvertMy.ToDecimal(nudTS.Value); 
+                _cp_AdviceGroupDetail.Zxts = ConvertMy.ToDecimal(nudTS.Value);
                 _cp_AdviceGroupDetail.Ypzsl = 0; //出院带药。
                 _cp_AdviceGroupDetail.Ztnr = txtZTNR.Text;
                 //add by luff 20130118
@@ -929,11 +929,11 @@ namespace YidanEHRApplication.Views.UserControls
                 //        {
                 //            if (e.Error == null && e.Result > -1)
                 //            {
-                                this.txtjjlx.Visibility = Visibility.Visible;
-                                this.cbxJJLX.Visibility = Visibility.Visible;
+                this.txtjjlx.Visibility = Visibility.Visible;
+                this.cbxJJLX.Visibility = Visibility.Visible;
 
-                                _cp_AdviceGroupDetail.Jjlx = int.Parse(cbxJJLX.SelectedValue.ToString());
-                                _cp_AdviceGroupDetail.Jjlxmc = cbxJJLX.Text.ToString();
+                _cp_AdviceGroupDetail.Jjlx = int.Parse(cbxJJLX.SelectedValue.ToString());
+                _cp_AdviceGroupDetail.Jjlxmc = cbxJJLX.Text.ToString();
 
                 //            }
                 //            else
@@ -1063,15 +1063,15 @@ namespace YidanEHRApplication.Views.UserControls
             try
             {
                 autoCompleteBoxOrder.SelectedItem = null;
-                
+
                 autoCompleteBoxOrder.IsEnabled = false;
-               
+
                 autoCompleteBoxOrder.SelectedItem = ((ObservableCollection<CP_CYFUnion>)autoCompleteBoxOrder.ItemsSource).First(cp => cp.Ypdm.Equals(_cp_AdviceGroupDetail.Ypdm));
                 nudMDSL.Value = Convert.ToDouble(_cp_AdviceGroupDetail.Ypjl);
                 //cbxMDDW.Text = _cp_AdviceGroupDetail.Jldw;
                 /********* Edit by dxj 2011/7/23 修改原因：下拉框加载值错误 *******/
                 //cbxMDDW.SelectedValue = _cp_AdviceGroupDetail.Dwlb;
-               
+
                 cbxMDDW.SelectedItem = ((List<CyDrugUnitsType>)cbxMDDW.ItemsSource).First(where => where.UnitNameCy.Equals(_cp_AdviceGroupDetail.Jldw));
                 //cbxMDYF.SelectedValue = _cp_AdviceGroupDetail.Yfdm;
                 //cbxPC.SelectedValue = _cp_AdviceGroupDetail.Pcdm;
@@ -1111,8 +1111,8 @@ namespace YidanEHRApplication.Views.UserControls
         /// </summary>
         private void RegisterKeyEvent()
         {
-        
-            
+
+
             autoCompleteBoxOrder.KeyUp += new KeyEventHandler(autoCompleteBoxOrder_KeyUp);
             nudMDSL.KeyUp += new KeyEventHandler(nudMDSL_KeyUp);
             cbxMDDW.KeyUp += new KeyEventHandler(cbxMDDW_KeyUp);
@@ -1126,8 +1126,8 @@ namespace YidanEHRApplication.Views.UserControls
             txtZTNR.KeyUp += new KeyEventHandler(txtZTNR_KeyUp);
         }
 
-         
-        
+
+
         /// <summary>
         /// 项目
         /// </summary>
@@ -1240,7 +1240,7 @@ namespace YidanEHRApplication.Views.UserControls
                 btnMDQD.Focus();
         }
         #endregion
- 
+
 
     }
 
@@ -1306,7 +1306,7 @@ namespace YidanEHRApplication.Views.UserControls
             }
         }
         private UIElement _parentCy;
-        private List<Control> _controlsCy  = new List<Control>();
+        private List<Control> _controlsCy = new List<Control>();
         public CyEnterToTab(UIElement parent)
         {
             _parentCy = parent;
@@ -1330,11 +1330,11 @@ namespace YidanEHRApplication.Views.UserControls
             try
             {
                 // 清除原来关联过的
-                foreach (var c in _controlsCy )
+                foreach (var c in _controlsCy)
                 {
                     c.KeyUp -= new KeyEventHandler(ControlCy_KeyUp);
                 }
-                _controlsCy .Clear();
+                _controlsCy.Clear();
                 // 获取可以 Tab 的控件并加入到列表中
                 IEnumerable<Control> originals = CyEnterToTab.FindChildrenCy<Control>(_parentCy);
                 foreach (var c in originals)
@@ -1347,14 +1347,14 @@ namespace YidanEHRApplication.Views.UserControls
                             if (t1.IsAssignableFrom(t2))
                             {
                                 c.KeyUp += new KeyEventHandler(ControlCy_KeyUp);
-                                _controlsCy .Add(c);
+                                _controlsCy.Add(c);
                                 break;
                             }
                         }
                     }
                 }
                 // 根据 TabIndex 的原始值排序
-                _controlsCy .Sort(new TabIndexComparer());
+                _controlsCy.Sort(new TabIndexComparer());
             }
             finally
             {
@@ -1366,19 +1366,19 @@ namespace YidanEHRApplication.Views.UserControls
             if ((e.Key == Key.Enter))
             {
                 Control source = (sender as Control);
-                int index = _controlsCy .IndexOf(source);
+                int index = _controlsCy.IndexOf(source);
                 if (e.Key == Key.Enter || e.Key == Key.Down)
                 {
-                    if (index < _controlsCy .Count - 1)
+                    if (index < _controlsCy.Count - 1)
                     {
-                        _controlsCy [index + 1].Focus();
+                        _controlsCy[index + 1].Focus();
                     }
                 }
                 else
                 {
                     if (index > 0)
                     {
-                        _controlsCy [index - 1].Focus();
+                        _controlsCy[index - 1].Focus();
                     }
                 }
             }
@@ -1403,5 +1403,5 @@ namespace YidanEHRApplication.Views.UserControls
         }
     }
 
-    
+
 }

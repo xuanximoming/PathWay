@@ -1,23 +1,18 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
+using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+using System.Windows.Markup;
 using System.Windows.Navigation;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Data;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Data;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
-using System.Windows.Markup;
-using System.Windows.Data;
 using YidanEHRApplication.ViewsViews.Tool;
 namespace YidanEHRApplication.Views
 {
@@ -108,8 +103,8 @@ namespace YidanEHRApplication.Views
                 //parameters.Closed = AddCP_PathVariationClose;
                 //RadWindow.Confirm(parameters);
                 YidanPathWayMessageBox mess = new YidanPathWayMessageBox("确认创建变异编码吗？", "提示", YiDanMessageBoxButtons.YesNo);
-                    mess.ShowDialog();
-                    mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);
+                mess.ShowDialog();
+                mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);
 
             }
             catch (Exception ex)
@@ -310,7 +305,7 @@ namespace YidanEHRApplication.Views
             {
                 PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
-        
+
         }
         void AddCP_PathVariationClose(object sender, WindowClosedEventArgs e)
         {

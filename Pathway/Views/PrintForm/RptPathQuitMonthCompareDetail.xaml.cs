@@ -1,20 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-
+using System.Windows.Printing;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
-using System.Windows.Printing;
 using YidanEHRApplication.Views.ReportForms;
 
 namespace YidanEHRApplication.Views.PrintForm
@@ -22,7 +12,7 @@ namespace YidanEHRApplication.Views.PrintForm
 
     public partial class RptPathQuitMonthCompareDetail
     {
-        public RptPathQuitMonthCompareDetail(String ljmc, String time,String ljmcAll)
+        public RptPathQuitMonthCompareDetail(String ljmc, String time, String ljmcAll)
         {
             Time = time;
             Ljmc = ljmc;

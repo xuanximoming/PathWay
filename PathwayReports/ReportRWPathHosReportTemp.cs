@@ -1,15 +1,8 @@
 ﻿namespace YidanEHRReport
 {
     using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Telerik.Reporting;
-    using Telerik.Reporting.Drawing;
-    using System.Data;
-    using YidanSoft.Tool;
-    using System.Data.SqlClient;
     using System.Collections.Generic;
+    using System.Data;
     using Yidansoft.Service;
 
     /// <summary>
@@ -34,7 +27,7 @@
                 //this.subReportDetail.Parameters.
                 //this.subReportDetail.ReportSource.DataSource = .RenderBegin += new Telerik.ReportViewer.Silverlight.RenderBeginEventHandler(ReportViewer1_RenderBegin);
                 this.NeedDataSource += new EventHandler(ReportTest_NeedDataSource);
-                
+
 
             }
             catch (Exception)
@@ -50,7 +43,7 @@
             {
                 m_sqlHelp = new ReportSqlHelp();
                 m_pathSummaryOrderList = new List<RW_PathSummaryOrder>();
- 
+
             }
             catch (Exception)
             {
@@ -63,7 +56,7 @@
         {
             try
             {
- 
+
             }
             catch (Exception)
             {
@@ -115,7 +108,7 @@
         {
             try
             {
-                DataTable dt = m_sqlHelp.GetClinicalPathDetailInfo(this.m_sLjdm,"");
+                DataTable dt = m_sqlHelp.GetClinicalPathDetailInfo(this.m_sLjdm, "");
                 if (dt != null)
                 {
                     this.DataSource = dt;
@@ -145,7 +138,7 @@
             //ss.m_sSyxh = m_sSyxh;
             //ss.m_sLjdm = m_sLjdm;
             //ss.m_sDetailID = textBox3.Value; 
-            
+
         }
 
         private void detail_Disposed(object sender, EventArgs e)
@@ -153,7 +146,7 @@
             string s = nameDataTextBox.Value;
         }
 
-      
+
         /*
 //配置临床路径单个节点报表,seq为路径节点顺序号
 private void SingleReportPageConfig(int seq)

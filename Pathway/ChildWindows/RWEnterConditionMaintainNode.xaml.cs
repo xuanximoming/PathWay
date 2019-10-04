@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DrectSoft.Tool;
+using System;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
-using System.Collections.ObjectModel;
-using YidanSoft.Tool;
-using YidanEHRApplication.Helpers;
-using Telerik.Windows.Controls;
-using System.Diagnostics;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -46,7 +36,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     // txtOperationStateNode.Text = "当前状态：新增";
                     ClearControlValueNode();
                     this.cmbConditionTypeNode.IsEnabled = true;
-                   
+
                 }
                 if (value == OperationState.EDIT)
                 {
@@ -77,7 +67,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 this.cmbConditionTypeNode.IsEnabled = value != OperationState.VIEW;
                 //this.radBusyIndicator.IsEnabled = value != OperationState.VIEW;
 
-               
+
 
 
                 stateNode = value;
@@ -112,7 +102,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 this.autoCompleteNonICD10Node.IsEnabled = false;
                 this.numStart_1Node.IsEnabled = false;
                 this.numEnd_1Node.IsEnabled = false;
-               
+
 
                 #region 绑定类型下拉框
 
@@ -126,7 +116,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 cmbConditionTypeNode.SelectedValue = "1";
                 //cmbConditionTypeNode.IsEnabled = false;
                 #endregion
-                 
+
                 #region 绑定非ICD自动完成框
 
                 referenceClient.GetCP_ExamDictionaryDetailAllCompleted += (send2, ea2) =>
@@ -146,7 +136,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
 
-            
+
         }
         /// <summary>
         /// 检查项选择事件
@@ -232,7 +222,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     //Reset();
                     return;
                 }
-                 
+
                 //获得该行数据对象
                 _CP_PathEnterJudgeConditionNode = (CP_PathEnterJudgeCondition)GrdConditonListNode.SelectedItem;
                 //2013.04.12,WangGuojin
@@ -337,14 +327,14 @@ namespace YidanEHRApplication.Views.ChildWindows
                 {
                     PublicMethod.RadAlterBox("请选择一条记录！", "提示");
                 }
-                #endregion
+                    #endregion
             }
             catch (Exception ex)
             {
                 YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
 
-        
+
         }
         void mess_PageClosedEvent(object sender, bool e)
         {
@@ -410,12 +400,12 @@ namespace YidanEHRApplication.Views.ChildWindows
                     {
                         //PublicMethod.RadAlterBox("检查项不能为空！", "提示");
                         #region  判断检查项必须填写并获得当前控件焦点
-                        
+
                         PublicMethod.RadAlterBoxRe("检查项不能为空(检查项为编码输入选择项)", "提示", autoCompleteNonICD10Node);
                         _GoTo = false;
                         return;
                         #endregion
-                       
+
                     }
                     #region 适用人群和范围
                     //if (numEnd_6Node.Value <= numStart_6Node.Value || numEnd_5Node.Value <= numStart_5Node.Value || numEnd_4Node.Value <= numStart_4Node.Value || numEnd_3Node.Value <= numStart_3Node.Value || numEnd_2Node.Value <= numStart_2Node.Value || numEnd_1Node.Value <= numStart_1Node.Value)
@@ -485,7 +475,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                         _GoTo = false;
                         return;
                         #endregion
-                      
+
                     }
                     _CP_PathEnterJudgeConditionNode.Xmlb = 3;
                     _CP_PathEnterJudgeConditionNode.Jcxm = txtDescrib.Text; //((CP_Diagnosis_E)autoCompleteICD10.SelectedItem).Zdbs;
@@ -538,7 +528,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             }
 
         }
-      
+
         /// <summary>
         /// 重置操作
         /// </summary>
@@ -746,8 +736,8 @@ namespace YidanEHRApplication.Views.ChildWindows
                     }
                     #endregion
                 }
-                 
-                
+
+
             }
             catch (Exception ex)
             {

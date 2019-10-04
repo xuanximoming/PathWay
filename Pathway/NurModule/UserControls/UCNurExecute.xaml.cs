@@ -1,24 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.Views;
+using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
-using System.Collections.ObjectModel;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-using YidanEHRApplication.WorkFlow.Designer;
-using Telerik.Windows.Controls;
-using YidanEHRApplication.WorkFlow;
+using YidanEHRApplication.Views;
 using YidanEHRApplication.Views.ChildWindows;
-using YidanSoft.Tool;
+using YidanEHRApplication.WorkFlow;
+using YidanEHRApplication.WorkFlow.Designer;
 
 namespace YidanEHRApplication.NurModule.UserControls
 {
@@ -234,7 +227,7 @@ namespace YidanEHRApplication.NurModule.UserControls
             if (Global.InpatientListCurrent.Status == "1503")
             {
                 buttonConfirm.IsEnabled = false;
-                
+
             }
             IntiPatinetInfo();
             InitButtoState();
@@ -659,10 +652,10 @@ namespace YidanEHRApplication.NurModule.UserControls
         /// 保存主要诊疗与护理工作
         /// </summary>
         private void SaveDiagNurInfo()
-        { 
+        {
             foreach (Control ctl in stpInfo.Children)
             {
-                if(ctl.Name == "UCDiagNurExec")
+                if (ctl.Name == "UCDiagNurExec")
                 {
                     ((UCDiagNurExec)ctl).Save();
                     return;

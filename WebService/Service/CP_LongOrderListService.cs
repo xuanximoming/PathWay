@@ -1,20 +1,10 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Activation;
-using System.Data.SqlClient;
 using System.Data;
-using Yidansoft.Service.Entity;
-using System.Collections;
-using System.Xml.Linq;
+using System.ServiceModel;
 using System.Text;
-using System.IO;
-using System.IO.Compression;
-using System.Configuration;
-using YidanSoft.Tool;
+using Yidansoft.Service.Entity;
 
 namespace Yidansoft.Service
 {
@@ -95,8 +85,8 @@ namespace Yidansoft.Service
                     cp.Extension = dr["Extension"].ToString();
                     cp.Extension1 = dr["Extension1"].ToString();
                     cp.Extension2 = dr["Extension2"].ToString();
-                    cp.Extension3 = dr["Extension3"].ToString(); 
-                    cp.Extension4 = dr["Extension4"].ToString() == string.Empty ? 0 : Convert.ToInt16(dr["Extension4"].ToString()); 
+                    cp.Extension3 = dr["Extension3"].ToString();
+                    cp.Extension4 = dr["Extension4"].ToString() == string.Empty ? 0 : Convert.ToInt16(dr["Extension4"].ToString());
 
                     cp.Yzzt = ConvertMy.ToDecimal(dr["Yzzt"].ToString());
                     cp.Cqyzxh = ConvertMy.ToDecimal(dr["Cqyzxh"].ToString());

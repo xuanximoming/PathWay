@@ -1,18 +1,17 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.DataService;
 using Telerik.Windows.Controls;
-
-using System.Collections.ObjectModel;
+using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.ChildWindows;
-using YidanSoft.Tool;
 namespace YidanEHRApplication.Views
 {
     /// <summary>
@@ -21,7 +20,7 @@ namespace YidanEHRApplication.Views
     public partial class PathManager : Page
     {
         public bool isLoad = true;
-         
+
 
         #region 事件
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -234,7 +233,7 @@ namespace YidanEHRApplication.Views
                                         Reset();
                                     }
                                     //radbuttonQuery_Click(null, null);
-                       
+
                                 }
                                 else
                                 {
@@ -255,7 +254,7 @@ namespace YidanEHRApplication.Views
                 }
 
                 Reset();
-               
+
             }
             catch (Exception ex)
             {
@@ -269,7 +268,7 @@ namespace YidanEHRApplication.Views
             }
         }
 
-       
+
         #region 复制路径（路径状态是审核和病人使用中）add by luff 20130423
         private void btnCopy_Click(object sender, RoutedEventArgs e)
         {
@@ -284,8 +283,8 @@ namespace YidanEHRApplication.Views
                 YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
-     
-       
+
+
         /// <summary>
         /// 弹出窗口关闭事件
         /// </summary>
@@ -312,7 +311,7 @@ namespace YidanEHRApplication.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnReset_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             CurrentState = OperationState.NEW;
             Reset();
         }
@@ -375,10 +374,10 @@ namespace YidanEHRApplication.Views
                     pathNode.ShowDialog();
                     pathNode.Closed += new EventHandler<WindowClosedEventArgs>(pathNode_Closed);
                 }
-                
+
                 #endregion
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -434,14 +433,14 @@ namespace YidanEHRApplication.Views
                     this.btnDetail.IsEnabled = false;//.Visibility = Visibility.Collapsed;
                 }
                 // add by luff 20120928
-                if (showInfo.YxjlId == 3 && showInfo.LjSyqk.Trim()=="病患使用中")
+                if (showInfo.YxjlId == 3 && showInfo.LjSyqk.Trim() == "病患使用中")
                 {
                     m_ClinicalPathShowSel = showInfo;
-                    this.btnCopy.IsEnabled = true; 
+                    this.btnCopy.IsEnabled = true;
                 }
                 else
                 {
-                    this.btnCopy.IsEnabled = false; 
+                    this.btnCopy.IsEnabled = false;
                 }
             }
         }
@@ -633,7 +632,7 @@ namespace YidanEHRApplication.Views
                 PublicMethod.RadAlterBoxRe("费用不能为空", m_Title, radNumericUpDownAvgFee); isLoad = false;
                 return false;
             }
-            
+
             //else if (this.radGridViewDisease.Items.Count == 0)
             //{
             //    ShowWaringInfo("请选择病种");
@@ -996,29 +995,18 @@ namespace YidanEHRApplication.Views
                     this.btnDetail.IsEnabled = true;
                     var path = radGridViewPathList.SelectedItem as CP_ClinicalPathList;
                     #region  add by luff 20130815 根据配置参数进入第三方控件的路径维护明细页还是微软控件的路径维护明细页
-                        List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("PathWh") > -1).ToList();
-                        if (t_listApp.Count > 0)
+                    List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("PathWh") > -1).ToList();
+                    if (t_listApp.Count > 0)
+                    {
+                        if (t_listApp[0].Value == "1")//表示进入第三方控件的路径维护明细页
                         {
-                            if (t_listApp[0].Value == "1")//表示进入第三方控件的路径维护明细页
-                            {
-                                RWPathNodeSetting pathNode = new RWPathNodeSetting(path);
-                                pathNode.IsEditEnable = false;
-                                pathNode.WindowState = WindowState.Maximized;
-                                pathNode.ResizeMode = ResizeMode.NoResize;
-                                pathNode.m_bAduit = true;
-                                pathNode.CurrentOperationState = OperationState.VIEW;
-                                pathNode.ShowDialog();
-                            }
-                            else//表示进入微软控件路径维护页面
-                            {
-                                RWPathNodeSettingMS pathNode = new RWPathNodeSettingMS(path);
-                                pathNode.IsEditEnable = false;
-                                pathNode.WindowState = WindowState.Maximized;
-                                pathNode.ResizeMode = ResizeMode.NoResize;
-                                pathNode.m_bAduit = true;
-                                pathNode.CurrentOperationState = OperationState.VIEW;
-                                pathNode.ShowDialog();
-                            }
+                            RWPathNodeSetting pathNode = new RWPathNodeSetting(path);
+                            pathNode.IsEditEnable = false;
+                            pathNode.WindowState = WindowState.Maximized;
+                            pathNode.ResizeMode = ResizeMode.NoResize;
+                            pathNode.m_bAduit = true;
+                            pathNode.CurrentOperationState = OperationState.VIEW;
+                            pathNode.ShowDialog();
                         }
                         else//表示进入微软控件路径维护页面
                         {
@@ -1030,6 +1018,17 @@ namespace YidanEHRApplication.Views
                             pathNode.CurrentOperationState = OperationState.VIEW;
                             pathNode.ShowDialog();
                         }
+                    }
+                    else//表示进入微软控件路径维护页面
+                    {
+                        RWPathNodeSettingMS pathNode = new RWPathNodeSettingMS(path);
+                        pathNode.IsEditEnable = false;
+                        pathNode.WindowState = WindowState.Maximized;
+                        pathNode.ResizeMode = ResizeMode.NoResize;
+                        pathNode.m_bAduit = true;
+                        pathNode.CurrentOperationState = OperationState.VIEW;
+                        pathNode.ShowDialog();
+                    }
                     #endregion
 
                 }
@@ -1060,7 +1059,7 @@ namespace YidanEHRApplication.Views
                         PublicMethod.RadAlterBox("结束日期不能小于开始日期!", "提示");
                         return;
                     }
-                    
+
                 }
                 string strKsdm = this.autoCompleteBoxQueryDept.SelectedItem == null ? string.Empty : ((CP_DepartmentList)this.autoCompleteBoxQueryDept.SelectedItem).Ksdm;
                 string strLjmc = this.autoCompleteBoxQueryPath.SelectedItem == null ? this.autoCompleteBoxQueryPath.Text : ((CP_ClinicalPathList)this.autoCompleteBoxQueryPath.SelectedItem).Name;

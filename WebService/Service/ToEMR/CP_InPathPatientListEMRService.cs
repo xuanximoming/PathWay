@@ -53,16 +53,16 @@ namespace Yidansoft.Service
             if (dataTable != null && dataTable.Rows.Count > 0)
             {
                 p = new CP_InPathPatientList();
-                if (Convert.IsDBNull(dataTable.Rows[0]["Id"])) obj[0] = System.Data.SqlTypes.SqlString.Null; else obj[0] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["ID"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Syxh"])) obj[1] = System.Data.SqlTypes.SqlString.Null; else obj[1] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Syxh"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Cwys"])) obj[2] = System.Data.SqlTypes.SqlString.Null; else obj[2] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Cwys"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Jrsj"])) obj[3] = System.Data.SqlTypes.SqlString.Null; else obj[3] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Jrsj"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Id"])) obj[0] = System.Data.SqlTypes.SqlString.Null; else obj[0] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["ID"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Syxh"])) obj[1] = System.Data.SqlTypes.SqlString.Null; else obj[1] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Syxh"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Cwys"])) obj[2] = System.Data.SqlTypes.SqlString.Null; else obj[2] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Cwys"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Jrsj"])) obj[3] = System.Data.SqlTypes.SqlString.Null; else obj[3] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Jrsj"]) + "'";
 
-                if (Convert.IsDBNull(dataTable.Rows[0]["Ljdm"])) obj[4] = System.Data.SqlTypes.SqlString.Null; else obj[4] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljdm"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Ljts"])) obj[5] = System.Data.SqlTypes.SqlString.Null; else obj[5] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljts"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Ljzt"])) obj[6] = System.Data.SqlTypes.SqlString.Null; else obj[6] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljzt"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Tcsj"])) obj[7] = System.Data.SqlTypes.SqlString.Null; else obj[7] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Tcsj"]) + "'";
-                if (Convert.IsDBNull(dataTable.Rows[0]["Wcsj"])) obj[8] = System.Data.SqlTypes.SqlString.Null; else obj[8] = "'" + YidanSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Wcsj"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Ljdm"])) obj[4] = System.Data.SqlTypes.SqlString.Null; else obj[4] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljdm"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Ljts"])) obj[5] = System.Data.SqlTypes.SqlString.Null; else obj[5] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljts"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Ljzt"])) obj[6] = System.Data.SqlTypes.SqlString.Null; else obj[6] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Ljzt"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Tcsj"])) obj[7] = System.Data.SqlTypes.SqlString.Null; else obj[7] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Tcsj"]) + "'";
+                if (Convert.IsDBNull(dataTable.Rows[0]["Wcsj"])) obj[8] = System.Data.SqlTypes.SqlString.Null; else obj[8] = "'" + DrectSoft.Tool.ConvertMy.ToString(dataTable.Rows[0]["Wcsj"]) + "'";
 
 
 

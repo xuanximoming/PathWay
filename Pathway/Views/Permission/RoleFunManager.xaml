@@ -8,15 +8,7 @@
            xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
            d:DesignWidth="800" d:DesignHeight="600"
            Title="RoleFunManager Page">
-    <Grid x:Name="LayoutRoot">
-        <!--<telerik:RadTabControl   HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="radTabControlPathManager"  VerticalAlignment="Stretch" 
-                             ScrollMode="Pixel" BorderThickness="0" >
-            <telerik:RadTabItem Padding="4 1">
-                <telerik:RadTabItem.Header>
-                    <TextBlock Text="角色功能维护" Margin="19 2 19 0" />
-                </telerik:RadTabItem.Header>
-                <telerik:RadTabItem.Content>-->
-                    
+    <Grid x:Name="LayoutRoot">                    
                             <Grid   Background="#ffffff" Height="600" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="140" ></RowDefinition>

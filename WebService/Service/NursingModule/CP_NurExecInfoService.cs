@@ -6,7 +6,7 @@ using Yidansoft.Service.Entity;
 using System.ServiceModel;
 using System.Data.SqlClient;
 using System.Data;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 
 namespace Yidansoft.Service
 {
@@ -34,12 +34,12 @@ namespace Yidansoft.Service
                     info.XmxhName = row["XmxhName"].ToString();
                     info.Lbxh = row["Lbxh"].ToString();
                     info.LbxhName = row["LbxhName"].ToString();
-                    info.LbOrderValue = YidanSoft.Tool.ConvertMy.ToDecimal(row["LbOrderValue"].ToString());
-                    info.IsUserControl = YidanSoft.Tool.ConvertMy.ToDecimal(row["LbOrderValue"].ToString()) == 0 ? false : true;
+                    info.LbOrderValue = DrectSoft.Tool.ConvertMy.ToDecimal(row["LbOrderValue"].ToString());
+                    info.IsUserControl = DrectSoft.Tool.ConvertMy.ToDecimal(row["LbOrderValue"].ToString()) == 0 ? false : true;
                     info.Mxxh = row["Mxxh"].ToString();
                     info.MxxhName = row["MxxhName"].ToString();
-                    info.InputType = YidanSoft.Tool.ConvertMy.ToDecimal(row["InputType"].ToString());
-                    info.MxOrderValue = YidanSoft.Tool.ConvertMy.ToDecimal(row["MxOrderValue"].ToString());
+                    info.InputType = DrectSoft.Tool.ConvertMy.ToDecimal(row["InputType"].ToString());
+                    info.MxOrderValue = DrectSoft.Tool.ConvertMy.ToDecimal(row["MxOrderValue"].ToString());
                     listInfo.Add(info);
                 }
             }
@@ -181,7 +181,7 @@ namespace Yidansoft.Service
                 foreach (DataRow row in dataTable.Rows)
                 {
                     CP_NurExecToPath info = new CP_NurExecToPath();
-                    info.Id = YidanSoft.Tool.ConvertMy.ToDecimal(row["Id"].ToString());
+                    info.Id = DrectSoft.Tool.ConvertMy.ToDecimal(row["Id"].ToString());
                     info.Ljdm = row["Ljdm"].ToString();
                     info.PathDetailId = row["PathDetailId"].ToString();
                     info.Mxxh = row["Mxxh"].ToString();

@@ -15,7 +15,7 @@ using System.IO.Compression;
 using System.Configuration;
 using System.ServiceModel.Channels;
 using System.Runtime.InteropServices;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using System.Runtime.Serialization.Formatters.Binary;
 using YidanSoft.Core;
 using System.Web.Hosting;

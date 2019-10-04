@@ -1,20 +1,13 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.Helpers;
 using System.Collections.ObjectModel;
-using YidanEHRApplication.Models;
-using YidanSoft.Tool;
+using System.Linq;
+using System.Windows;
 using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -77,7 +70,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 YidanPathWayMessageBox mess = new YidanPathWayMessageBox("请问是否删除选中的信息吗？", "提示", YiDanMessageBoxButtons.YesNo);
                 mess.ShowDialog();
                 //GetCP_AdviceSuitCategory();
-                
+
                 mess.PageClosedEvent += new YidanPathWayMessageBox.PageClosed(mess_PageClosedEvent);
                 //AddTree(String.Empty, null, result, result);
                 #endregion
@@ -195,7 +188,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             try
             {
-                
+
                 //if (adviceSuitCategory == null)  修改前
                 //更改修改后还能继续修改的问题
                 //时间：2013年7月22日 15:56:29
@@ -269,7 +262,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     parameters.Closed = OnFocusMaster;
                     RadWindow.Alert(parameters);
                     #endregion
-                    
+
                     return;
                 }
                 YidanEHRDataServiceClient client = PublicMethod.YidanClient;
@@ -371,7 +364,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 ddpParent.Content = "请选择分类名称...";
                 ddpParent.IsEnabled = false;
                 txtName.Text = "";
-                txtMemo.Text = "";  
+                txtMemo.Text = "";
             }
             catch (Exception ex)
             {
@@ -459,13 +452,13 @@ namespace YidanEHRApplication.Views.ChildWindows
                 AdviceSuitCategory.Name = String.Empty;
                 AdviceSuitCategory.Memo = String.Empty;
                 AdviceSuitCategory.Zgdm = String.Empty;
-                
+
                 client.InsertAndSelectCP_AdviceSuitCategoryCompleted += (obj, e) =>
                 {
                     if (e.Error == null)
                     {
                         cp_AdviceSuitTypeList = e.Result;
-                        if (count ==1)
+                        if (count == 1)
                         {
                             AddTree(String.Empty, null, e.Result.ToList(), e.Result.ToList());
                         }
@@ -495,7 +488,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             if (CategoryList == null)
             {
-                return; 
+                return;
             }
             int i_cout = 0;
             foreach (CP_AdviceSuitCategory row in sunCategoryList.Where(c => c.ParentID.Equals(parentId)))
@@ -556,7 +549,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             this.btnAdd.IsEnabled = bl2;
             this.btnDel.IsEnabled = bl2;
             this.btnUpdate.IsEnabled = bl2;
-             
+
             this.btnClear.IsEnabled = bl1;
 
             this.btnSave.IsEnabled = bl1;

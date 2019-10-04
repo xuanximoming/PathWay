@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
-using YidanEHRApplication.Models;
-using YidanSoft.Tool;
 using Telerik.Windows.Controls;
-using System.Collections.ObjectModel;
 using YidanEHRApplication.DataService;
-using YidanEHRApplication;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ReportForms
 {
@@ -67,10 +59,10 @@ namespace YidanEHRApplication.Views.ReportForms
                             m.Header = p.FunName;
                             m.Tag = p.FunURL;
                             m.Click += new Telerik.Windows.RadRoutedEventHandler(m_Click);
-                            
+
                             radMenu.Items.Add(m);
                         }
-         
+
                     }
                 }
 
@@ -100,7 +92,7 @@ namespace YidanEHRApplication.Views.ReportForms
 
                 item.Background = new SolidColorBrush(Color.FromArgb(239, 247, 255, 255));
                 item.Foreground = new SolidColorBrush(Colors.Black);
-                
+
                 ContentFrame.Refresh();
                 ContentFrame.Navigate(new Uri(item.Tag.ToString(), UriKind.Relative));
             }
@@ -153,16 +145,16 @@ namespace YidanEHRApplication.Views.ReportForms
                       RadMenuItem rmenu = (RadMenuItem)radMenu.Items[0];
                       rmenu.Background = new SolidColorBrush(Colors.White);
                       rmenu.Foreground = new SolidColorBrush(Colors.Black);
-                      rmenu.Margin = new Thickness(5,20,0,0);
+                      rmenu.Margin = new Thickness(5, 20, 0, 0);
                   }
-                   
+
               };
             serviceCon.GetV_PermissionListFatherAsync(Global.LogInEmployee.Zgdm);
             serviceCon.CloseAsync();
 
         }
 
-     
+
 
     }
 }

@@ -1,9 +1,8 @@
-﻿using System.Windows.Media;
-using System;
+﻿using System;
+using System.Windows.Media;
 
-using System.Windows.Controls;
 
-namespace YidanSoft.Tool
+namespace DrectSoft.Tool
 {
     public class ConvertColor
     {

@@ -1,22 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
-using YidanEHRApplication.Views;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
-using YidanEHRApplication.Views.ChildWindows;
 namespace YidanEHRApplication.Views.ChildWindows
 {
     public partial class RWMasterDrugAuthorize
@@ -63,7 +50,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 {
                     if (item.Txfs == "2")
                     {
-                        
+
                         _CP_MasterDrugsAuthorize.Add(item);
                     }
                 }
@@ -97,7 +84,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             //try
             //{
-            if (IsDrugsAuthorizeAllPass || CP_MasterDrugsAuthorize.Count==0)
+            if (IsDrugsAuthorizeAllPass || CP_MasterDrugsAuthorize.Count == 0)
             {
                 this.DialogResult = true;
                 this.Close();
@@ -111,7 +98,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 //parameters.OkButtonContent = "确定";
                 //parameters.CancelButtonContent = "取消";
                 //parameters.Closed = OnDeleteMasterDrug;//***close处理***
-              
+
                 //RadWindow.Confirm(parameters);
 
                 YidanPathWayMessageBox mess = new YidanPathWayMessageBox("部分关键药物还未授权，确定要关闭吗？", "提示", YiDanMessageBoxButtons.YesNo);
@@ -200,6 +187,6 @@ namespace YidanEHRApplication.Views.ChildWindows
         }
         #endregion
 
-        
+
     }
 }

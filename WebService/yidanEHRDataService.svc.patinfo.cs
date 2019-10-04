@@ -5,7 +5,7 @@ using System.Web;
 using System.ServiceModel;
 using System.Data;
 using System.Data.SqlClient;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using Yidansoft.Service.Entity;
 
 namespace Yidansoft.Service
@@ -306,7 +306,7 @@ namespace Yidansoft.Service
                 if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0 && ds.Tables[1].Rows[0][0] != null)
                     InpatinetListPaging.AllCount = ConvertMy.ToInt32(ds.Tables[1].Rows[0][0]);
 
-                List<YidanSoft.Tool.KeyValue> keyValues = new List<KeyValue>();
+                List<DrectSoft.Tool.KeyValue> keyValues = new List<KeyValue>();
                 if (ds.Tables.Count > 2 && ds.Tables[2].Rows.Count > 0)
                 {
 

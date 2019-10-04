@@ -1,26 +1,17 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-
-using YidanEHRApplication.Models;
-using YidanEHRApplication.DataService;
-using YidanEHRApplication.WorkFlow.Designer;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
-using YidanSoft.Tool;
+using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
-using Telerik.Windows;
+using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.UserControls;
-using System.Windows.Data;
+using YidanEHRApplication.WorkFlow.Designer;
 
 namespace YidanEHRApplication.NurModule.UserControls
 {
@@ -123,7 +114,7 @@ namespace YidanEHRApplication.NurModule.UserControls
 
             e.Row.Background = new SolidColorBrush(Colors.White);
 
-            
+
 
         }
 
@@ -135,7 +126,7 @@ namespace YidanEHRApplication.NurModule.UserControls
         private void rowContextMenu_Opened(object sender, RoutedEventArgs e)
         {
             #region
-             
+
             GridViewRow row = ((RoutedEventArgs)e).OriginalSource as GridViewRow;
             List<CP_AdviceGroupDetail> listsOrder = new List<CP_AdviceGroupDetail>();
             var RadMenu = sender as ContextMenu;
@@ -264,7 +255,7 @@ namespace YidanEHRApplication.NurModule.UserControls
                     itemlist.Add(m_cp_DiagNurInfo);
 
                     GvDgiNur.ItemsSource = itemlist;
-                    
+
 
                 }
                 CurrentState = PageState.New;
@@ -321,7 +312,7 @@ namespace YidanEHRApplication.NurModule.UserControls
                             // 右键修改的时候将是否必选加载到按钮当中   
                             //2013年8月9日 17:25:41
                             //修改人：Jhonny
-                            order.Iskx = m_cp_DiagNurInfo.Iskx; 
+                            order.Iskx = m_cp_DiagNurInfo.Iskx;
                             order.Cancel_Time = m_cp_DiagNurInfo.Cancel_Time;
                             order.Cancel_User = m_cp_DiagNurInfo.Cancel_User;
 
@@ -333,7 +324,7 @@ namespace YidanEHRApplication.NurModule.UserControls
                             DigNur.ManualType = ManualType.Edit;
                             DigNur.CP_DiagNurTemplateProptery = order;
                             DigNur.InitModifyOrder();
-                             
+
                             break;
                         case TagName.Del:
 
@@ -417,8 +408,8 @@ namespace YidanEHRApplication.NurModule.UserControls
                     }
 
                     //GvDgiNur.ItemsSource = null;
-                    
-                     GvDgiNur.ItemsSource = itemlist;
+
+                    GvDgiNur.ItemsSource = itemlist;
 
                     //GvDgiNur.SelectedItem = null;
 
@@ -459,7 +450,7 @@ namespace YidanEHRApplication.NurModule.UserControls
                     }
 
                     //GvDgiNur.ItemsSource = null;
-                     
+
                     GvDgiNur.ItemsSource = itemlist;
 
                     //GvDgiNur.SelectedItem = null;

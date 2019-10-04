@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls;
-using YidanEHRApplication.Models;
-using YidanEHRApplication.DataService;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.ObjectModel;
+using System.Windows;
+using Telerik.Windows.Controls;
+using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -30,10 +20,10 @@ namespace YidanEHRApplication.Views.ChildWindows
         int _Yzlb = 3100;//医嘱类别
         ManualType _type = ManualType.New;
         CP_AdviceSuitDetail _CP_AdviceSuitDetail = new CP_AdviceSuitDetail();
-         
+
         //定义一个全局集合类型，用于从检验检测中取纯医嘱的数据源
         private ObservableCollection<CP_ChargingMinItem> m_CP_ChargingMinItemCollection;
-        
+
         private OrderItemCategory m_OrderCategory = OrderItemCategory.Meal;
         /// <summary>
         /// 项目初始化型类
@@ -61,11 +51,11 @@ namespace YidanEHRApplication.Views.ChildWindows
         /// <param name="Ctyzxh"></param>
         /// <param name="type"></param>
         /// <param name="suitDetail"></param>
-        public RWAdviceMaintain(String Ctyzxh, ManualType type, CP_AdviceSuitDetail suitDetail,int count)
+        public RWAdviceMaintain(String Ctyzxh, ManualType type, CP_AdviceSuitDetail suitDetail, int count)
         {
             try
             {
-                
+
                 InitializeComponent();
                 //add by luff 20130826 去掉鼠标右键Silverlight
                 SuitTab.MouseRightButtonDown += (sender, e) =>
@@ -75,7 +65,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 };
                 _Ctyzxh = Ctyzxh;
                 _type = type;
-               
+
                 //页面第一次进了初始化药品自定义控件
                 if (_type == ManualType.New && count == 0)
                 {
@@ -105,14 +95,14 @@ namespace YidanEHRApplication.Views.ChildWindows
                         radOther.IsSelected = false;
                         radChun.IsSelected = false;
                     }
-                  
+
 
                 }
-               
+
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -138,7 +128,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                             }
                             else
                             {
-                                
+
                                 //InitUserControl(ManualType.New, null);/***** Update by dxj 2011/7/20 修改原因：重复添加医嘱 ********/
                                 uc_Drug.NewAdviceGroupDetail();
                                 uc_Chunorder.NewAdviceGroupDetail();
@@ -180,7 +170,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
-        
+
         #endregion
         #endregion
         #region 函数
@@ -196,7 +186,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 uc_Drug.AfterDrugLoadedEvent += new UserControls.UCDrug.DrugLoaded(uc_Drug_Loaded);
                 if (type == ManualType.Edit)
                 {
-                   
+
                     // add by luff 20130823 修改药品嘱控件赋值
                     uc_Drug.ManualType = ManualType.Edit;
                     uc_Drug.CP_AdviceGroupDetailProptery = CP_AdviceSuitDetail2CP_DoctorOrder(suitDetail);
@@ -206,11 +196,11 @@ namespace YidanEHRApplication.Views.ChildWindows
                 {
                     uc_Drug.NewAdviceGroupDetail();
                 }
-               
+
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
 
@@ -251,7 +241,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -281,7 +271,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 {
                     // add by luff 20130823 修改其他医嘱控件赋值
                     uc_Otherorder.ManualType = ManualType.Edit;
-                    uc_Otherorder.CP_AdviceGroupDetailProptery = CP_AdviceSuitDetail2CP_DoctorOrder(suitDetail); 
+                    uc_Otherorder.CP_AdviceGroupDetailProptery = CP_AdviceSuitDetail2CP_DoctorOrder(suitDetail);
                     //uc_Otherorder.InitModifyOrder();
                 }
                 else
@@ -303,12 +293,12 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             //throw new NotImplementedException();
         }
-         
+
         void uc_Chunorder_Loaded(object sender, RoutedEventArgs e)
         {
             //throw new NotImplementedException();
         }
-        
+
         void uc_Otherorder_Loaded(object sender, RoutedEventArgs e)
         {
             //throw new NotImplementedException();
@@ -333,7 +323,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             d.Jjlx = s.Jjlx;
             d.Zxksdm = s.Zxksdm;
             d.Yzkx = s.Yzkx;
-            return d;                      
+            return d;
         }
         private CP_AdviceSuitDetail CP_DoctorOrder2CP_AdviceSuitDetail(CP_DoctorOrder d)
         {
@@ -365,7 +355,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             _CP_AdviceSuitDetail.Fzxh = ConvertMy.ToString(d.Fzxh);
 
             _CP_AdviceSuitDetail.Xmlb = _Xmlb.ToString();
-            _CP_AdviceSuitDetail.Yzlb =_Yzlb.ToString();; //ConvertMy.ToString(d.Yzlb);
+            _CP_AdviceSuitDetail.Yzlb = _Yzlb.ToString(); ; //ConvertMy.ToString(d.Yzlb);
             _CP_AdviceSuitDetail.Zxts = ConvertMy.ToString(d.Zxts);
             _CP_AdviceSuitDetail.Ypzsl = ConvertMy.ToString(d.Ypzsl);
             _CP_AdviceSuitDetail.Ztnr = d.Ztnr;
@@ -390,7 +380,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             try
             {
-                
+
                 RadTabControl tabControl = (RadTabControl)sender;
 
                 //当选项卡选择为第一个药品选项卡的时候
@@ -414,7 +404,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                             InitChunControl(_type, _CP_AdviceSuitDetail);
                         }
                     }
-                   
+
 
                 }
                 //当选项卡选中第三个选项卡的其他医嘱的时候(其他医嘱)
@@ -432,8 +422,8 @@ namespace YidanEHRApplication.Views.ChildWindows
                             InitOtherControl(_type, _CP_AdviceSuitDetail);
                         }
                     }
-                     
-                     
+
+
                 }
             }
             catch (Exception ex)

@@ -69,7 +69,7 @@ namespace Yidansoft.Service
                 foreach (DataRow row in dataTable.Rows)
                 {
                     CP_VariationToPath info = new CP_VariationToPath();
-                    info.Id = YidanSoft.Tool.ConvertMy.ToDecimal(row["Id"].ToString());
+                    info.Id = DrectSoft.Tool.ConvertMy.ToDecimal(row["Id"].ToString());
                     info.Ljdm = row["Ljdm"].ToString();
                     info.ActivityId = row["ActivityId"].ToString();
                     info.Bydm = row["Bydm"].ToString();

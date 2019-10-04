@@ -14,7 +14,7 @@ using System.Text;
 using System.IO;
 using System.IO.Compression;
 using System.Configuration;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using Yidansoft.Service.Entity.NursingNotes;
 
 namespace Yidansoft.Service

@@ -1,23 +1,16 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Windows.Navigation;
-using Telerik.Windows.Controls.GridView;
-using YidanEHRApplication.Models;
 using Telerik.Windows.Controls;
-using System.Collections;
-using YidanSoft.Tool;
-using YidanEHRApplication.ExtraControl;
-using System.Collections.ObjectModel;
+using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.ExtraControl;
+using YidanEHRApplication.Models;
 namespace YidanEHRApplication.Views
 {
     public partial class RWAdviceList
@@ -199,7 +192,7 @@ namespace YidanEHRApplication.Views
                     busy.IsBusy = false;
                 }
                 MenuDropDownLong.IsOpen = false;
-               
+
             }
             catch (Exception ex)
             {
@@ -256,7 +249,7 @@ namespace YidanEHRApplication.Views
                 {
                     PublicMethod.RadAlterBox("请选择医嘱！", "提示");
                     busy.IsBusy = false;
-                  
+
                 }
                 MenuDropDownTemp.IsOpen = false;
 

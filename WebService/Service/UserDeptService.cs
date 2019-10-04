@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using System.ServiceModel;
-using System.Data.SqlClient;
 using System.Data;
-using YidanSoft.Tool;
-using YidanSoft.Core;
-using WebService.Entity;
+using System.Data.SqlClient;
+using System.ServiceModel;
 using System.Text;
+using WebService.Entity;
 
 namespace Yidansoft.Service
 {
@@ -29,7 +24,7 @@ namespace Yidansoft.Service
             try
             {
                 //DataTable dataTable = SqlHelper.ExecuteDataTable("usp_CP_Data_Version");
-                DataTable dataTable = SqlHelper.ExecuteDataTable(string.Format("select * from user2dept where userid = '{0}'",userid));
+                DataTable dataTable = SqlHelper.ExecuteDataTable(string.Format("select * from user2dept where userid = '{0}'", userid));
                 foreach (DataRow dr in dataTable.Rows)
                 {
                     User2Dept userdept = new User2Dept();
@@ -59,7 +54,6 @@ namespace Yidansoft.Service
             List<User2Dept> userdeptlist = new List<User2Dept>();
             try
             {
-                //DataTable dataTable = SqlHelper.ExecuteDataTable("usp_CP_Data_Version");
                 string sql = string.Format("delete user2Dept where userid = '{0}'", userid);
 
                 SqlHelper.ExecuteNoneQuery(sql);
@@ -83,20 +77,19 @@ namespace Yidansoft.Service
             try
             {
                 string sql = string.Format("delete user2Dept where userid = '{0}'", userdeptlist[0].UserId);
-                SqlHelper.BeginTransaction();
+                //手工提交回滚，sql为自动提交，oracle为手动提交，但并未使用过手动提交，连接断开后会自动提交 20191004注释，会报错The transaction is either not associated
+
+                //SqlHelper.BeginTransaction();
                 SqlHelper.ExecuteNoneQuery(sql);
-
-
-                //DataTable dataTable = SqlHelper.ExecuteDataTable("usp_CP_Data_Version"); 
                 foreach (User2Dept userdept in userdeptlist)
                 {
- 
+
 
                     StringBuilder strSql = new StringBuilder();
                     strSql.Append("insert into user2dept(");
                     strSql.Append("UserID,DeptID,WardID)");
                     strSql.Append(" values (");
-                    strSql.Append("@UserID,@DeptID,@WardID)"); 
+                    strSql.Append("@UserID,@DeptID,@WardID)");
                     SqlParameter[] parameters = {
 					new SqlParameter("@UserID", SqlDbType.VarChar,6),
 					new SqlParameter("@DeptID", SqlDbType.VarChar,12),
@@ -107,7 +100,7 @@ namespace Yidansoft.Service
 
                     SqlHelper.ExecuteNoneQuery(strSql.ToString(), parameters);
                 }
-                SqlHelper.CommitTransaction();
+                // SqlHelper.CommitTransaction();
 
 
             }
@@ -160,6 +153,6 @@ namespace Yidansoft.Service
             }
             return list;
         }
-     
+
     }
 }

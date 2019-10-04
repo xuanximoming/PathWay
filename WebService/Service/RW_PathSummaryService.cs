@@ -6,7 +6,7 @@ using System.Web;
 using System.ServiceModel;
 using System.Data.SqlClient;
 using System.Data;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 
 
 namespace Yidansoft.Service

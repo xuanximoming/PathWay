@@ -73,7 +73,7 @@
                                 <!--<sdk:TreeView BorderThickness="0" BorderBrush="#42A5FF" Grid.Row="2"  HorizontalAlignment="Stretch"  x:Name="treeViewUser" 
                                               Grid.Column="2" SelectedItemChanged="treeViewUser_SelectionChanged"/>-->
                                 <telerik:RadTreeView BorderThickness="0" BorderBrush="#42A5FF"  Grid.Row="2" IsExpandOnSingleClickEnabled="True" HorizontalAlignment="Stretch" 
-                                                     Margin="1,1,1,0" Name="treeViewUser"   SelectionChanged="treeViewUser_SelectionChanged" />
+                                                     Margin="1,1,1,0" Name="treeViewUser"   SelectionChanged="treeViewUser_SelectionChanged" IsEnabled="True"/>
                                 <TextBlock  Grid.Row="2" Text="" Name="text"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Grid>
                         </Border>

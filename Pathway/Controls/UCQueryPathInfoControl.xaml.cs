@@ -1,21 +1,14 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.Text;
-using System.Collections.ObjectModel;
 using Telerik.Windows.Controls;
-using System.Text.RegularExpressions;
-using YidanEHRApplication.Models;
 using YidanEHRApplication.DataService;
-using YidanSoft.Tool;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Controls
 {
@@ -53,8 +46,8 @@ namespace YidanEHRApplication.Controls
         /// 判断该用户是否有权限使用科室查询功能
         /// </summary>
         private void CheckUserDept()
-        { 
-            #region  判断该用户是否有权限使用科室查询功能 
+        {
+            #region  判断该用户是否有权限使用科室查询功能
             if (Global.UserRole == null && Global.mAppCfg == null)
             {
                 //如果存在多个科室 则可以选择科室
@@ -131,7 +124,7 @@ namespace YidanEHRApplication.Controls
                 this.autoCompleteBoxDept.IsEnabled = true;
                 Global.IsXsyz = true;
             }
-             
+
         }
 
         public delegate void QueryInfoClicked(object sender, RoutedEventArgs e);
@@ -165,7 +158,7 @@ namespace YidanEHRApplication.Controls
                     return false;
                 }
 
-               
+
                 foreach (var ur in t_listsouce)
                 {
                     //判断t_listApp是否有数据以及参数值是否为逗号分隔
@@ -422,7 +415,7 @@ namespace YidanEHRApplication.Controls
                         {
                             autoCompleteBoxDept.ItemsSource = e.Result;
                             autoCompleteBoxDept.ItemFilter = DeptFilter;
-                             
+
                             if (Global.LogInEmployee.Ksdm != "")
                             {
                                 autoCompleteBoxDept.SelectedItem = ((ObservableCollection<CP_DepartmentList>)autoCompleteBoxDept.ItemsSource).FirstOrDefault(cp => cp.Ksdm.Equals(Global.LogInEmployee.Ksdm));

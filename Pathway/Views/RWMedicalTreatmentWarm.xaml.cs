@@ -1,22 +1,13 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-
-using YidanEHRApplication.Models;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Data;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
-using YidanSoft.Tool;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views
 {
@@ -50,7 +41,7 @@ namespace YidanEHRApplication.Views
         {
             radBusyIndicator.IsBusy = true;
             Object[] objArr = new Object[2];
-           
+
             YidanEHRDataServiceClient ServiceClient = PublicMethod.YidanClient;
             ServiceClient.UpdateAndSelectCP_MedicalTreatmentWarmCompleted += (sender, e) =>
             {
@@ -62,7 +53,7 @@ namespace YidanEHRApplication.Views
                 List<CP_MedicalTreatmentWarm> CP_MedicalTreatmentWarmFeiYongTemps = CP_MedicalTreatmentWarmTemps.Select(s => s).Where(s => s.Txlx == "4").ToList();
                 CP_MedicalTreatmentWarm tianshu = CP_MedicalTreatmentWarmTianShuTemps.Count > 0 ? CP_MedicalTreatmentWarmTianShuTemps[0] : null;
                 CP_MedicalTreatmentWarm feiyong = CP_MedicalTreatmentWarmFeiYongTemps.Count > 0 ? CP_MedicalTreatmentWarmFeiYongTemps[0] : null;
-                txttianshu.Text=tianshu==null?"":tianshu.TxlxName+"【"+tianshu.mc+"】"+(ConvertMy.ToInt32( tianshu.ID)>0?tianshu.TxlxName+"超过"+tianshu.ID+"天":"");
+                txttianshu.Text = tianshu == null ? "" : tianshu.TxlxName + "【" + tianshu.mc + "】" + (ConvertMy.ToInt32(tianshu.ID) > 0 ? tianshu.TxlxName + "超过" + tianshu.ID + "天" : "");
                 txtfeiyong.Text = feiyong == null ? "" : feiyong.TxlxName + "【" + feiyong.mc + "】" + (ConvertMy.ToInt32(feiyong.ID) > 0 ? feiyong.TxlxName + "超过" + feiyong.ID + "元" : "");
                 radBusyIndicator.IsBusy = false;
             };
@@ -83,7 +74,7 @@ namespace YidanEHRApplication.Views
 
                 //if (item.ID==item.ID )
                 //{
-                    item.TxztBoolean =(Boolean) ((CheckBox)sender).IsChecked;
+                item.TxztBoolean = (Boolean)((CheckBox)sender).IsChecked;
                 //}
             }
             grdCP_MedicalTreatmentWarm.ItemsSource = CP_MedicalTreatmentWarmTemps;
@@ -99,20 +90,20 @@ namespace YidanEHRApplication.Views
             {
 
                 if (item.TxztBoolean == true)
-                    {
-                        if (ID == null)
-                            ID = item.ID;
-                        else
-                            ID = ID + "," + item.ID;
-                    }
+                {
+                    if (ID == null)
+                        ID = item.ID;
+                    else
+                        ID = ID + "," + item.ID;
+                }
             }
             if (ID == null)
-            { 
-                RadWindow wnd=new RadWindow();
+            {
+                RadWindow wnd = new RadWindow();
                 PublicMethod.ShowAlertWindow(ref wnd, "请至少选择一项后再点击保存", "提示", null, null);
             }
             else
-            UpdateAndSelectCP_MedicalTreatmentWarm();
+                UpdateAndSelectCP_MedicalTreatmentWarm();
             //grdCP_MedicalTreatmentWarm.UpdateLayout();
 
         }
@@ -123,7 +114,7 @@ namespace YidanEHRApplication.Views
             {
 
                 item.TxztBoolean = (Boolean)((CheckBox)sender).IsChecked;
-            } 
+            }
             grdCP_MedicalTreatmentWarm.ItemsSource = CP_MedicalTreatmentWarmTemps;
             //grdCP_MedicalTreatmentWarm.UpdateLayout();
         }

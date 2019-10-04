@@ -1,16 +1,15 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.DataService;
 using Telerik.Windows.Controls;
-using System.Collections.ObjectModel;
+using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-
-using YidanSoft.Tool;
 namespace YidanEHRApplication.Views
 {
     /// <summary>
@@ -705,7 +704,7 @@ namespace YidanEHRApplication.Views
                 //}
                 // var path = listPathInfo.Where(pt => pt.Ljdm.Equals(strLjdm)).FirstOrDefault<CP_ClinicalPathList>();
                 var path = radGridViewPathList.SelectedItem as CP_ClinicalPathList;
-                 #region  add by luff 20130816 根据配置参数进入第三方控件的路径维护明细页还是微软控件的路径维护明细页
+                #region  add by luff 20130816 根据配置参数进入第三方控件的路径维护明细页还是微软控件的路径维护明细页
                 List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("PathWh") > -1).ToList();
                 if (t_listApp.Count > 0)
                 {
@@ -744,7 +743,7 @@ namespace YidanEHRApplication.Views
                     pathNode.ShowDialog();
 
                 }
-                 #endregion
+                #endregion
 
                 //pathNode.Closed += new EventHandler<WindowClosedEventArgs>(pathNode_Closed);
             }

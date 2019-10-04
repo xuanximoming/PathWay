@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+using Telerik.Windows.Controls;
+using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-using YidanEHRApplication.DataService;
-using System.Collections.ObjectModel;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -77,7 +69,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     isLoad = false;
                     return;
                 }
-                if (txtName.Text.Trim().Length>12)
+                if (txtName.Text.Trim().Length > 12)
                 {
                     PublicMethod.RadAlterBoxRe("结果名称长度不能超过12个字节！", "提示", txtName);
                     isLoad = false;
@@ -339,7 +331,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 m_funstate = EditState.None;
                 rgvNurResult.SelectedItem = null;
                 BindBtnState();
-                
+
             }
             catch (Exception ex)
             {

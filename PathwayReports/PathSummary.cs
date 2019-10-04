@@ -1,15 +1,9 @@
 namespace YidanEHRReport
 {
     using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Telerik.Reporting;
-    using Telerik.Reporting.Drawing;
     using System.Data;
-    using YidanSoft.Tool;
     using System.Data.SqlClient;
-    using System.Collections.Generic;
+    using System.Drawing;
 
     /// <summary>
     /// Summary description for ReportTest.
@@ -29,7 +23,7 @@ namespace YidanEHRReport
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
-            
+
         }
 
         void ReportTest_NeedDataSource(object sender, EventArgs e)
@@ -124,7 +118,7 @@ namespace YidanEHRReport
                 this.textBox15.Value = "年龄：" + dt.Rows[0]["Xsnl"].ToString();
                 this.textBox27.Value = "床号：" + dt.Rows[0]["Cycw"].ToString();
                 //路径状态 LjztName
-                this.txtljzt.Value ="路径状态：" + dt.Rows[0]["LjztName"].ToString();
+                this.txtljzt.Value = "路径状态：" + dt.Rows[0]["LjztName"].ToString();
                 this.txtinHosDate.Value = dt.Rows[0]["Ryrq"].ToString();
 
             }
@@ -134,13 +128,13 @@ namespace YidanEHRReport
             this.reportNameTextBox.Value = hosName + "  临床路径总结一览";
 
         }
- 
+
 
         private void tableorder_ItemDataBound(object sender, EventArgs e)
         {
             //string s = e.ToString();
 
-            foreach(Telerik.Reporting.Processing.TableRow dr in (sender as Telerik.Reporting.Processing.Table).Rows)
+            foreach (Telerik.Reporting.Processing.TableRow dr in (sender as Telerik.Reporting.Processing.Table).Rows)
             {
                 Telerik.Reporting.Processing.TextBox txt = (dr.GetCell(0) as Telerik.Reporting.Processing.TextBox);
                 //if(txt.Text =="长期医嘱")
@@ -154,7 +148,7 @@ namespace YidanEHRReport
                 if (txt.Text == "变异医嘱")
                 {
                     txt.Style.BackgroundColor = Color.FromArgb(255, 192, 255);
-                } 
+                }
             }
         }
 

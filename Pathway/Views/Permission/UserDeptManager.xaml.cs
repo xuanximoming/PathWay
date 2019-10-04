@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Controls;
 
 namespace YidanEHRApplication.Views.Permission
 {
@@ -343,7 +337,7 @@ namespace YidanEHRApplication.Views.Permission
                                 else
                                 {
                                     //PublicMethod.RadWaringBox(ea.Error);
-                                    YiDanMessageBox.Show(ea.Error,this.GetType().FullName);
+                                    YiDanMessageBox.Show(ea.Error, this.GetType().FullName);
                                 }
                             };
                     serviceCon.InsertUser2DeptAsync(rolelist);
@@ -418,7 +412,7 @@ namespace YidanEHRApplication.Views.Permission
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             m_funstate = EditState.View;
-            BindButState(); 
+            BindButState();
         }
 
         private void Query_Click(object sender, RoutedEventArgs e)

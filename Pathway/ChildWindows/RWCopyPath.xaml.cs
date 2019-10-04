@@ -1,34 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.Models;
-using YidanSoft.Tool;
-using Telerik.Windows.Controls;
 using System.Collections.ObjectModel;
-using YidanEHRApplication.Helpers;
+using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
-    public partial class RWCopyPath  
+    public partial class RWCopyPath
     {
         //定义变量
         ManualType editState;
         String SLjdm;
         String SNewLjdm;
         CP_ClinicalPathList CP_ClinicalPathList = null;
-      
+
         //需要新增 病种
         private ObservableCollection<CP_ClinicalDiagnosisList> m_ClinicalDiagnosisListAdd = new ObservableCollection<CP_ClinicalDiagnosisList>();
-        
+
 
         //public RWCopyPath()
         //{
@@ -43,7 +35,7 @@ namespace YidanEHRApplication.Views.ChildWindows
 
             if (CP_ClinicalPathList != null)
             {
- 
+
                 //要复制的路径基础数据初始化
                 textBoxPathName.Text = CP_ClinicalPathList.Name + "V" + (Convert.ToDouble(CP_ClinicalPathList.Vesion) + 1).ToString();
                 radNumericUpDownVersion.Value = Convert.ToDouble(CP_ClinicalPathList.Vesion) + 1;
@@ -51,18 +43,18 @@ namespace YidanEHRApplication.Views.ChildWindows
                 radNumericUpDownAvgFee.Value = Convert.ToDouble(CP_ClinicalPathList.Jcfy);
 
                 radComboBoxStatus.SelectedValue = CP_ClinicalPathList.YxjlId;
-                
+
                 autoCompleteBoxDept.SelectedItem = ((ObservableCollection<CP_DepartmentList>)autoCompleteBoxDept.ItemsSource).FirstOrDefault(s => s.Ksdm.Equals(CP_ClinicalPathList.Syks));
-                 
+
             }
         }
 
-        public RWCopyPath(ManualType type, String sLjdm, CP_ClinicalPathList cp,ObservableCollection<CP_DepartmentList> _deptList)
+        public RWCopyPath(ManualType type, String sLjdm, CP_ClinicalPathList cp, ObservableCollection<CP_DepartmentList> _deptList)
         {
             //初始化控件
             InitializeComponent();
             //IntiComboBoxDept();
-           
+
 
             if (cp != null)
             {
@@ -75,7 +67,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 autoCompleteBoxDept.ItemsSource = _deptList;
                 autoCompleteBoxDept.ItemFilter = DeptFilter;
             }
-            
+
         }
 
         #region 绑定科室   autoCompleteBoxDept
@@ -102,7 +94,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                     };
                 referenceClient.GetDepartmentListInfoAsync();
                 referenceClient.CloseAsync();
-              
+
             }
             catch (Exception ex)
             {
@@ -131,13 +123,13 @@ namespace YidanEHRApplication.Views.ChildWindows
                 statusList.Add(new Status("有效", (int)PathShStatus.Valid));
                 statusList.Add(new Status("停止", (int)PathShStatus.Dc));
                 //if (isReivew)
-                    //statusList.Add(new Status("审核", (int)PathShStatus.Review));
+                //statusList.Add(new Status("审核", (int)PathShStatus.Review));
                 radComboBoxStatus.ItemsSource = statusList;
                 radComboBoxStatus.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
-                 YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
+                YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
         #endregion
@@ -145,60 +137,60 @@ namespace YidanEHRApplication.Views.ChildWindows
         //保存复制路径
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            
+
             try
             {
                 #region 保存一条新的路径
-                radBusyIndicator.IsBusy = true;  
+                radBusyIndicator.IsBusy = true;
                 YidanEHRDataServiceClient referenceClient = PublicMethod.YidanClient;
                 if (editState == ManualType.New)
                 {
                     if (Check())
                     {
 
-                       
-                            referenceClient.GetandCopyPathDataCompleted +=
-                                    (obj, ea) =>
+
+                        referenceClient.GetandCopyPathDataCompleted +=
+                                (obj, ea) =>
+                                {
+                                    try
                                     {
-                                        try
+
+                                        if (ea.Error == null)
                                         {
 
-                                            if (ea.Error == null)
+                                            if (ea.Result == 1)
                                             {
-
-                                                if (ea.Result == 1)
-                                                {
-                                                    radBusyIndicator.IsBusy = false;  
-                                                    PublicMethod.RadAlterBox("复制路径成功！", "提示");
-                                                }
-                                                else
-                                                {
-                                                    radBusyIndicator.IsBusy = false;  
-                                                    PublicMethod.RadAlterBox("复制路径失败！", "提示");
-                                                }
-
+                                                radBusyIndicator.IsBusy = false;
+                                                PublicMethod.RadAlterBox("复制路径成功！", "提示");
                                             }
                                             else
                                             {
-                                                PublicMethod.RadWaringBox(ea.Error);
+                                                radBusyIndicator.IsBusy = false;
+                                                PublicMethod.RadAlterBox("复制路径失败！", "提示");
                                             }
+
                                         }
-                                        catch (Exception ex)
+                                        else
                                         {
-                                            YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
+                                            PublicMethod.RadWaringBox(ea.Error);
                                         }
-                                    };
-                            CP_ClinicalDiagnosisList cpList = new CP_ClinicalDiagnosisList();
-                            cpList.Bzdm = Guid.NewGuid().ToString();
-                            cpList.Bzmc = "";
-                            cpList.Ljdm = "";
-                            m_ClinicalDiagnosisListAdd.Add(cpList);
-                            referenceClient.GetandCopyPathDataAsync(this.textBoxPathName.Text, this.textBoxPathName.Text, (double)radNumericUpDownInDays.Value, (double)radNumericUpDownAvgFee.Value,
-                                 (double)radNumericUpDownVersion.Value, string.Empty,(int)radComboBoxStatus.SelectedValue, ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Ksdm, m_ClinicalDiagnosisListAdd,SLjdm);
-                            referenceClient.CloseAsync();
-                             
-                         
-                        
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
+                                    }
+                                };
+                        CP_ClinicalDiagnosisList cpList = new CP_ClinicalDiagnosisList();
+                        cpList.Bzdm = Guid.NewGuid().ToString();
+                        cpList.Bzmc = "";
+                        cpList.Ljdm = "";
+                        m_ClinicalDiagnosisListAdd.Add(cpList);
+                        referenceClient.GetandCopyPathDataAsync(this.textBoxPathName.Text, this.textBoxPathName.Text, (double)radNumericUpDownInDays.Value, (double)radNumericUpDownAvgFee.Value,
+                             (double)radNumericUpDownVersion.Value, string.Empty, (int)radComboBoxStatus.SelectedValue, ((CP_DepartmentList)(autoCompleteBoxDept.SelectedItem)).Ksdm, m_ClinicalDiagnosisListAdd, SLjdm);
+                        referenceClient.CloseAsync();
+
+
+
                     }
 
                 }
@@ -233,7 +225,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             Reset();
-             
+
         }
         //重置
         private void Reset()
@@ -333,41 +325,41 @@ namespace YidanEHRApplication.Views.ChildWindows
             if (this.textBoxPathName.Text.Trim() == string.Empty)
             {
                 PublicMethod.RadAlterBoxRe("请输入路径名称", m_Title, textBoxPathName);
-                
+
                 return false;
             }
             if (this.textBoxPathName.Text.Trim().Length >= 60)
             {
-                PublicMethod.RadAlterBoxRe("路径名称长度不能超过30位", m_Title, textBoxPathName); 
+                PublicMethod.RadAlterBoxRe("路径名称长度不能超过30位", m_Title, textBoxPathName);
                 return false;
             }
             if (this.radComboBoxStatus.SelectedValue == null)
             {
-                PublicMethod.RadAlterBoxRe("请选择使用状态", m_Title, radComboBoxStatus); 
+                PublicMethod.RadAlterBoxRe("请选择使用状态", m_Title, radComboBoxStatus);
                 return false;
             }
             if (this.autoCompleteBoxDept.SelectedItem == null)
             {
-                PublicMethod.RadAlterBoxRe("请选择科室", m_Title, autoCompleteBoxDept); 
+                PublicMethod.RadAlterBoxRe("请选择科室", m_Title, autoCompleteBoxDept);
                 return false;
             }
             if (this.radNumericUpDownVersion.ContentText.Trim() == string.Empty)
             {
-                PublicMethod.RadAlterBoxRe("请选择科室", m_Title, radNumericUpDownVersion); 
+                PublicMethod.RadAlterBoxRe("请选择科室", m_Title, radNumericUpDownVersion);
                 return false;
             }
             if (this.radNumericUpDownInDays.ContentText.Trim() == string.Empty)
             {
-                PublicMethod.RadAlterBoxRe("住院天数不能为空", m_Title, radNumericUpDownInDays); 
+                PublicMethod.RadAlterBoxRe("住院天数不能为空", m_Title, radNumericUpDownInDays);
                 return false;
             }
             if (this.radNumericUpDownAvgFee.ContentText.Trim() == string.Empty)
             {
-                PublicMethod.RadAlterBoxRe("费用不能为空", m_Title, radNumericUpDownAvgFee); 
+                PublicMethod.RadAlterBoxRe("费用不能为空", m_Title, radNumericUpDownAvgFee);
                 return false;
             }
-           
-           
+
+
             return true;
         }
         #endregion

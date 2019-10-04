@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Data.SqlClient;
 using Yidansoft.Service.Entity.ReportForms;
 using System.Data;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 using Yidansoft.Service.Entity;
 
 namespace Yidansoft.Service

@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Data;
-using YidanSoft.Tool;
+using DrectSoft.Tool;
 
 namespace Yidansoft.Service.Entity
 {

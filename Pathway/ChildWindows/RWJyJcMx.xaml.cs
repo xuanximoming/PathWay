@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-using YidanSoft.Tool;
+
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -37,14 +35,14 @@ namespace YidanEHRApplication.Views.ChildWindows
         /// </summary>
         private void RadWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             //绑定GirdView控件
             if (s_xmdm != "")
             {
                 GetJyJcMxCategory();
             }
-            
-            
+
+
         }
         /// <summary>
         /// 根据项目代码获取检验检查套餐明细
@@ -82,7 +80,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 {
                     return;
                 }
-                 
+
 
             }
             catch (Exception ex)
@@ -114,15 +112,15 @@ namespace YidanEHRApplication.Views.ChildWindows
             rowContextMenu.Width = 200;
             rowContextMenu.Items.Add(new RadMenuItem() { Header = "删除医嘱", Tag = TagName.Del });
             rowContextMenu.Items.Add(new RadMenuItem() { IsSeparator = true });
-          
+
             //rowContextMenu.Items.Add(new RadMenuItem() { Header = "医嘱成组", Tag = TagName.Group });
             //rowContextMenu.Items.Add(new RadMenuItem() { Header = "取消成组", Tag = TagName.DisGroup });
- 
+
             //添加右键菜单事件
             rowContextMenu.AddHandler(RadMenuItem.ClickEvent, new RoutedEventHandler(OnRowMenuItemClick));
             rowContextMenu.Opened += new RoutedEventHandler(rowContextMenu_Opened);
             RadContextMenu.SetContextMenu(e.Row, rowContextMenu);
-            
+
         }
         private void OnRowMenuItemClick(object sender, RoutedEventArgs e)
         {
@@ -133,11 +131,11 @@ namespace YidanEHRApplication.Views.ChildWindows
                 {
                     TagName tagName = (TagName)clickedItem.Tag;
                     CP_DoctorOrder selectedItem = revJyJc.SelectedItem as CP_DoctorOrder;
-                   
+
                     //DialogParameters parameters = new DialogParameters();
                     switch (tagName)
                     {
-                         
+
                         case TagName.Del:
                             RemoveOrder();
                             break;
@@ -152,7 +150,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 YidanEHRApplication.Models.PublicMethod.ClientException(ex, this.GetType().FullName, true);
             }
         }
-         
+
         /// <summary>
         /// 从LIST中移除医嘱 
         /// </summary>
@@ -160,7 +158,7 @@ namespace YidanEHRApplication.Views.ChildWindows
         {
             if (revJyJc.SelectedItems == null)
                 return;
-            
+
             int selectItemsCount = revJyJc.SelectedItems.Count;
             for (int i = selectItemsCount - 1; i >= 0; i--)
             {
@@ -168,7 +166,7 @@ namespace YidanEHRApplication.Views.ChildWindows
                 if (order.Yzzt == (decimal)OrderStatus.OrderInptut || order.Yzzt == 0)
                 {
                     revJyJc.Items.Remove(order);
-                   
+
                 }
             }
         }
@@ -203,12 +201,12 @@ namespace YidanEHRApplication.Views.ChildWindows
                         }
                     }
                 }
- 
+
             }
         }
-        
 
-    #endregion
+
+        #endregion
 
         #region 方法
         /// <summary>

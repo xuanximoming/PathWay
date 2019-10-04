@@ -19,39 +19,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrectSoft.Core", "Yidansoft.Core\DrectSoft.Core.csproj", "{9D612A3A-9ACF-4B0B-88D2-57A9DF726747}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrectSoft.Tool", "YidanSoft.Tool\DrectSoft.Tool.csproj", "{BE2137D1-5018-48EA-A3D5-538683588F49}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F1033F6C-0E27-4EA3-BCF2-FCCE6C3C282E} = {F1033F6C-0E27-4EA3-BCF2-FCCE6C3C282E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{D349B6D8-992F-443F-BB57-57E50DD98794}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Pathway\\Pathway.csproj
-		SccProjectName1 = Pathway
-		SccLocalPath1 = Pathway
-		SccProjectUniqueName2 = Pathway.Web\\Pathway.Web.csproj
-		SccProjectName2 = Pathway.Web
-		SccLocalPath2 = Pathway.Web
-		SccProjectUniqueName3 = WebService\\WebService.csproj
-		SccProjectName3 = WebService
-		SccLocalPath3 = WebService
-		SccProjectUniqueName4 = YidanSoft.Tool\\YidanSoft.Tool.csproj
-		SccProjectName4 = YidanSoft.Tool
-		SccLocalPath4 = YidanSoft.Tool
-		SccProjectUniqueName5 = YidanSoft.SilverlightFault\\YidanSoft.SilverlightFault.csproj
-		SccProjectName5 = YidanSoft.SilverlightFault
-		SccLocalPath5 = YidanSoft.SilverlightFault
-		SccProjectUniqueName6 = PathwayReports\\PathwayReports.csproj
-		SccProjectName6 = PathwayReports
-		SccLocalPath6 = PathwayReports
-		SccProjectUniqueName7 = SendOrder\\SendOrder.csproj
-		SccProjectName7 = SendOrder
-		SccLocalPath7 = SendOrder
-		SccProjectUniqueName8 = Yidansoft.Core\\Yidansoft.Core.csproj
-		SccProjectName8 = Yidansoft.Core
-		SccLocalPath8 = Yidansoft.Core
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

@@ -1,27 +1,18 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
 using Telerik.Windows.Controls;
-using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
+using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.ChildWindows;
-using System.Collections.ObjectModel;
-using System.Text;
-using YidanSoft.Tool;
-using YidanEHRApplication.DataService;
-using YidanEHRApplication;
-using Telerik.Windows.Controls;
 
 namespace YidanEHRApplication.Views.Permission
 {
@@ -179,7 +170,7 @@ namespace YidanEHRApplication.Views.Permission
             InitializeComponent();
         }
 
-       
+
 
         /// <summary>
         /// 当前树节点选中的节点
@@ -195,7 +186,7 @@ namespace YidanEHRApplication.Views.Permission
         private CP_CYXDFMX m_cymxdetail = new CP_CYXDFMX();
 
         EditState m_funstate;
-        
+
         void CP_CyXDFSuit_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -204,7 +195,7 @@ namespace YidanEHRApplication.Views.Permission
                 LoadData();
                 BindListBox(0);
                 //CurrentState = OperationState.VIEW;
-                 
+
                 InitDrugInfo();//初始化草药药品信息
                 InitCyfInfo();//初始化草药处方信息
                 IntiComboBoxDept();
@@ -224,12 +215,12 @@ namespace YidanEHRApplication.Views.Permission
                 keyUp.Made_KeyUp();
                 txtZTNR.KeyUp += new KeyEventHandler(btnSave_KeyUp);
                 #endregion
-                 
+
                 this.cbxJJLX.Visibility = Visibility.Visible;
 
                 InitJJTypeInfo(cbxJJLX);
                 cbxJJLX.SelectedIndex = 0;
-               
+
                 this.autoCompleteBoxCyf.Focus();
             }
             catch (Exception ex)
@@ -312,10 +303,10 @@ namespace YidanEHRApplication.Views.Permission
                 {
                     if (!rooth.Contains(pu.ID.ToString().Trim()))
                     {
-                         
+
                         rooth.Add(pu.cfmc.Trim());
                         rootItem = AddItem(pu.cfmc, pu, null);
-                        
+
                     }
                     //if (!dicCyXDF.ContainsKey(pu.UserID))
                     //{
@@ -367,7 +358,7 @@ namespace YidanEHRApplication.Views.Permission
         {
             try
             {
-                
+
             }
             catch (Exception ex)
             {
@@ -463,7 +454,7 @@ namespace YidanEHRApplication.Views.Permission
 
         #region 函数
 
-       
+
         /// <summary>
         /// 绑定页面中编辑信息
         /// </summary>
@@ -916,7 +907,7 @@ namespace YidanEHRApplication.Views.Permission
                 }
                 else
                 {
-                     int  iCyxdfID =0; 
+                    int iCyxdfID = 0;
                     RadTreeViewItem item = this.treeViewUser.SelectedItem as RadTreeViewItem;
                     CP_CYXDF cyxdf = item.Tag as CP_CYXDF;
                     iCyxdfID = cyxdf.ID;
@@ -943,13 +934,13 @@ namespace YidanEHRApplication.Views.Permission
                     txtZTNR.Text = "";
                 }
 
-                
-               
-               
-               
+
+
+
+
                 autoCompleteBoxCyf.Focus();
                 m_funstate = EditState.Add;
-                
+
 
             }
             catch (Exception ex)
@@ -960,7 +951,7 @@ namespace YidanEHRApplication.Views.Permission
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            
+
             try
             {
                 if (this.GridViewCymx.SelectedItem == null)
@@ -993,8 +984,8 @@ namespace YidanEHRApplication.Views.Permission
                 #endregion
 
                 autoCompleteBoxCyf.Focus();
-                
-                
+
+
 
             }
             catch (Exception ex)
@@ -1019,7 +1010,7 @@ namespace YidanEHRApplication.Views.Permission
                     CP_CYXDF cyxdf = item.Tag as CP_CYXDF;
                     CyxdfID = cyxdf.ID;
                 }
-                
+
 
                 CP_CYXDFMX _cymxdetail = new CP_CYXDFMX();
                 #region 验证数据并初始化
@@ -1063,7 +1054,7 @@ namespace YidanEHRApplication.Views.Permission
                     return;
                 }
 
-               
+
                 _cymxdetail.cfxh = Guid.NewGuid().ToString();
                 //_cymxdetail.cfts = Convert.ToInt32(nudMDTS.Value);
                 _cymxdetail.idm = ((CP_CYXDF)(autoCompleteBoxCyf.SelectedItem)).ID;
@@ -1118,7 +1109,7 @@ namespace YidanEHRApplication.Views.Permission
                         {
                             if (ea.Result == 1)
                             {
-                                
+
                                 //PublicMethod.RadAlterBox("保存成功！", "提示");
                                 YiDanMessageBox.Show("保存成功！", YiDanMessageBoxButtons.Ok);
                                 if (CyxdfID == 0)
@@ -1138,7 +1129,7 @@ namespace YidanEHRApplication.Views.Permission
                                 //清空控件
                                 NewAdviceGroupDetail();
                             }
-                            
+
                             else
                             {
                                 PublicMethod.RadWaringBox(ea.Error);
@@ -1148,7 +1139,7 @@ namespace YidanEHRApplication.Views.Permission
                     serviceCon.CloseAsync();
 
 
-                   // m_funstate = EditState.View;
+                    // m_funstate = EditState.View;
                 }
                 else if (m_funstate == EditState.Edit)
                 {
@@ -1235,7 +1226,7 @@ namespace YidanEHRApplication.Views.Permission
                     Client.UpdateCYXDFMXAsync(_cymxdetail);
 
 
-                  
+
                 }
                 // 
                 else
@@ -1273,7 +1264,7 @@ namespace YidanEHRApplication.Views.Permission
             this.btnCancel.IsEnabled = false;
             m_funstate = EditState.View;
             #endregion
-            
+
         }
 
         private void Query_Click(object sender, RoutedEventArgs e)
@@ -1334,7 +1325,7 @@ namespace YidanEHRApplication.Views.Permission
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -1374,7 +1365,7 @@ namespace YidanEHRApplication.Views.Permission
             }
         }
 
-       
+
         /// <summary>
         /// 行选中改变事件
         /// </summary>

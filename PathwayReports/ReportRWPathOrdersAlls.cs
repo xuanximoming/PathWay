@@ -1,15 +1,11 @@
 namespace YidanEHRReport
 {
     using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Telerik.Reporting;
-    using Telerik.Reporting.Drawing;
-    using System.Data;
-    using YidanSoft.Tool;
-    using System.Data.SqlClient;
     using System.Collections.Generic;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Drawing;
+    using Telerik.Reporting;
     using Yidansoft.Service;
 
     /// <summary>
@@ -30,7 +26,7 @@ namespace YidanEHRReport
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
-            
+
         }
 
         void ReportTest_NeedDataSource(object sender, EventArgs e)
@@ -84,17 +80,17 @@ namespace YidanEHRReport
             //return Getby(PathOrdersAlllist);
 
             m_PathOrdersAlllist = new List<CP_PathOrdersAll>();
-            GetNewOrderList(PathOrdersAlllist, ""); 
+            GetNewOrderList(PathOrdersAlllist, "");
 
-             this.DataSource = m_PathOrdersAlllist;
-            string pathzddm="";
-             DataTable dt1 = ds.Tables[1];
-             for (int i = 0; i < dt1.Rows.Count; i++)
-             {
-                 pathzddm = pathzddm + dt1.Rows[i]["name"].ToString() + "(" + dt1.Rows[i]["icd"].ToString() + ")"; 
-             }
+            this.DataSource = m_PathOrdersAlllist;
+            string pathzddm = "";
+            DataTable dt1 = ds.Tables[1];
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                pathzddm = pathzddm + dt1.Rows[i]["name"].ToString() + "(" + dt1.Rows[i]["icd"].ToString() + ")";
+            }
 
-             this.txtRyzd.Value = pathzddm;
+            this.txtRyzd.Value = pathzddm;
         }
 
         List<CP_PathOrdersAll> m_PathOrdersAlllist;
@@ -130,7 +126,7 @@ namespace YidanEHRReport
         /// <param name="Syxh"></param>
         private void GetInpatientInfo(String Syxh)
         {
-        
+
             ReportSqlHelp sqlhelp = new ReportSqlHelp();
             string hosName = sqlhelp.GetHospitalName();
             SqlParameter querykindparam = new SqlParameter("@querykind", SqlDbType.Int, 12);
@@ -153,7 +149,7 @@ namespace YidanEHRReport
             {
                 reportNameTextBox.Value = dt.Rows[0]["Hzxm"].ToString() + ":临床路径路径告知单";
                 //titleTextBox.Value = "【 " + dt.Rows[0]["Hzxm"].ToString() + " 】" + "医嘱告知单";
-                titleTextBox.Value = "【 " + dt.Rows[0]["Ljmc"].ToString() +" 】" + "临床路径路径告知单";
+                titleTextBox.Value = "【 " + dt.Rows[0]["Ljmc"].ToString() + " 】" + "临床路径路径告知单";
                 txtHzxm.Value = dt.Rows[0]["Hzxm"].ToString();
                 this.txtCyksName.Value = dt.Rows[0]["CyksName"].ToString();
                 this.txtCybqName.Value = dt.Rows[0]["CybqName"].ToString();
@@ -164,9 +160,9 @@ namespace YidanEHRReport
                 this.txtCycw.Value = dt.Rows[0]["Cycw"].ToString();
                 this.txtXsnl.Value = dt.Rows[0]["Xsnl"].ToString();
 
-               
+
                 //this.txtLjmc.Value = dt.Rows[0]["Ljmc"].ToString();
-                this.textBox5.Value = "患者姓名："+dt.Rows[0]["Hzxm"].ToString();
+                this.textBox5.Value = "患者姓名：" + dt.Rows[0]["Hzxm"].ToString();
                 this.textBox6.Value = "性别：" + dt.Rows[0]["Brxb"].ToString();
                 this.textBox25.Value = "年龄：" + dt.Rows[0]["Xsnl"].ToString();
                 this.textBox7.Value = "床位号：" + dt.Rows[0]["Cycw"].ToString();
@@ -181,13 +177,13 @@ namespace YidanEHRReport
             this.reportNameTextBox.Value = hosName + "临床路径路径告知单";
 
         }
- 
+
 
         private void tableorder_ItemDataBound(object sender, EventArgs e)
         {
             //string s = e.ToString();
 
-            foreach(Telerik.Reporting.Processing.TableRow dr in (sender as Telerik.Reporting.Processing.Table).Rows)
+            foreach (Telerik.Reporting.Processing.TableRow dr in (sender as Telerik.Reporting.Processing.Table).Rows)
             {
                 Telerik.Reporting.Processing.TextBox txt = (dr.GetCell(0) as Telerik.Reporting.Processing.TextBox);
                 //if(txt.Text =="长期医嘱")
@@ -201,7 +197,7 @@ namespace YidanEHRReport
                 if (txt.Text == "变异医嘱")
                 {
                     txt.Style.BackgroundColor = Color.FromArgb(255, 192, 255);
-                } 
+                }
             }
         }
 

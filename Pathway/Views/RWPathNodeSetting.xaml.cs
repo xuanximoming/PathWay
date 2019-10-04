@@ -1,23 +1,21 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Collections;
+using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.GridView;
-using Telerik.Windows;
-using YidanEHRApplication.Models;
-using YidanEHRApplication.WorkFlow.Designer;
-using YidanEHRApplication.Views.UserControls;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.NurModule;
-using YidanEHRApplication.Views.ChildWindows;
-using YidanSoft.Tool;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
+using YidanEHRApplication.Models;
+using YidanEHRApplication.Views.ChildWindows;
+using YidanEHRApplication.Views.UserControls;
+using YidanEHRApplication.WorkFlow.Designer;
 
 namespace YidanEHRApplication.Views
 {

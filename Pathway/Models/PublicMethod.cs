@@ -1,26 +1,12 @@
-﻿using System;
-using System.Net;
+﻿using DrectSoft.Tool;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using YidanEHRApplication.Views;
 using Telerik.Windows.Controls;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-
-
-using System.Runtime.InteropServices;
-using YidanEHRApplication.Helpers;
-using YidanSoft.Tool;
 using YidanEHRApplication.DataService;
-using YidanEHRApplication;
-using System.Collections.ObjectModel;
+using YidanEHRApplication.Views;
 
 
 
@@ -96,7 +82,7 @@ namespace YidanEHRApplication.Models
         public static void RadAlterBoxRe(string message, string header, Control controlFocus) //
         {
 
-            YiDanMessageBox.Show(message,controlFocus, header,YiDanMessageBoxButtons.Ok);
+            YiDanMessageBox.Show(message, controlFocus, header, YiDanMessageBoxButtons.Ok);
             //DialogParameters parameters = new DialogParameters();
             //parameters.Header = header;
             ////parameters.Content = String.Format("提示: {0}", message);
@@ -228,7 +214,7 @@ namespace YidanEHRApplication.Models
 
         }
 
- 
+
         #region
         public static void RadQueryBox(DialogParameters parameters, string strMessage, string strTitle)
         {

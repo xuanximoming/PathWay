@@ -1,20 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-
+using System.Windows.Printing;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls;
-using YidanSoft.Tool;
-using System.Windows.Printing;
 
 namespace YidanEHRApplication.Views.ChildWindows
 {
@@ -22,7 +12,7 @@ namespace YidanEHRApplication.Views.ChildWindows
     public partial class RWPathSummary
     {
         public RWPathSummary(String syxh, String ljxh, String ljmc, String hzxm, Boolean isAll, Int32 isVariant, CP_InpatinetList currentpat)
-        { 
+        {
             Syxh = syxh;
             Ljxh = ljxh;
             Ljmc = ljmc;
@@ -202,7 +192,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             pageprint.ResizeMode = Telerik.Windows.Controls.ResizeMode.NoResize;
 
             pageprint.ShowDialog();
-             
+
             ////PrintDocument document = new PrintDocument();
             ////document.PrintPage += new EventHandler<PrintPageEventArgs>(document_PrintPage);
             ////document.Print("Print Image");
@@ -231,7 +221,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             //        }
             //        else
             //            ea.HasMorePages = false;
-                
+
 
             //    //Thickness margin = new Thickness{
             //    //    Left = Math.Max(0, 96 - ea.PageMargins.Left),
@@ -242,7 +232,7 @@ namespace YidanEHRApplication.Views.ChildWindows
 
             //    //grid.Margin = margin;
 
-               
+
 
             //    //ea.HasMorePages = false;
 
@@ -251,7 +241,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             //PrinterFallbackSettings settings = new PrinterFallbackSettings();
 
             //settings.ForceVector = true;
- 
+
 
             //settings.OpacityThreshold = 0.5;
 
@@ -259,8 +249,8 @@ namespace YidanEHRApplication.Views.ChildWindows
 
         }
 
-        void document_PrintPage(object sender, PrintPageEventArgs e) 
-        { 
+        void document_PrintPage(object sender, PrintPageEventArgs e)
+        {
             //Image imagePrint = new Image(); 
             //imagePrint.Source = img.Source; 
             //imagePrint.Height = e.PrintableArea.Height; 
@@ -276,7 +266,7 @@ namespace YidanEHRApplication.Views.ChildWindows
             //e.HasMorePages = false; 
         }
 
-       
+
 
         /// <summary>
         /// 读取流程图节点，根据节点排列（5.11）

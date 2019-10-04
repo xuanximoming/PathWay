@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.GridView;
 using YidanEHRApplication.DataService;
 using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
-using Telerik.Windows.Controls.GridView;
-using System.Collections.ObjectModel;
-using Telerik.Windows.Controls; 
 
 namespace YidanEHRApplication.Views.Permission
 {
@@ -39,7 +33,6 @@ namespace YidanEHRApplication.Views.Permission
         public NewUserRoleManager()
         {
             InitializeComponent();
-            //Loaded += new RoutedEventHandler(NewUserRoleManager_Loaded);
         }
 
         void NewUserRoleManager_Loaded(object sender, RoutedEventArgs e)
@@ -49,6 +42,7 @@ namespace YidanEHRApplication.Views.Permission
                 m_funstate = EditState.View;
                 LoadData();
                 BindListBox("");
+                treeViewUser.IsEnabled = true;
             }
             catch (Exception ex)
             {
@@ -61,30 +55,6 @@ namespace YidanEHRApplication.Views.Permission
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
-
-        ///// <summary>
-        ///// 绑定页面下拉框值
-        ///// </summary>
-        //private void BindCombox()
-        //{
-        //    BindcbxUser();
-        //    BindcbxRole();
-        //}
-
-        ///// <summary>
-        ///// 获取用户角色下拉框
-        ///// </summary>
-        //private void BindcbxUser()
-        //{
-
-        //}
-        ///// <summary>
-        ///// 绑定角色下拉框
-        ///// </summary>
-        //private void BindcbxRole()
-        //{
-        //}
-
 
 
         #region 函数
@@ -133,6 +103,7 @@ namespace YidanEHRApplication.Views.Permission
             try
             {
                 treeViewUser.Items.Clear();
+                treeViewUser.IsEnabled = true;
                 rooth = new HashSet<string>();
                 userh = new HashSet<string>();
                 dicUser = new Dictionary<string, RadTreeViewItem>();
@@ -378,18 +349,13 @@ namespace YidanEHRApplication.Views.Permission
                 return;
             PE_CompleteUser users = (PE_CompleteUser)txtQuery.SelectedItem;
             treeViewUser.IsEnabled = true;
-
-            //儿科\\366 王叶芳   定位treeview中对应节点
+            // 定位treeview中对应节点
             RadTreeViewItem item1 = treeViewUser.GetItemByPath(string.Format("{0}\\{1} {2}", users.UserDept, users.UserID, users.UserName));
             if (item1 != null && item1.Tag != null)
             {
                 treeViewUser.CollapseAll();
                 treeViewUser.SelectedItem = item1;
-                //RadTreeViewItem item1 = treeViewUser.GetItemByPath(string.Format('{0}\\{1}{2}',users.USERdEPT.USERS.userID,users.UserName));
-                //txtQuery.Text=users.UserName;
                 txtQuery.Text = users.UserName;
-                
-                //return;
             }
             text.Visibility = System.Windows.Visibility.Collapsed;
         }
@@ -413,7 +379,7 @@ namespace YidanEHRApplication.Views.Permission
                 }
 
                 if (item.Tag == null) return;
-                
+
                 PE_CompleteUser user = item.Tag as PE_CompleteUser;
                 m_Selectitem = item;
                 InitUserInfo(user);

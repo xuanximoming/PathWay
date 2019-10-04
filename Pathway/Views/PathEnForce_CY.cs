@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,7 +12,6 @@ using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Models;
 using YidanEHRApplication.Views.UserControls;
 using YidanEHRApplication.WorkFlow.Designer;
-using YidanSoft.Tool;
 
 namespace YidanEHRApplication.Views
 {
@@ -52,7 +52,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -133,7 +133,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -161,7 +161,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
 
@@ -267,7 +267,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -288,7 +288,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -342,7 +342,7 @@ namespace YidanEHRApplication.Views
             catch (Exception ex)
             {
 
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
             //}
         }
@@ -420,7 +420,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -440,7 +440,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -457,8 +457,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
 
@@ -501,7 +501,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -546,7 +546,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -621,7 +621,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -632,7 +632,7 @@ namespace YidanEHRApplication.Views
         /// <param name="listGridOrder"></param>
         /// <param name="doctorOrder"></param>
         /// <returns></returns>
-        private ObservableCollection<CP_DoctorOrder> InitNewListCYGrid(ObservableCollection<CP_DoctorOrder> listGridOrder, 
+        private ObservableCollection<CP_DoctorOrder> InitNewListCYGrid(ObservableCollection<CP_DoctorOrder> listGridOrder,
             CP_DoctorOrder doctorOrder, ref ObservableCollection<CP_DoctorOrder> listSelectOrder)
         {
             try
@@ -668,7 +668,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -747,8 +747,8 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
-                YiDanMessageBox.Show(ex,this.GetType().FullName);
+
+                YiDanMessageBox.Show(ex, this.GetType().FullName);
             }
         }
 
@@ -822,7 +822,7 @@ namespace YidanEHRApplication.Views
 
                         }
                         m_listCyOrder = listOrder;
-                         
+
                     }
                     else
                     {
@@ -831,8 +831,8 @@ namespace YidanEHRApplication.Views
                     }
                 };
                 client.GetPathInitCYOrder2Async(activity.CurrentViewActiveChildren.ActivityUniqueID, Global.InpatientListCurrent.Syxh, Global.LogInEmployee,
-                    Global.InpatientListCurrent.Ljdm, Global.InpatientListCurrent.Ljxh.ToString(),1);
-               
+                    Global.InpatientListCurrent.Ljdm, Global.InpatientListCurrent.Ljxh.ToString(), 1);
+
                 client.CloseAsync();
             }
             catch (Exception ex)
@@ -871,7 +871,7 @@ namespace YidanEHRApplication.Views
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
 
@@ -885,8 +885,8 @@ namespace YidanEHRApplication.Views
         /// <returns></returns>
         private Boolean CyfCheck(out string strWaring)
         {
-            
-           
+
+
             strWaring = string.Empty;
             int iCount = 0;//记录执行次数
 
@@ -1003,7 +1003,7 @@ namespace YidanEHRApplication.Views
             //表示新增医嘱变异 Extension4为3 表示新增医嘱变异 弹出变异选项框
             foreach (var cp in listCyOrderTemp.Select(s => s).Where(s => s.Extension4 == 3).Where(s => s.Yzkx == 0))
             {
-                strWaring += "草药"+ cp.YzbzName + ":" + cp.Ypmc + "\r\n";
+                strWaring += "草药" + cp.YzbzName + ":" + cp.Ypmc + "\r\n";
             }
             m_NewOrder.AddRange(listCyOrderTemp.Select(s => s).Where(s => s.Extension4 == 3).Where(s => s.Yzkx == 0));
             #endregion
@@ -1035,6 +1035,6 @@ namespace YidanEHRApplication.Views
             return true;
         }
 
-        
+
     }
 }

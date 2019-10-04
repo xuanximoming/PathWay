@@ -1,15 +1,8 @@
 namespace YidanEHRReport
 {
     using System;
-    using System.ComponentModel;
-    using System.Drawing;
-    using System.Windows.Forms;
-    using Telerik.Reporting;
-    using Telerik.Reporting.Drawing;
     using System.Data;
-    using YidanSoft.Tool;
     using System.Data.SqlClient;
-    using System.Collections.Generic;
 
     /// <summary>
     /// Summary description for ReportTest.
@@ -29,7 +22,7 @@ namespace YidanEHRReport
             //
             // TODO: Add any constructor code after InitializeComponent call
             //
-            
+
         }
 
         void ReportTest_NeedDataSource(object sender, EventArgs e)
@@ -64,7 +57,7 @@ namespace YidanEHRReport
             {
                 DataRow[] rows = dt.Select("PathDetailID='" + DetailIDList[i] + "'");
 
-                for (int j = 0; j < rows.Length;j++ )
+                for (int j = 0; j < rows.Length; j++)
                 {
                     SourceTable.Rows.Add(rows[j].ItemArray);
                 }
@@ -108,7 +101,7 @@ namespace YidanEHRReport
                 this.txtLjmc.Value = dt.Rows[0]["Ljmc"].ToString();
 
             }
-            
+
 
 
         }

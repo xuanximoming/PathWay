@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Browser;
-namespace YidanSoft.Tool
+﻿namespace DrectSoft.Tool
 {
     /// <summary>
     /// 计算表达式抽象类

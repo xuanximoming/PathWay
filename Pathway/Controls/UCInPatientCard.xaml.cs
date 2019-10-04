@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using DrectSoft.Tool;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-
-using YidanSoft.Tool;
-using YidanEHRApplication.Helpers;
-using YidanEHRApplication.Models;
 using YidanEHRApplication.DataService;
+using YidanEHRApplication.Helpers;
 
 namespace YidanEHRApplication.Controls
 {
@@ -131,7 +123,7 @@ namespace YidanEHRApplication.Controls
                 }
             }
         }
- 
+
         /// <summary>
         /// 鼠标移动到but上事件
         /// </summary>
@@ -172,6 +164,6 @@ namespace YidanEHRApplication.Controls
         {
             _doubleClickTimer.Stop();
         }
- 
+
     }
 }
