@@ -1,0 +1,142 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.RWAccessPath2"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="650" Height="600" Style="{StaticResource RadWindowStyle}" ResizeMode="NoResize" xmlns:my="clr-namespace:YidanEHRApplication.Controls"
+           Header="临床路径评估" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Loaded="RadWindow_Loaded">
+
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." >
+        <Grid x:Name="LayoutRoot" Margin="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"></RowDefinition>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+          
+            <Grid Grid.Row="1">
+                <Border BorderThickness="1,1,1,1" CornerRadius="6,6,6,6" Margin="5">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                            <GradientStop Color="#46A3FF" Offset="1"/>
+                            <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border BorderThickness="1" CornerRadius="1" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                        <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                            <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="#ECF5FF">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                        <GradientStop Color="#FF515151" Offset="0.008"/>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Grid Name="CheckPg" Background="#ECF5FF" >
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="150"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="20"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Grid.Row="0">
+                                            <TextBlock Text="路径列表(选择进入的路径）" FontWeight="Bold" Margin="15 3 0 0"></TextBlock>
+                                            <telerik:RadGridView Margin="0,0,0,0" Name="radGridViewPathList" 
+                                                                  GridLinesVisibility="Both" SelectionChanged="radGridViewPathList_SelectionChanged"
+                                             HorizontalAlignment="Stretch"  CanUserFreezeColumns="False"  IsFilteringAllowed="False"  IsTabStop="False" CanUserSortColumns="False" MaxHeight="140" RowIndicatorVisibility="Collapsed">
+                                                <telerik:RadGridView.Columns>
+                                                    <telerik:GridViewDataColumn Header="路径ID" DataMemberBinding="{Binding Ljdm}" IsVisible="False" >
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="路径名称" DataMemberBinding="{Binding Name}" Width="100*" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="版本号" DataMemberBinding="{Binding Vesion}" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="住院天数" DataMemberBinding="{Binding Zgts}" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="均次费用" DataMemberBinding="{Binding Jcfy}" IsReadOnly="True" DataFormatString="{}{0:C}">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="路径状态" DataMemberBinding="{Binding Yxjl}" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="使用情况" DataMemberBinding="{Binding LjSyqk}" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="科室" DataMemberBinding="{Binding DeptName}" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="审核医师" DataMemberBinding="{Binding ShysName}" IsReadOnly="True">
+                                                    </telerik:GridViewDataColumn>
+                                                    <telerik:GridViewDataColumn Header="审核时间" DataMemberBinding="{Binding Shsj}" IsReadOnly="True"  Width="80" DataFormatString="{}{0:yyyy-MM-dd}">
+                                                    </telerik:GridViewDataColumn>
+                                                </telerik:RadGridView.Columns>
+                                            </telerik:RadGridView>
+                                        </StackPanel>
+                                        <TextBlock Text="入径评估自动判断条件" Grid.Row="1" FontWeight="Bold" Margin="15 3 0 0"></TextBlock>
+
+                                        <telerik:RadGridView RowIndicatorVisibility="Collapsed" Background="Transparent" Grid.Row="2"
+                                                          Margin="2"  HorizontalAlignment="Stretch"
+                                                         Name="ConditionGrid"  GridLinesVisibility="Both"
+                                                         ShowColumnHeaders="True" CanUserFreezeColumns="False"  
+                                                         CanUserResizeColumns="True" AutoExpandGroups="True" AutoGenerateColumns="False" 
+                                                         ShowGroupPanel="False" IsReadOnly="False" SelectionMode="Single" IsFilteringAllowed="False" AlternateRowBackground="#FFE24040" RowLoaded="ConditionGrid_RowLoaded">
+                                            <telerik:RadGridView.Columns>
+
+                                                <telerik:GridViewDataColumn Header="条件类别" DataMemberBinding="{Binding XmlbName}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="名称" DataMemberBinding="{Binding JcxmName}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="开始范围" DataMemberBinding="{Binding Ksfw}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="结束范围" DataMemberBinding="{Binding Jsfw}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Dw}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="病人入院诊断或检查结果" DataMemberBinding="{Binding ExamValue}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="匹配结果" DataMemberBinding="{Binding MatchResultName}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+
+                                            </telerik:RadGridView.Columns>
+                                        </telerik:RadGridView>
+                                        <TextBlock Text="入径评估手动判断条件" Grid.Row="3" FontWeight="Bold" Margin="15 3 0 0"></TextBlock>
+
+                                        <telerik:RadGridView RowIndicatorVisibility="Collapsed" Background="Transparent" Grid.Row="4"
+                                                          Margin="2"  HorizontalAlignment="Stretch"
+                                                         Name="ConditionGridHand"  GridLinesVisibility="Both"
+                                                         ShowColumnHeaders="True" CanUserFreezeColumns="False"  
+                                                         CanUserResizeColumns="True" AutoExpandGroups="True" AutoGenerateColumns="False" 
+                                                         ShowGroupPanel="False" IsReadOnly="False" SelectionMode="Multiple" IsFilteringAllowed="False" 
+                                                             AlternateRowBackground="#FFE24040" RowLoaded="ConditionGrid_RowLoaded">
+                                            <telerik:RadGridView.Columns>
+                                                <telerik:GridViewSelectColumn  />
+                                                <telerik:GridViewDataColumn Header="条件类别" DataMemberBinding="{Binding XmlbName}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                                <telerik:GridViewDataColumn Header="名称" DataMemberBinding="{Binding JcxmName}" IsReadOnly="True" ></telerik:GridViewDataColumn>
+                                            
+                                            </telerik:RadGridView.Columns>
+                                        </telerik:RadGridView>
+                                    </Grid>
+                                </Grid>
+
+                            </Border>
+                        </Border>
+                    </Border>
+                </Border>
+            </Grid>
+            <StackPanel Grid.Row="2"  Name="stkReason" Margin="5,0,5,0">
+                <TextBlock Text="请输入不满足条件下进入的原因"  FontWeight="Bold"></TextBlock>
+                <TextBox Name="txtReason"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
+                <!--<telerik:RadButton Content="进入路径" Name="btnAccess"  Width="70" Height="21" Margin="0,0,10,5" Click="btnAccess_Click"></telerik:RadButton>
+                <telerik:RadButton Content="拒绝进入" Name="btnReject"  Width="70" Height="21" Margin="0,0,10,5" Click="btnReject_Click" Visibility="Collapsed"></telerik:RadButton>
+                <telerik:RadButton Content="取消评估"  Name="btnCancel"   Height="21" Width="70" Margin="0,0,10,5" Click="btnCancel_Click" ></telerik:RadButton>-->
+
+                <Button Height="28" Width="82" Name="btnAccess" Click="btnAccess_Click" Margin="0,0,10,5" BorderThickness="0">
+
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/进入路径.png" Width="80" Cursor="Hand" />
+
+                </Button>
+
+                <Button Height="28" Width="84" Name="btnCancel" Click="btnCancel_Click" Margin="0,0,10,5" BorderThickness="0">
+ 
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/取消评估.png" Width="82" Cursor="Hand" />
+
+                </Button>
+            </StackPanel>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow>

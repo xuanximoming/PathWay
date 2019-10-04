@@ -1,0 +1,2372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Yidansoft.Service.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Yidansoft.Service.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/YidanSoft.Tool" />
+  <xs:import schemaLocation="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Yidansoft.Service.Entity.Pass" />
+  <xs:complexType name="ArrayOfCP_NurExecInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_NurExecInfo" nillable="true" type="tns:CP_NurExecInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_NurExecInfo" nillable="true" type="tns:ArrayOfCP_NurExecInfo" />
+  <xs:complexType name="CP_NurExecInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InputType" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsEdiable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsModify" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsNew" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUserControl" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LbOrderValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Lbxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LbxhName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MxOrderValue" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Mxxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MxxhName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NurRecordId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathDetailId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecordResultList" nillable="true" type="tns:ArrayOfCP_NurExecRecordResult" />
+      <xs:element minOccurs="0" name="ResultList" nillable="true" type="tns:ArrayOfCP_NurExecuteResult" />
+      <xs:element minOccurs="0" name="ToPathId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Xmxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XmxhName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_NurExecInfo" nillable="true" type="tns:CP_NurExecInfo" />
+  <xs:complexType name="ArrayOfCP_NurExecRecordResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_NurExecRecordResult" nillable="true" type="tns:CP_NurExecRecordResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_NurExecRecordResult" nillable="true" type="tns:ArrayOfCP_NurExecRecordResult" />
+  <xs:complexType name="CP_NurExecRecordResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HlzxId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JgId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_NurExecRecordResult" nillable="true" type="tns:CP_NurExecRecordResult" />
+  <xs:complexType name="ArrayOfCP_NurExecuteResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_NurExecuteResult" nillable="true" type="tns:CP_NurExecuteResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_NurExecuteResult" nillable="true" type="tns:ArrayOfCP_NurExecuteResult" />
+  <xs:complexType name="CP_NurExecuteResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsChecked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="JgName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jgbh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mxxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YxjlName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_NurExecuteResult" nillable="true" type="tns:CP_NurExecuteResult" />
+  <xs:complexType name="CP_InpatinetList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BhljId" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Brxb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Brzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CP_ExamSyrqs" nillable="true" type="tns:ArrayOfCP_ExamSyrq" />
+      <xs:element minOccurs="0" name="Cqrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Csrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurOper" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentCP_ClinicalPathNode" nillable="true" type="tns:CP_ClinicalPathNode" />
+      <xs:element minOccurs="0" name="Cybq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CybqName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cycw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cyks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CyksName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cyrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cyzd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CyzdName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnForceWorkFlowXml" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hissyxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hkdz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ICD10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnter" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsEnterCurrentNode" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LjztName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LqljId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nl" type="xs:int" />
+      <xs:element minOccurs="0" name="NoOfRecord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoofClinic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Paths" nillable="true" type="tns:ArrayOfCP_ClinicalPathList" />
+      <xs:element minOccurs="0" name="PatientExamItems" nillable="true" type="tns:ArrayOfPatientExamItem" />
+      <xs:element minOccurs="0" name="Pgqk" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RydmLjdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ryrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ryzd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RyzdCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkFlowXml" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wzjb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xsnl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zyhm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zyys" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZyysDm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="patID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_InpatinetList" nillable="true" type="tns:CP_InpatinetList" />
+  <xs:complexType name="ArrayOfCP_ExamSyrq">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_ExamSyrq" nillable="true" type="tns:CP_ExamSyrq" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_ExamSyrq" nillable="true" type="tns:ArrayOfCP_ExamSyrq" />
+  <xs:complexType name="CP_ExamSyrq">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Jlxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsnl" type="xs:int" />
+      <xs:element minOccurs="0" name="MC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qsnl" type="xs:int" />
+      <xs:element minOccurs="0" name="Xb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjb" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_ExamSyrq" nillable="true" type="tns:CP_ExamSyrq" />
+  <xs:complexType name="CP_ClinicalPathNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsEnter" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NodeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathEnterJudgeConditions" nillable="true" type="tns:ArrayOfCP_PathEnterJudgeCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_ClinicalPathNode" nillable="true" type="tns:CP_ClinicalPathNode" />
+  <xs:complexType name="ArrayOfCP_PathEnterJudgeCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_PathEnterJudgeCondition" nillable="true" type="tns:CP_PathEnterJudgeCondition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_PathEnterJudgeCondition" nillable="true" type="tns:ArrayOfCP_PathEnterJudgeCondition" />
+  <xs:complexType name="CP_PathEnterJudgeCondition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExamValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IsEnetr" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Jcxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JcxmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jddm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lb" type="xs:int" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/YidanSoft.Tool" minOccurs="0" name="MatchResult" type="q1:MatchResultState" />
+      <xs:element minOccurs="0" name="MatchResultName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sjfl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuitCrowsMapScopes" nillable="true" type="tns:ArrayOfSuitCrowdMapScope" />
+      <xs:element minOccurs="0" name="Syrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:int" />
+      <xs:element minOccurs="0" name="XmlbName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_PathEnterJudgeCondition" nillable="true" type="tns:CP_PathEnterJudgeCondition" />
+  <xs:complexType name="ArrayOfSuitCrowdMapScope">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SuitCrowdMapScope" nillable="true" type="tns:SuitCrowdMapScope" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSuitCrowdMapScope" nillable="true" type="tns:ArrayOfSuitCrowdMapScope" />
+  <xs:complexType name="SuitCrowdMapScope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExamSyrq" nillable="true" type="tns:CP_ExamSyrq" />
+      <xs:element minOccurs="0" name="Jsfw" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ksfw" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SuitCrowdMapScope" nillable="true" type="tns:SuitCrowdMapScope" />
+  <xs:complexType name="ArrayOfCP_ClinicalPathList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_ClinicalPathList" nillable="true" type="tns:CP_ClinicalPathList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_ClinicalPathList" nillable="true" type="tns:ArrayOfCP_ClinicalPathList" />
+  <xs:complexType name="CP_ClinicalPathList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bzmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCanEnter" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPossibleEnter" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Jcfy" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LjSyqk" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LjSysl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljms" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathEnterJudgeConditions" nillable="true" type="tns:ArrayOfCP_PathEnterJudgeCondition" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QueryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shys" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vesion" type="xs:decimal" />
+      <xs:element minOccurs="0" name="WorkFlowXML" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YxjlId" type="xs:int" />
+      <xs:element minOccurs="0" name="Zgts" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_ClinicalPathList" nillable="true" type="tns:CP_ClinicalPathList" />
+  <xs:complexType name="ArrayOfPatientExamItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientExamItem" nillable="true" type="tns:PatientExamItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatientExamItem" nillable="true" type="tns:ArrayOfPatientExamItem" />
+  <xs:complexType name="PatientExamItem">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="PatientExamItem" nillable="true" type="tns:PatientExamItem" />
+  <xs:complexType name="HisSxpz">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EhrKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EhrSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ehr_Keyms" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HisKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="His_Keyms" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HisSxpz" nillable="true" type="tns:HisSxpz" />
+  <xs:complexType name="ArrayOfHisSxpz">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HisSxpz" nillable="true" type="tns:HisSxpz" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHisSxpz" nillable="true" type="tns:ArrayOfHisSxpz" />
+  <xs:complexType name="CP_InPathPatientList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cwys" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Hissyxh" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_InPathPatientList" nillable="true" type="tns:CP_InPathPatientList" />
+  <xs:complexType name="ArrayOfRPT_PathQuitMonthCompareDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathQuitMonthCompareDetail" nillable="true" type="tns:RPT_PathQuitMonthCompareDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathQuitMonthCompareDetail" nillable="true" type="tns:ArrayOfRPT_PathQuitMonthCompareDetail" />
+  <xs:complexType name="RPT_PathQuitMonthCompareDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doctor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InPathTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutPathTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathQuitMonthCompareDetail" nillable="true" type="tns:RPT_PathQuitMonthCompareDetail" />
+  <xs:complexType name="ArrayOfCP_DiagNurTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DiagNurTemplate" nillable="true" type="tns:CP_DiagNurTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DiagNurTemplate" nillable="true" type="tns:ArrayOfCP_DiagNurTemplate" />
+  <xs:complexType name="CP_DiagNurTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancel_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cancel_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Isjj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iskx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lbxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainID" type="xs:int" />
+      <xs:element minOccurs="0" name="MxName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mxxh" type="xs:int" />
+      <xs:element minOccurs="0" name="PathDetailId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" type="xs:int" />
+      <xs:element minOccurs="0" name="Yzzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DiagNurTemplate" nillable="true" type="tns:CP_DiagNurTemplate" />
+  <xs:complexType name="ArrayOfCP_PatientPathEnterJudgeConditionRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_PatientPathEnterJudgeConditionRecord" nillable="true" type="tns:CP_PatientPathEnterJudgeConditionRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_PatientPathEnterJudgeConditionRecord" nillable="true" type="tns:ArrayOfCP_PatientPathEnterJudgeConditionRecord" />
+  <xs:complexType name="CP_PatientPathEnterJudgeConditionRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Jcjg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JcxmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jddm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lb" type="xs:int" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pdjg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sjfl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_PatientPathEnterJudgeConditionRecord" nillable="true" type="tns:CP_PatientPathEnterJudgeConditionRecord" />
+  <xs:complexType name="ArrayOfExpressions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Expressions" nillable="true" type="tns:Expressions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExpressions" nillable="true" type="tns:ArrayOfExpressions" />
+  <xs:complexType name="Expressions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpressionsDescribe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpressionsGroupType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpressionsName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Yidansoft.Service.Entity.Pass" minOccurs="0" name="ExpressionsParameter" nillable="true" type="q2:ArrayOfParameterProperty" />
+      <xs:element minOccurs="0" name="ExpressionsProcess" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpressionsReusltUnit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Expressions" nillable="true" type="tns:Expressions" />
+  <xs:complexType name="ArrayOfCP_NurExecItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_NurExecItem" nillable="true" type="tns:CP_NurExecItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_NurExecItem" nillable="true" type="tns:ArrayOfCP_NurExecItem" />
+  <xs:complexType name="CP_NurExecItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmxh" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_NurExecItem" nillable="true" type="tns:CP_NurExecItem" />
+  <xs:complexType name="CP_NurExecCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancel_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cancel_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InputType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lbxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XmxhName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjlmc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_NurExecCategory" nillable="true" type="tns:CP_NurExecCategory" />
+  <xs:complexType name="ArrayOfCP_NurExecCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_NurExecCategory" nillable="true" type="tns:CP_NurExecCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_NurExecCategory" nillable="true" type="tns:ArrayOfCP_NurExecCategory" />
+  <xs:complexType name="ArrayOfCP_MedicalTreatmentWarmGroupByTxlx">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MedicalTreatmentWarmGroupByTxlx" nillable="true" type="tns:CP_MedicalTreatmentWarmGroupByTxlx" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MedicalTreatmentWarmGroupByTxlx" nillable="true" type="tns:ArrayOfCP_MedicalTreatmentWarmGroupByTxlx" />
+  <xs:complexType name="CP_MedicalTreatmentWarmGroupByTxlx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dysl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Txlx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TxlxName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jddm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jdmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="txsl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MedicalTreatmentWarmGroupByTxlx" nillable="true" type="tns:CP_MedicalTreatmentWarmGroupByTxlx" />
+  <xs:complexType name="ArrayOfCP_MedicalTreatmentWarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MedicalTreatmentWarm" nillable="true" type="tns:CP_MedicalTreatmentWarm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MedicalTreatmentWarm" nillable="true" type="tns:ArrayOfCP_MedicalTreatmentWarm" />
+  <xs:complexType name="CP_MedicalTreatmentWarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hzjddm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jddm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Txlx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TxlxName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Txzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TxztBoolean" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jdmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MedicalTreatmentWarm" nillable="true" type="tns:CP_MedicalTreatmentWarm" />
+  <xs:complexType name="CP_MasterDrugs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cdxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cjmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheck" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNeedPass" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPass" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Jsbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Txfs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TxfsName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xgsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmCj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmCjName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmXg" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MasterDrugs" nillable="true" type="tns:CP_MasterDrugs" />
+  <xs:complexType name="ArrayOfCP_MasterDrugs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MasterDrugs" nillable="true" type="tns:CP_MasterDrugs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MasterDrugs" nillable="true" type="tns:ArrayOfCP_MasterDrugs" />
+  <xs:complexType name="CP_MasterDrugRoles">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheck" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xgsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmCj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmCjName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmXg" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MasterDrugRoles" nillable="true" type="tns:CP_MasterDrugRoles" />
+  <xs:complexType name="ArrayOfCP_MasterDrugRoles">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MasterDrugRoles" nillable="true" type="tns:CP_MasterDrugRoles" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MasterDrugRoles" nillable="true" type="tns:ArrayOfCP_MasterDrugRoles" />
+  <xs:complexType name="CP_MasterDrug2Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cdxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xgsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmCj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmXg" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MasterDrug2Role" nillable="true" type="tns:CP_MasterDrug2Role" />
+  <xs:complexType name="ArrayOfCP_MasterDrug2Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MasterDrug2Role" nillable="true" type="tns:CP_MasterDrug2Role" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MasterDrug2Role" nillable="true" type="tns:ArrayOfCP_MasterDrug2Role" />
+  <xs:complexType name="CP_MasterDrug2User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xgsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmCj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZgdmXg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgxb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MasterDrug2User" nillable="true" type="tns:CP_MasterDrug2User" />
+  <xs:complexType name="ArrayOfCP_MasterDrug2User">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MasterDrug2User" nillable="true" type="tns:CP_MasterDrug2User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MasterDrug2User" nillable="true" type="tns:ArrayOfCP_MasterDrug2User" />
+  <xs:complexType name="ArrayOfCP_CYXDF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_CYXDF" nillable="true" type="tns:CP_CYXDF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_CYXDF" nillable="true" type="tns:ArrayOfCP_CYXDF" />
+  <xs:complexType name="CP_CYXDF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Isjj" type="xs:int" />
+      <xs:element minOccurs="0" name="Ksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cfmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cfts" type="xs:int" />
+      <xs:element minOccurs="0" name="cjrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="czyh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jdcfbz" type="xs:int" />
+      <xs:element minOccurs="0" name="jlzt" type="xs:int" />
+      <xs:element minOccurs="0" name="lrdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mbbz" type="xs:int" />
+      <xs:element minOccurs="0" name="sqdmbxh" type="xs:int" />
+      <xs:element minOccurs="0" name="tsbz" type="xs:int" />
+      <xs:element minOccurs="0" name="ylmfl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="yplh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zxyjr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_CYXDF" nillable="true" type="tns:CP_CYXDF" />
+  <xs:complexType name="ArrayOfV_PermissionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_PermissionList" nillable="true" type="tns:V_PermissionList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_PermissionList" nillable="true" type="tns:ArrayOfV_PermissionList" />
+  <xs:complexType name="V_PermissionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FunCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunCodeFather" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunFatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_PermissionList" nillable="true" type="tns:V_PermissionList" />
+  <xs:complexType name="ArrayOfV_PermissionListFather">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_PermissionListFather" nillable="true" type="tns:V_PermissionListFather" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_PermissionListFather" nillable="true" type="tns:ArrayOfV_PermissionListFather" />
+  <xs:complexType name="V_PermissionListFather">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FunCodeFather" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunFatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunURLFather" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pList" nillable="true" type="tns:ArrayOfV_PermissionList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_PermissionListFather" nillable="true" type="tns:V_PermissionListFather" />
+  <xs:complexType name="ArrayOfDrugInfoPass">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DrugInfoPass" nillable="true" type="tns:DrugInfoPass" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDrugInfoPass" nillable="true" type="tns:ArrayOfDrugInfoPass" />
+  <xs:complexType name="DrugInfoPass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Gflb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yblb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjjz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypspm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypsyz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yptym" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypyf" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrugInfoPass" nillable="true" type="tns:DrugInfoPass" />
+  <xs:complexType name="SQLMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsSucceed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SQLMessage" nillable="true" type="tns:SQLMessage" />
+  <xs:complexType name="ArrayOfCP_LongOrderList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_LongOrderList" nillable="true" type="tns:CP_LongOrderList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_LongOrderList" nillable="true" type="tns:ArrayOfCP_LongOrderList" />
+  <xs:complexType name="CP_LongOrderList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cqyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dwlb" type="xs:int" />
+      <xs:element minOccurs="0" name="DwlbName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwxs" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" type="xs:int" />
+      <xs:element minOccurs="0" name="Fzbz" type="xs:int" />
+      <xs:element minOccurs="0" name="FzbzSymbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jjlx" type="xs:int" />
+      <xs:element minOccurs="0" name="Jjlxmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kssj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LrysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LrysdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderValue" type="xs:int" />
+      <xs:element minOccurs="0" name="PcName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QxysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShczyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tzrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzshhs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TzshhsName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzshrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TzysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:int" />
+      <xs:element minOccurs="0" name="YfName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzzt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="YzztName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZxczyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdmmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxzq" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxzqdw" type="xs:int" />
+      <xs:element minOccurs="0" name="ZxzqdwName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tzysdmName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_LongOrderList" nillable="true" type="tns:CP_LongOrderList" />
+  <xs:complexType name="ArrayOfCP_InpatinetList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_InpatinetList" nillable="true" type="tns:CP_InpatinetList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_InpatinetList" nillable="true" type="tns:ArrayOfCP_InpatinetList" />
+  <xs:complexType name="ArrayOfMedicine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Medicine" nillable="true" type="tns:Medicine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMedicine" nillable="true" type="tns:ArrayOfMedicine" />
+  <xs:complexType name="Medicine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplyTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryThree" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryTwo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Meno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pinyin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferenceUsage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Specification" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Medicine" nillable="true" type="tns:Medicine" />
+  <xs:complexType name="ArrayOfCP_InpatientFeeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_InpatientFeeInfo" nillable="true" type="tns:CP_InpatientFeeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_InpatientFeeInfo" nillable="true" type="tns:ArrayOfCP_InpatientFeeInfo" />
+  <xs:complexType name="CP_InpatientFeeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Xmdm" type="xs:int" />
+      <xs:element minOccurs="0" name="Xmje" type="xs:double" />
+      <xs:element minOccurs="0" name="Xmmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zj" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_InpatientFeeInfo" nillable="true" type="tns:CP_InpatientFeeInfo" />
+  <xs:complexType name="ArrayOfCP_InpatientPhySign">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_InpatientPhySign" nillable="true" type="tns:CP_InpatientPhySign" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_InpatientPhySign" nillable="true" type="tns:ArrayOfCP_InpatientPhySign" />
+  <xs:complexType name="CP_InpatientPhySign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Clsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hx" type="xs:int" />
+      <xs:element minOccurs="0" name="Kb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mb" type="xs:int" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qbxl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rghx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Staticday" type="xs:int" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Tw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Wljw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zlrq" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_InpatientPhySign" nillable="true" type="tns:CP_InpatientPhySign" />
+  <xs:complexType name="ArrayOfCP_DiagnosisList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DiagnosisList" nillable="true" type="tns:CP_DiagnosisList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DiagnosisList" nillable="true" type="tns:ArrayOfCP_DiagnosisList" />
+  <xs:complexType name="CP_DiagnosisList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QueryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdbs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zddm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DiagnosisList" nillable="true" type="tns:CP_DiagnosisList" />
+  <xs:complexType name="ArrayOfCP_DepartmentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DepartmentList" nillable="true" type="tns:CP_DepartmentList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DepartmentList" nillable="true" type="tns:ArrayOfCP_DepartmentList" />
+  <xs:complexType name="CP_DepartmentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QueryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DepartmentList" nillable="true" type="tns:CP_DepartmentList" />
+  <xs:complexType name="ArrayOfCP_ClinicalDiagnosisList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_ClinicalDiagnosisList" nillable="true" type="tns:CP_ClinicalDiagnosisList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_ClinicalDiagnosisList" nillable="true" type="tns:ArrayOfCP_ClinicalDiagnosisList" />
+  <xs:complexType name="CP_ClinicalDiagnosisList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bzdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bzmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_ClinicalDiagnosisList" nillable="true" type="tns:CP_ClinicalDiagnosisList" />
+  <xs:complexType name="ArrayOfCP_DoctorOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DoctorOrder" nillable="true" type="tns:CP_DoctorOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DoctorOrder" nillable="true" type="tns:ArrayOfCP_DoctorOrder" />
+  <xs:complexType name="CP_DoctorOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bqdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bxbz" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Cdxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ctmxxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Djfl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwlb" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dwxs" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" type="xs:int" />
+      <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FromTable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fzbz" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Fzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ggxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsModify" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Jjlx" type="xs:int" />
+      <xs:element minOccurs="0" name="Jjlxmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lcxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Lrrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mq" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderValue" type="xs:int" />
+      <xs:element minOccurs="0" name="PathDetailID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PcdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sqdxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ssyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tbbz" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tsbj" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tzrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzshhs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzshrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tzysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmdj" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ybspbh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ybsptg" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YfdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypzsl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yzbz" type="xs:decimal" />
+      <xs:element minOccurs="0" name="YzbzName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Yzlb" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yztzyy" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yzzt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Zxczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdmmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxts" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Zxzq" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Zxzqdw" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DoctorOrder" nillable="true" type="tns:CP_DoctorOrder" />
+  <xs:complexType name="ArrayOfCP_Diagnosis_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_Diagnosis_E" nillable="true" type="tns:CP_Diagnosis_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_Diagnosis_E" nillable="true" type="tns:ArrayOfCP_Diagnosis_E" />
+  <xs:complexType name="CP_Diagnosis_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bzdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bzlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nbfl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qtlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tjm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdbs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zddm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zldm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_Diagnosis_E" nillable="true" type="tns:CP_Diagnosis_E" />
+  <xs:complexType name="ArrayOfPE_UserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_UserRole" nillable="true" type="tns:PE_UserRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_UserRole" nillable="true" type="tns:ArrayOfPE_UserRole" />
+  <xs:complexType name="PE_UserRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RoleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_UserRole" nillable="true" type="tns:PE_UserRole" />
+  <xs:complexType name="ArrayOfRPT_PathStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathStatistic" nillable="true" type="tns:RPT_PathStatistic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathStatistic" nillable="true" type="tns:ArrayOfRPT_PathStatistic" />
+  <xs:complexType name="RPT_PathStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BySl" type="xs:int" />
+      <xs:element minOccurs="0" name="Byl" type="xs:int" />
+      <xs:element minOccurs="0" name="HzSl" type="xs:int" />
+      <xs:element minOccurs="0" name="Jcfy" type="xs:int" />
+      <xs:element minOccurs="0" name="Jcts" type="xs:int" />
+      <xs:element minOccurs="0" name="Jgsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jzyfy" type="xs:int" />
+      <xs:element minOccurs="0" name="Jzyts" type="xs:int" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rjl" type="xs:int" />
+      <xs:element minOccurs="0" name="Ssls" type="xs:int" />
+      <xs:element minOccurs="0" name="Tcl" type="xs:int" />
+      <xs:element minOccurs="0" name="Tcsl" type="xs:int" />
+      <xs:element minOccurs="0" name="Vesion" type="xs:decimal" />
+      <xs:element minOccurs="0" name="WcSl" type="xs:int" />
+      <xs:element minOccurs="0" name="Wcl" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxqk" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathStatistic" nillable="true" type="tns:RPT_PathStatistic" />
+  <xs:complexType name="ArrayOfRPT_PathStatisticDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathStatisticDetail" nillable="true" type="tns:RPT_PathStatisticDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathStatisticDetail" nillable="true" type="tns:ArrayOfRPT_PathStatisticDetail" />
+  <xs:complexType name="RPT_PathStatisticDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doctor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InPathTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathStatisticDetail" nillable="true" type="tns:RPT_PathStatisticDetail" />
+  <xs:complexType name="ArrayOfRpt_DataList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rpt_DataList" nillable="true" type="tns:Rpt_DataList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRpt_DataList" nillable="true" type="tns:ArrayOfRpt_DataList" />
+  <xs:complexType name="Rpt_DataList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PathQuitList" nillable="true" type="tns:ArrayOfRpt_PathQuitList" />
+      <xs:element minOccurs="0" name="PathQuitPie" nillable="true" type="tns:ArrayOfRpt_PathQuitPie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rpt_DataList" nillable="true" type="tns:Rpt_DataList" />
+  <xs:complexType name="ArrayOfRpt_PathQuitList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rpt_PathQuitList" nillable="true" type="tns:Rpt_PathQuitList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRpt_PathQuitList" nillable="true" type="tns:ArrayOfRpt_PathQuitList" />
+  <xs:complexType name="Rpt_PathQuitList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcyy" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rpt_PathQuitList" nillable="true" type="tns:Rpt_PathQuitList" />
+  <xs:complexType name="ArrayOfRpt_PathQuitPie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rpt_PathQuitPie" nillable="true" type="tns:Rpt_PathQuitPie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRpt_PathQuitPie" nillable="true" type="tns:ArrayOfRpt_PathQuitPie" />
+  <xs:complexType name="Rpt_PathQuitPie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Counts" type="xs:int" />
+      <xs:element minOccurs="0" name="Tcyy" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rpt_PathQuitPie" nillable="true" type="tns:Rpt_PathQuitPie" />
+  <xs:complexType name="ArrayOfCP_PathExecVariantRecords">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_PathExecVariantRecords" nillable="true" type="tns:CP_PathExecVariantRecords" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_PathExecVariantRecords" nillable="true" type="tns:ArrayOfCP_PathExecVariantRecords" />
+  <xs:complexType name="CP_PathExecVariantRecords">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Blbmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bylb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bynr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bysj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Byyy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lbmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:int" />
+      <xs:element minOccurs="0" name="Xmmc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_PathExecVariantRecords" nillable="true" type="tns:CP_PathExecVariantRecords" />
+  <xs:complexType name="ArrayOfCP_QCRecordTip">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_QCRecordTip" nillable="true" type="tns:CP_QCRecordTip" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_QCRecordTip" nillable="true" type="tns:ArrayOfCP_QCRecordTip" />
+  <xs:complexType name="CP_QCRecordTip">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Blts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tjsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_QCRecordTip" nillable="true" type="tns:CP_QCRecordTip" />
+  <xs:complexType name="ArrayOfCP_BeyondDays">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_BeyondDays" nillable="true" type="tns:CP_BeyondDays" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_BeyondDays" nillable="true" type="tns:ArrayOfCP_BeyondDays" />
+  <xs:complexType name="CP_BeyondDays">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ccts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sjts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgts" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_BeyondDays" nillable="true" type="tns:CP_BeyondDays" />
+  <xs:complexType name="ArrayOfCP_BeyondFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_BeyondFee" nillable="true" type="tns:CP_BeyondFee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_BeyondFee" nillable="true" type="tns:ArrayOfCP_BeyondFee" />
+  <xs:complexType name="CP_BeyondFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ccfy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcfy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sjfy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_BeyondFee" nillable="true" type="tns:CP_BeyondFee" />
+  <xs:complexType name="ArrayOfCP_ForceToPath">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_ForceToPath" nillable="true" type="tns:CP_ForceToPath" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_ForceToPath" nillable="true" type="tns:ArrayOfCP_ForceToPath" />
+  <xs:complexType name="CP_ForceToPath">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qzjryy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_ForceToPath" nillable="true" type="tns:CP_ForceToPath" />
+  <xs:complexType name="ArrayOfCP_PathExit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_PathExit" nillable="true" type="tns:CP_PathExit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_PathExit" nillable="true" type="tns:ArrayOfCP_PathExit" />
+  <xs:complexType name="CP_PathExit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_PathExit" nillable="true" type="tns:CP_PathExit" />
+  <xs:complexType name="ArrayOfCP_QCProblem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_QCProblem" nillable="true" type="tns:CP_QCProblem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_QCProblem" nillable="true" type="tns:ArrayOfCP_QCProblem" />
+  <xs:complexType name="CP_QCProblem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dfnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dfrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dfys" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dfysxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Djrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Djry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Djryxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qczt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shryxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Wtnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wtxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Wtzt" type="xs:int" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zfrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zfry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zfryxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zrys" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_QCProblem" nillable="true" type="tns:CP_QCProblem" />
+  <xs:complexType name="CP_AdviceSuitDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cdxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ctmxxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ctyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dwlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwxs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" type="xs:int" />
+      <xs:element minOccurs="0" name="Fzbz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FzbzSymbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fzxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ggxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jjlx" type="xs:int" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lcxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PcdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YfdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypzsl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzbz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YzbzName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Yzlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxzq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxzqdw" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_AdviceSuitDetail" nillable="true" type="tns:CP_AdviceSuitDetail" />
+  <xs:complexType name="ArrayOfCP_AdviceSuitDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_AdviceSuitDetail" nillable="true" type="tns:CP_AdviceSuitDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_AdviceSuitDetail" nillable="true" type="tns:ArrayOfCP_AdviceSuitDetail" />
+  <xs:complexType name="ArrayOfRPT_PathVariationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathVariationDetail" nillable="true" type="tns:RPT_PathVariationDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathVariationDetail" nillable="true" type="tns:ArrayOfRPT_PathVariationDetail" />
+  <xs:complexType name="RPT_PathVariationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doctor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationDetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathVariationDetail" nillable="true" type="tns:RPT_PathVariationDetail" />
+  <xs:complexType name="ArrayOfCP_AdviceSuitCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_AdviceSuitCategory" nillable="true" type="tns:CP_AdviceSuitCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_AdviceSuitCategory" nillable="true" type="tns:ArrayOfCP_AdviceSuitCategory" />
+  <xs:complexType name="CP_AdviceSuitCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdviceSuitList" nillable="true" type="tns:ArrayOfCP_AdviceSuit" />
+      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgdm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_AdviceSuitCategory" nillable="true" type="tns:CP_AdviceSuitCategory" />
+  <xs:complexType name="ArrayOfCP_AdviceSuit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_AdviceSuit" nillable="true" type="tns:CP_AdviceSuit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_AdviceSuit" nillable="true" type="tns:ArrayOfCP_AdviceSuit" />
+  <xs:complexType name="CP_AdviceSuit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bqdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ctyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserReason1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserReason2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserReason3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgdm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_AdviceSuit" nillable="true" type="tns:CP_AdviceSuit" />
+  <xs:complexType name="CP_InpatinetListPaging">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CP_InpatinetList" nillable="true" type="tns:ArrayOfCP_InpatinetList" />
+      <xs:element minOccurs="0" name="DonePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="New" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="None" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotIn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuitPath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_InpatinetListPaging" nillable="true" type="tns:CP_InpatinetListPaging" />
+  <xs:complexType name="ArrayOfModal_PatientContactsInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Modal_PatientContactsInfo" nillable="true" type="tns:Modal_PatientContactsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModal_PatientContactsInfo" nillable="true" type="tns:ArrayOfModal_PatientContactsInfo" />
+  <xs:complexType name="Modal_PatientContactsInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Lxbh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxdz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxgx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxgzdh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxjtdh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxrbz" type="xs:int" />
+      <xs:element minOccurs="0" name="Lxrm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxrxb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lxyb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Modal_PatientContactsInfo" nillable="true" type="tns:Modal_PatientContactsInfo" />
+  <xs:complexType name="Modal_PatientInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Areas" nillable="true" type="tns:ArrayOfModal_Areas" />
+      <xs:element minOccurs="0" name="CommonDictionary" nillable="true" type="tns:ArrayOfModal_Dictionary" />
+      <xs:element minOccurs="0" name="ContactsInfo" nillable="true" type="tns:ArrayOfModal_PatientContactsInfo" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="tns:ArrayOfModal_Diagnosis" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Modal_PatientInfo" nillable="true" type="tns:Modal_PatientInfo" />
+  <xs:complexType name="ArrayOfModal_Areas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Modal_Areas" nillable="true" type="tns:Modal_Areas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModal_Areas" nillable="true" type="tns:ArrayOfModal_Areas" />
+  <xs:complexType name="Modal_Areas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dqdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dqlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Modal_Areas" nillable="true" type="tns:Modal_Areas" />
+  <xs:complexType name="ArrayOfModal_Dictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Modal_Dictionary" nillable="true" type="tns:Modal_Dictionary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModal_Dictionary" nillable="true" type="tns:ArrayOfModal_Dictionary" />
+  <xs:complexType name="Modal_Dictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Lbdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mxdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Modal_Dictionary" nillable="true" type="tns:Modal_Dictionary" />
+  <xs:complexType name="ArrayOfModal_Diagnosis">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Modal_Diagnosis" nillable="true" type="tns:Modal_Diagnosis" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModal_Diagnosis" nillable="true" type="tns:ArrayOfModal_Diagnosis" />
+  <xs:complexType name="Modal_Diagnosis">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdbs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zddm" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Modal_Diagnosis" nillable="true" type="tns:Modal_Diagnosis" />
+  <xs:complexType name="ArrayOfPE_PatientIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_PatientIn" nillable="true" type="tns:PE_PatientIn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_PatientIn" nillable="true" type="tns:ArrayOfPE_PatientIn" />
+  <xs:complexType name="PE_PatientIn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdmitDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_PatientIn" nillable="true" type="tns:PE_PatientIn" />
+  <xs:complexType name="ArrayOfCP_TempOrderList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_TempOrderList" nillable="true" type="tns:CP_TempOrderList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_TempOrderList" nillable="true" type="tns:ArrayOfCP_TempOrderList" />
+  <xs:complexType name="CP_TempOrderList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dwlb" type="xs:int" />
+      <xs:element minOccurs="0" name="DwlbName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwxs" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" type="xs:int" />
+      <xs:element minOccurs="0" name="Fzbz" type="xs:int" />
+      <xs:element minOccurs="0" name="FzbzSymbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jjlx" type="xs:int" />
+      <xs:element minOccurs="0" name="Jjlxmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kssj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LrysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LrysdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lsyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderValue" type="xs:int" />
+      <xs:element minOccurs="0" name="PcName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QxysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShczyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tzrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:int" />
+      <xs:element minOccurs="0" name="YfName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzzt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="YzztName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZxczyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdmmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxzq" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxzqdw" type="xs:int" />
+      <xs:element minOccurs="0" name="ZxzqdwName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="exeDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="exeTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_TempOrderList" nillable="true" type="tns:CP_TempOrderList" />
+  <xs:complexType name="CP_AdviceGroupDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cdxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ctmxxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ctyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dwlb" type="xs:int" />
+      <xs:element minOccurs="0" name="Dwxs" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" type="xs:int" />
+      <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fzbz" type="xs:short" />
+      <xs:element minOccurs="0" name="Fzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ggxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Index" type="xs:int" />
+      <xs:element minOccurs="0" name="IsGroup" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Jjlx" type="xs:int" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lcxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Mzdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:short" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypzsl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yzbz" type="xs:short" />
+      <xs:element minOccurs="0" name="YzbzName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Yzlb" type="xs:short" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxts" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxzq" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxzqdw" type="xs:short" />
+      <xs:element minOccurs="0" name="_OrderValue" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_AdviceGroupDetail" nillable="true" type="tns:CP_AdviceGroupDetail" />
+  <xs:complexType name="ArrayOfCP_AdviceGroupDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_AdviceGroupDetail" nillable="true" type="tns:CP_AdviceGroupDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_AdviceGroupDetail" nillable="true" type="tns:ArrayOfCP_AdviceGroupDetail" />
+  <xs:complexType name="ArrayOfCP_PCSJ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_PCSJ" nillable="true" type="tns:CP_PCSJ" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_PCSJ" nillable="true" type="tns:ArrayOfCP_PCSJ" />
+  <xs:complexType name="CP_PCSJ">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwFlag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mxbh" type="xs:short" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxzq" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_PCSJ" nillable="true" type="tns:CP_PCSJ" />
+  <xs:complexType name="ArrayOfCP_PCSJ_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_PCSJ_E" nillable="true" type="tns:CP_PCSJ_E" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_PCSJ_E" nillable="true" type="tns:ArrayOfCP_PCSJ_E" />
+  <xs:complexType name="CP_PCSJ_E">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClosedDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsChecked" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnableWeek" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsWeek" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_PCSJ_E" nillable="true" type="tns:CP_PCSJ_E" />
+  <xs:complexType name="CP_AdviceAnesthesiaDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ctmxxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ctyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Dwlb" type="xs:short" />
+      <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fzbz" type="xs:short" />
+      <xs:element minOccurs="0" name="Fzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Index" type="xs:int" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mzdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ssdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:short" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzbz" type="xs:short" />
+      <xs:element minOccurs="0" name="YzbzName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzlb" type="xs:short" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_AdviceAnesthesiaDetail" nillable="true" type="tns:CP_AdviceAnesthesiaDetail" />
+  <xs:complexType name="ArrayOfCP_AdviceAnesthesiaDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_AdviceAnesthesiaDetail" nillable="true" type="tns:CP_AdviceAnesthesiaDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_AdviceAnesthesiaDetail" nillable="true" type="tns:ArrayOfCP_AdviceAnesthesiaDetail" />
+  <xs:complexType name="APPCFG">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cfgkeyset" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientFlag" type="xs:int" />
+      <xs:element minOccurs="0" name="Configkey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descript" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Design" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hide" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParamType" type="xs:int" />
+      <xs:element minOccurs="0" name="Valid" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="APPCFG" nillable="true" type="tns:APPCFG" />
+  <xs:complexType name="ArrayOfAPPCFG">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APPCFG" nillable="true" type="tns:APPCFG" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAPPCFG" nillable="true" type="tns:ArrayOfAPPCFG" />
+  <xs:complexType name="ArrayOfCP_ExamDictionaryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_ExamDictionaryDetail" nillable="true" type="tns:CP_ExamDictionaryDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_ExamDictionaryDetail" nillable="true" type="tns:ArrayOfCP_ExamDictionaryDetail" />
+  <xs:complexType name="CP_ExamDictionaryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jlxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mcsx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuitCrowsMapScopes" nillable="true" type="tns:ArrayOfSuitCrowdMapScope" />
+      <xs:element minOccurs="0" name="Syrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_ExamDictionaryDetail" nillable="true" type="tns:CP_ExamDictionaryDetail" />
+  <xs:complexType name="ArrayOfCP_CYFUnion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_CYFUnion" nillable="true" type="tns:CP_CYFUnion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_CYFUnion" nillable="true" type="tns:ArrayOfCP_CYFUnion" />
+  <xs:complexType name="CP_CYFUnion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cdxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwlb" type="xs:int" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ggdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ggxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Isjj" type="xs:int" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jxdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypsl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ekbz" type="xs:int" />
+      <xs:element minOccurs="0" name="ekdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ekxs" type="xs:int" />
+      <xs:element minOccurs="0" name="yplh" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_CYFUnion" nillable="true" type="tns:CP_CYFUnion" />
+  <xs:complexType name="ArrayOfCP_DoctorTaskMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DoctorTaskMessage" nillable="true" type="tns:CP_DoctorTaskMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DoctorTaskMessage" nillable="true" type="tns:ArrayOfCP_DoctorTaskMessage" />
+  <xs:complexType name="CP_DoctorTaskMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cycw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mess" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rwzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yqsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="group_col" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DoctorTaskMessage" nillable="true" type="tns:CP_DoctorTaskMessage" />
+  <xs:complexType name="ArrayOfV_PatientExamine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_PatientExamine" nillable="true" type="tns:V_PatientExamine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_PatientExamine" nillable="true" type="tns:ArrayOfV_PatientExamine" />
+  <xs:complexType name="V_PatientExamine">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcjg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zcfw" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_PatientExamine" nillable="true" type="tns:V_PatientExamine" />
+  <xs:complexType name="ArrayOfV_QCRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_QCRecord" nillable="true" type="tns:V_QCRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_QCRecord" nillable="true" type="tns:ArrayOfV_QCRecord" />
+  <xs:complexType name="V_QCRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expr1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FoulMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FoulState" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="InPatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reminder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Resident" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_QCRecord" nillable="true" type="tns:V_QCRecord" />
+  <xs:complexType name="ArrayOfMedicineDirect">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MedicineDirect" nillable="true" type="tns:MedicineDirect" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMedicineDirect" nillable="true" type="tns:ArrayOfMedicineDirect" />
+  <xs:complexType name="MedicineDirect">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DirectContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DirectTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DirectTitle2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doseform" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PinYin" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MedicineDirect" nillable="true" type="tns:MedicineDirect" />
+  <xs:complexType name="ArrayOfPE_User">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_User" nillable="true" type="tns:PE_User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_User" nillable="true" type="tns:ArrayOfPE_User" />
+  <xs:complexType name="PE_User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserDept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_User" nillable="true" type="tns:PE_User" />
+  <xs:complexType name="ArrayOfPE_CompleteUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_CompleteUser" nillable="true" type="tns:PE_CompleteUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_CompleteUser" nillable="true" type="tns:ArrayOfPE_CompleteUser" />
+  <xs:complexType name="PE_CompleteUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Birth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocGrade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marital" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserDept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_CompleteUser" nillable="true" type="tns:PE_CompleteUser" />
+  <xs:complexType name="ArrayOfRPT_PathVariation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathVariation" nillable="true" type="tns:RPT_PathVariation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathVariation" nillable="true" type="tns:ArrayOfRPT_PathVariation" />
+  <xs:complexType name="RPT_PathVariation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeptName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariationType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathVariation" nillable="true" type="tns:RPT_PathVariation" />
+  <xs:complexType name="RPT_PathFinish">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathFinishImage" nillable="true" type="tns:ArrayOfRpt_PathFinishImage" />
+      <xs:element minOccurs="0" name="PathFinishList" nillable="true" type="tns:ArrayOfRPT_PathFinishList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathFinish" nillable="true" type="tns:RPT_PathFinish" />
+  <xs:complexType name="ArrayOfRpt_PathFinishImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rpt_PathFinishImage" nillable="true" type="tns:Rpt_PathFinishImage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRpt_PathFinishImage" nillable="true" type="tns:ArrayOfRpt_PathFinishImage" />
+  <xs:complexType name="Rpt_PathFinishImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColIndex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinishCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mess" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PeriodName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalCount" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rpt_PathFinishImage" nillable="true" type="tns:Rpt_PathFinishImage" />
+  <xs:complexType name="ArrayOfRPT_PathFinishList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathFinishList" nillable="true" type="tns:RPT_PathFinishList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathFinishList" nillable="true" type="tns:ArrayOfRPT_PathFinishList" />
+  <xs:complexType name="RPT_PathFinishList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Col_A" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_B" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_C" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_D" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_F" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_G" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_H" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_I" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_J" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_K" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_L" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_M" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_N" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Col_O" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathFinishList" nillable="true" type="tns:RPT_PathFinishList" />
+  <xs:complexType name="ArrayOfRPT_PathFinishDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathFinishDetail" nillable="true" type="tns:RPT_PathFinishDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathFinishDetail" nillable="true" type="tns:ArrayOfRPT_PathFinishDetail" />
+  <xs:complexType name="RPT_PathFinishDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doctor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FinishPathTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InPathTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuitPathTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathFinishDetail" nillable="true" type="tns:RPT_PathFinishDetail" />
+  <xs:complexType name="ArrayOfPE_Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_Role" nillable="true" type="tns:PE_Role" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_Role" nillable="true" type="tns:ArrayOfPE_Role" />
+  <xs:complexType name="PE_Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsCheck" type="xs:int" />
+      <xs:element minOccurs="0" name="RoleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_Role" nillable="true" type="tns:PE_Role" />
+  <xs:complexType name="ArrayOfPE_RoleFun">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_RoleFun" nillable="true" type="tns:PE_RoleFun" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_RoleFun" nillable="true" type="tns:ArrayOfPE_RoleFun" />
+  <xs:complexType name="PE_RoleFun">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FunCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_RoleFun" nillable="true" type="tns:PE_RoleFun" />
+  <xs:complexType name="ArrayOfPE_Fun">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_Fun" nillable="true" type="tns:PE_Fun" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_Fun" nillable="true" type="tns:ArrayOfPE_Fun" />
+  <xs:complexType name="PE_Fun">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fa_FunName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunCodeFather" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISCheck" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_Fun" nillable="true" type="tns:PE_Fun" />
+  <xs:complexType name="ArrayOfPE_CodeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_CodeList" nillable="true" type="tns:PE_CodeList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_CodeList" nillable="true" type="tns:ArrayOfPE_CodeList" />
+  <xs:complexType name="PE_CodeList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fjd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mcsx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_CodeList" nillable="true" type="tns:PE_CodeList" />
+  <xs:complexType name="ArrayOfPE_Hlxm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_Hlxm" nillable="true" type="tns:PE_Hlxm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_Hlxm" nillable="true" type="tns:ArrayOfPE_Hlxm" />
+  <xs:complexType name="PE_Hlxm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancel_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cancel_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_Hlxm" nillable="true" type="tns:PE_Hlxm" />
+  <xs:complexType name="ArrayOfPE_UserRoleList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_UserRoleList" nillable="true" type="tns:PE_UserRoleList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_UserRoleList" nillable="true" type="tns:ArrayOfPE_UserRoleList" />
+  <xs:complexType name="PE_UserRoleList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BqName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ysjb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zgxb" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_UserRoleList" nillable="true" type="tns:PE_UserRoleList" />
+  <xs:complexType name="ArrayOfCP_DiagNurExecCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DiagNurExecCategory" nillable="true" type="tns:CP_DiagNurExecCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DiagNurExecCategory" nillable="true" type="tns:ArrayOfCP_DiagNurExecCategory" />
+  <xs:complexType name="CP_DiagNurExecCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancel_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cancel_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LbName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lbxh" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderValue" type="xs:int" />
+      <xs:element minOccurs="0" name="Yxjl" type="xs:int" />
+      <xs:element minOccurs="0" name="Yxjlmc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DiagNurExecCategory" nillable="true" type="tns:CP_DiagNurExecCategory" />
+  <xs:complexType name="ArrayOfCP_DiagNurExecCategoryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_DiagNurExecCategoryDetail" nillable="true" type="tns:CP_DiagNurExecCategoryDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_DiagNurExecCategoryDetail" nillable="true" type="tns:ArrayOfCP_DiagNurExecCategoryDetail" />
+  <xs:complexType name="CP_DiagNurExecCategoryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancel_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cancel_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JkType" type="xs:int" />
+      <xs:element minOccurs="0" name="Jkdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lbxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mxxh" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderValue" type="xs:int" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sfsy" type="xs:int" />
+      <xs:element minOccurs="0" name="Tbzd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" type="xs:int" />
+      <xs:element minOccurs="0" name="Zdly" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_DiagNurExecCategoryDetail" nillable="true" type="tns:CP_DiagNurExecCategoryDetail" />
+  <xs:complexType name="RW_PatientExamItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcjg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RW_PatientExamItem" nillable="true" type="tns:RW_PatientExamItem" />
+  <xs:complexType name="ArrayOfRW_PatientExamItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RW_PatientExamItem" nillable="true" type="tns:RW_PatientExamItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRW_PatientExamItem" nillable="true" type="tns:ArrayOfRW_PatientExamItem" />
+  <xs:complexType name="ArrayOfRPT_PathVariationMonitorDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RPT_PathVariationMonitorDetail" nillable="true" type="tns:RPT_PathVariationMonitorDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRPT_PathVariationMonitorDetail" nillable="true" type="tns:ArrayOfRPT_PathVariationMonitorDetail" />
+  <xs:complexType name="RPT_PathVariationMonitorDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diagnosis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Doctor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Variationname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ward" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RPT_PathVariationMonitorDetail" nillable="true" type="tns:RPT_PathVariationMonitorDetail" />
+  <xs:complexType name="ArrayOfCP_CYXDFMX">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_CYXDFMX" nillable="true" type="tns:CP_CYXDFMX" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_CYXDFMX" nillable="true" type="tns:ArrayOfCP_CYXDFMX" />
+  <xs:complexType name="CP_CYXDFMX">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Dwlb" type="xs:int" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Isjj" type="xs:int" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypsl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxts" type="xs:int" />
+      <xs:element minOccurs="0" name="cfts" type="xs:int" />
+      <xs:element minOccurs="0" name="cfxh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ekbz" type="xs:int" />
+      <xs:element minOccurs="0" name="ekdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ekxs" type="xs:int" />
+      <xs:element minOccurs="0" name="idm" type="xs:int" />
+      <xs:element minOccurs="0" name="lcxmdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pxxh" type="xs:int" />
+      <xs:element minOccurs="0" name="ypbz" type="xs:int" />
+      <xs:element minOccurs="0" name="yplh" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_CYXDFMX" nillable="true" type="tns:CP_CYXDFMX" />
+  <xs:complexType name="CP_NurResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Create_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Create_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jgbh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Update_Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Update_User" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjlmc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_NurResult" nillable="true" type="tns:CP_NurResult" />
+  <xs:complexType name="ArrayOfCP_NurResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_NurResult" nillable="true" type="tns:CP_NurResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_NurResult" nillable="true" type="tns:ArrayOfCP_NurResult" />
+  <xs:complexType name="ArrayOfCP_CyXDFOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_CyXDFOrder" nillable="true" type="tns:CP_CyXDFOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_CyXDFOrder" nillable="true" type="tns:ArrayOfCP_CyXDFOrder" />
+  <xs:complexType name="CP_CyXDFOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cfmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwlb" type="xs:int" />
+      <xs:element minOccurs="0" name="DwlbName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dwxs" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Extension4" type="xs:int" />
+      <xs:element minOccurs="0" name="Fzbz" type="xs:int" />
+      <xs:element minOccurs="0" name="FzbzSymbol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jjlx" type="xs:int" />
+      <xs:element minOccurs="0" name="Jjlxmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jldw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kssj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LrysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lrysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LrysdmName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lsyzxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PcName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pcdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QxysName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qxysdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShczyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Shrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tzrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xmlb" type="xs:int" />
+      <xs:element minOccurs="0" name="YfName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yfdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypgg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypjl" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzkx" type="xs:int" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yzzt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="YzztName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxcs" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxczy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZxczyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxksdmmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxsj_E" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxzq" type="xs:int" />
+      <xs:element minOccurs="0" name="Zxzqdw" type="xs:int" />
+      <xs:element minOccurs="0" name="ZxzqdwName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="exeDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="exeTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_CyXDFOrder" nillable="true" type="tns:CP_CyXDFOrder" />
+  <xs:complexType name="PE_ExamDictionaryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bz" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsdw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jsfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ksfw" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mcsx" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Py" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yxjl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_ExamDictionaryDetail" nillable="true" type="tns:PE_ExamDictionaryDetail" />
+  <xs:complexType name="ArrayOfPE_ExamDictionaryDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_ExamDictionaryDetail" nillable="true" type="tns:PE_ExamDictionaryDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_ExamDictionaryDetail" nillable="true" type="tns:ArrayOfPE_ExamDictionaryDetail" />
+  <xs:complexType name="ArrayOfPE_ExamDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PE_ExamDictionary" nillable="true" type="tns:PE_ExamDictionary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPE_ExamDictionary" nillable="true" type="tns:ArrayOfPE_ExamDictionary" />
+  <xs:complexType name="PE_ExamDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Jcbm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jcmc" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PE_ExamDictionary" nillable="true" type="tns:PE_ExamDictionary" />
+  <xs:complexType name="ArrayOfCP_MedicinalEducation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_MedicinalEducation" nillable="true" type="tns:CP_MedicinalEducation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_MedicinalEducation" nillable="true" type="tns:ArrayOfCP_MedicinalEducation" />
+  <xs:complexType name="CP_MedicinalEducation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Wtbh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wtda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wtlb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wtnr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_MedicinalEducation" nillable="true" type="tns:CP_MedicinalEducation" />
+  <xs:complexType name="ArrayOfCP_QueryPathExecute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_QueryPathExecute" nillable="true" type="tns:CP_QueryPathExecute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_QueryPathExecute" nillable="true" type="tns:ArrayOfCP_QueryPathExecute" />
+  <xs:complexType name="CP_QueryPathExecute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brxb" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BrxbName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnFroceXml" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hzxm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jrsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljdm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ljzt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LjztName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ryrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ryzd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RyzdName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Syxh" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wcsj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkFlowXML" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Xsnl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_QueryPathExecute" nillable="true" type="tns:CP_QueryPathExecute" />
+  <xs:complexType name="ArrayOfCP_QueryPathExecuteNoteCompare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CP_QueryPathExecuteNoteCompare" nillable="true" type="tns:CP_QueryPathExecuteNoteCompare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCP_QueryPathExecuteNoteCompare" nillable="true" type="tns:ArrayOfCP_QueryPathExecuteNoteCompare" />
+  <xs:complexType name="CP_QueryPathExecuteNoteCompare">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeLrrq" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNew" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ypmc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YzbzName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Yznr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ztnr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Zxrq" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CP_QueryPathExecuteNoteCompare" nillable="true" type="tns:CP_QueryPathExecuteNoteCompare" />
+</xs:schema>

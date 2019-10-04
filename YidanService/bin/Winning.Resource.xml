@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Winning.Resource</name>
+    </assembly>
+    <members>
+        <member name="T:Winning.Resource.ImageType">
+            <summary>
+            图片类型枚举
+            </summary>
+        </member>
+        <member name="F:Winning.Resource.ImageType.Normal">
+            <summary>
+            正常状态
+            </summary>
+        </member>
+        <member name="F:Winning.Resource.ImageType.Disable">
+            <summary>
+            禁用状态
+            </summary>
+        </member>
+        <member name="F:Winning.Resource.ImageType.Highlight">
+            <summary>
+            加亮
+            </summary>
+        </member>
+        <member name="T:Winning.Resource.WinningResourceManager">
+            <summary>
+            提供访问资源的静态方法
+            </summary>
+        </member>
+        <member name="M:Winning.Resource.WinningResourceManager.GetNormalImage(System.String)">
+            <summary>
+            获取图片
+            </summary>
+            <param name="imageName">图片名称(包含后缀)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Resource.WinningResourceManager.GetSmallImage(System.String,Winning.Resource.ImageType)">
+            <summary>
+            获取小尺寸图标（16×16）
+            </summary>
+            <param name="imageName">图片名称，不需要指明尺寸、类型和后缀</param>
+            <param name="imageType">图片类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Resource.WinningResourceManager.GetLargeImage(System.String,Winning.Resource.ImageType)">
+            <summary>
+            获取大尺寸图标（24×24）
+            </summary>
+            <param name="imageName">图片名称，不需要指明尺寸、类型和后缀</param>
+            <param name="imageType">图片类型</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

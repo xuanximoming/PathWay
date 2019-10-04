@@ -1,0 +1,21 @@
+﻿正在安装程序集“F:\Pragrem\JobManager\JobManagerService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\Pragrem\JobManager\JobManagerService.InstallLog
+   assemblypath = F:\Pragrem\JobManager\JobManagerService.exe
+正在安装服务 JobService...
+已成功安装服务 JobService。
+正在日志 Application 中创建 EventLog 源 JobService...
+正在提交程序集“F:\Pragrem\JobManager\JobManagerService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\Pragrem\JobManager\JobManagerService.InstallLog
+   assemblypath = F:\Pragrem\JobManager\JobManagerService.exe
+正在卸载程序集“F:\Pragrem\JobManager\JobManagerService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = F:\Pragrem\JobManager\JobManagerService.InstallLog
+   assemblypath = F:\Pragrem\JobManager\JobManagerService.exe
+正在移除 EventLog 源 JobService。
+正在从系统中移除服务 JobService...
+已成功地从系统中移除服务 JobService。

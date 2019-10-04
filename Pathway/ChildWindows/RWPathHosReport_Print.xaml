@@ -1,0 +1,16 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.ChildWindows.RWPathHosReport_Print"
+                 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        ResizeMode="CanResize" Style="{StaticResource RadWindowStyle}"
+		 Header="住院表单打印预览" Height="768" Width="1024" 
+        xmlns:my="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <my:ReportViewer x:Name="ReportViewer1" MinHeight="600"  
+                                  MinWidth="800" 
+                                
+                                  ReportServiceUri="../ReportService.svc"                                  
+                                  Report="YidanEHRReport.ReportRWPathHosReportTemp, PathwayReports" Margin="0,0,0,0" DataContext="{Binding}" ViewMode="PrintPreview" />
+    </Grid>
+</telerik:RadWindow>

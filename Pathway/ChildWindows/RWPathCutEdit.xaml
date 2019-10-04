@@ -1,0 +1,826 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.RWPathCutEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Style="{StaticResource RadWindowStyle}" ResizeMode="CanResize"
+	    xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+        xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+        xmlns:uc="clr-namespace:YidanEHRApplication.Views.UserControls"
+	    xmlns:myWorkFlow="clr-namespace:YidanEHRApplication.WorkFlow.Designer"
+        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+        xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                        xmlns:YDSoft="clr-namespace:YidanEHRApplication.ExtraControl"
+        Header="路径裁剪" Width="800" Height="550" Loaded="RadWindow_Loaded" Closed="RadWindow_Closed">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="autoCompleteICD10Temp">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Zdbs}" Grid.Column="0"></TextBlock>
+                    <TextBlock Text="{Binding Name}" Grid.Column="1"></TextBlock>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="autoCompleteNonICD10Temp">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="{Binding Jcmc}" Grid.Column="1"></TextBlock>
+                </Grid>
+            </DataTemplate>
+
+        </Grid.Resources>
+        <telerik:RadTabControl>
+
+            <telerik:RadTabItem Name="流程图配置"  Header="流程配置">
+                <Grid x:Name="LayoutRoot" Margin="2" Background="#ECF5FF">
+                    <Grid.Resources>
+                        <Style x:Key="RadComboBoxStyle" TargetType="telerik:RadComboBox">
+                            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                            <Setter Property="Width" Value="100"></Setter>
+                            <Setter Property="Height" Value="25"></Setter>
+                            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+                            <Setter Property="IsEditable" Value="False"></Setter>
+                            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+                            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+                            <Setter Property="IsReadOnly" Value="False"></Setter>
+                            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+                            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+                        </Style>
+                        <Style x:Key="TextBlockStyle" TargetType="TextBlock" >
+                            <Setter Property="Padding" Value="8,4,4,5"></Setter>
+                            <Setter Property="FontSize" Value="11"></Setter>
+                            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                            <Setter Property="LineHeight" Value="2"></Setter>
+                        </Style>
+                        <Style x:Key="TipButtonStyle" TargetType="telerik:RadButton">
+                            <Setter Property="Height" Value="25"></Setter>
+                            <Setter Property="Width" Value="40"></Setter>
+                            <Setter Property="Margin" Value="2,10,20,10"></Setter>
+                        </Style>
+                        <!--频次-->
+                        <DataTemplate x:Key="ComboBoxPcTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="代码:" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#003366"  Text="{Binding Pcdm}" />
+                                <TextBlock Grid.Row="0" Grid.Column="2" Text="频次:"  />
+                                <TextBlock Grid.Row="0" Foreground="#003366" Grid.Column="3"  Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                        <!--时间-->
+                        <DataTemplate x:Key="ComboBoxSJTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="15"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="周代码" Grid.Row="0" Grid.Column="0"></TextBlock>
+                                <CheckBox Content="日" Grid.Row="1" Tag="1"   Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"  ></CheckBox>
+                                <CheckBox Content="一" Grid.Row="2"  Tag="2" Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                                <CheckBox Content="二" Grid.Row="3" Tag="3"  Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                                <CheckBox Content="三" Grid.Row="4" Tag="4" Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                                <CheckBox Content="四" Grid.Row="5" Tag="5"  Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                                <CheckBox Content="五" Grid.Row="6" Tag="6"  Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                                <CheckBox Content="六" Grid.Row="7" Tag="7"  Grid.Column="0" Loaded="CheckBox_Loaded_1" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+
+                                <TextBlock Text="执行时间" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"></TextBlock>
+                                <CheckBox Content="00" Grid.Row="1" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1" ></CheckBox>
+                                <CheckBox Content="01" Grid.Row="2" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="02" Grid.Row="3" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="03" Grid.Row="4" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="04" Grid.Row="5" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="05" Grid.Row="6" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="06" Grid.Row="7" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="07" Grid.Row="8" Grid.Column="2" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+
+                                <CheckBox Content="08" Grid.Row="1" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="09" Grid.Row="2" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="10" Grid.Row="3" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="11" Grid.Row="4" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="12" Grid.Row="5" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="13" Grid.Row="6" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="14" Grid.Row="7" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="15" Grid.Row="8" Grid.Column="3" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+
+                                <CheckBox Content="16" Grid.Row="1" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="17" Grid.Row="2" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="18" Grid.Row="3" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="19" Grid.Row="4" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="20" Grid.Row="5" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="21" Grid.Row="6" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="22" Grid.Row="7" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+                                <CheckBox Content="23" Grid.Row="8" Grid.Column="4" Loaded="CheckBox_Loaded" Checked="CheckBox_Checked_1" Unchecked="CheckBox_Unchecked_1"></CheckBox>
+
+                            </Grid>
+                        </DataTemplate>
+                        <DataTemplate x:Key="ComboBoxSJSimpleTemplate">
+                            <TextBlock Text="{Binding DisplayText}"></TextBlock>
+                        </DataTemplate>
+                        <!--用法-->
+                        <DataTemplate x:Key="ComboBoxYfTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="代码:" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#003366"  Text="{Binding Yfdm}" />
+                                <TextBlock Grid.Row="0" Grid.Column="2" Text="用法:"  />
+                                <TextBlock Grid.Row="0" Foreground="#003366" Grid.Column="3"  Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+
+                        <DataTemplate x:Key="ComboBoxOrderTypeTemplate">
+                            <Grid>
+                                <TextBlock Foreground="#003366" Text="{Binding OrderName}"/>
+                            </Grid>
+                        </DataTemplate>
+                        <!--药品项目-->
+                        <DataTemplate x:Name="ComboBoxXmTemplate">
+                            <Grid Margin="0 3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.ColumnSpan="2" Text="{Binding Ypmc}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="规格:" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Foreground="#003366"  Text="{Binding Ypgg}" />
+                                <TextBlock Grid.Row="1" Grid.Column="2" Text="零售价:"  />
+                                <TextBlock Grid.Row="1" Foreground="#003366" Grid.Column="3"  Text="{Binding Lsj}" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="厂家:"  />
+                                <TextBlock Grid.Row="2" Foreground="#003366" Grid.Column="1"  Text="{Binding Cjmc}" />
+                            </Grid>
+
+                        </DataTemplate>
+                        <!--时间-->
+                        <DataTemplate x:Name="ComboBoxXmSimpleTemplate">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="{Binding Ypmc}" x:Name="textComText"/>
+                            </Grid>
+                        </DataTemplate>
+                        <!--频次-->
+                        <DataTemplate x:Key="ComboBoxPcSimpleTemplate">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="{Binding Name}" x:Name="textComText"/>
+                            </Grid>
+                        </DataTemplate>
+
+                        <DataTemplate x:Key="ComboBoxOrderTypeSimpleTemplate">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="{Binding OrderName}" x:Name="textComText"/>
+                            </Grid>
+                        </DataTemplate>
+                        <!--用法-->
+                        <DataTemplate x:Key="ComboBoxYfSimpleTemplate">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="{Binding Name}" x:Name="textComText"/>
+                            </Grid>
+                        </DataTemplate>
+                        <!--手术-->
+                        <DataTemplate x:Name="ComboBoxSSTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="代码:" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#003366"  Text="{Binding Ssdm}" />
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="名称:"  />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Foreground="#003366"   Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+
+                        <DataTemplate x:Name="ComboBoxSSSimpleTemplate">
+                            <Grid Background="Transparent">
+                                <TextBlock Text="{Binding Name}" x:Name="textComText"/>
+                            </Grid>
+                        </DataTemplate>
+                        <!--麻醉-->
+                        <DataTemplate x:Key="ComboBoxMZTemplate">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="代码:" />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#003366"  Text="{Binding Mzdm}" />
+                                <TextBlock Grid.Row="0" Grid.Column="2" Text="用法:"  />
+                                <TextBlock Grid.Row="0" Foreground="#003366" Grid.Column="3"  Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                        <DataTemplate x:Key="ComboBoxMZSimpleTemplate">
+                            <Grid>
+                                <TextBlock Foreground="#003366" Text="{Binding Name}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="0"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--工作流图-->
+                    <Grid Grid.Row="0" x:Name="gridWorkFlow" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#ECF5FF">
+                    </Grid>
+
+
+                    <telerik:RadTabControl  HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="radTabControlPathManager" VerticalAlignment="Stretch"
+                               DropDownDisplayMode="Collapsed" ScrollMode="Viewport" BorderThickness="0" Background="#ECF5FF" Grid.Row="1">
+                        <!--医嘱裁剪-->
+                        <telerik:RadTabItem Padding="4 1" DropDownContent="医嘱裁剪">
+                            <telerik:RadTabItem.Header>
+                                <TextBlock Text="医嘱裁剪" Margin="19 2 19 0" />
+                            </telerik:RadTabItem.Header>
+                            <telerik:RadTabItem.Content>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Name="StackPanelPathCut">
+                                        <telerik:RadButton  Name="btnQuan" Style="{StaticResource TipButtonStyle}"  Click="btnQuan_Click" Margin="50,10,2,10"></telerik:RadButton>
+                                        <TextBlock Text="全部" Margin="5,18,20,0"></TextBlock>
+                                        <telerik:RadButton  Tag="1" Name="btnAdviceGroup" Style="{StaticResource TipButtonStyle}"  Click="btnQuan_Click" Margin="0,10,2,10"></telerik:RadButton>
+                                        <TextBlock Text="成套" Margin="5,18,20,0"></TextBlock>
+                                        <telerik:RadButton  Tag="0" Name="btnNew" Style="{StaticResource TipButtonStyle}"  Click="btnQuan_Click" Margin="0,10,2,10"></telerik:RadButton>
+                                        <TextBlock Text="新增" Margin="5,18,20,0"></TextBlock>
+                                    </StackPanel>
+                                    <ScrollViewer Grid.Row="1">
+                                        <telerik:RadGridView  Name="GridViewAdviceGroupPathCut" IsReadOnly="True" IsFilteringAllowed="False" AutoGenerateColumns="False"  GridLinesVisibility="Both"
+                                     SelectionMode="Extended"  VerticalAlignment="Top" HorizontalAlignment="Stretch" CanUserFreezeColumns="False"  CanUserResizeColumns="True" 
+                                        AutoExpandGroups="True" ShowGroupPanel="False" RowLoaded="GridViewAdviceGroupPathCut_RowLoaded">
+                                        <telerik:RadGridView.GroupDescriptors>
+                                            <telerik:GroupDescriptor Member="YzbzName" />
+                                        </telerik:RadGridView.GroupDescriptors>
+                                        <telerik:RadGridView.Columns>
+                                            <telerik:GridViewSelectColumn></telerik:GridViewSelectColumn>
+                                            <telerik:GridViewDataColumn Header="医嘱标志" DataMemberBinding="{Binding YzbzName}"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="序号" DataMemberBinding="{Binding Ctmxxh}"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="项目名称" DataMemberBinding="{Binding Ypmc}"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="医嘱内容" DataMemberBinding="{Binding Yznr}" ></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="备注" DataMemberBinding="{Binding Ztnr}"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="执行数" DataMemberBinding="{Binding Counts}"></telerik:GridViewDataColumn>
+                                        </telerik:RadGridView.Columns>
+                                    </telerik:RadGridView>
+                                    </ScrollViewer>
+                                    <telerik:RadButton Grid.Row="2" Name="AdviceGroupCut" Content="保存医嘱" Width="50" Height="20" Margin="0,0,20,0" HorizontalAlignment="Right" Click="AdviceGroupCut_Click"/>
+                                </Grid>
+                            </telerik:RadTabItem.Content>
+                        </telerik:RadTabItem>
+                        <!--医嘱-->
+                        <telerik:RadTabItem Padding="4 1" DropDownContent="医嘱">
+                            <telerik:RadTabItem.Header>
+                                <TextBlock Text="医嘱" Margin="19 2 19 0" />
+                            </telerik:RadTabItem.Header>
+                            <telerik:RadTabItem.Content>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="90"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <telerik:RadDocking Grid.Row="1" Name="SettingDetails" telerikQuickStart:ThemeAwareBackgroundBehavior.IsEnabled="True" AllowUnsafeMode="True" HorizontalAlignment="Stretch" Background="#ECF5FF">
+                                        <telerik:RadSplitContainer Name="LeftContainer" InitialPosition="DockedLeft" Width="200"  >
+                                            <telerik:RadPaneGroup    x:Name="GroupOrder" IsEnabled="True" IsTabStop="True" IsHitTestVisible="True" UseLayoutRounding="False" IsTextSearchEnabled="True" PropagateItemDataContextToContent="True" ReorderTabRows="True" BorderBrush="#FF35629A" IsDropDownOpen="True" AllowDragOverTab="False">
+                                                <telerik:RadPane ContextMenuTemplate="{x:Null}"
+                            Header="医嘱类别" BorderBrush="Black" CanUserClose="False" CanFloat="False" CanUserPin="False" 
+                  CanDockInDocumentHost="True" IsTabStop="True" IsPinned="True" IsHitTestVisible="True" IsEnabled="True" UseLayoutRounding="True">
+                                                    <telerik:RadPanelBar Name="OrderPanelBar" Selected="OrderPanelBar_Selected">
+                                                        <telerik:RadPanelBarItem Header="药品" Tag="3100"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="检验检查" Tag="3114"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="营养膳食" Tag="3115"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="观察" Tag="3116"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="活动" Tag="3117"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="护理及宣教" Tag="3118"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="手术" Tag="3105"></telerik:RadPanelBarItem>
+                                                        <telerik:RadPanelBarItem Header="进入条件" Tag="9999"></telerik:RadPanelBarItem>
+
+                                                    </telerik:RadPanelBar>
+
+                                                </telerik:RadPane>
+                                            </telerik:RadPaneGroup>
+                                        </telerik:RadSplitContainer>
+                                        <telerik:RadDocking.DocumentHost>
+                                            <telerik:RadSplitContainer Name="RightContainer" InitialPosition="DockedLeft">
+                                                <telerik:RadPaneGroup x:Name="GroupOrderDetail">
+                                                    <telerik:RadDocumentPane Title="医嘱信息" BorderBrush="Orchid" CanFloat="False" CanUserClose="False" CanUserPin="False" >
+                                                        <telerik:RadDocumentPane.Content>
+                                                            <Grid>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="*"></RowDefinition>
+                                                                </Grid.RowDefinitions>
+                                                                <ScrollViewer Grid.Row="0">
+                                                                    <ScrollViewer.Content>
+
+                                                                        <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+                                                                            <StackPanel>
+                                                                                <telerik:RadGridView IsReadOnly="True" IsFilteringAllowed="False" Name="GridViewYZXX"  GridLinesVisibility="Both"
+                        AutoGenerateColumns="False" SelectionMode="Extended" RowLoaded="GridViewYZXX_RowLoaded" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                        CanUserFreezeColumns="False"  CanUserResizeColumns="True" AutoExpandGroups="True" ShowGroupPanel="False" Visibility="Collapsed" >
+                                                                                    <telerik:RadGridView.GroupDescriptors>
+                                                                                        <telerik:GroupDescriptor Member="YzbzName" />
+                                                                                    </telerik:RadGridView.GroupDescriptors>
+                                                                                    <telerik:RadGridView.Columns>
+                                                                                        <telerik:GridViewDataColumn Header="医嘱标志" DataMemberBinding="{Binding YzbzName}"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="序号" DataMemberBinding="{Binding Ctmxxh}"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="项目名称" DataMemberBinding="{Binding Ypmc}"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="医嘱内容" DataMemberBinding="{Binding Yznr}" ></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="备注" DataMemberBinding="{Binding Ztnr}"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="" DataMemberBinding="{Binding Flag}"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="" DataMemberBinding="{Binding Index}" IsVisible="False"></telerik:GridViewDataColumn>
+                                                                                    </telerik:RadGridView.Columns>
+
+                                                                                </telerik:RadGridView>
+                                                                                <telerik:RadButton HorizontalAlignment="Left" Visibility="Collapsed" Content="条件维护" Width="100" Height="30" Name="btnConditionMaintain" Click="btnConditionMaintain_Click"></telerik:RadButton>
+                                                                                <telerik:RadGridView RowIndicatorVisibility="Collapsed" Grid.Row="0"  Background="Transparent"
+                                                          Margin="2" Visibility="Collapsed"  GridLinesVisibility="Both"
+                                                         HorizontalAlignment="Stretch"
+                                                         Name="GrdConditonListNode" 
+                                                         ShowColumnHeaders="True" CanUserFreezeColumns="False"  
+                                                         CanUserResizeColumns="False" AutoExpandGroups="True" AutoGenerateColumns="False" 
+                                                         ShowGroupPanel="False" IsReadOnly="False" SelectionMode="Single" IsFilteringAllowed="False" AlternateRowBackground="#FFE24040" >
+                                                                                    <telerik:RadGridView.Columns>
+                                                                                        <telerik:GridViewSelectColumn  />
+                                                                                        <telerik:GridViewDataColumn Header="条件类别" DataMemberBinding="{Binding XmlbName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="名称" DataMemberBinding="{Binding JcxmName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="开始范围" DataMemberBinding="{Binding Ksfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="结束范围" DataMemberBinding="{Binding Jsfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Dw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                                                                        <telerik:GridViewColumn Width="50" Header="操作">
+                                                                                            <telerik:GridViewColumn.CellTemplate>
+                                                                                                <DataTemplate>
+                                                                                                    <telerik:RadButton Content="删除" Click="btnDeleteCondition_Click" Tag="{Binding ID}" />
+                                                                                                </DataTemplate>
+                                                                                            </telerik:GridViewColumn.CellTemplate>
+                                                                                        </telerik:GridViewColumn>
+
+                                                                                    </telerik:RadGridView.Columns>
+                                                                                </telerik:RadGridView>
+
+                                                                            </StackPanel>
+                                                                        </telerik:RadBusyIndicator>
+
+                                                                    </ScrollViewer.Content>
+                                                                </ScrollViewer>
+                                                            </Grid>
+                                                        </telerik:RadDocumentPane.Content>
+                                                    </telerik:RadDocumentPane>
+                                                </telerik:RadPaneGroup>
+                                            </telerik:RadSplitContainer>
+                                        </telerik:RadDocking.DocumentHost>
+                                    </telerik:RadDocking>
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" Name="YPGrid" Background="#ECF5FF" Visibility="Collapsed">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"></RowDefinition>
+                                            <RowDefinition Height="27"></RowDefinition>
+                                            <RowDefinition Height="27"></RowDefinition>
+                                            <RowDefinition Height="27"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="80"></ColumnDefinition>
+                                            <ColumnDefinition Width="80"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="医嘱标志" Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0">
+                                        </TextBlock>
+                                        <telerik:RadComboBox Name="cbxMDYZBZ"  Grid.Row="0" Grid.Column="1" SelectedValuePath="OrderValue"
+                                      ItemTemplate="{StaticResource ComboBoxOrderTypeTemplate}" HorizontalAlignment="Left"
+						              SelectionBoxTemplate="{StaticResource ComboBoxOrderTypeSimpleTemplate}"
+                                     Style="{StaticResource RadComboBoxStyle}" TabIndex="0" Margin="0,10,0,0">
+                                        </telerik:RadComboBox>
+                                        <TextBlock Text="项 目:" Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="3" Margin="20,10,0,0"></TextBlock>
+                                        <sdk:AutoCompleteBox Width="300" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="3" FilterMode="None" Height="23" Margin="0,10,0,0" HorizontalAlignment="Left"
+                                                        SelectionChanged="autoMDYPMC_SelectionChanged"  ToolTipService.ToolTip="根据拼音首字母检索项目..."
+                                                        IsTextCompletionEnabled="False" Name="cbxMDYPMC" VerticalAlignment="Top" TabIndex="1" />
+
+
+                                        <TextBlock Text="数 量:"  Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Margin="20,10,0,0"></TextBlock>
+                                        <telerik:RadNumericUpDown  IsInteger="False" Name="nudMDSL" Grid.Row="1" HorizontalAlignment="Left" Grid.Column="1" Width="100" TabIndex="2" Margin="0,10,0,0" Minimum="0" />
+                                        <telerik:RadComboBox Name="cbxMDDW" Grid.Row="1" Grid.Column="2" Style="{StaticResource RadComboBoxStyle}" Margin="0,10,0,0"></telerik:RadComboBox>
+                                        <TextBlock Text="用 法:" Name="TBYF" Style="{StaticResource TextBlockStyle}" Grid.Row="1" HorizontalAlignment="Center" Grid.Column="3" Margin="20,10,0,0"></TextBlock>
+                                        <telerik:RadComboBox Name="cbxMDYF" Grid.Row="1" Grid.Column="4" Style="{StaticResource RadComboBoxStyle}"
+                                                           SelectedValuePath="Yfdm" Margin="0,10,0,0"
+                                                ItemTemplate="{StaticResource ComboBoxYfTemplate}"
+						                        SelectionBoxTemplate="{StaticResource ComboBoxYfSimpleTemplate}"
+                                                 telerik:TextSearch.TextPath="Py" TabIndex="3"></telerik:RadComboBox>
+                                        <TextBlock Text="频 次:" Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="5" Margin="20,10,0,0"></TextBlock>
+                                        <telerik:RadComboBox Name="cbxPC" Grid.Row="1" Grid.Column="6" Style="{StaticResource RadComboBoxStyle}"
+                                                                  SelectedValuePath="Pcdm"
+                                                        ItemTemplate="{StaticResource ComboBoxPcTemplate}" Margin="0,10,0,0"
+						                                SelectionBoxTemplate="{StaticResource ComboBoxPcSimpleTemplate}"
+                                                         telerik:TextSearch.TextPath="Py" SelectionChanged="cbxMDPC_SelectionChanged" TabIndex="4"></telerik:RadComboBox>
+                                        <telerik:RadComboBox Name="cbxSJ" Grid.Row="1" Grid.Column="7" Style="{StaticResource RadComboBoxStyle}" 
+                                                                 ItemTemplate="{StaticResource ComboBoxSJTemplate}"  Margin="0,10,0,0" 
+                                                   SelectionBoxTemplate ="{StaticResource ComboBoxSJSimpleTemplate}" >
+                                        </telerik:RadComboBox>
+                                        <TextBlock Text="天 数:" Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="7" Visibility="Collapsed" Margin="0,10,0,0"></TextBlock>
+                                        <toolkit:NumericUpDown Name="nudTS" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Left" Width="0" Visibility="Collapsed" TabIndex="5" Margin="0,10,0,0"/>
+                                        <TextBlock Text="计价类型:" Name="txtjjlx"  Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Margin="0,8,0,0" FontWeight="Normal" Visibility="Visible"></TextBlock>
+                                        <telerik:RadComboBox Name="cbxJJLX" Grid.Row="2" Grid.Column="1" Width="90" Height="23" HorizontalAlignment="Left" Grid.ColumnSpan="1"  SelectedValuePath="OrderValue"
+                                      ItemTemplate="{StaticResource ComboBoxOrderTypeTemplate}"
+						              SelectionBoxTemplate="{StaticResource ComboBoxOrderTypeSimpleTemplate}"
+                                     Style="{StaticResource RadComboBoxStyle}" TabIndex="0" Margin="0,10,0,0" Visibility="Visible">
+                                        </telerik:RadComboBox>
+
+                                        <TextBlock Text="执行科室:" Name="txtzxks"  Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="3" Margin="0,8,0,0" FontWeight="Normal"></TextBlock>
+                                        <sdk:AutoCompleteBox  Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" FilterMode="None" Height="23" HorizontalAlignment="Left" Margin="0,8,0,0" 
+                                                        IsTextCompletionEnabled="False" Name="autoCompleteBoxDept" VerticalAlignment="Top" ToolTipService.ToolTip="请输入拼音码检索..." Visibility="Visible" Width="105"/>
+
+                                        <TextBlock Text="是否必选:" Name="txtisby" Style="{StaticResource TextBlockStyle}" Grid.Row="2" Grid.Column="5" Margin="0,8,0,0" FontWeight="Normal" Visibility="Collapsed">
+                                        </TextBlock>
+                                        <RadioButton Content="是" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1" Height="16" HorizontalAlignment="Left" Margin="3,8,0,0" Name="radbx" VerticalAlignment="Center"  Visibility="Collapsed"/>
+                                        <RadioButton Content="否" Grid.Row="2" Grid.Column="6" Height="16" HorizontalAlignment="Right" Margin="0,8,3,0" Name="radkx"  VerticalAlignment="Center"  Visibility="Collapsed"/>
+                                        <TextBlock Text="嘱 托:" Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="0" Margin="0,10,0,0"></TextBlock>
+                                        <TextBox  Name="txtZTNR" Grid.Row="3" Grid.Column="1" Width="300" TabIndex="6" Grid.ColumnSpan="3" Margin="0,10,0,0"></TextBox>
+                                        <Button   Name="btnMDXYZ" HorizontalAlignment="Left" Margin="0,10,0,0" Width="86" Height="28" Click="btnMDXYZ_Click" BorderThickness="0" Cursor="Hand" Grid.Row="3" Grid.Column="7" TabIndex="8">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/新增医嘱.png" Width="82" />
+                                        </Button>
+                                        <Button  Name="btnMDQD" Margin="5,10,0,0"  HorizontalAlignment="Left" Click="btnMDQD_Click"  Width="65" Height="28" BorderThickness="0" Cursor="Hand"  Grid.Row="3" Grid.Column="6" TabIndex="7">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/确定.png" Width="63" />
+                                        </Button>
+                                    </Grid>
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" Visibility="Collapsed" Name="SSGrid" Background="#ECF5FF">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"></RowDefinition>
+                                            <RowDefinition Height="27"></RowDefinition>
+                                            <RowDefinition Height="27"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="医嘱标志" Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="0">
+                                        </TextBlock>
+                                        <telerik:RadComboBox Name="cbxSSYZBZ" Grid.Row="0" Grid.Column="1" SelectedValuePath="OrderValue"
+                                      ItemTemplate="{StaticResource ComboBoxOrderTypeTemplate}" HorizontalAlignment="Left"
+						              SelectionBoxTemplate="{StaticResource ComboBoxOrderTypeSimpleTemplate}"
+                                     Style="{StaticResource RadComboBoxStyle}" Width="150">
+                                        </telerik:RadComboBox>
+                                        <TextBlock Text="项 目" Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="2"></TextBlock>
+
+                                        <sdk:AutoCompleteBox Width="300" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" FilterMode="None" Height="23" HorizontalAlignment="Left"
+                                                        IsTextCompletionEnabled="False" Name="cbxSSMC" VerticalAlignment="Top" SelectionChanged="cbxSSMC_SelectionChanged" ToolTipService.ToolTip="输入关键字检索..." />
+
+                                        <TextBlock Text="麻醉" Name="TBMZ" Style="{StaticResource TextBlockStyle}" Grid.Row="1" HorizontalAlignment="Center" Grid.Column="0"></TextBlock>
+                                        <telerik:RadComboBox Name="cbxSSMZ" Grid.Row="1" Grid.Column="1" Style="{StaticResource RadComboBoxStyle}"
+                                   SelectedValuePath="Mzdm"
+                        ItemTemplate="{StaticResource ComboBoxMZTemplate}"
+						SelectionBoxTemplate="{StaticResource ComboBoxMZSimpleTemplate}"
+                         telerik:TextSearch.TextPath="Py"
+                                 ></telerik:RadComboBox>
+                                        <TextBlock Text="嘱 托" Style="{StaticResource TextBlockStyle}" Grid.Row="1" Grid.Column="2"></TextBlock>
+                                        <TextBox  Name="txtSSZTNR" Grid.Row="1" Grid.Column="3" Width="300"></TextBox>
+                                        <telerik:RadButton Content="新增医嘱" Name="btnSSXYZ" HorizontalAlignment="Center" Width="50" Click="btnSSXYZ_Click" Height="20"  Grid.Row="1" Grid.Column="6" ></telerik:RadButton>
+                                        <telerik:RadButton Content="确定" Name="btnSSQD"  HorizontalAlignment="Center" Click="btnSSQD_Click"  Width="50" Height="20" Grid.Row="1" Grid.Column="5" ></telerik:RadButton>
+
+                                    </Grid>
+
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" x:Name="rislisGrid" Background="#ECF5FF" Visibility="Collapsed" >
+                                        <uc:UCRISLISOrder x:Name="risLisOrderControl" HorizontalAlignment="Left" VerticalAlignment="Top"></uc:UCRISLISOrder>
+                                    </Grid>
+
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" x:Name="mealGrid" Background="#ECF5FF" Visibility="Collapsed" >
+                                        <uc:UCOtherOrder x:Name="foodOrderControl" HorizontalAlignment="Left" VerticalAlignment="Top"></uc:UCOtherOrder>
+                                    </Grid>
+
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" x:Name="observationGrid" Background="#ECF5FF" Visibility="Collapsed" >
+                                        <uc:UCOtherOrder x:Name="observationOrderControl" HorizontalAlignment="Left" VerticalAlignment="Top"></uc:UCOtherOrder>
+                                    </Grid>
+
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" x:Name="activityGrid" Background="#ECF5FF" Visibility="Collapsed" >
+                                        <uc:UCOtherOrder x:Name="activityOrderControl" HorizontalAlignment="Left" VerticalAlignment="Top"></uc:UCOtherOrder>
+                                    </Grid>
+
+                                    <Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" x:Name="careGrid" Background="#ECF5FF" Visibility="Collapsed" >
+                                        <uc:UCOtherOrder x:Name="careOrderControl" HorizontalAlignment="Left" VerticalAlignment="Top"></uc:UCOtherOrder>
+                                    </Grid>
+
+                                    <!--<Grid Grid.Row="2" Canvas.Left="50" Margin="0,5,0,0" x:Name="GridCondition" Background="#ECF5FF" Visibility="Collapsed" >
+
+                                    <Border BorderBrush="#959595" Grid.Row="1" BorderThickness="1" Height="1" ></Border>
+                                    <Grid Grid.Row="2">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" ></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition >
+                                                <RowDefinition Height="30" ></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <toolkit:WrapPanel Grid.Row="0" HorizontalAlignment="Left"  Name="wrapPanel1Node" Width="700"  >
+                                                <TextBlock Text="条件类型：" FontWeight="Bold" Margin="0,5" ></TextBlock>
+                                                <telerik:RadComboBox Name="cmbConditionTypeNode"  Width="200" >
+                                                </telerik:RadComboBox>
+                                             
+                                                <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkNonICD10Node">
+                                                    <TextBlock Text="检查项：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <sdk:AutoCompleteBox FilterMode="None"  ItemTemplate="{StaticResource autoCompleteNonICD10Temp}"   IsTextCompletionEnabled="False" Name="autoCompleteNonICD10Node" Width="200"  SelectionChanged="autoCompleteNonICD10Node_SelectionChanged">
+                                                    </sdk:AutoCompleteBox>
+                                                </StackPanel>
+                                            </toolkit:WrapPanel>
+                                            <toolkit:WrapPanel Grid.Row="1" HorizontalAlignment="Left"  Name="wrpNonICDNode"  Width="360" >
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                                    <TextBlock Text="人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_1Node" Minimum="0" />
+                                                    <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_1Node" Minimum="0" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                                    <TextBlock Text="成人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_2Node" Minimum="0" />
+                                                    <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_2Node" Minimum="0" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                                    <TextBlock Text="男人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_3Node" Minimum="0" />
+                                                    <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_3Node" Minimum="0" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                                    <TextBlock Text="女人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_4Node" Minimum="0" />
+                                                    <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_4Node" Minimum="0" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                                    <TextBlock Text="儿童：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_5Node" Minimum="0" />
+                                                    <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_5Node" Minimum="0" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                                    <TextBlock Text="婴儿：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_6Node" Minimum="0" />
+                                                    <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                                    <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_6Node" Minimum="0" />
+                                                </StackPanel>
+                                            </toolkit:WrapPanel>
+                                            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                                                <telerik:RadButton Content="新增" Name="btnAddNode" Click="btnAddNode_Click"  Width="100" Margin="20,0"></telerik:RadButton>
+                                                <telerik:RadButton Content="保存" Name="btnSaveNode" Click="btnSaveNode_Click" Width="100" Margin="20,0"></telerik:RadButton>
+
+
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </Grid>
+                                    <Border BorderBrush="#959595" Grid.Row="3" BorderThickness="1" Height="1" ></Border>
+                                    <TextBlock Name="txtOperationStateNode" Grid.Row="4" FontWeight="Bold"></TextBlock>
+                                </Grid>-->
+                                </Grid>
+                            </telerik:RadTabItem.Content>
+                        </telerik:RadTabItem>
+
+                        <!--护理-->
+                        <telerik:RadTabItem Padding="4 1" DropDownContent="护理">
+                            <telerik:RadTabItem.Header>
+                                <TextBlock Text="护理" Margin="19 2 19 0" />
+                            </telerik:RadTabItem.Header>
+                            <telerik:RadTabItem.Content>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <ScrollViewer Grid.Row="0">
+                                        <ScrollViewer.Content>
+                                            <telerik:RadBusyIndicator Name="radBusyIndicatorNur"  BusyContent="数据加载中..." Background="Transparent">
+                                                <StackPanel Orientation="Vertical" x:Name="stpInfo">
+
+                                                </StackPanel>
+                                            </telerik:RadBusyIndicator>
+                                        </ScrollViewer.Content>
+                                    </ScrollViewer>
+                                    <Grid Grid.Row="1">
+                                        <telerik:RadButton Content="保存" Name="btnNurSave" HorizontalAlignment="Right" Width="50" Height="20" Grid.Row="2" Margin="0,0,10,0" Click="btnNurSave_Click"></telerik:RadButton>
+                                    </Grid>
+                                </Grid>
+                            </telerik:RadTabItem.Content>
+                        </telerik:RadTabItem>
+
+                        <!--异常原因-->
+                        <telerik:RadTabItem Padding="4 1">
+                            <telerik:RadTabItem.Header>
+                                <TextBlock Text="异常原因" Margin="19 2 19 0" />
+                            </telerik:RadTabItem.Header>
+                            <telerik:RadTabItem.Content>
+                                <telerik:RadBusyIndicator Name="radBusyIndicatorVariation"  BusyContent="数据加载中..." Background="Transparent">
+
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="50"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Border BorderThickness="1,1,1,1" CornerRadius="0,0,0,0" Margin="5" Grid.Row="0">
+                                            <Border.BorderBrush>
+                                                <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                                                    <GradientStop Color="#46A3FF" Offset="1"/>
+                                                    <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                                                </LinearGradientBrush>
+                                            </Border.BorderBrush>
+
+                                            <ScrollViewer>
+                                                <ScrollViewer.Content>
+                                                    <toolkit:WrapPanel x:Name="gridVariationDetail">
+                                                    </toolkit:WrapPanel>
+                                                </ScrollViewer.Content>
+                                            </ScrollViewer>
+                                        </Border>
+                                        <Grid Grid.Row="1">
+                                            <telerik:RadButton Content="保存" Name="btnVariationSave" HorizontalAlignment="Right" Width="50" Height="20" Grid.Row="2" Margin="0,0,10,0" Click="btnVariationSave_Click"></telerik:RadButton>
+                                        </Grid>
+                                    </Grid>
+                                </telerik:RadBusyIndicator>
+
+
+                            </telerik:RadTabItem.Content>
+                        </telerik:RadTabItem>
+                    </telerik:RadTabControl>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="进入条件配置" Visibility="Visible">
+                <telerik:RadBusyIndicator Name="radBusyIndicator2"  BusyContent="数据加载中..." >
+                    <Grid  Margin="2" Background="#ECF5FF">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="250" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <telerik:RadGridView RowIndicatorVisibility="Collapsed" Grid.Row="0"  Background="Transparent"
+                                                          Margin="2" HorizontalAlignment="Stretch"  GridLinesVisibility="Both"
+                                                         Name="GrdConditonList" 
+                                                         ShowColumnHeaders="True" CanUserFreezeColumns="False"  
+                                                         CanUserResizeColumns="False" AutoExpandGroups="True" AutoGenerateColumns="False" 
+                                                         ShowGroupPanel="False" IsReadOnly="False" SelectionMode="Single" IsFilteringAllowed="False" AlternateRowBackground="#FFE24040" SelectionChanged="GrdConditonList_SelectionChanged">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewSelectColumn  />
+                                <telerik:GridViewDataColumn Header="条件类别" DataMemberBinding="{Binding XmlbName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="名称" DataMemberBinding="{Binding JcxmName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="开始范围" DataMemberBinding="{Binding Ksfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="结束范围" DataMemberBinding="{Binding Jsfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Dw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewColumn Width="50" Header="操作">
+                                    <telerik:GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <telerik:RadButton Content="删除" Click="btnDeleteCondition_Click" Tag="{Binding ID}" />
+                                        </DataTemplate>
+                                    </telerik:GridViewColumn.CellTemplate>
+                                </telerik:GridViewColumn>
+                                <!--<telerik:GridViewDataColumn Header="适用人群" DataMemberBinding="{Binding Syrq}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>-->
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <Border BorderBrush="#959595" Grid.Row="1" BorderThickness="1" Height="1" ></Border>
+                        <Grid Grid.Row="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" ></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition >
+                                    <RowDefinition Height="30" ></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <toolkit:WrapPanel Grid.Row="0" HorizontalAlignment="Left"  Name="wrapPanel1" Width="700"  >
+                                    <TextBlock Text="条件类型：" FontWeight="Bold" Margin="0,5" ></TextBlock>
+                                    <telerik:RadComboBox Name="cmbConditionType"  Width="200" SelectionChanged="cmbConditionType_SelectionChanged">
+
+                                    </telerik:RadComboBox>
+                                    <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkDescrib">
+                                        <TextBlock Text="描述内容：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <TextBox  Width="200" Name="txtDescrib"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkICD10">
+                                        <TextBlock Text="ICD-10：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <sdk:AutoCompleteBox FilterMode="None"  ItemTemplate="{StaticResource autoCompleteICD10Temp}"   IsTextCompletionEnabled="False" Name="autoCompleteICD10" Width="200" >
+                                        </sdk:AutoCompleteBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkNonICD10">
+                                        <TextBlock Text="检查项：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <sdk:AutoCompleteBox FilterMode="None"  ItemTemplate="{StaticResource autoCompleteNonICD10Temp}"   IsTextCompletionEnabled="False" Name="autoCompleteNonICD10" Width="200"  SelectionChanged="autoCompleteNonICD10_SelectionChanged">
+                                        </sdk:AutoCompleteBox>
+                                    </StackPanel>
+                                </toolkit:WrapPanel>
+                                <toolkit:WrapPanel Grid.Row="1" HorizontalAlignment="Left"  Name="wrpNonICD"  Width="360" >
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                        <TextBlock Text="范围：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_1" Minimum="0" />
+                                        <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_1" Minimum="0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,0,0"  Visibility="Collapsed">
+                                        <TextBlock Text="成人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_2" Minimum="0" />
+                                        <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_2" Minimum="0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="男人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_3" Minimum="0" />
+                                        <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_3" Minimum="0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="女人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_4" Minimum="0" />
+                                        <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_4" Minimum="0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="儿童：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_5" Minimum="0" />
+                                        <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_5" Minimum="0" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                        <TextBlock Text="婴儿：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_6" Minimum="0" />
+                                        <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                        <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_6" Minimum="0" />
+                                    </StackPanel>
+                                </toolkit:WrapPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                                    <telerik:RadButton Content="新增" Name="btnAdd" Click="btnAdd_Click"  Width="100" Margin="20,0"></telerik:RadButton>
+                                    <telerik:RadButton Content="保存" Name="btnSave" Click="btnSave_Click" Width="100" Margin="20,0"></telerik:RadButton>
+
+
+                                </StackPanel>
+
+                            </Grid>
+                        </Grid>
+                        <Border BorderBrush="#959595" Grid.Row="3" BorderThickness="1" Height="1" ></Border>
+                        <TextBlock Name="txtOperationState" Grid.Row="4" FontWeight="Bold"></TextBlock>
+                    </Grid>
+                </telerik:RadBusyIndicator>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+    </Grid>
+</telerik:RadWindow>

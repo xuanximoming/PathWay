@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="YidanEHRApplication.Views.UCPatientDetailVitalSigns"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:teterikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls">
+
+    <Grid x:Name="Layout"  Loaded="Layout_Loaded">
+        <Grid.Resources>
+            <Style x:Key="ReloadButtonStyle" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border BorderBrush="#7F000000" 
+                                       BorderThickness="1" 
+                                       CornerRadius="1">
+                                <Border Width="{TemplateBinding Width}" 
+                                           Height="{TemplateBinding Height}"
+                                           BorderBrush="#CCFFFFFF" 
+                                           BorderThickness="1">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#CCFFFFFF"/>
+                                            <GradientStop Color="#66FFFFFF" Offset="1"/>
+                                            <GradientStop Color="#4CFFFFFF" Offset="0.41"/>
+                                            <GradientStop Color="#33000000" Offset="0.42"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Grid>
+                                        <Image HorizontalAlignment="Left" Margin="8,0,8,0" Source="Images/Chart/reload.png" Height="16" Width="16" />
+                                        <ContentControl VerticalAlignment="Center" Margin="5,0,0,0" Content="{TemplateBinding Content}" 
+                                              FontSize="11" Foreground="White" />
+                                        <ContentControl VerticalAlignment="Center" Margin="5,-1,0,0" Content="{TemplateBinding Content}" 
+                                              FontSize="11" Foreground="Black" />
+                                    </Grid>
+                                </Border>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="250*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <telerik:RadChart HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6"  Name="radChart1" VerticalAlignment="Top"  teterikQuickStart:ThemeAwareBackgroundBehavior.IsEnabled="True"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="95"></ColumnDefinition>
+                <ColumnDefinition Width="95"></ColumnDefinition>
+                <ColumnDefinition Width="95"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="120*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <!--<Button x:Name="btnTw" Content="查看体温"  Click="btnTw_Click" VerticalAlignment="Center"  HorizontalAlignment="Left"
+             Grid.Column="0" Grid.ColumnSpan="1" Style="{StaticResource ReloadButtonStyle}" Width="90" Height="26" />-->
+
+            <Button Height="28" Width="78" Name="btnTw"   Click="btnTw_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查看体温.png" Width="76" Cursor="Hand" />
+            </Button>
+
+            <!--<Button x:Name="btnMb" Content="查看脉搏" Click="btnMb_Click" VerticalAlignment="Center"  HorizontalAlignment="Left"
+            Grid.Column="1" Margin="0,0,0,0" Style="{StaticResource ReloadButtonStyle}" Width="90" Height="26"/>-->
+            <Button Height="28" Width="78" Name="btnMb" Grid.Column="1"   Click="btnMb_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查看脉搏.png" Width="76" Cursor="Hand" />
+            </Button>
+            
+            <!--<Button x:Name="btnHx" Content="查看呼吸" Click="btnHx_Click" VerticalAlignment="Center"  HorizontalAlignment="Left"
+            Grid.Column="2" Margin="0,0,0,0" Style="{StaticResource ReloadButtonStyle}" Width="90" Height="26"/>-->
+            <Button Height="28" Width="78" Name="btnHx" Grid.Column="2"   Click="btnHx_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查看呼吸.png" Width="76" Cursor="Hand" />
+            </Button>
+            
+            <!--<Button x:Name="btnAllByDay" Content="查看全部(天)"  Click="btnAllByDay_Click" VerticalAlignment="Center" HorizontalAlignment="Left"
+            Grid.Column="3" Margin="0,0,0,0" Style="{StaticResource ReloadButtonStyle}" Width="90" Height="26"/>-->
+            <Button Height="28" Width="101" Name="btnAllByDay" Grid.Column="3"   Click="btnAllByDay_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查看全部(天).png" Width="99" Cursor="Hand" />
+            </Button>
+            
+            <!--<Button x:Name="btnAllByHour" Content="查看全部(小时)" Click="btnAllByHour_Click" VerticalAlignment="Center" 
+              HorizontalAlignment="Left" Grid.Column="4" Margin="0,0,0,0" Style="{StaticResource ReloadButtonStyle}" Width="90" Height="26" HorizontalContentAlignment="Center" />-->
+
+            <Button Height="28" Width="101" Name="btnAllByHour" Grid.Column="4"   Click="btnAllByHour_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查看全部(小时).png" Width="99" Cursor="Hand" />
+            </Button>
+            
+            <Button Height="28" Width="101" Name="btnNextDay" Grid.Column="4"   Click="btnAllByHour_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查看下一天.png" Width="99" Cursor="Hand" />
+            </Button>
+        </Grid>
+    </Grid> 
+</UserControl>

@@ -1,0 +1,234 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.ChildWindows.RWEnterConditionMaintainNode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+        xmlns:YDSoft="clr-namespace:YidanEHRApplication.ExtraControl"
+        Style="{StaticResource RadWindowStyle}"
+        Header="进入条件维护" Height="600" Width="800" Loaded="RadWindow_Loaded" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." >
+        <Grid x:Name="LayoutRoot" Margin="2" >
+            <Grid.Resources>
+                <DataTemplate x:Key="autoCompleteICD10Temp">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Zdbs}" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding Name}" Grid.Column="1"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="autoCompleteNonICD10Temp">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Jcmc}" Grid.Column="1"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="32" />
+                <RowDefinition Height="260" />
+
+            </Grid.RowDefinitions>
+            <telerik:RadGridView RowIndicatorVisibility="Collapsed" Grid.Row="0"  Background="Transparent"
+                                                          Margin="2" HorizontalAlignment="Stretch"
+                                                         Name="GrdConditonListNode"  GridLinesVisibility="Both"
+                                                         ShowColumnHeaders="True" CanUserFreezeColumns="False"  
+                                                         CanUserResizeColumns="False" AutoExpandGroups="True" AutoGenerateColumns="False" 
+                                                         ShowGroupPanel="False" IsReadOnly="False"    SelectionMode="Single" IsFilteringAllowed="False" AlternateRowBackground="#FFE24040"  SelectionChanged="GrdConditonListNode_SelectionChanged">
+                <telerik:RadGridView.Columns>
+                    <!--<telerik:GridViewSelectColumn  />-->
+                    <telerik:GridViewDataColumn Header="编号" DataMemberBinding="{Binding ID}" IsReadOnly="True" Width="*" IsVisible="False"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="条件类别" DataMemberBinding="{Binding XmlbName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="名称" DataMemberBinding="{Binding JcxmName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="开始范围" DataMemberBinding="{Binding Ksfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="结束范围" DataMemberBinding="{Binding Jsfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Dw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <!--<telerik:GridViewColumn Width="75" Header="操作">
+                        <telerik:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                
+                                <telerik:RadButton Content="删除" Click="btnDeleteConditionNode_Click" Tag="{Binding ID}" />
+                            </DataTemplate>
+                        </telerik:GridViewColumn.CellTemplate>
+                    </telerik:GridViewColumn>-->
+                    <!--<telerik:GridViewDataColumn Header="适用人群" DataMemberBinding="{Binding Syrq}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>-->
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <!--<Border BorderBrush="#959595" Grid.Row="1" BorderThickness="1" Height="1" ></Border>-->
+            <!--分页 操作按钮  -->
+            <Grid Grid.Row="2" Margin="10,0,10,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="450"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <telerik:RadDataPager BorderThickness="0"   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"   Height="32"   PageSize="15" Source="{Binding Items, ElementName=GrdConditonListNode}" 
+                                      IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="0,0,0,0" HorizontalContentAlignment="Right" />
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Background="Transparent" Width="450">
+                    <Button Cursor="Hand"  Height="28" HorizontalAlignment="Left"  Name="btnAdd" 
+                                           VerticalAlignment="Top" Width="65"  BorderThickness="0" Margin="20,2,0,0" Click="btnAdd_Click" >
+                        <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/add.jpg" Width="63" />
+                    </Button>
+                    <Button Cursor="Hand"  Height="28" HorizontalAlignment="Left"  Name="btnUpdate" 
+                                           VerticalAlignment="Top" Width="65" BorderThickness="0"  Margin="20,2,0,0" Click="btnUpdate_Click" >
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" />
+                    </Button>
+                    
+                    <Button Cursor="Hand"  Height="28" HorizontalAlignment="Right"  Name="btnDel" 
+                                           VerticalAlignment="Top" Width="65"  BorderThickness="0" Margin="20,2,0,0"  Click="btnDel_Click" >
+                        <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/del.jpg" Width="63"   />
+                    </Button>
+
+
+                </StackPanel>
+
+
+                <!--<telerik:RadDataPager VerticalAlignment="Top" x:Name="radDataPager" Source="{Binding Items, ElementName=radGridViewPathList}" PageSize="15"
+								  DisplayMode="All" AutoEllipsisMode="Both" NumericButtonCount="10"  IsTotalItemCountFixed="True"/>-->
+            </Grid>
+            <!--添加修改布局-->
+            <Grid Grid.Row="3" Margin="5,10,5,0">
+                <telerik:GroupBox Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" Header="添加或修改" FontSize="16" FontWeight="ExtraBlack" HorizontalAlignment="Stretch" Margin="6,0,6,10" Name="groupBox1" VerticalAlignment="Stretch">
+                </telerik:GroupBox>
+                <!--<Border Style="{StaticResource BorderStyle}" Margin="5" Visibility="Visible" >-->
+                <Grid Margin="5,10,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="731" />
+                            <ColumnDefinition Width="9" />
+                        </Grid.ColumnDefinitions>
+                        <!--<TextBlock Margin="5,0,0,0" Style="{StaticResource TextBlockStyle}" Text="基本信息:" />-->
+                    </Grid>
+
+                    <Grid  Grid.Row="1" Grid.Column="0" Margin="10,15,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="320"></ColumnDefinition>
+
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                         
+                        <toolkit:WrapPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Name="wrapPanel1Node" Width="700"  >
+                            <TextBlock Text="条件类型：" FontWeight="Bold" Margin="0,5"  Grid.Row="0" Grid.Column="0" ></TextBlock>
+                            <telerik:RadComboBox Name="cmbConditionTypeNode" Grid.Row="0" Grid.Column="0"  SelectionChanged="cmbConditionTypeNode_SelectionChanged" Width="200" TabIndex="0">
+                            </telerik:RadComboBox>
+                            <TextBlock  HorizontalAlignment="Left"  Foreground="Red"  FontSize="12" Text="*" VerticalAlignment="Top" Margin="3,8,0,0" />
+                            <!--<StackPanel Orientation="Horizontal" Margin="10,0" Name="stkDescrib" Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text="描述内容：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <TextBox  Width="200" Name="txtDescrib" Height="26" ></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkNonICD10Node" Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text="检查项：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <sdk:AutoCompleteBox FilterMode="None"  Height="26" ItemTemplate="{StaticResource autoCompleteNonICD10Temp}"   IsTextCompletionEnabled="False" Name="autoCompleteNonICD10Node" Width="200"  SelectionChanged="autoCompleteNonICD10Node_SelectionChanged">
+                                </sdk:AutoCompleteBox>
+                            </StackPanel>-->
+                        </toolkit:WrapPanel>
+                        <toolkit:WrapPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Name="wrapPanel1Node1" Width="700"  >
+                             
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Name="stkDescrib" Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text="描述内容：" FontWeight="Bold" Margin="0,25,0,25"></TextBlock>
+                                <TextBox  Width="600" Name="txtDescrib" Height="58" TextWrapping="Wrap" ></TextBox>
+                                <TextBlock      HorizontalAlignment="Left"  Foreground="Red"  FontSize="12" Text="*" VerticalAlignment="Top" Margin="3,28,0,0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Name="stkNonICD10Node" Grid.Row="0" Grid.Column="1">
+                                <TextBlock Text="检查项：" FontWeight="Bold" Margin="0,10,0,0"></TextBlock>
+                                <sdk:AutoCompleteBox FilterMode="None"  Height="26" Margin="1,5,0,0" ItemTemplate="{StaticResource autoCompleteNonICD10Temp}" ToolTipService.ToolTip="根据拼音、编号、五笔检索项目..."   IsTextCompletionEnabled="False" Name="autoCompleteNonICD10Node" Width="486"  SelectionChanged="autoCompleteNonICD10Node_SelectionChanged" TabIndex="1">
+                                </sdk:AutoCompleteBox>
+                                <TextBlock      HorizontalAlignment="Left"  Foreground="Red"  FontSize="12" Text="*" VerticalAlignment="Top" Margin="3,10,0,0" />
+                            </StackPanel>
+                        </toolkit:WrapPanel>
+                        <toolkit:WrapPanel Grid.Row="2"  Grid.ColumnSpan="2" HorizontalAlignment="Left"  Name="wrpNonICDNode"  Width="700" >
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                                <TextBlock Text="范围：" FontWeight="Bold" Margin="10,5,0,0" Width="37"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_1Node" Minimum="0" />
+                                <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_1Node" Minimum="0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0"  Visibility="Collapsed">
+                                <TextBlock Text="成人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_2Node" Minimum="0" />
+                                <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_2Node" Minimum="0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                <TextBlock Text="男人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_3Node" Minimum="0" />
+                                <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_3Node" Minimum="0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                <TextBlock Text="女人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_4Node" Minimum="0" />
+                                <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_4Node" Minimum="0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                <TextBlock Text="儿童：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_5Node" Minimum="0" />
+                                <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_5Node" Minimum="0" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                                <TextBlock Text="婴儿：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_6Node" Minimum="0" />
+                                <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                                <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_6Node" Minimum="0" />
+                            </StackPanel>
+                            <TextBlock Text="单位：" VerticalAlignment="Center" FontWeight="Bold" Margin="20,5,0,0"></TextBlock>
+                            <TextBox  Width="120" Name="txtDanWei" IsEnabled="False" Height="26"></TextBox>
+                        </toolkit:WrapPanel>
+                        <TextBlock   Grid.Row="4"   HorizontalAlignment="Left"  Foreground="Red"  FontSize="12" Text="提示：带有*的为必填项" VerticalAlignment="Top" Margin="15,22,0,0" />
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15">
+                            <Button Cursor="Hand" Grid.Row="1"  Height="28" HorizontalAlignment="Left"  Name="btnSave" 
+VerticalAlignment="Top" Width="65"  BorderThickness="0" Margin="10,0,0,0" Click="btnSave_Click" Grid.Column="3" >
+                                <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/save.png" Width="63" />
+                            </Button>
+                            <Button Cursor="Hand" Grid.Row="1" Height="28" HorizontalAlignment="Left"  Name="btnReset" 
+VerticalAlignment="Top" Width="65" BorderThickness="0" Margin="10,0,0,0" Click="btnReset_Click" Grid.Column="4" >
+                                <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/重置.png" Width="63" ImageFailed="Image_ImageFailed" />
+                            </Button>
+
+                            <Button Cursor="Hand"  Grid.Row="3"  Height="28" HorizontalAlignment="Left"  Name="btnClear" 
+VerticalAlignment="Top" Width="65"  BorderThickness="0" Margin="10,0,0,0"  Click="btnClear_Click" Grid.Column="3" >
+                                <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/cancel.jpg" Width="63" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+                <!--</Border>-->
+            </Grid>
+             
+            <!--<Border BorderBrush="#959595" Grid.Row="3" BorderThickness="1" Height="1" ></Border>-->
+            <!--<TextBlock Name="txtOperationStateNode" Grid.Row="4" FontWeight="Bold"></TextBlock>-->
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow>

@@ -1,0 +1,77 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.ChildWindows.RWPathVariation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Closed="RadWindow_Closed"
+        Style="{StaticResource RadWindowStyle}"
+        Header="医嘱变异原因" Height="400" Width="700">
+
+
+    <Grid x:Name="LayoutRoot" Margin="2" Loaded="LayoutRoot_Loaded" >
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <telerik:RadTabControl x:Name="radTabControlReason"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <telerik:RadTabItem Header="必选医嘱未执行原因"  HorizontalAlignment="Left" Name="RadTabItemMust" VerticalAlignment="Top">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="217"></ColumnDefinition>
+                                <ColumnDefinition Width="0"></ColumnDefinition>
+                                <ColumnDefinition Width="217"></ColumnDefinition>
+                                <ColumnDefinition Width="0"></ColumnDefinition>
+                                <ColumnDefinition Width="217"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel x:Name="stakPanelReason1" Grid.Column="0">
+                            </StackPanel>
+                            <StackPanel x:Name="stakPanelReason2" Grid.Column="2">
+                            </StackPanel>
+                            <StackPanel x:Name="stakPanelReason3" Grid.Column="4">
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer.Content>
+                </ScrollViewer>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="新增医嘱或新增未执行原因" HorizontalAlignment="Left" Name="RadTabItemNew" VerticalAlignment="Top">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ScrollViewer.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="217"></ColumnDefinition>
+                                <ColumnDefinition Width="0"></ColumnDefinition>
+                                <ColumnDefinition Width="217"></ColumnDefinition>
+                                <ColumnDefinition Width="0"></ColumnDefinition>
+                                <ColumnDefinition Width="217"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel x:Name="stakPanelReason4" Grid.Column="0">
+                            </StackPanel>
+                            <StackPanel x:Name="stakPanelReason5" Grid.Column="2">
+                            </StackPanel>
+                            <StackPanel x:Name="stakPanelReason6" Grid.Column="4">
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer.Content>
+                </ScrollViewer>
+                
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="长期医嘱延长理由"  HorizontalAlignment="Left" Name="RadTabItemLong" VerticalAlignment="Top" Visibility="Collapsed" />
+        </telerik:RadTabControl>
+
+        <!--<telerik:RadButton x:Name="CancelButton" Content="取消" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />-->
+        <!--<telerik:RadButton x:Name="OKButton" Content="确定" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />-->
+
+        <Button Height="28" Width="65" Name="OKButton" Grid.Row="1" Grid.Column="8" Click="OKButton_Click" HorizontalAlignment="Right" Margin="0,12,110,0" BorderThickness="0">
+            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/确定.png" Width="63" Cursor="Hand" />
+        </Button>
+
+        <Button Height="28" Width="57" Name="CancelButton" Grid.Row="1" Grid.Column="8" Click="CancelButton_Click" HorizontalAlignment="Right" Margin="0,12,30,0" BorderThickness="0">
+            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/取消.png" Width="55" Cursor="Hand" />
+        </Button>
+
+    </Grid>
+</telerik:RadWindow>

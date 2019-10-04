@@ -1,0 +1,25 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.ChildWindows.RWAdviceMaintain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    
+        xmlns:uc="clr-namespace:YidanEHRApplication.Views.UserControls"
+        Style="{StaticResource RadWindowStyle}"
+        Header="医嘱操作" Height="240" Width="850" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <Grid Background="#ECF5FF" Name="SuitTab">
+        <telerik:RadTabControl  Height="210" HorizontalAlignment="Left" Name="radTabControlManager" VerticalAlignment="Top" Width="830" Margin="4,4,0,0"  SelectionChanged="radTabControlManager_SelectionChanged">
+            <telerik:RadTabItem Header="药品" Name="radDrug" IsSelected="True" Width="80" >
+                <uc:UCDrug x:Name="uc_Drug" Height="168" VerticalAlignment="Top"></uc:UCDrug>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="纯医嘱"  Name="radChun" IsSelected="False" Width="80">
+                <uc:UCChunOrder x:Name="uc_Chunorder" Height="168" VerticalAlignment="Top"></uc:UCChunOrder>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem Header="其他医嘱"  Name="radOther" IsSelected="False" Width="80">
+                <uc:UCOtherOrder x:Name="uc_Otherorder" Height="168" VerticalAlignment="Top"></uc:UCOtherOrder>
+            </telerik:RadTabItem>
+            <!--<telerik:RadTabItem Header="草药协定方" IsSelected="False" Width="80">
+                <uc:w x:Name="uc_AdviceSuit" Height="168" VerticalAlignment="Top"></uc:UCOtherOrder>
+            </telerik:RadTabItem>-->
+        </telerik:RadTabControl>
+    </Grid>
+</telerik:RadWindow>

@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="YidanEHRApplication.NurModule.UserControls.UCDiagNurExec"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:app="clr-namespace:YidanEHRApplication"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:uc="clr-namespace:YidanEHRApplication.Views.UserControls" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d" xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    d:DesignHeight="300" d:DesignWidth="900">
+    
+ 
+    <telerik:RadBusyIndicator x:Name="radBusyIndicator1" Background="Transparent">
+        <Border BorderThickness="1,1,1,1" CornerRadius="0,0,0,0" Margin="2">
+            <Border.BorderBrush>
+                <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                    <GradientStop Color="#46A3FF" Offset="1"/>
+                    <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Grid x:Name="LayoutRoot" Background="Transparent" Loaded="LayoutRoot_Loaded">
+                <Grid.Resources>
+                    <Style x:Key="RadGridViewStyle" TargetType="telerik:RadGridView">
+                        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+                        <Setter Property="VerticalAlignment" Value="Top"></Setter>
+                        <Setter Property="RowIndicatorVisibility" Value="Collapsed"></Setter>
+                        <Setter Property="ShowGroupPanel" Value="False"></Setter>
+                        <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+                        <Setter Property="AutoExpandGroups" Value="True"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Column="0" x:Name="gridCategoryName" Opacity="10">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer.Content>
+                            <!--<telerik:RadGridView Name="GvDgiNur" Margin="-2,-2,-2,-2" BorderThickness="0"
+                                                             Style="{StaticResource RadGridViewStyle}"  GridLinesVisibility="Both"
+                                                         
+                                                             RowIndicatorVisibility="Collapsed"  
+                                                             HorizontalAlignment="Stretch"
+                                                             VerticalAlignment="Stretch"
+                                                             SelectionMode="Extended"     
+                                                 
+                                                             Foreground="Black" ShowColumnHeaders="True" CanUserReorderColumns="False"
+                                                             IsFilteringAllowed="False" IsTabStop="False" CanUserSortColumns="False" 
+                                                             Grid.ColumnSpan="2" RowLoaded="GvDgiNur_RowLoaded" > 
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewSelectColumn />
+                                    <telerik:GridViewDataColumn Header="主编号" DataMemberBinding="{Binding ID}" IsVisible="False"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="分类类型" DataMemberBinding="{Binding Lbxh}" IsVisible="True" ></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="分类类型名称" DataMemberBinding="{Binding Extension2}" Width="150" IsReadOnly="True"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="序号" DataMemberBinding="{Binding Mxxh}" Width="80" IsReadOnly="True"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="项目名称" DataMemberBinding="{Binding Mxname}" Width="300" IsReadOnly="True"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="备注" DataMemberBinding="{Binding Extension3}" Width="150" IsReadOnly="True"></telerik:GridViewDataColumn>
+                                </telerik:RadGridView.Columns>
+                                <telerik:RadGridView.GroupDescriptors>
+                                    <telerik:ColumnGroupDescriptor Column="{Binding Columns[\Extension2\], ElementName=GvDgiNur}" /> 
+                                </telerik:RadGridView.GroupDescriptors>
+                            </telerik:RadGridView>-->
+                            <!--LoadingRowGroup="GvDgiNur_LoadingRowGroup"-->
+                            <sdk:DataGrid  Grid.Row="1" BorderThickness="1" Width="auto" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Top" 
+                                                                           AutoGenerateColumns="False"  Name="GvDgiNur"  CanUserSortColumns="False"
+                                                                             LoadingRow="GvDgiNur_RowLoaded"  
+                                                                            RowDetailsVisibilityMode="Collapsed"  ScrollViewer.HorizontalScrollBarVisibility="auto" 
+                                                                           ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                                <sdk:DataGrid.RowGroupHeaderStyles>
+                                    <!-- 顶层分组样式 -->
+                                    <Style TargetType="sdk:DataGridRowGroupHeader">
+                                        <Setter Property="PropertyNameVisibility" Value="Collapsed" />
+                                        <Setter Property="Background" Value="White" />
+                                        <!--<Setter Property="Foreground" Value="White" />
+                                        <Setter Property="SublevelIndent" Value="15" />-->
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                    </Style>
+
+                                </sdk:DataGrid.RowGroupHeaderStyles>
+                                <sdk:DataGrid.Columns>
+                                    <sdk:DataGridTextColumn Header="主编号" Binding="{Binding ID}" Visibility="Collapsed"></sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Header="分类类型" Binding="{Binding Lbxh}" ></sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Header="分类类型名称" Binding="{Binding Extension2}" MinWidth="200"></sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Header="序号" Binding="{Binding Mxxh}"></sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Header="项目名称" Binding="{Binding MxName}" MinWidth="400" ></sdk:DataGridTextColumn>
+                                    <sdk:DataGridTextColumn Header="备注" Binding="{Binding Extension3}" ></sdk:DataGridTextColumn>
+                                </sdk:DataGrid.Columns>
+
+                            </sdk:DataGrid>
+                        </ScrollViewer.Content>
+
+                    </ScrollViewer>
+                </Grid>
+                <Grid Grid.Row="1" Canvas.Left="50" Margin="0,5,0,0" x:Name="DigNurGrid" Background="#ECF5FF" VerticalAlignment="Bottom" Visibility="Visible">
+                    <uc:UCDiagNur x:Name="DigNur" HorizontalAlignment="Left" VerticalAlignment="Top"></uc:UCDiagNur>
+                </Grid>
+            </Grid>
+        </Border>
+    </telerik:RadBusyIndicator>
+</UserControl>

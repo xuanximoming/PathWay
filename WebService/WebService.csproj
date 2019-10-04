@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F1033F6C-0E27-4EA3-BCF2-FCCE6C3C282E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebService</RootNamespace>
+    <AssemblyName>WebService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.MSScriptControl">
+      <HintPath>..\dll\Interop.MSScriptControl.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Routing" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="YidanSoft.Tool, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\publish\YidanSoft.Tool.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="Service\Pass\XML\ExpressionsConfig.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="YidanEHRDataService.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\APPCFG.cs" />
+    <Compile Include="Entity\CP_CYFUnion.cs" />
+    <Compile Include="Entity\CP_CYXDF.cs" />
+    <Compile Include="Entity\CP_CYXDFMX.cs" />
+    <Compile Include="Entity\CP_CyXDFOrder.cs" />
+    <Compile Include="Entity\CP_CyXDFOrder_Extend.cs" />
+    <Compile Include="Entity\CP_DiagNurExecCategory.cs" />
+    <Compile Include="Entity\CP_DiagNurExecCategoryDetail.cs" />
+    <Compile Include="Entity\CP_DiagNurExecRecord.cs" />
+    <Compile Include="Entity\CP_DiagNurTemplate.cs" />
+    <Compile Include="Entity\CP_PathOrdersAll.cs" />
+    <Compile Include="Entity\CVersion.cs" />
+    <Compile Include="Entity\HisSxpz.cs" />
+    <Compile Include="Entity\Pathdiagnosis.cs" />
+    <Compile Include="Entity\PE_Code.cs" />
+    <Compile Include="Entity\PE_Hlxm.cs" />
+    <Compile Include="Entity\PE_CompleteUser.cs" />
+    <Compile Include="Entity\PE_User.cs" />
+    <Compile Include="Entity\StructureDrugRole.cs" />
+    <Compile Include="Entity\PE_PatientIn.cs" />
+    <Compile Include="Entity\RPT_PathStatisticDetail.cs" />
+    <Compile Include="Entity\RPT_PathVariationDetail.cs" />
+    <Compile Include="Entity\RPT_PathFinishDetail.cs" />
+    <Compile Include="Entity\RPT_PathQuitMonthCompareDetail.cs" />
+    <Compile Include="Entity\RPT_PathVariationMonitorDetail.cs" />
+    <Compile Include="Entity\User2Dept.cs" />
+    <Compile Include="Key.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceException.cs" />
+    <Compile Include="Service\AboutUSService.cs" />
+    <Compile Include="Service\CenterManaerService.cs" />
+    <Compile Include="Service\CP_AdviceSuitCategoryService.cs" />
+    <Compile Include="Service\CP_AdviceSuitDetailService.cs" />
+    <Compile Include="Service\CP_AdviceSuitService.cs" />
+    <Compile Include="Service\CP_CYFYUnionService.cs" />
+    <Compile Include="Service\CP_CYXDFMXService.cs" />
+    <Compile Include="Service\CP_CyXDFOrderService.cs" />
+    <Compile Include="Service\CP_CYXDFService.cs" />
+    <Compile Include="Service\CP_DiagNurExecRecordService.cs" />
+    <Compile Include="Service\CP_DiagNurTemplateService.cs" />
+    <Compile Include="Service\CP_DoctorTaskMessageService.cs" />
+    <Compile Include="Service\CP_JyJcMxService.cs" />
+    <Compile Include="Service\CP_LongOrderListService.cs" />
+    <Compile Include="Service\CP_MasterDrugsService.cs" />
+    <Compile Include="Service\CP_MedicalTreatmentWarmService.cs" />
+    <Compile Include="Service\CP_NurExecCategoryDetailMaintainService.cs" />
+    <Compile Include="Service\CP_NurExecCategoryService.cs" />
+    <Compile Include="Service\CP_NurResultService.cs" />
+    <Compile Include="Service\CP_PathCutEditServices.cs" />
+    <Compile Include="Service\CP_PathCutQueryServicecs.cs" />
+    <Compile Include="Service\CP_PathDiagnosisService.cs" />
+    <Compile Include="Service\CP_QueryPathExecuteService.cs" />
+    <Compile Include="Service\CP_TempOrderListService.cs" />
+    <Compile Include="Service\NursingModule\CP_NurExecInfoService.cs" />
+    <Compile Include="Service\NursingNotes\CP_AllergyHistoryService.cs" />
+    <Compile Include="Service\NursingNotes\CP_FamilyHistoryService.cs" />
+    <Compile Include="Service\NursingNotes\CP_IllnessHistoryService.cs" />
+    <Compile Include="Service\NursingNotes\CP_PersonalHistoryService.cs" />
+    <Compile Include="Service\NursingNotes\CP_SurgeryHistoryService.cs" />
+    <Compile Include="Service\NursingNotes\NursingNotesEntry.cs" />
+    <Compile Include="Service\NursingNotes\NursingNotesRecord.cs" />
+    <Compile Include="Service\NursingNotes\NursingNotesVitalSigns.cs" />
+    <Compile Include="Service\Pass\CP_MedicinalEducationService.cs" />
+    <Compile Include="Service\Pass\CP_Pass.cs" />
+    <Compile Include="Service\Pass\ExpressionsProcessMehtod.cs" />
+    <Compile Include="Service\Pass\MedicineDirectService.cs" />
+    <Compile Include="Service\Pass\MedicineService.cs" />
+    <Compile Include="Service\PathEnterJudge\CP_ClinicalPathListService.cs" />
+    <Compile Include="Service\PathEnterJudge\CP_ExamDictionaryDetailService.cs" />
+    <Compile Include="Service\PathEnterJudge\CP_InpatinetListService.cs" />
+    <Compile Include="Service\PathEnterJudge\CP_PathEnterJudgeConditionService.cs" />
+    <Compile Include="Service\PathEnterJudge\CP_PatientPathEnterJudgeConditionRecordService.cs" />
+    <Compile Include="Service\PE_ExamDictionaryDetailService.cs" />
+    <Compile Include="Service\ReportForms\RptInPathPatientFeePercentService.cs" />
+    <Compile Include="Service\ReportForms\RptPathEnterStatisticsServices.cs" />
+    <Compile Include="Service\ReportForms\RptPathQuitMonthCompareService.cs" />
+    <Compile Include="Service\ReportForms\RptPathVariationAnalyseService.cs" />
+    <Compile Include="Service\ReportForms\RptPathVariationMonitorService.cs" />
+    <Compile Include="Service\ReportForms\Rpt_QueryConditionService.cs" />
+    <Compile Include="Service\RW_PathSummaryService.cs" />
+    <Compile Include="Service\RW_PatientExamItemService.cs" />
+    <Compile Include="Service\System\CP_VariationToPathService.cs" />
+    <Compile Include="Service\ToEMR\CP_InPathPatientListEHRService.cs" />
+    <Compile Include="Service\ToEMR\CP_InPathPatientListEMRService.cs" />
+    <Compile Include="Service\UserCenterManagerService.cs" />
+    <Compile Include="Service\VersionService.cs" />
+    <Compile Include="Service\V_PatientExamineService.cs" />
+    <Compile Include="Service\V_PermissionListService.cs" />
+    <Compile Include="Service\UserDeptService.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="SymmetricMethod.cs" />
+    <Compile Include="yidanEHRDataService.svc.lf.cs" />
+    <Compile Include="YidanEHRDataService.SychOrderAdvice.cs" />
+    <Compile Include="Tool\WorkFlowTool.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="YidanEHRApplicationService.svc.hqh.cs" />
+    <Compile Include="yidanEHRDataService.svc.combobox.cs" />
+    <Compile Include="YidanEHRDataService.svc.cs">
+      <DependentUpon>YidanEHRDataService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="yidanEHRDataService.svc.fqw.cs" />
+    <Compile Include="yidanEHRDataService.svc.patinfo.cs" />
+    <Compile Include="yidanEHRDataService.svc.yxy.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_AdviceFrequency.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_Anesthesia.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_ChargingMinItem.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_DataCategoryDetail.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_Department.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_DrugUseage.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_Employee.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_InPatient.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_LogException.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_NurExecToPath.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_Operation.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_PathDetail.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_PathVariation.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_PlaceOfDrug.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_Surgery.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_VariantRecords.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_VariationToPath.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_VariationToPathInfo.cs" />
+    <Compile Include="YidanEHROwnEntity2\CP_Ward.cs" />
+    <Compile Include="Entity\AboutUS.cs" />
+    <Compile Include="Entity\CP_AdviceAnesthesiaDetail.cs" />
+    <Compile Include="Entity\CP_AdviceGroupDetail.cs" />
+    <Compile Include="Entity\CP_AdviceSuit.cs" />
+    <Compile Include="Entity\CP_AdviceSuitCategory.cs" />
+    <Compile Include="Entity\CP_AdviceSuitDetail.cs" />
+    <Compile Include="Entity\CP_AppConfig.cs" />
+    <Compile Include="Entity\CP_BeyondDays.cs" />
+    <Compile Include="Entity\CP_BeyondFee.cs" />
+    <Compile Include="Entity\CP_ClinicalDiagnosisList.cs" />
+    <Compile Include="Entity\CP_ClinicalPathList.cs" />
+    <Compile Include="Entity\CP_CopyWorkFlow.cs" />
+    <Compile Include="Entity\CP_DepartmentList.cs" />
+    <Compile Include="Entity\CP_DiagnosisList.cs" />
+    <Compile Include="Entity\CP_Diagnosis_E.cs" />
+    <Compile Include="Entity\CP_DoctorOrder.cs" />
+    <Compile Include="Entity\CP_DoctorTaskMessage.cs" />
+    <Compile Include="Entity\CP_Employee.cs" />
+    <Compile Include="Entity\CP_ForceToPath.cs" />
+    <Compile Include="Entity\CP_InPathPatientCondition.cs" />
+    <Compile Include="Entity\CP_InPathPatientList.cs" />
+    <Compile Include="Entity\CP_InpatientFee.cs" />
+    <Compile Include="Entity\CP_InpatientPathCVInfo.cs" />
+    <Compile Include="Entity\CP_InPatientPathEnForceDetail.cs" />
+    <Compile Include="Entity\CP_InpatientPhySign.cs" />
+    <Compile Include="Entity\CP_InpatinetList.cs" />
+    <Compile Include="Entity\CP_InpatinetListPaging.cs" />
+    <Compile Include="Entity\CP_LongOrderList.cs" />
+    <Compile Include="Entity\CP_LongOrderList_Extend.cs" />
+    <Compile Include="Entity\CP_MasterDrug2Role.cs" />
+    <Compile Include="Entity\CP_MasterDrug2User.cs" />
+    <Compile Include="Entity\CP_MasterDrugRoles.cs" />
+    <Compile Include="Entity\CP_MasterDrugs.cs" />
+    <Compile Include="Entity\CP_MedicalTreatmentWarm.cs" />
+    <Compile Include="Entity\CP_NurExecCategory.cs" />
+    <Compile Include="Entity\CP_NurExecCategoryDetailMaintain.cs" />
+    <Compile Include="Entity\CP_NurExecItem.cs" />
+    <Compile Include="Entity\CP_NurExecRecord.cs" />
+    <Compile Include="Entity\CP_NurExecRecordResult.cs" />
+    <Compile Include="Entity\CP_NurExecuteResult.cs" />
+    <Compile Include="Entity\CP_NurResult.cs" />
+    <Compile Include="Entity\CP_PathCondition.cs" />
+    <Compile Include="Entity\CP_PathConditionList.cs" />
+    <Compile Include="Entity\CP_PathCutQuery.cs" />
+    <Compile Include="Entity\CP_PathExecVariantRecords.cs" />
+    <Compile Include="Entity\CP_PathExit.cs" />
+    <Compile Include="Entity\CP_PathVariation.cs" />
+    <Compile Include="Entity\CP_PCSJ.cs" />
+    <Compile Include="Entity\CP_PCSJ_E.cs" />
+    <Compile Include="Entity\CP_QCProblem.cs" />
+    <Compile Include="Entity\CP_QCRecordTip.cs" />
+    <Compile Include="Entity\CP_QueryPathExecute.cs" />
+    <Compile Include="Entity\CP_QueryPathExecuteNoteCompare.cs" />
+    <Compile Include="Entity\CP_TempOrderList.cs" />
+    <Compile Include="Entity\CP_TempOrderList_Extend.cs" />
+    <Compile Include="Entity\NursingModule\CP_NurExecInfo.cs" />
+    <Compile Include="Entity\NursingNotes\CP_AllergyHistory.cs" />
+    <Compile Include="Entity\NursingNotes\CP_FamilyHistory.cs" />
+    <Compile Include="Entity\NursingNotes\CP_IllnessHistory.cs" />
+    <Compile Include="Entity\NursingNotes\CP_NurseCode.cs" />
+    <Compile Include="Entity\NursingNotes\CP_NursingNotesRecord.cs" />
+    <Compile Include="Entity\NursingNotes\CP_PatientInOutRecordInfo.cs" />
+    <Compile Include="Entity\NursingNotes\CP_PersonalHistory.cs" />
+    <Compile Include="Entity\NursingNotes\CP_SaveNursingNotes.cs" />
+    <Compile Include="Entity\NursingNotes\CP_SurgeryHistory.cs" />
+    <Compile Include="Entity\NursingNotes\CP_TreatmentFlowInfo.cs" />
+    <Compile Include="Entity\NursingNotes\CP_VitalSignSpecialRecordInfo.cs" />
+    <Compile Include="Entity\NursingNotes\CP_VitalSignsRecordInfo.cs" />
+    <Compile Include="Entity\NursingNotes\CP_VitalSignsTwMbHx.cs" />
+    <Compile Include="Entity\Pass\CP_MedicinalEducation.cs" />
+    <Compile Include="Entity\Pass\DrugInfoPass.cs" />
+    <Compile Include="Entity\Pass\Expressions.cs" />
+    <Compile Include="Entity\Pass\Medicine.cs" />
+    <Compile Include="Entity\Pass\MedicineDirect.cs" />
+    <Compile Include="Entity\Pass\ParameterCell.cs" />
+    <Compile Include="Entity\Pass\ParameterProperty.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_ClinicalPathList.CS" />
+    <Compile Include="Entity\PathEnterJudge\CP_ClinicalPathLists.CS" />
+    <Compile Include="Entity\PathEnterJudge\CP_ClinicalPathNode.CS" />
+    <Compile Include="Entity\PathEnterJudge\CP_ClinicalPathNodes.CS" />
+    <Compile Include="Entity\PathEnterJudge\CP_ExamDictionary.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_ExamDictionaryDetail.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_ExamSyrq.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_InpatinetList.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_InpatinetLists.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_PathEnterJudgeCondition.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_PathEnterJudgeConditions.cs" />
+    <Compile Include="Entity\PathEnterJudge\CP_PatientPathEnterJudgeConditionRecord.cs" />
+    <Compile Include="Entity\PathEnterJudge\PathEnterJudge.cs" />
+    <Compile Include="Entity\PatientInfo\CP_InPatient.cs" />
+    <Compile Include="Entity\PatientInfo\Modal_Areas.cs" />
+    <Compile Include="Entity\PatientInfo\Modal_Diagnosis.cs" />
+    <Compile Include="Entity\PatientInfo\Modal_Dictionary.cs" />
+    <Compile Include="Entity\PatientInfo\Modal_PatientContactsInfo.cs" />
+    <Compile Include="Entity\PatientInfo\Modal_PatientInfo.cs" />
+    <Compile Include="Entity\PE_ExamDictionary.cs" />
+    <Compile Include="Entity\PE_ExamDictionaryDetail.cs" />
+    <Compile Include="Entity\PE_Fun.cs" />
+    <Compile Include="Entity\PE_Role.cs" />
+    <Compile Include="Entity\PE_RoleFun.cs" />
+    <Compile Include="Entity\PE_UserRole.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_ClinicalDiagnosis.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_InPathPatientFeePercent.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_PathEnterStatistics.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_PathQuitMonthCompare.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_PathVariationAnalyse.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_PathVariationMonitor.cs" />
+    <Compile Include="Entity\ReportForms\Rpt_QueryCondition.cs" />
+    <Compile Include="Entity\RPT_PathFinish.cs" />
+    <Compile Include="Entity\RPT_PathQuit.cs" />
+    <Compile Include="Entity\RPT_PathStatistic.cs" />
+    <Compile Include="Entity\RPT_PathVariation.cs" />
+    <Compile Include="Entity\RW_PathSummary.cs" />
+    <Compile Include="Entity\RW_PatientExamItem.cs" />
+    <Compile Include="Entity\SQLMessage.cs" />
+    <Compile Include="Entity\System\CP_VariationToPathInfo.cs" />
+    <Compile Include="Entity\V_PatientExamine.cs" />
+    <Compile Include="Entity\V_PermissionList.cs" />
+    <Compile Include="Entity\V_QCRecordList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\server.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SendOrder\SendOrder.csproj">
+      <Project>{7fdbe480-6332-4c4a-9dd9-5c46d86e5f51}</Project>
+      <Name>SendOrder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yidansoft.Core\DrectSoft.Core.csproj">
+      <Project>{9d612a3a-9acf-4b0b-88d2-57a9df726747}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YidanSoft.SilverlightFault\DrectSoft.SilverlightFault.csproj">
+      <Project>{6b4b08d2-1385-45e0-b2c5-1181672e4d36}</Project>
+      <Name>DrectSoft.SilverlightFault</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>2081</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

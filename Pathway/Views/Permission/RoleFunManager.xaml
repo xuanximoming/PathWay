@@ -1,0 +1,93 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.Permission.RoleFunManager" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="800" d:DesignHeight="600"
+           Title="RoleFunManager Page">
+    <Grid x:Name="LayoutRoot">
+        <!--<telerik:RadTabControl   HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="radTabControlPathManager"  VerticalAlignment="Stretch" 
+                             ScrollMode="Pixel" BorderThickness="0" >
+            <telerik:RadTabItem Padding="4 1">
+                <telerik:RadTabItem.Header>
+                    <TextBlock Text="角色功能维护" Margin="19 2 19 0" />
+                </telerik:RadTabItem.Header>
+                <telerik:RadTabItem.Content>-->
+                    
+                            <Grid   Background="#ffffff" Height="600" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140" ></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition   MinHeight="300"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+            <telerik:RadGridView Grid.Row="0" Grid.Column="0" Name="GridView"  IsScrolling="False"   GridLinesVisibility="Both"
+                                     IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                     ShowGroupPanel="False" MinHeight="140" Height="auto"
+                                      RowIndicatorVisibility="Collapsed" SelectionChanged="GridView_SelectionChanged">
+
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="角色代码" DataMemberBinding="{Binding RoleCode}" MinWidth="60" Width="*"></telerik:GridViewDataColumn>
+                                        <telerik:GridViewDataColumn Header="角色名称" DataMemberBinding="{Binding RoleName}" MinWidth="120" Width="*"></telerik:GridViewDataColumn>
+
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+
+                                <telerik:RadDataPager BorderThickness="0"   Grid.Row="1" PageSize="4" Source="{Binding Items, ElementName=GridView}"   IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" HorizontalContentAlignment="Right"/>
+
+                                <TextBlock Height="30" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="300" 
+                                   Name="textBlockb" Text="功能列表" VerticalAlignment="Top" Margin="20,5,0,0" FontWeight="Bold" FontSize="15" />
+
+                                <!--<ScrollViewer Grid.Row="3" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"  >
+                                    <ScrollViewer.Content>-->
+                        <ScrollViewer x:Name="PageScrollViewer" BorderThickness="0" Margin="0,2,0,0" Grid.Row="3" VerticalScrollBarVisibility="Auto" >
+                            <telerik:RadGridView Name="GridViewFun"  IsScrolling="False"  RowLoaded="GridViewFun_RowLoaded" 
+                                     IsReadOnly="True" ShowGroupPanel="False" AutoGenerateColumns="False" IsFilteringAllowed="False"  GridLinesVisibility="Both"
+                                      RowIndicatorVisibility="Collapsed" SelectionMode="Multiple" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+
+                                <telerik:RadGridView.GroupDescriptors>
+                                    <telerik:GroupDescriptor Member="Fa_FunName" >
+                                        <telerik:GroupDescriptor.DisplayContent>
+                                            <TextBlock Text="父级功能"></TextBlock>
+                                        </telerik:GroupDescriptor.DisplayContent>
+                                    </telerik:GroupDescriptor>
+                                </telerik:RadGridView.GroupDescriptors>
+
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewSelectColumn />
+                                    <telerik:GridViewDataColumn Header="功能编码" DataMemberBinding="{Binding FunCode}" Width="100"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="功能名称" DataMemberBinding="{Binding FunName}" Width="200"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="父编码" DataMemberBinding="{Binding FunCodeFather}" Width="100"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="父功能" DataMemberBinding="{Binding Fa_FunName}" Width="100"></telerik:GridViewDataColumn>
+                                    <telerik:GridViewDataColumn Header="URL" DataMemberBinding="{Binding FunURL}" MinWidth="300" Width="*"></telerik:GridViewDataColumn>
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                            <!--</ScrollViewer.Content>
+                                </ScrollViewer>-->
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Background="Transparent" Width="123">
+                                    <Button  Height="28" Cursor="Hand" BorderThickness="0" HorizontalAlignment="Left"  Name="btnSave" 
+                                           VerticalAlignment="Top" Width="65"  Margin="20,2,50,0" Click="btnSave_Click">
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" />
+                                    </Button>
+                                    <Button  Content="重置" Cursor="Hand" Height="Auto" HorizontalAlignment="Left"  Name="btnClear" 
+                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0"  Visibility="Collapsed"/>
+
+                                </StackPanel>
+
+                            </Grid>
+ 
+                <!--</telerik:RadTabItem.Content>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>-->
+
+    </Grid>
+</navigation:Page>

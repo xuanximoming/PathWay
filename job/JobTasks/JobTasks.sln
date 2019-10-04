@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobTasks", "JobTasks.csproj", "{C93F1DB5-7D0C-430E-AC71-89181255934F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.2.202:8080/
+		SccProjectUniqueName0 = JobTasks.csproj
+		SccProjectName0 = .
+		SccAuxPath0 = http://192.168.2.202:8080
+		SccLocalPath0 = .
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C93F1DB5-7D0C-430E-AC71-89181255934F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C93F1DB5-7D0C-430E-AC71-89181255934F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C93F1DB5-7D0C-430E-AC71-89181255934F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C93F1DB5-7D0C-430E-AC71-89181255934F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

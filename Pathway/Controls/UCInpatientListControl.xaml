@@ -1,0 +1,233 @@
+﻿<UserControl x:Class="YidanEHRApplication.Controls.UCInpatientListControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:my="clr-namespace:YidanEHRApplication.Controls"
+    xmlns:local="clr-namespace:YidanEHRApplication"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+	xmlns:Conveter="clr-namespace:YidanEHRApplication"  
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d"
+    d:DesignHeight="700" d:DesignWidth="1000" 
+    Height="Auto" Width="Auto" >
+    <telerik:RadBusyIndicator Name="radBusyIndicator" Background="Transparent" BusyContent="数据加载中..." >
+        <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" >
+            <Grid.Resources>
+                <!--<Style x:Key="NewStyle" TargetType="telerik:GridViewCell">
+                    <Setter Property="Background" Value="#FF3DBCC7" />
+                </Style>
+                <Style x:Key="CompelteStyle" TargetType="telerik:GridViewCell">
+                    <Setter Property="Background" Value="#FF53B119" />
+                </Style>
+                <Style x:Key="QuitStyle" TargetType="telerik:GridViewCell">
+                    <Setter Property="Background" Value="Red" />
+                </Style>
+                <Style x:Key="NotInStyle" TargetType="telerik:GridViewCell">
+                    <Setter Property="Background" Value="#FFA112AD" />
+                </Style>
+                <Style x:Key="DoStyle" TargetType="telerik:GridViewCell">
+                    <Setter Property="Background" Value="#CC6752" />
+                </Style>-->
+                <Style x:Key="NewStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="#FF3DBCC7" />
+                </Style>
+                <Style x:Key="CompelteStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="#FF53B119" />
+                </Style>
+                <Style x:Key="QuitStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="Red" />
+                </Style>
+                <Style x:Key="NotInStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="#FFA112AD" />
+                </Style>
+                <Style x:Key="DoStyle" TargetType="TextBox">
+                    <Setter Property="Background" Value="#CC6752" />
+                </Style>
+                <Conveter:PathStatusConveter x:Key="converter" />
+                <Conveter:ConditionalStyleSelector x:Key="selector" ConditionConverter="{StaticResource converter}">
+                    <Conveter:ConditionalStyleSelector.Rules>
+                        <Conveter:ConditionalStyleRule Style="{StaticResource NewStyle}">
+                            <Conveter:ConditionalStyleRule.Value>
+                                <sys:String>-1</sys:String>
+                            </Conveter:ConditionalStyleRule.Value>
+                        </Conveter:ConditionalStyleRule>
+                        <Conveter:ConditionalStyleRule Style="{StaticResource DoStyle}">
+                            <Conveter:ConditionalStyleRule.Value>
+                                <sys:String>1</sys:String>
+                            </Conveter:ConditionalStyleRule.Value>
+                        </Conveter:ConditionalStyleRule>
+
+                        <Conveter:ConditionalStyleRule Style="{StaticResource CompelteStyle}">
+                            <Conveter:ConditionalStyleRule.Value>
+                                <sys:String>3</sys:String>
+                            </Conveter:ConditionalStyleRule.Value>
+                        </Conveter:ConditionalStyleRule>
+                        <Conveter:ConditionalStyleRule Style="{StaticResource QuitStyle}">
+                            <Conveter:ConditionalStyleRule.Value>
+                                <sys:String>2</sys:String>
+                            </Conveter:ConditionalStyleRule.Value>
+                        </Conveter:ConditionalStyleRule>
+                        <Conveter:ConditionalStyleRule Style="{StaticResource NotInStyle}">
+                            <Conveter:ConditionalStyleRule.Value>
+                                <sys:String>4</sys:String>
+                            </Conveter:ConditionalStyleRule.Value>
+                        </Conveter:ConditionalStyleRule>
+                    </Conveter:ConditionalStyleSelector.Rules>
+                </Conveter:ConditionalStyleSelector>
+                
+                 
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"></RowDefinition>
+                <RowDefinition Height="548*"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border>
+                <StackPanel  Orientation="Vertical" Height="110">
+                    <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Margin="0,5,0,5">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                                <GradientStop Color="#46A3FF" Offset="1"/>
+                                <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <!--<StackPanel  Orientation="Vertical" Height="80" Background="#ECF5FF">-->
+                        <Grid  Height="110" Background="#ECF5FF">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="12" />
+                                <ColumnDefinition Width="1100" />
+                                <!--<ColumnDefinition Width="*" />-->
+                            </Grid.ColumnDefinitions>
+                            
+                            <my:UCQcPatientInfoControl HorizontalAlignment="Left" x:Name="qcPatientInfoControl1" Height="35" Margin="0,0,0,77" Grid.ColumnSpan="2" />
+                            <my:UCQueryPathInfoControl   HorizontalAlignment="Left"  Margin="0,37,0,0" x:Name="queryPathInfoControl1" VerticalAlignment="Top" Height="60" Grid.ColumnSpan="2" />
+                        </Grid>
+                        <!--</StackPanel>-->
+                    </Border>
+                    <my:UCPatientBasicInfo x:Name="uCPatientBasicInfo1" HorizontalAlignment="Left"  Margin="5,0,0,0"  Height="0" Width="800" Visibility="Collapsed"/>
+                </StackPanel>
+            </Border>
+            <!--<ScrollViewer x:Name="PageScrollViewer" Margin="0,6,0,0" Grid.Row="1" VerticalScrollBarVisibility="Hidden" >-->
+                <!--<telerik:RadGridView  Grid.Row="1" BorderThickness="1" Width="auto"  ShowGroupPanel="False" AutoGenerateColumns="False" x:Name="radGridViewInpatient" VerticalAlignment="Top" 
+							  CanUserResizeColumns="True"  ShowColumnHeaders="true" IsReadOnly="True" GridLinesVisibility="Both"   
+                                         HorizontalAlignment="Stretch" IsFilteringAllowed="False" RowIndicatorVisibility="Collapsed"     RowActivated="radGridViewInpatient_RowActivated" SelectionChanged="radGridViewInpatient_SelectionChanged" IsScrolling="False" ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="首页序号" DataMemberBinding="{Binding Syxh}" IsVisible="False">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="病历号" DataMemberBinding="{Binding Zyhm}" Width="70">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="床号" DataMemberBinding="{Binding Bed}" Width="50">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="患者姓名" DataMemberBinding="{Binding Hzxm}" Width="60">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="性别" DataMemberBinding="{Binding Brxb}" Width="35">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="年龄" DataMemberBinding="{Binding Xsnl}" Width="40">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="入院诊断" DataMemberBinding="{Binding Ryzd}" Width="100*" MinWidth="100">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="状态" Width="40" CellStyleSelector="{StaticResource selector}" >
+                        </telerik:GridViewDataColumn >
+                        <telerik:GridViewDataColumn Header="说明" Width="55" DataMemberBinding="{Binding LjztName}">
+                        </telerik:GridViewDataColumn >
+                        <telerik:GridViewDataColumn Header="路径名称" DataMemberBinding="{Binding Ljmc}" Width="180*">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="科室" DataMemberBinding="{Binding CyksName}" Width="50">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="病区" DataMemberBinding="{Binding CybqName}" Width="60">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="入院日期" DataMemberBinding="{Binding Ryrq}" Width="145">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="出院日期" DataMemberBinding="{Binding Cyrq}" Width="125">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="管床医生" DataMemberBinding="{Binding Zyys}" Width="65">
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="病人状态" DataMemberBinding="{Binding Status}" IsVisible="False" Width="65">
+                        </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+                </telerik:RadGridView>-->
+            <sdk:DataGrid  Grid.Row="1" BorderThickness="1" Width="auto" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Top" AutoGenerateColumns="False"  Name="radGridViewInpatient"  SelectionChanged="radGridViewInpatient_SelectionChanged" LoadingRow="ResultsGrid_LoadingRow" 
+                    CanUserSortColumns="False"     RowDetailsVisibilityMode="Collapsed"   ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn Header="首页序号" Binding="{Binding Syxh}" Visibility="Collapsed">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="病历号" Binding="{Binding Zyhm}" Width="70">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="床号" Binding="{Binding Bed}" Width="50">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="患者姓名" Binding="{Binding Hzxm}" Width="65">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="性别" Binding="{Binding Brxb}" Width="55">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="年龄" Binding="{Binding Xsnl}" Width="55">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="入院诊断" Binding="{Binding Ryzd}" Width="100*" MinWidth="110">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTemplateColumn Header="状态" Width="50">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox  Loaded="txtLjzt_Loaded"  Width="50" Name="txtLjzt" Text="{Binding Ljzt}"  IsReadOnly="True"  TextWrapping="NoWrap" BorderThickness="0" Margin="1"  HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                            </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate >
+                        
+                    </sdk:DataGridTemplateColumn>
+                        <sdk:DataGridTextColumn Header="说明" Width="55" Binding="{Binding LjztName}">
+                    </sdk:DataGridTextColumn >
+                    <sdk:DataGridTextColumn Header="路径名称" Binding="{Binding Ljmc}" Width="180*">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="科室" Binding="{Binding CyksName}" Width="50">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="病区" Binding="{Binding CybqName}" Width="60">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="入院日期" Binding="{Binding Ryrq}" Width="145">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="出院日期" Binding="{Binding Cyrq}" Width="125">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="管床医生" Binding="{Binding Zyys}" Width="65">
+                    </sdk:DataGridTextColumn>
+                    <sdk:DataGridTextColumn Header="病人状态" Binding="{Binding Status}"  Visibility="Collapsed" Width="65">
+                    </sdk:DataGridTextColumn>
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+            <!--</ScrollViewer>-->
+            <telerik:RadDataPager BorderThickness="0"   x:Name="datePage" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,0,0"  Grid.Row="2" PageSize="18"  AutoEllipsisMode="Both"  DisplayMode="FirstLastPreviousNextNumeric" NumericButtonCount="10" PageIndexChanged="RadDataPager1_PageIndexChanged" IsTotalItemCountFixed="True" />
+            <StackPanel x:Name="StackPanelHide" Grid.Row="2" FlowDirection="LeftToRight" VerticalAlignment="Top" Orientation="Horizontal" Visibility="Visible" Margin="2,5,434,16">
+                <Button Margin="10,-3" BorderThickness="0" Name="PathZx" Width="78" Height="28" Click="PathZx_Click" Visibility="Collapsed"  Cursor="Hand" >
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/路径执行.png" Width="76" />
+                </Button>
+                <Button Margin="10,-3" BorderThickness="0" Name="rabInPath" Width="90" Height="28" Click="rabInPath2_Click" Cursor="Hand" >
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/入院评估.png" Width="88" />
+                </Button>
+                <Button Content="退出路径" Name="rabOutPath" Width="100" Height="25" Margin="10,0,0,0" Visibility="Collapsed"     ></Button>
+                <Button Content="查看路径执行情况" Name="rabViewPath" Width="120" Height="25" Margin="10,0,0,0" Visibility="Collapsed"></Button>
+                <Button Content="查看病变记录" Name="rabViewIllness" Width="100" Height="25" Margin="10,0,0,0" Visibility="Collapsed"   ></Button>
+                <Button  Name="btn_ViewPatInfo" Height="28"  Width="96" Margin="10,-3" BorderThickness="0" Click="btn_ViewPatInfo_Click" Cursor="Hand">
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/病人信息维护.png" Width="94" />
+                </Button>
+                <Button  Name="btn_ViewPatHistory" Height="28"  Width="96" Margin="10,-3" BorderThickness="0" Click="btn_ViewPatHistory_Click" Cursor="Hand">
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/病人病史信息.png" Width="94" />
+                </Button>
+                <Button  Name="btn_PathSummary" Height="28"  Width="78" Margin="10,-3" BorderThickness="0" Click="btn_PathSummary_Click" Cursor="Hand">
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/路径总结.png" Width="76" />
+                </Button>
+                <Button  Name="btn_OrdersAll" Height="28"  Width="103" Margin="10,-3" BorderThickness="0" Click="btn_OrdersAll_Click"  Cursor="Hand">
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/临床路径告知单.png" Width="101" />
+                </Button>
+                <Button  Name="btn_HosReport" Height="28"  Width="78" Margin="10,-3" BorderThickness="0" Click="btn_HosReport_Click" Cursor="Hand" Visibility="Visible" >
+                    <Image Height="26" Margin="-2,-3" Source="/Pathway;component/Images/住院表单.png" Width="76" />
+                </Button>                
+
+            </StackPanel>
+            <Button Height="28" Grid.Row="2"  Width="84" Name="btnEnable" HorizontalAlignment="Left" Visibility="Collapsed"  Click="btnEnable_Click" BorderThickness="0" Cursor="Hand" Grid.Column="1">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/医嘱执行.png" Width="82" />
+            </Button>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

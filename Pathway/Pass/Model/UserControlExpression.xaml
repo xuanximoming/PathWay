@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="YidanEHRApplication.Controls.UCExpression"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="UserControl_Loaded"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    d:DesignHeight="300" d:DesignWidth="600" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    Width="580" Height="300">
+
+    <Grid x:Name="LayoutRoot" Margin="0">
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,0,0">
+            <ScrollViewer.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Name="lab1" Text=":医学公式" Margin="0,10,10,3" FlowDirection="RightToLeft" FontSize="12"></TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Name="labExpression" Text="Ccr=(140-年龄)×体重(k g)/72×Scr(mg/dl)" Margin="20,10,10,3" FlowDirection="LeftToRight" FontSize="12"></TextBlock>
+
+                    <telerik:RadWrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="10,0,0,0"  Name="warppanel"  >
+                        <TextBlock Name="labpar" Text="参数:" Margin="0,10,10,3" FlowDirection="LeftToRight" TextAlignment="Right" FontSize="12" Width="100"></TextBlock>
+                        <TextBox Width="120" Height="25" Name="txt1" HorizontalAlignment="Left" Margin="20,5,10,3"/>
+                    </telerik:RadWrapPanel>
+
+                    <TextBlock Grid.Row="1" Grid.Column="2" Name="labm" Text="公式描述:" TextAlignment="Right" Margin="0,10,40,3"  FontSize="12"></TextBlock>
+
+                    <TextBox Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Name="txtDescribe" IsReadOnly="True" Text="公式描述:" Margin="-20,10,10,50" MaxHeight="150" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"></TextBox>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Name="labresult" Text="计算结果:" TextAlignment="Right" Margin="0,10,12,3"  FontSize="12"></TextBlock>
+
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Name="txtresult" Margin="20,5,10,3" HorizontalAlignment="Left" Width="200" Height="25"></TextBox>
+
+                    <!--<telerik:RadButton Grid.Row="3" Grid.Column="3" Content="计算" Height="25" Width="70" Margin="20,5,10,3" HorizontalAlignment="Left" Click="RadButton_Click"></telerik:RadButton>-->
+
+                    <Button Height="28" Width="65" Name="btnMDQD" Grid.Row="3" Grid.Column="3" Click="RadButton_Click" HorizontalAlignment="Left" Margin="20,5,10,3" TabIndex="9" BorderThickness="0">
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/计算.png" Width="63" Cursor="Hand" />
+                    </Button>
+                    
+                </Grid>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

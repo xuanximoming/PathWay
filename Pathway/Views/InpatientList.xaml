@@ -1,0 +1,28 @@
+﻿<navigation:Page xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"  
+                 x:Class="YidanEHRApplication.Views.InpatientList" 
+		   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+		   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		   mc:Ignorable="d"
+		   xmlns:local="clr-namespace:YidanEHRApplication.Views"
+		   xmlns:sys="clr-namespace:System;assembly=mscorlib"
+		   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+		   d:DesignWidth="1024" d:DesignHeight="768"
+				 xmlns:Conveter="clr-namespace:YidanEHRApplication"
+		   Title="病患列表" xmlns:my="clr-namespace:YidanEHRApplication.Controls">
+
+    <UserControl.Resources>
+        <local:GridImageConvert x:Key="Convert1"></local:GridImageConvert>
+
+    </UserControl.Resources>
+    <telerik:RadBusyIndicator Name="radBusyIndicator" Background="Transparent" BusyContent="数据加载中...">
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <my:UCInpatientListControl x:Name="InpatientListControl1" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="10,0" Unloaded="InpatientListControl1_Unloaded" DataContext="{Binding}" />
+
+        </Grid>
+    </telerik:RadBusyIndicator>
+</navigation:Page>

@@ -1,0 +1,12 @@
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\DrectSoft.Core.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\DrectSoft.Core.pdb
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Microsoft.Practices.ObjectBuilder2.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Microsoft.Practices.Unity.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Oracle.DataAccess.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+F:\Demo\pathway\Pathway\Yidansoft.Core\obj\Release\DrectSoft.Core.csprojResolveAssemblyReference.cache
+F:\Demo\pathway\Pathway\Yidansoft.Core\obj\Release\DrectSoft.Core.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\obj\Release\DrectSoft.Core.pdb

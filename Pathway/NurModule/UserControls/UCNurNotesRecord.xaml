@@ -1,0 +1,352 @@
+﻿<UserControl x:Class="YidanEHRApplication.NurModule.UCNurNotesRecord"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+           xmlns:userControl="clr-namespace:YidanEHRApplication.Controls" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1024" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources >
+        <Style  TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Normal"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center" ></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"  ></Setter>
+        </Style>
+        <Style  TargetType="TextBox">
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="FontSize" Value="10"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+        <Style TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        <Style  TargetType="telerik:RadButton">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="MinWidth" Value="50"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <telerik:RadBusyIndicator x:Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+
+        <Grid x:Name="LayoutRoot" >
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="32"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--<Grid ScrollViewer.VerticalScrollBarVisibility="Auto">-->
+                <!-- 护理记录单数据显示 Style="{StaticResource GridBackColor}"-->
+                <telerik:RadTabControl x:Name="rtcNursingNotes" >
+                    <!--SelectionChanged="rtcNursingNotes_SelectionChanged"-->
+
+                    <!-- 生命体征数据显示 -->
+                    <telerik:RadTabItem Header="生命体征" >
+                        <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--<userControl:UCImagePanelControl Height="34"  />-->
+
+                            <telerik:RadGridView x:Name="rgvVitalSignsRecord" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Top"   MinHeight="100"  GridLinesVisibility="Both" 
+                                                      IsReadOnly="True" ShowGroupPanel="False" AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                      RowIndicatorVisibility="Collapsed"  SelectionChanged="RadGridViewRecord_SelectionChanged" >
+                                <telerik:RadGridView.GroupDescriptors >
+
+                                    <telerik:GroupDescriptor Member="Clrq" >
+                                        <telerik:GroupDescriptor.DisplayContent>
+                                            <TextBlock Text="记录日期"></TextBlock>
+                                        </telerik:GroupDescriptor.DisplayContent>
+                                        <telerik:GroupDescriptor.AggregateFunctions>
+                                            <telerik:CountFunction Caption="记录次数：" />
+                                        </telerik:GroupDescriptor.AggregateFunctions>
+                                    </telerik:GroupDescriptor>
+                                </telerik:RadGridView.GroupDescriptors>
+
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="时间段" DataMemberBinding="{Binding Sjd}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="记录时间" DataMemberBinding="{Binding Clsj}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="病人状态" DataMemberBinding="{Binding Hzzt}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="体温(℃)" DataMemberBinding="{Binding Hztw}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="测量方式" DataMemberBinding="{Binding Clfs}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="辅助措施" DataMemberBinding="{Binding Fzcs}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="脉搏(次/分)" DataMemberBinding="{Binding Hzmb}"  MinWidth="75" />
+                                    <telerik:GridViewDataColumn Header="心率(次/分)" DataMemberBinding="{Binding Hzxl}" Width="75" />
+                                    <telerik:GridViewColumn Header="起搏器" Width="70" >
+                                        <telerik:GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="chkQbq" Tag="{Binding Qbq}"  IsEnabled="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="CheckBox_Loaded" />
+                                            </DataTemplate>
+                                        </telerik:GridViewColumn.CellTemplate>
+                                    </telerik:GridViewColumn>
+                                    <telerik:GridViewDataColumn Header="呼吸(次/分)" DataMemberBinding="{Binding Hzhx}" Width="75" />
+                                    <telerik:GridViewColumn Header="呼吸器"  Width="70" >
+                                        <telerik:GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="chkHxq" Tag="{Binding Hxq}" IsEnabled="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="CheckBox_Loaded" />
+                                            </DataTemplate>
+                                        </telerik:GridViewColumn.CellTemplate>
+                                    </telerik:GridViewColumn>
+                                    <telerik:GridViewDataColumn Header="血压(mm)" DataMemberBinding="{Binding Hzxy}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="登记日期" DataMemberBinding="{Binding Djrq}" Width="120" />
+                                    <telerik:GridViewDataColumn Header="登记医生" DataMemberBinding="{Binding Djys}"  MinWidth="70"  />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <!-- 病人入量数据显示 -->
+                    <telerik:RadTabItem Header="入量记录">
+                    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--<userControl:UCImagePanelControl Height="34"/>-->
+
+                            <telerik:RadGridView x:Name="rgvPatientInRecord" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MinHeight="100"  GridLinesVisibility="Both"
+                                                     ShowGroupPanel="false" AutoGenerateColumns="False" IsFilteringAllowed="False"  SelectionMode="Single"
+                                                     RowIndicatorVisibility="Collapsed" IsReadOnly="True" SelectionChanged="RadGridViewRecord_SelectionChanged" >
+                                <telerik:RadGridView.GroupDescriptors >
+
+                                    <telerik:GroupDescriptor Member="Clrq" >
+                                        <telerik:GroupDescriptor.DisplayContent>
+                                            <TextBlock Text="记录日期"></TextBlock>
+                                        </telerik:GroupDescriptor.DisplayContent>
+                                        <telerik:GroupDescriptor.AggregateFunctions>
+                                            <telerik:CountFunction Caption="记录次数：" />
+                                        </telerik:GroupDescriptor.AggregateFunctions>
+                                    </telerik:GroupDescriptor>
+                                </telerik:RadGridView.GroupDescriptors>
+
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="记录时间" DataMemberBinding="{Binding Clsj}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="饮食量(g)" DataMemberBinding="{Binding Ysl}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="饮水量(cc)" DataMemberBinding="{Binding Hsl}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="输液量(cc)" DataMemberBinding="{Binding Syl}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="注射量(cc)" DataMemberBinding="{Binding Zsl}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="输血量(cc)" DataMemberBinding="{Binding Sxl}"  MinWidth="75" />
+                                    <telerik:GridViewDataColumn Header="其它" DataMemberBinding="{Binding Qtrllx1}" Width="150" />
+                                    <telerik:GridViewDataColumn Header="其它值" DataMemberBinding="{Binding Qtrl1}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="其它" DataMemberBinding="{Binding Qtrllx2}" Width="150" />
+                                    <telerik:GridViewDataColumn Header="其它值" DataMemberBinding="{Binding Qtrl2}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="登记日期" DataMemberBinding="{Binding Djrq}"  MinWidth="120"  />
+                                    <telerik:GridViewDataColumn Header="登记医生" DataMemberBinding="{Binding Djys}"  MinWidth="70"  />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <!-- 病人出量数据显示 -->
+                    <telerik:RadTabItem Header="出量记录">
+                    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--<userControl:UCImagePanelControl Height="34"/>-->
+
+                            <telerik:RadGridView x:Name="rgvPatientOutRecord" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MinHeight="100"
+                                                     ShowGroupPanel="false" AutoGenerateColumns="False" IsFilteringAllowed="False"   GridLinesVisibility="Both"
+                                                     RowIndicatorVisibility="Collapsed" IsReadOnly="True" SelectionChanged="RadGridViewRecord_SelectionChanged" >
+                                <telerik:RadGridView.GroupDescriptors >
+
+                                    <telerik:GroupDescriptor Member="Clrq" >
+                                        <telerik:GroupDescriptor.DisplayContent>
+                                            <TextBlock Text="记录日期"></TextBlock>
+                                        </telerik:GroupDescriptor.DisplayContent>
+                                        <telerik:GroupDescriptor.AggregateFunctions>
+                                            <telerik:CountFunction Caption="记录次数：" />
+                                        </telerik:GroupDescriptor.AggregateFunctions>
+                                    </telerik:GroupDescriptor>
+                                </telerik:RadGridView.GroupDescriptors>
+
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="记录时间" DataMemberBinding="{Binding Clsj}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="小便量(cc)" DataMemberBinding="{Binding Hzxb}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="小便性状" DataMemberBinding="{Binding Xbxz}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="辅助措施" DataMemberBinding="{Binding Xbcs}" Width="100" />
+                                    <telerik:GridViewColumn Header="大便次数" Width="100">
+                                        <telerik:GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <userControl:UCTextGroupBoxControl x:Name="TextGroupBoxControl1" Tag="{Binding Dbcs}"  IsEnabled="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="TextGroupBoxControl1_Loaded" />
+                                            </DataTemplate>
+                                        </telerik:GridViewColumn.CellTemplate>
+                                    </telerik:GridViewColumn>
+                                    <telerik:GridViewDataColumn Header="大便性状" DataMemberBinding="{Binding Dbxz}"  MinWidth="100" />
+                                    <telerik:GridViewDataColumn Header="辅助措施" DataMemberBinding="{Binding Pbcs}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="痰量(cc)" DataMemberBinding="{Binding Hztl}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="痰性状" DataMemberBinding="{Binding Txz}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="引流量(cc)" DataMemberBinding="{Binding Yll}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="引流说明" DataMemberBinding="{Binding Ylsm}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="其它" DataMemberBinding="{Binding Qtcllx1}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="其它值" DataMemberBinding="{Binding Qtcl1}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="其它" DataMemberBinding="{Binding Qtcllx2}"  MinWidth="100"  />
+                                    <telerik:GridViewDataColumn Header="其它值" DataMemberBinding="{Binding Qtcl2}"  MinWidth="70"  />
+                                    <telerik:GridViewDataColumn Header="登记日期" DataMemberBinding="{Binding Djrq}"  MinWidth="120"  />
+                                    <telerik:GridViewDataColumn Header="登记医生" DataMemberBinding="{Binding Djys}"  MinWidth="70"  />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <!-- 治疗流程记录数据显示 -->
+                    <telerik:RadTabItem  Header="治疗流程">
+                    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--<userControl:UCImagePanelControl Height="34"/>-->
+
+                            <telerik:RadGridView x:Name="rgvTreatmentFlow" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="100"
+                                                     ShowGroupPanel="false" AutoGenerateColumns="False" IsFilteringAllowed="False"  GridLinesVisibility="Both" 
+                                                     RowIndicatorVisibility="Collapsed" IsReadOnly="True"  SelectionChanged="RadGridViewRecord_SelectionChanged" >
+                                <telerik:RadGridView.GroupDescriptors >
+
+                                    <telerik:GroupDescriptor Member="Clrq" >
+                                        <telerik:GroupDescriptor.DisplayContent>
+                                            <TextBlock Text="记录日期"></TextBlock>
+                                        </telerik:GroupDescriptor.DisplayContent>
+                                        <telerik:GroupDescriptor.AggregateFunctions>
+                                            <telerik:CountFunction Caption="记录次数：" />
+                                        </telerik:GroupDescriptor.AggregateFunctions>
+                                    </telerik:GroupDescriptor>
+                                </telerik:RadGridView.GroupDescriptors>
+
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="记录时间" DataMemberBinding="{Binding Clsj}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="治疗事件" DataMemberBinding="{Binding Zllc}" Width="200" />
+                                    <telerik:GridViewColumn Header="是否手术"  Width="70" >
+                                        <telerik:GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="chkShoushu" Tag="{Binding Sfss}" IsEnabled="False"  HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="CheckBox_Loaded" />
+                                            </DataTemplate>
+                                        </telerik:GridViewColumn.CellTemplate>
+                                    </telerik:GridViewColumn>
+                                    <telerik:GridViewDataColumn Header="说明" DataMemberBinding="{Binding Lcsm}" Width="300" />
+                                    <telerik:GridViewDataColumn Header="登记日期" DataMemberBinding="{Binding Djrq}" Width="120" />
+                                    <telerik:GridViewDataColumn Header="登记医生" DataMemberBinding="{Binding Djys}"  MinWidth="70"  />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <!-- 特殊记录数据显示 -->
+                    <telerik:RadTabItem  Header="其他记录">
+                    <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+
+
+                            <telerik:RadGridView x:Name="rgvVitalSignSpecialRecord"   Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  MinHeight="100"
+                                                     ShowGroupPanel="false" AutoGenerateColumns="False" IsFilteringAllowed="False"   GridLinesVisibility="Both" 
+                                                     RowIndicatorVisibility="Collapsed" IsReadOnly="True"  SelectionChanged="RadGridViewRecord_SelectionChanged">
+                                <telerik:RadGridView.GroupDescriptors >
+
+                                    <telerik:GroupDescriptor Member="Clrq" >
+                                        <telerik:GroupDescriptor.DisplayContent>
+                                            <TextBlock Text="记录日期"></TextBlock>
+                                        </telerik:GroupDescriptor.DisplayContent>
+                                        <telerik:GroupDescriptor.AggregateFunctions>
+                                            <telerik:CountFunction Caption="记录次数：" />
+                                        </telerik:GroupDescriptor.AggregateFunctions>
+                                    </telerik:GroupDescriptor>
+                                </telerik:RadGridView.GroupDescriptors>
+
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="记录时间" DataMemberBinding="{Binding Clsj}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="身高(cm)" DataMemberBinding="{Binding Hzsg}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="体重(kg)" DataMemberBinding="{Binding Hztz}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="腹围(cm)" DataMemberBinding="{Binding Hzfw}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="血型" DataMemberBinding="{Binding Hzxx}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="血性HR" DataMemberBinding="{Binding Xyxx}"  MinWidth="75" />
+                                    <telerik:GridViewDataColumn Header="手术史" DataMemberBinding="{Binding Hzsss}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="输血史" DataMemberBinding="{Binding Hzsxs}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="过敏史" DataMemberBinding="{Binding Hzgms}" Width="100" />
+                                    <telerik:GridViewDataColumn Header="登记日期" DataMemberBinding="{Binding Djrq}" Width="120" />
+                                    <telerik:GridViewDataColumn Header="登记医生" DataMemberBinding="{Binding Djys}"  MinWidth="70"  />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+
+                            <!--<userControl:UCImagePanelControl Height="34" Grid.Row="1"/>-->
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                </telerik:RadTabControl>
+            <!--</Grid>-->
+            <!-- 查询 -->
+
+            <!--<telerik:RadDataPager Grid.Row="1"  BorderThickness="1"  Height="30"  PageSize="7" Source="{Binding Items, ElementName=rgvVitalSignsRecord}" 
+                                      IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="0,0,0,0" HorizontalContentAlignment="Right" />-->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Margin="10,0,0,0" >
+                <TextBlock Text="时间段:" Margin="10,0,4,0"  Visibility="Collapsed" />
+                <telerik:RadComboBox x:Name="rcmbDays" Width="50" Visibility="Collapsed">
+                    <telerik:RadComboBoxItem Content="全部" />
+                    <telerik:RadComboBoxItem Content="1天" />
+                    <telerik:RadComboBoxItem Content="2天" />
+                    <telerik:RadComboBoxItem Content="3天"  />
+                    <telerik:RadComboBoxItem Content="4天" />
+                    <telerik:RadComboBoxItem Content="5天" />
+                    <telerik:RadComboBoxItem Content="6天" />
+                    <telerik:RadComboBoxItem Content="7天"  IsSelected="True" />
+                </telerik:RadComboBox>
+                <Button x:Name="rbtnQuery" Height="28" Width="65" BorderThickness="0" Cursor="Hand" Margin="15,26" Click="rbtnQuery_Click" Visibility="Collapsed">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" />
+                </Button>
+                <Button x:Name="rbtnAdd" Height="28" Width="65" BorderThickness="0" Cursor="Hand" Margin="0,0" Click="rbtnAdd_Click" IsEnabled="False">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" />
+                </Button>
+                <Button x:Name="rbtnCancel" Height="28" Width="65" BorderThickness="0" Cursor="Hand"   Margin="15,0" Click="rbtnCancel_Click" IsEnabled="False">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" />
+                </Button>
+
+            </StackPanel>
+            <!-- 护理记录输入 -->
+            <!--<userControl:NursingNotesRecordControl  Grid.Row="3" Margin="5"/>-->
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

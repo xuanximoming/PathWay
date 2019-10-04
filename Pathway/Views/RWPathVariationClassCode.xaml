@@ -1,0 +1,213 @@
+﻿<telerik:RadWindow xmlns:my1="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"  xmlns:my="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"  x:Class="YidanEHRApplication.Views.RWPathVariationClassCode"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+           xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           mc:Ignorable="d"
+           d:DesignWidth="860" d:DesignHeight="500"
+           Width="860" Height="500" 
+            Loaded="ChildWindow_Loaded" Unloaded="ChildWindow_Unloaded" Header="归类编码" WindowStartupLocation="CenterScreen">
+    <telerik:RadWindow.Resources >
+        <!-- 
+        <Style  TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Normal"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        </Style>
+        -->
+        <!-- 
+         <Style TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="250"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        -->
+        <Style x:Key="RadComboBoxStyle" TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="Width" Value="250"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <!--<Setter Property="ClearSelectionButtonContent" Value="清空"></Setter>-->
+            <Setter Property="ClearSelectionButtonVisibility" Value="Collapsed"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        <Style  TargetType="telerik:RadButton">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Width" Value="50"></Setter>
+        </Style>
+        <DataTemplate x:Key="ComboBoxCustomTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Grid.ColumnSpan="2" Text="{Binding CodeGroup}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ComboBoxSimpleTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Foreground="Black" Text="{Binding CodeGroup}"  />
+            </Grid>
+        </DataTemplate>
+    </telerik:RadWindow.Resources>
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+        <Grid x:Name="LayoutRoot" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <!--<RowDefinition Height="30" />-->
+            </Grid.RowDefinitions>
+
+            <Border BorderThickness="1,1,1,1" CornerRadius="6,6,6,6" Margin="5,5,5,6">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                        <GradientStop Color="#46A3FF" Offset="1"/>
+                        <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border BorderThickness="7,7,7,7" CornerRadius="2,2,2,2" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                    <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                        <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="#ECF5FF">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                    <GradientStop Color="#FF515151" Offset="0.008"/>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                            <Grid     VerticalAlignment="Top" Height="427">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="40"/>
+
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="34"/>
+                                    <!--<RowDefinition Height="40"/>-->
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Grid.Row="3" Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition  Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions >
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="250" />
+                                        <ColumnDefinition Width="107" />
+                                        <ColumnDefinition Width="73" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition Width="80" />
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Operation Start -->
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="归类到变异编码：" HorizontalAlignment="Right"  VerticalAlignment="Center"  />
+                                    <telerik:RadComboBox Grid.Column="1" Name="cbxVariationType" Style="{StaticResource RadComboBoxStyle}"
+                                             SelectedValue="Bydm"
+                                             SelectedValuePath="CodeGroup"                                            
+                                             ItemTemplate = "{StaticResource ComboBoxCustomTemplate}"
+                                             SelectionBoxTemplate = "{StaticResource ComboBoxSimpleTemplate}"
+                                             telerik:TextSearch.TextPath="Py" TextSearchMode="Contains" Margin="0,2,0,0">
+                                        <!--<ToolTipService.ToolTip>
+                                            <ToolTip FontSize="12" Content="输入拼音码查询……" />
+                                        </ToolTipService.ToolTip>-->
+                                        <telerik:RadComboBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel />
+                                            </ItemsPanelTemplate>
+                                        </telerik:RadComboBox.ItemsPanel>
+                                    </telerik:RadComboBox>
+                                    <!--<Button x:Name="btnCreateCode" Grid.Column="5" Grid.Row="0" Content="创建编码" Height="20" Width="60" Click="btnCreateCode_Click" />-->
+                                    <Button  Visibility="Collapsed" x:Name="btnRefresh" Grid.Column="3" BorderThickness="0" Cursor="Hand" Height="28" Width="65" Click="btnRefresh_Click"  >
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/renovate.jpg" Width="63" />
+                                    </Button>
+                                    <!-- Operation renovate.jpg End -->
+                                </Grid>
+
+                                <Border BorderThickness="0" BorderBrush="Gray" Background="#ECF5FF"  Grid.Row="1">
+                                    <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,0" Width="789">
+
+                                        <sdk:Label Height="15" Margin="140,10,0,8" Name="lbQuery" Width="55">变异原因:</sdk:Label>
+                                        <TextBox  Height="23" Margin="10,5,0,0" Name="tbQuery"  Width="250" />
+                                        
+                                        <Button Cursor="Hand" Height="28" Margin="20,3,0,0" Name="btnQuery" BorderThickness="0" Width="65" Click="btnQuery_Click" >
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" />
+                                        </Button>
+                                        <Button Visibility="Collapsed" Cursor="Hand"  Height="28" Margin="15,2,0,0" Name="btnReset" BorderThickness="0" Width="65" Click="btnReset_Click">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                                        </Button>
+                                    </StackPanel>
+                                </Border>
+
+                                <telerik:RadGridView  Grid.Row="2" Name="GridViewVariantRecords" IsReadOnly="True" AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                                      ShowGroupPanel="False" MinHeight=" 320" RowIndicatorVisibility="Collapsed" Margin="3,5,0,0" Height="340"  GridLinesVisibility="Both">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewColumn Width="30" IsVisible="False">
+                                            <telerik:GridViewColumn.Header>
+                                                <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="checkBoxAll" Checked="checkBoxAll_Checked" Unchecked="checkBoxAll_Unchecked" />
+                                            </telerik:GridViewColumn.Header>
+                                            <telerik:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Tag="{Binding Id}" Loaded="CheckBox_Loaded" />
+                                                </DataTemplate>
+                                            </telerik:GridViewColumn.CellTemplate>
+                                        </telerik:GridViewColumn>
+                                        <telerik:GridViewDataColumn Header="首页序号" DataMemberBinding="{Binding Syxh}" IsVisible="False" />
+                                        <telerik:GridViewDataColumn Header="临床路径代码" DataMemberBinding="{Binding Ljdm}" IsVisible="False" />
+                                        <telerik:GridViewDataColumn Header="明细路径" DataMemberBinding="{Binding mxdm}" IsVisible="False" />
+                                        <telerik:GridViewDataColumn Header="药品代码" DataMemberBinding="{Binding ypdm}" IsVisible="False" />
+                                        <telerik:GridViewDataColumn Header="变异类别" DataMemberBinding="{Binding Bylb}" Width="100" />
+                                        <telerik:GridViewDataColumn Header="变异类型" DataMemberBinding="{Binding Bylx}" Width="100" />
+                                        <telerik:GridViewDataColumn Header="变异内容" DataMemberBinding="{Binding Bynr}" Width="180" />
+                                        <telerik:GridViewDataColumn Header="变异编码" DataMemberBinding="{Binding Bydm}" Width="100" />
+                                        <telerik:GridViewDataColumn Header="变异时间" DataMemberBinding="{Binding Bysj}" Width="80" />
+                                        <telerik:GridViewDataColumn Header="变异原因" DataMemberBinding="{Binding Byyy}" Width="180" />
+                                        <telerik:GridViewDataColumn Width="*" />
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+
+
+                                <!-- Show Data Start -->
+                                <telerik:RadDataPager BorderThickness="0"   VerticalAlignment="Top"  Grid.Row="2" x:Name="radDataPager" Height="32" HorizontalAlignment="Right"
+                                                Source="{Binding ItemsSource, ElementName=GridViewVariantRecords}"
+                                                PageSize="10" HorizontalContentAlignment="Right"
+
+								               DisplayMode="FirstLastPreviousNextNumeric"
+								               AutoEllipsisMode="Both"
+								               NumericButtonCount="10"
+								               IsTotalItemCountFixed="True" Margin="0,345,0,0" Grid.RowSpan="2" />
+                                <Button x:Name="CancelButton" Click="CancelButton_Click" Width="65" Height="28" HorizontalAlignment="Left" BorderThickness="0" Cursor="Hand" Grid.Row="3" Margin="500,0,0,0">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/退出.png" Width="63" />
+                                </Button>
+                                <Button x:Name="btnClassCode" Height="28" Width="78" BorderThickness="0" Cursor="Hand" Click="btnClassCode_Click" HorizontalAlignment="Left" Grid.Row="3" Margin="400,0,0,0">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/归类编码.png" Width="76" />
+                                </Button>
+                                <!-- Show Data End -->
+
+                            </Grid>
+                        </Border>
+                    </Border>
+                </Border>
+            </Border>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow >

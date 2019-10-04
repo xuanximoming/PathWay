@@ -1,0 +1,31 @@
+﻿<telerik1:RadWindow x:Class="YidanEHRApplication.Views.RptPrintInPatientAdvice" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           Style="{StaticResource RadWindowStyle}"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+           xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+           xmlns:telerik="clr-namespace:Telerik.ReportViewer.Silverlight;assembly=Telerik.ReportViewer.Silverlight" 
+           xmlns:telerik1="http://schemas.telerik.com/2008/xaml/presentation"
+           d:DesignWidth="1200" d:DesignHeight="600" Header="医嘱单打印"
+ >
+    <Grid x:Name="LayoutRoot">
+        <Grid HorizontalAlignment="Center" Margin="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <telerik:ReportViewer Grid.Row="0" x:Name="ReportViewer1" HorizontalContentAlignment="Center" 
+                                  MinWidth="1000"
+                                  Height="600"
+                                  telerikControls:StyleManager.Theme="{Binding SelectedItem, ElementName=Office_BlueTheme}"
+                                  ReportServiceUri="../ReportService.svc"                                  
+                                  Report="YidanEHRReport.ReportInPatientAdvice, YidanEHRReport" Margin="0,0,0,0">
+            
+            </telerik:ReportViewer>
+        </Grid>
+    </Grid>
+</telerik1:RadWindow>

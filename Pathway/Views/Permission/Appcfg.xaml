@@ -1,0 +1,141 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.Permission.Appcfg" 
+
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="800" d:DesignHeight="680"
+           Title="配置全局参数">
+    <Grid x:Name="LayoutRoot">
+
+
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,2,0,0">
+            <ScrollViewer.Content>
+                <Grid Background="#ffffff">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="250"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="250*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Margin="5,0,5,0">
+                        <!--<Border  Style="{StaticResource BorderStyle}" Margin="5">-->
+                        <Border BorderThickness="1" BorderBrush="Gray" Background="#ECF5FF" Margin="0,0,0,4" HorizontalAlignment="Stretch" >
+                            <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="0"  >
+
+                                <sdk:Label Height="15" HorizontalAlignment="Left" Margin="5,12,0,0" Name="lbQuery1" VerticalAlignment="Top" Width="90">配置参数关键词:</sdk:Label>
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="txt_Appgjc" VerticalAlignment="Top" Width="100" />
+                                <sdk:Label Content="配置参数名称:" Height="15" HorizontalAlignment="Left" Margin="5,12,0,0" Name="lbQuery2" VerticalAlignment="Top" Width="75" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="txt_Appname" VerticalAlignment="Top" Width="125" />
+                                <sdk:Label Content="配置参数描述:" Height="15" HorizontalAlignment="Left" Margin="5,12,0,0" Name="lbQuery3" VerticalAlignment="Top" Width="75" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="txt_Appcsms" VerticalAlignment="Top" Width="130" />
+                                <Button Cursor="Hand" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="btnQuery" VerticalAlignment="Top" BorderThickness="0" Width="65" Click="btnQuery_Click" >
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" />
+                                </Button>
+                                <Button Cursor="Hand"  Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="btnReset" BorderThickness="0" VerticalAlignment="Top" Width="65" Click="btnReset_Click">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <telerik:RadGridView Grid.Row="1" Grid.Column="0" Name="GridView" IsScrolling="False" IsReadOnly="True" 
+                                         AutoGenerateColumns="False" IsFilteringAllowed="False" Margin="5,5,5,0" 
+                                          GridLinesVisibility="Both"
+                                         ShowGroupPanel="False" MinHeight="250" Height="auto" RowIndicatorVisibility="Collapsed" 
+                                         SelectionChanged="GridView_SelectionChanged" RowLoaded="GridView_RowLoaded">
+                        <telerik:RadGridView.Columns>
+                            <!--<telerik:GridViewDataColumn Header="编号" DataMemberBinding="{Binding ID}"  IsVisible="False" ></telerik:GridViewDataColumn>-->
+                            <telerik:GridViewDataColumn Header="配置参数关键词" DataMemberBinding="{Binding Configkey}" MaxWidth="180"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="配置参数名" DataMemberBinding="{Binding Name}"  MaxWidth="200"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="配置参数值" Width="100" TextWrapping="NoWrap">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Value}" Width="100" Height="26" TextWrapping="NoWrap" TextTrimming="WordEllipsis" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="配置参数描述" DataMemberBinding="{Binding Descript}"   Width="*"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="配置参数类型" DataMemberBinding="{Binding ParamType}" MaxWidth="80"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="参数审核状态" DataMemberBinding="{Binding Valid}"  MaxWidth="80"></telerik:GridViewDataColumn>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadDataPager  BorderThickness="1" Height="30"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  PageSize="8" Source="{Binding Items, ElementName=GridView}" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="5,0,0,2" HorizontalContentAlignment="Right" />
+                        <StackPanel Grid.Row="0" Height="30" Grid.Column="0" Orientation="Horizontal" Margin="5,0,0,0" Background="Transparent">
+
+                            <Button Height="28" Width="65" Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Left" Margin="10,0,0,0" BorderThickness="0" Visibility="Visible">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />
+                            </Button>
+
+                            <Button Height="28" Width="65" Name="btnUpdate"   Click="btnUpdate_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" Cursor="Hand" />
+                            </Button>
+
+                            <Button Height="28"  Cursor="Hand" HorizontalAlignment="Left" Name="btnDel" BorderThickness="0" VerticalAlignment="Top" Width="65" Margin="10,0,0,0" Click="btnDel_Click" Visibility="Collapsed">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="110"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:GroupBox Header="配置临床路径全局参数" Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" FontSize="16" FontWeight="Black"   Grid.RowSpan="9" Height="305" HorizontalAlignment="Stretch" Margin="5,5,5,0" Name="groupBox1" VerticalAlignment="Center"   Grid.ColumnSpan="5" />
+                        <TextBlock Height="23" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock1" Text="参数关键词：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBlock Height="23" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Name="textBlock2" Text="配置参数名称：" VerticalAlignment="Top" Margin="0,5,0,0" Grid.ColumnSpan="2" />
+                        <TextBox Name="txtAppgjc" Grid.Row="1" Height="23" Grid.Column="1" HorizontalAlignment="Left"  Width="190" Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="1" Grid.Column="1"   HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Top" Margin="194,8,0,0" />
+                        <TextBox  Name="txtAppname" Grid.Row="1" Height="23" Grid.Column="4" HorizontalAlignment="Left" Width="195" Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="1" Grid.Column="4"   HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Top" Margin="198,8,0,0" Visibility="Visible" />
+                        <TextBlock Height="23" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock3" Text="参数审核状态：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBlock Height="23" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Name="textBlock4" Text="配置参数类型：" VerticalAlignment="Top" Margin="0,5,0,0" Grid.ColumnSpan="2" />
+                        <TextBox Name="txtAppshzt" Height="23" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Text="1" ToolTipService.ToolTip="默认状态为1。1为审核通过，0为审核不通过"  Width="190"  Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="2" Grid.Column="1"   HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Top" Margin="193,8,0,0" Visibility="Visible" />
+                        <TextBox  Name="txtAppType" Height="23" Grid.Row="2" Grid.Column="4"   HorizontalAlignment="Left" Width="195" Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="6" Grid.Column="1"   HorizontalAlignment="Left"  Foreground="Red"   Text="提示：带有*的为必填项" VerticalAlignment="Top" Margin="0,8,0,0" />
+
+                        <TextBlock   Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"   HorizontalAlignment="Left"     Text="配置参数值：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBox  Name="txtAppVal"  Grid.Row="3" Grid.Column="1"  Grid.RowSpan="2"   Grid.ColumnSpan="5"  HorizontalAlignment="Left" Width="590"  TextWrapping="Wrap"   Margin="2,2,0,2" VerticalScrollBarVisibility="Auto"></TextBox>
+                        <TextBlock   Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"   Grid.ColumnSpan="5"  HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Center" Margin="593,8,0,0" Visibility="Visible" />
+                        <TextBlock Height="23" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock5" Text="配置参数描述：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBox Name="txtAppcsms" Height="23" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Left" Text=""  Width="590"  Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5"   HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Top" Margin="593,8,0,0" Visibility="Visible" />
+
+                        <Button Height="28" Width="65" Name="btnSave" Grid.Row="6" Grid.Column="4"  Click="btnSave_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="5,0,0,0"  BorderThickness="0">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" Cursor="Hand" />
+                        </Button>
+
+                        <Button Height="28" Width="57" Name="btnClear" Grid.Row="6" Grid.Column="4"  Click="btnClear_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="100,0,0,0"  BorderThickness="0">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/取消.png" Width="55" Cursor="Hand" />
+                        </Button>
+                    </Grid>
+                </Grid>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+    </Grid>
+</navigation:Page>

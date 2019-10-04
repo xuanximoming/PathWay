@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_YidanEHRDataService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://42.51.202.133:82/YidanEHRDataService.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_YidanEHRDataService"
+                contract="DataService.YidanEHRDataService" name="BasicHttpBinding_YidanEHRDataService" />
+        </client>
+    </system.serviceModel>
+</configuration>

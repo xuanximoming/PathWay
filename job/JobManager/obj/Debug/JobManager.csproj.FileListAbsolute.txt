@@ -1,0 +1,4 @@
+F:\Demo\pathway\Pathway\job\JobManager\obj\Debug\JobManager.csprojResolveAssemblyReference.cache
+F:\Demo\pathway\Pathway\job\JobManager\obj\Debug\DrectSoft.JobManager.FrmTimeSetting.resources
+F:\Demo\pathway\Pathway\job\JobManager\obj\Debug\DrectSoft.JobManager.ManagerForm.resources
+F:\Demo\pathway\Pathway\job\JobManager\obj\Debug\JobManager.csproj.GenerateResource.Cache

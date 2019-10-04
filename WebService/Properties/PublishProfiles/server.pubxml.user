@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\wwwroot\WebService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/DrectSoft.Core.dll">
+      <publishTime>10/04/2019 13:08:25</publishTime>
+    </File>
+    <File Include="bin/DrectSoft.SilverlightFault.dll">
+      <publishTime>10/04/2019 13:08:25</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>10/04/2019 13:06:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ObjectBuilder.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ObjectBuilder2.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Oracle.DataAccess.dll">
+      <publishTime>08/16/2005 00:33:12</publishTime>
+    </File>
+    <File Include="bin/SendOrder.dll">
+      <publishTime>10/04/2019 13:08:25</publishTime>
+    </File>
+    <File Include="bin/WebService.dll">
+      <publishTime>10/04/2019 13:08:27</publishTime>
+    </File>
+    <File Include="bin/Yidansoft.Core.dll">
+      <publishTime>09/26/2019 20:46:01</publishTime>
+    </File>
+    <File Include="bin/YidanSoft.SilverlightFault.dll">
+      <publishTime>09/26/2019 20:28:40</publishTime>
+    </File>
+    <File Include="bin/YidanSoft.Tool.dll">
+      <publishTime>10/04/2019 11:32:39</publishTime>
+    </File>
+    <File Include="clientaccesspolicy.xml">
+      <publishTime>12/30/2014 13:58:45</publishTime>
+    </File>
+    <File Include="Service/Pass/XML/ExpressionsConfig.xml">
+      <publishTime>12/30/2014 14:38:15</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/25/2019 22:44:35</publishTime>
+    </File>
+    <File Include="YidanEHRDataService.svc">
+      <publishTime>12/30/2014 13:58:44</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,4 @@
+F:\Demo\pathway\publish\DrectSoft.Tool.dll
+F:\Demo\pathway\publish\DrectSoft.Tool.pdb
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Debug\DrectSoft.Tool.dll
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Debug\DrectSoft.Tool.pdb

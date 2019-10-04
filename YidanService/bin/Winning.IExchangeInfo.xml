@@ -1,0 +1,775 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Winning.IExchangeInfo</name>
+    </assembly>
+    <members>
+        <member name="T:Winning.IExchangeInfo.ReceivedEventHandler">
+            <summary>
+            
+            </summary>
+            <param name="arg"></param>
+        </member>
+        <member name="T:Winning.IExchangeInfo.IExchangeInfoServer">
+            <summary>
+            系统间信息交互服务接口定义
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddASyncExchangeInfo(System.IO.Stream)">
+            <summary>
+            增加一条异步信息
+            </summary>
+            <param name="exiXmlStream">请求信息</param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddASyncExchangeInfo(System.String)">
+            <summary>
+            增加一条异步信息（字符串形式）
+            </summary>
+            <param name="exiXml"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddASyncExchangeInfo(Winning.IExchangeInfo.ExchangeClientInfo,Winning.IExchangeInfo.ExchangeClientInfo,Winning.IExchangeInfo.ExchangeInfoOptions,System.String)">
+            <summary>
+            增加一条异步信息(用于客户端间信息提示)
+            </summary>
+            <param name="sender"></param>
+            <param name="receiver"></param>
+            <param name="exiXml"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddSyncExchangeInfo(System.IO.Stream,System.IO.Stream@)">
+            <summary>
+            增加一条同步信息
+            </summary>
+            <param name="exiXml">请求信息</param>
+            <param name="responseExi">返回信息</param>
+            <returns>返回信息</returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddSyncExchangeInfo(System.IO.Stream,System.Text.Encoding,System.IO.Stream@)">
+            <summary>
+            
+            </summary>
+            <param name="exiXml"></param>
+            <param name="encoding"></param>
+            <param name="responseExi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddSyncExchangeInfo(System.String,System.String@)">
+            <summary>
+            增加一条同步信息，返回字符串信息
+            </summary>
+            <param name="exiXml"></param>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.AddSyncExchangeInfo(System.String,System.Text.Encoding,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="exiXml"></param>
+            <param name="encoding"></param>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.BuildExchangeInfo(System.String,System.String,System.String,System.String[0:,0:])">
+            <summary>
+            构建一个交互信息（参数型）
+            </summary>
+            <param name="messageKind">消息类型（固定字符串）</param>
+            <param name="sourceSystem">源系统</param>
+            <param name="destSystem">目标系统</param>
+            <param name="parameters">参数数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.BuildExchangeInfoString(System.String,System.String,System.String,System.String[0:,0:])">
+            <summary>
+            构建一个字符串型的交互信息（参数型）
+            </summary>
+            <param name="messageKind"></param>
+            <param name="sourceSystem"></param>
+            <param name="destSystem"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.BuildExchangeInfo(System.String,System.String,System.String,System.String)">
+            <summary>
+            构建一个交互信息（数据集）
+            </summary>
+            <param name="messageKind">消息类型（固定字符串）</param>
+            <param name="sourceSystem">源系统</param>
+            <param name="destSystem">目标系统</param>
+            <param name="datasetXml">数据集Xml形式（非DotNet系统需要做XSLT转换）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.IExchangeInfoServer.BuildExchangeInfoString(System.String,System.String,System.String,System.String)">
+            <summary>
+            构建一个字符串型的交互信息（数据集）
+            </summary>
+            <param name="messageKind"></param>
+            <param name="sourceSystem"></param>
+            <param name="destSystem"></param>
+            <param name="datasetXml"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Winning.IExchangeInfo.IExchangeInfoServer.ASyncQueueLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.IExchangeInfoServer.SyncQueueLength">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Winning.IExchangeInfo.IExchangeInfoServer.ExchangeInfoReceived">
+            <summary>
+            接受到消息
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeInfoEventArgs">
+            <summary>
+            接受事件参数
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoEventArgs.#ctor(System.String,System.Int32,System.String,Winning.IExchangeInfo.ExchangeInfoObject)">
+            <summary>
+            
+            </summary>
+            <param name="exioId"></param>
+            <param name="exioState"></param>
+            <param name="exioText"></param>
+            <param name="exio"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoEventArgs.#ctor(Winning.IExchangeInfo.ExchangeInfoObject)">
+            <summary>
+            
+            </summary>
+            <param name="exio"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoEventArgs.#ctor(Winning.IExchangeInfo.ExchangeInfoObject,System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="exio"></param>
+            <param name="displayText"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoEventArgs.#ctor(Winning.IExchangeInfo.ExchangeInfoObject,System.String,Winning.IExchangeInfo.ExchangeClientInfo,Winning.IExchangeInfo.ExchangeClientInfo)">
+            <summary>
+            
+            </summary>
+            <param name="exio"></param>
+            <param name="displayText"></param>
+            <param name="sender"></param>
+            <param name="receiver"></param>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.Handled">
+            <summary>
+            是否处理
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.ExiSender">
+            <summary>
+            发送端
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.ExiReceiver">
+            <summary>
+            接收端
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.ExioId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.ExioState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.ExioText">
+            <summary>
+            消息显示文本
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoEventArgs.Exio">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ResponseFlag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ResponseFlag.None">
+            <summary>
+            初始
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ResponseFlag.InProcess">
+            <summary>
+            处理中
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ResponseFlag.Complete">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ResponseFlag.TimeOut">
+            <summary>
+            超时
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ResponseFlag.Exception">
+            <summary>
+            异常
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ProcessProtocol">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ProcessProtocol.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ProcessProtocol.WebService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ProcessProtocol.Assembly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ProcessProtocol.Http">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ProcessProtocol.DynamicLib">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeInfoConst">
+            <summary>
+            公用的消息交互常数类
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKGetAllPatInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKUpdatePatInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKGetChangedPatInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKUpdatePatInfoAll">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKGetRisReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKSaveAdvises2His">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.MKCheckAdvises2His">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.WinningHis40">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoConst.WinningEmr10">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.Utils">
+            <summary>
+            辅助函数类
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.Utils.RootName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.Utils.#ctor(System.String)">
+            <summary>
+            构造
+            </summary>
+            <param name="rootPath"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.Utils.ConvertValue2StringType(System.String,System.String)">
+            <summary>
+            将字符型值转换成指定名称的类型
+            </summary>
+            <param name="value">需要转换的值</param>
+            <param name="typeName">转换成的类型名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.Utils.ConvertType(System.String)">
+            <summary>
+            转换成参数类型定义中的type名称
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.Utils.ExiTransValidate(System.IO.Stream)">
+            <summary>
+            校验是否符合Schema定义
+            </summary>
+            <param name="exiStream"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeInfoObjectStruct">
+            <summary>
+            交互对象的结构型
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObjectStruct.#ctor(Winning.IExchangeInfo.ExchangeInfoObject)">
+            <summary>
+            
+            </summary>
+            <param name="exio"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObjectStruct.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObjectStruct.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObjectStruct.op_Equality(Winning.IExchangeInfo.ExchangeInfoObjectStruct,Winning.IExchangeInfo.ExchangeInfoObjectStruct)">
+            <summary>
+            
+            </summary>
+            <param name="eio1"></param>
+            <param name="eio2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObjectStruct.op_Inequality(Winning.IExchangeInfo.ExchangeInfoObjectStruct,Winning.IExchangeInfo.ExchangeInfoObjectStruct)">
+            <summary>
+            
+            </summary>
+            <param name="eio1"></param>
+            <param name="eio2"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObjectStruct.ExiId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObjectStruct.FromSystem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObjectStruct.ToSystem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObjectStruct.MessageKind">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObjectStruct.ExiContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeInfoObject">
+            <summary>
+            系统间交互信息对象
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.#ctor">
+            <summary>
+            Ctor1
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.#ctor(System.IO.Stream)">
+            <summary>
+            Ctor2,从XML流构造交互信息对象
+            </summary>
+            <param name="exiXmlStream"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.#ctor(System.String,System.IO.Stream)">
+            <summary>
+            Ctor3,构造一个已知的交互信息对象
+            </summary>
+            <param name="exiId"></param>
+            <param name="exiXmlStream"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            Ctor4，传入Config路径，为了Web程序也可以正确取得设置的Xsd文件
+            </summary>
+            <param name="exiXmlStream"></param>
+            <param name="rootPath"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.#ctor(System.String)">
+            <summary>
+            Ctor5,从字符串构建交互信息对象
+            </summary>
+            <param name="exiXml"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.#ctor(System.String,System.String)">
+            <summary>
+            Ctor6,从字符串构建交互信息对象,传入Config路径，为了Web程序也可以正确取得设置的Xsd文件
+            </summary>
+            <param name="exiXml"></param>
+            <param name="rootPath"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.SetResponseFlag(Winning.IExchangeInfo.ResponseFlag)">
+            <summary>
+            设置返回标志
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoObject.Finalize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.Response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.ExiContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.MDDataSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.MDParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.MessageDataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.MessageKind">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.ToSystem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.FromSystem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.RequestExiId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoObject.ExiId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.MDParameter">
+            <summary>
+            参数形式的数据体
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.MDParameter.#ctor(System.String,System.Object)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="paramName"></param>
+            <param name="paramValue"></param>
+        </member>
+        <member name="P:Winning.IExchangeInfo.MDParameter.PName">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.MDParameter.PValue">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.MDDataSet">
+            <summary>
+            数据集形式的数据体
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.MDDataSet.#ctor">
+            <summary>
+            Ctor
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.MDDataSet.AddDataTable(System.String,System.String)">
+            <summary>
+            增加一个XML数据表到数据集
+            </summary>
+            <param name="name"></param>
+            <param name="xmlData"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.MDDataSet.MDDataTable.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tableName"></param>
+            <param name="xmlData"></param>
+        </member>
+        <member name="P:Winning.IExchangeInfo.MDDataSet.MDDataTable.TableName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.MDDataSet.MDDataTable.XmlData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ParametersFlag">
+            <summary>
+            参数类型(In or Out)
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ParametersFlag.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ParametersFlag.In">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ParametersFlag.Out">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.MessageDataType">
+            <summary>
+            数据体类型
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.MessageDataType.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.MessageDataType.MdtParameter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.MessageDataType.MdtDataSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeClientInfo">
+            <summary>
+            信息交互客户端信息(用于记录发起者和接收者)
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeClientInfo.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeClientInfo.Save">
+            <summary>
+            保存至Xml
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeClientInfo.Load(System.String)">
+            <summary>
+            加载自Xml
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.Module">
+            <summary>
+            模块
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.SubSystem">
+            <summary>
+            子系统
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.Product">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.WardId">
+            <summary>
+            病区代码
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.DeptId">
+            <summary>
+            科室代码
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.UserId">
+            <summary>
+            用户代码
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeClientInfo.ClientId">
+            <summary>
+            客户端代码
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeInfoOptions">
+            <summary>
+            交互信息设置
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoOptions.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoOptions.#ctor(System.Int32,System.TimeSpan,System.DateTime)">
+            <summary>
+            构造2(传入具体的过期时间)
+            </summary>
+            <param name="times"></param>
+            <param name="interval"></param>
+            <param name="expired"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoOptions.#ctor(System.Int32,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            构造3(传入过期时间段)
+            </summary>
+            <param name="times"></param>
+            <param name="interval"></param>
+            <param name="expiredInterval"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoOptions.Save">
+            <summary>
+            保存至Xml
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoOptions.Load(System.String)">
+            <summary>
+            加载自Xml
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoOptions.Expired">
+            <summary>
+            过期时间点
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoOptions.Interval">
+            <summary>
+            发送间隔(Times > 1)
+            </summary>
+        </member>
+        <member name="P:Winning.IExchangeInfo.ExchangeInfoOptions.Times">
+            <summary>
+            发送次数(>0)
+            </summary>
+        </member>
+        <member name="T:Winning.IExchangeInfo.ExchangeInfoException">
+            <summary>
+            交互信息接口提供的自定义异常类
+            </summary>
+        </member>
+        <member name="F:Winning.IExchangeInfo.ExchangeInfoException.InValidExiStream">
+            <summary>
+            定义的错误信息
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Winning.IExchangeInfo.ExchangeInfoException.#ctor(System.String)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="errorMessage"></param>
+        </member>
+    </members>
+</doc>

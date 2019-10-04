@@ -1,0 +1,7 @@
+F:\Demo\pathway\publish\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+F:\Demo\pathway\Pathway\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+F:\Demo\pathway\Pathway\Data\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Manageability.Properties.Resources.resources
+F:\Demo\pathway\Pathway\Data\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.Properties.Resources.resources
+F:\Demo\pathway\Pathway\Data\obj\Debug\Data.csproj.GenerateResource.Cache
+F:\Demo\pathway\Pathway\Data\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+F:\Demo\pathway\Pathway\Data\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.pdb

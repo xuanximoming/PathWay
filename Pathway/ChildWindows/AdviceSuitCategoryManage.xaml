@@ -1,0 +1,122 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.ChildWindows.AdviceSuitCategoryManage"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+           Width="850" Height="600"   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Header="医嘱套餐类别维护" WindowStartupLocation="CenterScreen" Loaded="RadWindow_Loaded">
+    <Grid x:Name="LayoutRoot" Background="#ffffff">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300" ></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <telerik:RadGridView Grid.Row="0" Grid.Column="0" Name="gvW_AdviceSuitCategory"  IsScrolling="False"  GridLinesVisibility="Both"
+                                     IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                     ShowGroupPanel="False" MinHeight="300" Height="auto" 
+                                      RowIndicatorVisibility="Collapsed" SelectionChanged="gvW_AdviceSuitCategory_SelectionChanged">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="套餐类别序号" DataMemberBinding="{Binding CategoryId}" Width="200" IsVisible="False"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="套餐类别名称" DataMemberBinding="{Binding Name}" Width="200"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="父类名称" DataMemberBinding="{Binding ParentName}" Width="200"></telerik:GridViewDataColumn>
+                
+                <telerik:GridViewDataColumn Header="拼音" DataMemberBinding="{Binding Py}" Width="100"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="五笔" DataMemberBinding="{Binding Wb}"  Width="100" IsVisible="False"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="职工代码" DataMemberBinding="{Binding Zgdm}"  Width="100" IsVisible="False"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="录入时间" DataMemberBinding="{Binding AddTime}"  Width="150"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="备注" DataMemberBinding="{Binding Memo}"  Width="200*"></telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <Grid Grid.Row="1" Grid.Column="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <telerik:RadDataPager Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0"  PageSize="11" Source="{Binding Items, ElementName = gvW_AdviceSuitCategory }" IsTotalItemCountFixed="True" 
+                                  DisplayMode="FirstLastPreviousNextNumeric" Margin="0,0,0,2" HorizontalContentAlignment="Right" />
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,0" Background="Transparent">
+                <!--<telerik:RadButton  Content="删除" Height="Auto" HorizontalAlignment="Left"  Name="btnDel" 
+                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0" Visibility="Visible" IsEnabled="True" Click="btnDel_Click" />-->
+                <Button Height="28" Width="65" Name="btnAdd" Click="btnAdd_Click"  BorderThickness="0" Margin="10,2,0,0">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />
+                </Button>
+                <Button Height="28" Width="65" Name="btnUpdate" Click="btnUpdate_Click"  BorderThickness="0"  Margin="10,2,0,0">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" Cursor="Hand" />
+                </Button>
+                <Button Height="28" Width="65" Name="btnDel" Click="btnDel_Click"  BorderThickness="0" Margin="10,2,0,0">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" Cursor="Hand" />
+                </Button>
+                
+                <!--<telerik:RadButton  Content="修改" Height="Auto" HorizontalAlignment="Left"  Name="btnUpdate" 
+                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0" Visibility="Visible" IsEnabled="True" Click="btnUpdate_Click" />-->
+                
+                
+                
+                <!--<telerik:RadButton  Content="添加" Height="Auto" HorizontalAlignment="Left"  Name="btnAdd" 
+                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0" Click="btnAdd_Click" />-->
+
+                
+                
+                <!--<telerik:RadButton Grid.Column="3" Grid.Row="3" Content="取消" Height="Auto" HorizontalAlignment="Left"  Name="btnClear" 
+                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0" IsEnabled="False" Click="btnClear_Click" />-->
+
+              
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="260"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="260"></ColumnDefinition>
+                <ColumnDefinition Width="30*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <telerik:GroupBox Header="医嘱套餐类别编辑" Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" FontSize="16" FontWeight="Black"  Grid.ColumnSpan="6" Grid.RowSpan="11" Height="180" HorizontalAlignment="Stretch" Margin="10,10,10,0" Name="groupBox1" VerticalAlignment="Top" />
+            <!--<TextBlock Height="30" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" Width="300" Name="textBlock0" Text="编辑医嘱套餐类别" 
+                       VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Margin="30,10,0,0" />-->
+            <TextBlock Height="23" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Text="套餐类别名称:" VerticalAlignment="Top" TextAlignment="Left" Margin="10,0,0,0" />
+            <TextBlock Grid.Row="2" Height="23" HorizontalAlignment="Right" Name="tbkJcmc" Text="备注:" VerticalAlignment="Top" Grid.Column="2" Margin="10,0,0,0" />
+            <TextBox Grid.Column="3" Grid.Row="2" Height="58" HorizontalAlignment="Left" Name="txtMemo" VerticalAlignment="Top" Width="250" IsEnabled="False" Grid.RowSpan="2" Margin="10,0,0,0" TabIndex="2" />
+            <!--<telerik:RadButton Content="保存" Grid.Column="1" Grid.Row="3" Height="Auto" HorizontalAlignment="Left" Name="btnSave" VerticalAlignment="Top" Width="50" Margin="10,6,0,0" IsEnabled="False" Click="btnSave_Click" />-->
+
+            <Button Height="28" Width="65" Name="btnSave" IsEnabled="False" Click="btnSave_Click"  BorderThickness="0" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" Margin="100,0,0,0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" Cursor="Hand" />
+            </Button>
+
+            <Button Height="28" Width="65" Name="btnClear" IsEnabled="False" Click="btnClear_Click" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4"  BorderThickness="0" Margin="195,0,0,0">
+                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/cancel.jpg" Width="63" Cursor="Hand" />
+            </Button>
+            <TextBlock Grid.Row="4" Height="23" HorizontalAlignment="Right" Name="tbsm" Text=""  Foreground="Red" VerticalAlignment="Top" Grid.Column="0" Margin="0,7,0,0" />
+            <TextBlock Grid.Row="4" Height="23" HorizontalAlignment="Left" Name="txtsm" Text="提示：带有*的为必填项" Foreground="Red" VerticalAlignment="Top" Grid.Column="1" Margin="0,5,0,0" />
+            <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Right" Name="tbkJcbm" Text="套餐类别序号:" VerticalAlignment="Top" />
+            <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Name="txtCategoryId" VerticalAlignment="Top" Width="250" 
+                        HorizontalScrollBarVisibility="Hidden" Margin="10,0,0,0" Text="自动生成" IsReadOnly="True" IsEnabled="False" />
+            <TextBox Grid.Column="3" Height="23" HorizontalAlignment="Left" Name="txtName" VerticalAlignment="Top" Width="250" Grid.Row="1" IsEnabled="false" Margin="10,0,0,0" TabIndex="0" />
+            <TextBlock Grid.Row="1" Grid.Column="4" Height="23" HorizontalAlignment="Left" Name="txtbt" Text="*" Foreground="Red" VerticalAlignment="Top" Margin="2,5,0,0"/>
+            <TextBlock Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="2" Height="23" HorizontalAlignment="Right" Name="textBlock1" Text="父类名称:" VerticalAlignment="Top" />
+            <telerik:RadDropDownButton Content="请选择父类名称..." Grid.Column="1" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" IsOpen="False" Margin="10,0,0,0" Name="ddpParent" 
+                                       VerticalAlignment="Top" Width="250" TabIndex="1">
+                <telerik:RadDropDownButton.DropDownContent>
+                    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Width="250" MaxHeight="200">
+                        <telerik:RadTreeView Name="tvParent" SelectionChanged="tvParent_SelectionChanged" Width="220" >
+                        </telerik:RadTreeView>
+                    </ScrollViewer>
+                </telerik:RadDropDownButton.DropDownContent>
+            </telerik:RadDropDownButton>
+        </Grid>
+    </Grid>
+</telerik:RadWindow>

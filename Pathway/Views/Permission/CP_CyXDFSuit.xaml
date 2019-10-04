@@ -1,0 +1,407 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.Permission.CP_CyXDFSuit" 
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="900" d:DesignHeight="600"
+           Title="草药协定方"  xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           Loaded="CP_CyXDFSuit_Loaded">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <Style x:Name="RadComboBoxStyle" TargetType="telerik:RadComboBox">
+                <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+                <Setter Property="IsEditable" Value="False"></Setter>
+                <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+                <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+                <Setter Property="IsReadOnly" Value="False"></Setter>
+                <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+                <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+                <Setter Property="ClearSelectionButtonVisibility" Value="Collapsed"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            </Style>
+
+            <Style x:Key="TextBlockStyle" TargetType="TextBlock" >
+                <Setter Property="Padding" Value="8,4,4,5"></Setter>
+                <Setter Property="FontSize" Value="11"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+                <Setter Property="LineHeight" Value="2"></Setter>
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+            </Style>
+
+            <DataTemplate x:Key="ComboBoxOrderTypeTemplate">
+                <Grid>
+                    <TextBlock Foreground="#003366" Text="{Binding OrderName}"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="ComboBoxOrderTypeSimpleTemplate">
+                <Grid Background="Transparent">
+                    <TextBlock Text="{Binding OrderName}" x:Name="textComText"/>
+                </Grid>
+            </DataTemplate>
+
+
+            <DataTemplate x:Key="ComboBoxDrugUnitTypeTemplate">
+                <Grid>
+                    <TextBlock Foreground="#003366" Text="{Binding UnitName}"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="ComboBoxDrugUnitTypeSimpleTemplate">
+                <Grid Background="Transparent">
+                    <TextBlock Text="{Binding UnitName}"/>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="autoCompleteUserNameTemp">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <!--<ColumnDefinition Width="*"></ColumnDefinition>-->
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding ID}" Grid.Column="0"></TextBlock>
+                    <TextBlock Text="{Binding cfmc}" Grid.Column="1"></TextBlock>
+                    <!--<TextBlock Text="{Binding cfmc}" Grid.Column="2"></TextBlock>-->
+                </Grid>
+            </DataTemplate>
+
+
+            <!--用法-->
+            <DataTemplate x:Key="ComboBoxYfTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="代码:" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#003366"  Text="{Binding Yfdm}" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="用法:"  />
+                    <TextBlock Grid.Row="0" Foreground="#003366" Grid.Column="3"  Text="{Binding Name}" />
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ComboBoxYfSimpleTemplate">
+                <Grid Background="Transparent">
+                    <TextBlock Text="{Binding Name}" x:Name="textComText"/>
+                </Grid>
+            </DataTemplate>
+
+
+            <!--频次-->
+            <DataTemplate x:Key="ComboBoxPcTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="代码:" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#003366"  Text="{Binding Pcdm}" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="频次:"  />
+                    <TextBlock Grid.Row="0" Foreground="#003366" Grid.Column="3"  Text="{Binding Name}" />
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="ComboBoxPcSimpleTemplate">
+                <Grid Background="Transparent">
+                    <TextBlock Text="{Binding Name}" x:Name="textComText"/>
+                </Grid>
+            </DataTemplate>
+
+            <!--时间-->
+            <DataTemplate x:Key="ComboBoxSJTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="15"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="周代码" Grid.Row="0" Grid.Column="0"></TextBlock>
+                    <CheckBox Content="日" Grid.Row="1" Tag="1"   Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked"  Unchecked = "CheckBoxWeek_Unchecked"  ></CheckBox>
+                    <CheckBox Content="一" Grid.Row="2"  Tag="2" Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked" Unchecked="CheckBoxWeek_Unchecked"></CheckBox>
+                    <CheckBox Content="二" Grid.Row="3" Tag="3"  Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked" Unchecked="CheckBoxWeek_Unchecked"></CheckBox>
+                    <CheckBox Content="三" Grid.Row="4" Tag="4" Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked" Unchecked="CheckBoxWeek_Unchecked"></CheckBox>
+                    <CheckBox Content="四" Grid.Row="5" Tag="5"  Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked" Unchecked="CheckBoxWeek_Unchecked"></CheckBox>
+                    <CheckBox Content="五" Grid.Row="6" Tag="6"  Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked" Unchecked="CheckBoxWeek_Unchecked"></CheckBox>
+                    <CheckBox Content="六" Grid.Row="7" Tag="7"  Grid.Column="0" Loaded="CheckBoxWeek_Loaded" Checked="CheckBoxWeek_Checked" Unchecked="CheckBoxWeek_Unchecked"></CheckBox>
+
+                    <TextBlock Text="执行时间" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"></TextBlock>
+                    <CheckBox Content="00" Grid.Row="1" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked" ></CheckBox>
+                    <CheckBox Content="01" Grid.Row="2" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="02" Grid.Row="3" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="03" Grid.Row="4" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="04" Grid.Row="5" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="05" Grid.Row="6" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="06" Grid.Row="7" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="07" Grid.Row="8" Grid.Column="2" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+
+                    <CheckBox Content="08" Grid.Row="1" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="09" Grid.Row="2" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="10" Grid.Row="3" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="11" Grid.Row="4" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="12" Grid.Row="5" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="13" Grid.Row="6" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="14" Grid.Row="7" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="15" Grid.Row="8" Grid.Column="3" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+
+                    <CheckBox Content="16" Grid.Row="1" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="17" Grid.Row="2" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="18" Grid.Row="3" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="19" Grid.Row="4" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="20" Grid.Row="5" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="21" Grid.Row="6" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="22" Grid.Row="7" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+                    <CheckBox Content="23" Grid.Row="8" Grid.Column="4" Loaded="CheckBoxTime_Loaded" Checked="CheckBoxTime_Checked" Unchecked="CheckBoxTime_Unchecked"></CheckBox>
+
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="ComboBoxSJSimpleTemplate">
+                <TextBlock Text="{Binding DisplayText}"></TextBlock>
+            </DataTemplate>
+
+
+            <!--药品项目-->
+            <DataTemplate x:Name="ComboBoxXmTemplate">
+                <Grid Margin="0 3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.ColumnSpan="2" Text="{Binding Ypmc}" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="规格:" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Foreground="#003366"  Text="{Binding Ypgg}" />
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="零售价:"  />
+                    <TextBlock Grid.Row="1" Foreground="#003366" Grid.Column="3"  Text="{Binding Lsj}" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="厂家:"  />
+                    <TextBlock Grid.Row="2" Foreground="#003366" Grid.Column="1"  Text="{Binding Cjmc}" />
+                </Grid>
+
+            </DataTemplate>
+            <DataTemplate x:Name="ComboBoxXmSimpleTemplate">
+                <Grid Background="Transparent">
+                    <TextBlock Text="{Binding Ypmc}" x:Name="textComText"/>
+                </Grid>
+            </DataTemplate>
+
+
+        </Grid.Resources>
+        <!--<telerik:RadTabControl Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="radTabControlPathManager"  VerticalAlignment="Stretch" 
+                               ScrollMode="Viewport" BorderThickness="0" >
+            <telerik:RadTabItem Padding="4 1">
+                <telerik:RadTabItem.Header>
+                    <TextBlock Text="用户角色管理" Margin="19 2 19 0" />
+                </telerik:RadTabItem.Header>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>-->
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,0,0" BorderThickness="0"  >
+            <ScrollViewer.Content>
+                <StackPanel >
+                    <Grid  Height="569">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="260"></ColumnDefinition>
+                            <ColumnDefinition Width="10"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--<my:QueryInfoControl x:Name="QueryInfoControl1" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="376"></my:QueryInfoControl>-->
+                        <Border Margin="5,0,0,0" BorderThickness="1" BorderBrush="#42A5FF" Background="#ECF5FF">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"></RowDefinition>
+                                    <RowDefinition Height="36"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0">
+                                    <sdk:Label  Name="label1" Margin="5,0" FontSize="16">草药信息</sdk:Label>
+                                </StackPanel>
+                                <Border Grid.Row="1" BorderBrush="#42A5FF" BorderThickness="0">
+                                    <StackPanel Orientation="Horizontal" >
+                                        <sdk:Label  Name="label2" FontSize="13" Width="39" Margin="5,3,0,0">查找:</sdk:Label>
+                                        <sdk:AutoCompleteBox Name="txtQuery" FilterMode="None" Height="23" Width="200"  ToolTipService.ToolTip="根据拼音首字母检索项目..."
+                                                             ItemTemplate="{StaticResource autoCompleteUserNameTemp}"   IsTextCompletionEnabled="False" 
+                                                             SelectionChanged="txtQuery_SelectionChanged"></sdk:AutoCompleteBox>
+                                        <TextBox Height="23" Name="txtQuery1" Width="122" Visibility="Collapsed" HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                                        <Button Name="Query" Height="28" Width="65" BorderThickness="0" Margin="10,0" Click="Query_Click" Cursor="Hand" Visibility="Collapsed">
+                                            <Image Margin="-2" Height="26" Source="/Pathway;component/Images/查询 .jpg" Width="63" />
+                                        </Button>
+                                    </StackPanel>
+                                </Border>
+                                <telerik:RadTreeView BorderThickness="0" BorderBrush="#42A5FF" Grid.Row="2" IsExpandOnSingleClickEnabled="True" HorizontalAlignment="Stretch" 
+                                                     Margin="1,1,1,0" Name="treeViewUser"   SelectionChanged="treeViewUser_SelectionChanged" />
+
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="2" BorderThickness="1" BorderBrush="#42A5FF">
+                            <Grid  Margin="0,6,0,0" Background="White" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="355"></RowDefinition>
+
+                                    <RowDefinition Height="199*"></RowDefinition>
+                                    <!--<RowDefinition Height="55*" />-->
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1" Grid.Column="1" Margin="0,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="360"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <Border BorderBrush="#42A5FF" Grid.Row="0" BorderThickness="0">
+                                    <Grid Grid.Row="0" Grid.Column="1" Background="White" Grid.RowSpan="2">
+                                        <telerik:GroupBox Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" FontSize="16" FontWeight="Black" Header="草药明细信息" 
+                                                          Height="340" HorizontalAlignment="Stretch" Margin="10,10,10,0" Name="groupBox1" VerticalAlignment="Top" />
+                                        <!--<TextBlock Height="23" HorizontalAlignment="Left" Name="textBlock2" Text="角色编码：" VerticalAlignment="Top" Margin="35,45,0,0" />-->
+                                        <ScrollViewer Name="ScrollViewerRole" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="True" BorderThickness="0"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Left"   VerticalAlignment="Stretch" Width="550"  Margin="38,66,0,72">
+                                            <ScrollViewer.Content>
+                                                <telerik:RadGridView Name="GridViewCymx" IsScrolling="False" RowLoaded="GridViewCymx_RowLoaded" SelectionChanged="GridViewCymx_SelectionChanged" IsReadOnly="True" ShowGroupPanel="False" 
+                                                                     AutoGenerateColumns="False" IsFilteringAllowed="False" RowIndicatorVisibility="Collapsed"  
+                                                                     ShowColumnHeaders="True" Margin="0,0,0,0"  GridLinesVisibility="Both" MinHeight="215">
+                                                    <telerik:RadGridView.Columns>
+                                                        <!--<telerik:GridViewSelectColumn />-->
+                                                        <telerik:GridViewDataColumn Header="编号" DataMemberBinding="{Binding ID}"  IsVisible="False" ></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="药品" DataMemberBinding="{Binding Ypmc}" Width="150"></telerik:GridViewDataColumn>
+                                                        <!--<telerik:GridViewDataColumn Header="所属处方" DataMemberBinding="{Binding Extension4}"  MaxWidth="200"></telerik:GridViewDataColumn>-->
+                                                        <telerik:GridViewDataColumn Header="数量" DataMemberBinding="{Binding Ypjl}" MaxWidth="50"></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding ekdw}" MaxWidth="80"></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="剂量" DataMemberBinding="{Binding Ypjl}"  MaxWidth="80"></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="剂量单位" DataMemberBinding="{Binding Jldw}"  MaxWidth="80"></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="频次" DataMemberBinding="{Binding Pcdm}"  MaxWidth="80"></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="用法" DataMemberBinding="{Binding Yfdm}"  MaxWidth="100"></telerik:GridViewDataColumn>
+                                                        <telerik:GridViewDataColumn Header="天数" DataMemberBinding="{Binding cfts}"  Width="80*"></telerik:GridViewDataColumn>
+                                                    </telerik:RadGridView.Columns>
+                                                </telerik:RadGridView>
+                                               
+                                            </ScrollViewer.Content>
+                                            
+                                        </ScrollViewer>
+                                        <telerik:RadDataPager  BorderThickness="0" Height="30"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  PageSize="7" Source="{Binding Items, ElementName=GridViewCymx}" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="41,235,0,0" HorizontalAlignment="Left"   VerticalAlignment="Stretch" Width="540" HorizontalContentAlignment="Right" />
+                                        <Button Height="26" Width="85" Name="btnAddCyXDF"  HorizontalAlignment="Left" Margin="85,318,0,0" Content="草药处方维护" FontSize="13" BorderThickness="1" VerticalAlignment="Top" Visibility="Visible" Click="btnAddCyXDF_Click">
+                                            <!--<Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />-->
+                                        </Button>
+                                        <Button Height="28" Width="65" Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Left" Margin="185,318,0,0" BorderThickness="0" VerticalAlignment="Top" Visibility="Visible">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />
+                                        </Button>
+                                        <Button  Height="28" HorizontalAlignment="left"  Cursor="Hand" Name="btnUpdate" Margin="265,318,0,0" BorderThickness="0" VerticalAlignment="Top" Width="65"   Click="btnUpdate_Click" >
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" />
+                                        </Button>
+                                        <Button BorderThickness="0" Height="28"  Cursor="Hand" HorizontalAlignment="Left" Name="btnSave" IsEnabled="False" VerticalAlignment="Top" Width="65" Margin="345,318,0,0" Click="btnSave_Click" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" />
+                                        </Button>
+                                        <Button BorderThickness="0"  Cursor="Hand" Height="28" HorizontalAlignment="Left" Name="btnCancel" VerticalAlignment="Top" Width="65"  IsEnabled="False"  Click="btnCancel_Click" Margin="425,318,0,0">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/cancel.jpg" Width="63" />
+                                        </Button>
+                                    </Grid>
+                                </Border>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60"></RowDefinition>
+                                        <RowDefinition Height="40"></RowDefinition>
+                                        <RowDefinition Height="40"></RowDefinition>
+                                        <RowDefinition Height="40"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <telerik:GroupBox Background="#ECF5FF" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5" BorderBrush="#42A5FF" FontSize="16" FontWeight="Black"
+                                                      Header="草药明细维护"  Height="190" HorizontalAlignment="Stretch" Margin="10,0" Name="groupBox2" VerticalAlignment="Top"  />
+
+                                    <sdk:Label Grid.Row="0" Height="17" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label3" VerticalAlignment="Bottom" Width="60">处方名称:</sdk:Label>
+                                    <!--<TextBox Grid.Row="0" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="txtName" VerticalAlignment="Bottom" Width="120" IsEnabled="False" VerticalContentAlignment="Center" />-->
+                                    <sdk:AutoCompleteBox FilterMode="None" Height="23" HorizontalAlignment="Left" ToolTipService.ToolTip="根据拼音首字母检索项目..."
+                                                       Grid.Row="0"   Grid.ColumnSpan="1" Grid.Column="1" Width="120" VerticalAlignment="Bottom" 
+                                                        IsTextCompletionEnabled="False" Name="autoCompleteBoxCyf" IsEnabled="False"   TabIndex="1" Margin="10,0,0,2" />
+                                    <sdk:Label Grid.Row="0" Grid.Column="2" Height="17" Content="草药明细名称:"  HorizontalAlignment="Right" Margin="0,0,0,4" Name="label4" VerticalAlignment="Bottom" Width="80" />
+                                    <!--<TextBox Grid.Row="0" Grid.Column="3" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="txtSexy" VerticalAlignment="Bottom" Width="120" IsEnabled="False" VerticalContentAlignment="Center" />-->
+                                    <sdk:AutoCompleteBox Width="230"  FilterMode="None" Height="23" HorizontalAlignment="Left"  ToolTipService.ToolTip="根据拼音首字母检索项目..."
+                                                         Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2" SelectionChanged="autoCompleteBoxOrder_SelectionChanged"
+                                                        IsTextCompletionEnabled="False" Name="autoCompleteBoxOrder" VerticalAlignment="Bottom" TabIndex="1" IsEnabled="False" Margin="10,0,0,2" />
+                                    <sdk:Label Grid.Row="1" Grid.Column="0" Content="数量:" Height="17" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label6" VerticalAlignment="Bottom" Width="32" />
+                                    <!--<TextBox Grid.Row="1" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="textBox1" VerticalAlignment="Bottom" Width="120" IsEnabled="False" VerticalContentAlignment="Center" />-->
+                                    <telerik:RadNumericUpDown  IsInteger="False" Name="nudMDSL" Grid.Row="1" Grid.Column="1" Height="23" HorizontalAlignment="Left" IsEnabled="False"  Width="60" TabIndex="2" Margin="10,0,0,2" VerticalAlignment="Bottom"  Minimum="0" />
+                                    <telerik:RadComboBox Name="cbxMDDW"   Grid.Row="1" Grid.Column="1" Style="{StaticResource RadComboBoxStyle}"   
+                                                         ItemTemplate="{StaticResource ComboBoxDrugUnitTypeTemplate}" 
+                                                         SelectionBoxTemplate="{StaticResource ComboBoxDrugUnitTypeSimpleTemplate}"
+                                                         SelectedValuePath="UnitID" TabIndex="3" Margin="70,0,0,2" Height="23" Width="60" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Bottom"  ToolTipService.ToolTip="单位">
+                                        
+                                    </telerik:RadComboBox>
+                                        <sdk:Label Grid.Row="1" Grid.Column="2" Content="计价类型:" Height="17" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label7" VerticalAlignment="Bottom" Width="64" />
+                                    <!--<TextBox Grid.Row="1" Grid.Column="3" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="textBox2" VerticalAlignment="Bottom" Width="120" IsEnabled="False" VerticalContentAlignment="Center" />-->
+                                    <telerik:RadComboBox Name="cbxJJLX" Grid.Row="1" Grid.Column="3" Width="120" Height="23" HorizontalAlignment="Left" Grid.ColumnSpan="1"  SelectedValuePath="OrderValue"
+                                      ItemTemplate="{StaticResource ComboBoxOrderTypeTemplate}"
+						              SelectionBoxTemplate="{StaticResource ComboBoxOrderTypeSimpleTemplate}"
+                                     Style="{StaticResource RadComboBoxStyle}" TabIndex="0" Margin="10,0,0,2" VerticalAlignment="Bottom" Visibility="Visible" IsEnabled="False">
+                                    </telerik:RadComboBox>
+                                    <sdk:Label Grid.Row="2" Grid.Column="0" Content="用法:" Height="17" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label8" VerticalAlignment="Bottom" Width="55" />
+                                    <!--<TextBox Grid.Row="2" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="textBox3" VerticalAlignment="Bottom" Width="120" IsEnabled="False" VerticalContentAlignment="Center" />-->
+                                    <telerik:RadComboBox Name="cbxMDYF" Grid.Row="2" Grid.Column="1" Style="{StaticResource RadComboBoxStyle}"
+                                   SelectedValuePath="Yfdm" Width="90" HorizontalAlignment="Left" Height="23"
+                        ItemTemplate="{StaticResource ComboBoxYfTemplate}"
+						SelectionBoxTemplate="{StaticResource ComboBoxYfSimpleTemplate}"
+                         telerik:TextSearch.TextPath="Py" TabIndex="4" Margin="10,0,0,2"  VerticalAlignment="Bottom" IsEnabled="False"></telerik:RadComboBox>
+                                    <sdk:Label Grid.Row="2" Grid.Column="2" Content="频次:" Height="17" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label9" VerticalAlignment="Bottom" Width="32" />
+                                    <!--<TextBox Grid.Row="2" Grid.Column="3" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="textBox4" VerticalAlignment="Bottom" Width="120" IsEnabled="False" VerticalContentAlignment="Center" />-->
+                                    <telerik:RadComboBox Name="cbxPC" Grid.Row="2" Grid.Column="3" Style="{StaticResource RadComboBoxStyle}"
+                                  SelectedValuePath="Pcdm" SelectionChanged="cbxPC_SelectionChanged"
+                        ItemTemplate="{StaticResource ComboBoxPcTemplate}"
+						SelectionBoxTemplate="{StaticResource ComboBoxPcSimpleTemplate}"
+                         telerik:TextSearch.TextPath="Py" TabIndex="5" Margin="10,0,0,2" Height="23" Width="60" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False"></telerik:RadComboBox>
+                                    <telerik:RadComboBox Name="cbxSJ" Grid.Row="2" Grid.Column="3" Style="{StaticResource RadComboBoxStyle}" 
+                                 ItemTemplate="{StaticResource ComboBoxSJTemplate}"  Width="60"
+               SelectionBoxTemplate ="{StaticResource ComboBoxSJSimpleTemplate}"    HorizontalAlignment="Left"  TabIndex="6" Height="23" VerticalAlignment="Bottom" IsEnabled="False" Margin="70,0,0,2">
+                                    </telerik:RadComboBox>
+                                    <sdk:Label Grid.Row="3" Grid.Column="0" Height="19" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label5" VerticalAlignment="Bottom" Width="64">执行科室:</sdk:Label>
+                                    <sdk:AutoCompleteBox  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" FilterMode="None" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" 
+                                                        IsTextCompletionEnabled="False" Name="autoCompleteBoxDept" VerticalAlignment="Bottom" ToolTipService.ToolTip="请输入拼音码检索..." Visibility="Visible" Width="120" IsEnabled="False"/>
+                                    <sdk:Label Grid.Row="3" Grid.Column="2" Content="嘱托:" Height="17" HorizontalAlignment="Right" Margin="0,0,0,4" Name="label10" VerticalAlignment="Bottom" Width="32" />
+                                    <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="10,0,0,2" Name="txtZTNR" VerticalAlignment="Bottom" Width="230" IsEnabled="False" VerticalContentAlignment="Center" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+    </Grid>
+</navigation:Page>

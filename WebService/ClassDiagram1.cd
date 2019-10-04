@@ -1,0 +1,1174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Yidansoft.Service.AboutUS" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAABAAAAAAAAICAAAABAAAAAA=</HashCode>
+      <FileName>Entity\AboutUS.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_Employee" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAaCZCKQAAAAAAwAAQAEAAABAQKAIRAAAAACAA=</HashCode>
+      <FileName>Entity\CP_Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_InpatientPathCVInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKACACEIAAAgAEAAAABAgISAgIAAAEQBQAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_InpatientPathCVInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.CP_NurExecCategoryDetailMaintain" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAACAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Entity\CP_NurExecCategoryDetailMaintain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_NurExecCategoryDetailMaintainList" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAgAAAAGAAAAAAACAYAAAAAAAAIAAAEAAhAAAAA=</HashCode>
+      <FileName>Entity\CP_NurExecCategoryDetailMaintain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_PathCutTotal" Collapsed="true">
+    <Position X="11.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAEAAAA=</HashCode>
+      <FileName>Entity\CP_PathCutQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_PathCutQuery" Collapsed="true">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_PathCutQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_PathVariation" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIADAAAAAAAAAAEEAQAAAAAQAAAAhAAAAAA=</HashCode>
+      <FileName>Entity\CP_PathVariation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_InPatient" Collapsed="true">
+    <Position X="22.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgIAABQiKIoTGOkCoCkYfdBdxAWgOCKmQolCAMpAUQ=</HashCode>
+      <FileName>Entity\PatientInfo\CP_InPatient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathQuitMonthCompare" Collapsed="true">
+    <Position X="10" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAAAAAIAAAgAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathQuitMonthCompare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathQuitMonthCompareList" Collapsed="true">
+    <Position X="13.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ApAgAAAAABAIAACgAIAAQAAAACAAAAAAAAAAAAAgAAE=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathQuitMonthCompare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathQuitMonthCompareImage" Collapsed="true">
+    <Position X="11.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathQuitMonthCompare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathVariationAnalyse" Collapsed="true">
+    <Position X="20.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAKAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathVariationAnalyse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathVariationAnalyseList" Collapsed="true">
+    <Position X="22.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAACEAAAAAABAAABAAAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathVariationAnalyse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathVariationMonitor" Collapsed="true">
+    <Position X="24" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAAAAAIAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathVariationMonitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_PathVariationMonitorList" Collapsed="true">
+    <Position X="3" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgQAgAAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathVariationMonitor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Rpt_QueryCondition" Collapsed="true">
+    <Position X="4.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAIAAKAACAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_QueryCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.RW_PathSummary" Collapsed="true">
+    <Position X="6.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAQAAAAAAAEAAAAAAAECAAAAAAIAAAAAA=</HashCode>
+      <FileName>Entity\RW_PathSummary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.RW_PathSummaryOrder" Collapsed="true">
+    <Position X="11.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgIARgABAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\RW_PathSummary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.RW_PathSummaryVariation" Collapsed="true">
+    <Position X="13.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgABAAAAAAAAAAAAgAAAAIAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\RW_PathSummary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.RW_PathSummaryEnForce" Collapsed="true">
+    <Position X="10" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAQAAAAA=</HashCode>
+      <FileName>Entity\RW_PathSummary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.RW_PathSummaryCategory" Collapsed="true">
+    <Position X="8.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAIQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\RW_PathSummary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_VariationToPathInfo" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAgEEAAEAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Entity\System\CP_VariationToPathInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.YidanEHRDataService" Collapsed="true">
+    <Position X="11.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>XHa7tM/997Vurc/f9+zusf5+z5z8/Ur3s/de85e3//8=</HashCode>
+      <FileName>Service\AboutUSService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.UserCenterManagerInfo" Collapsed="true">
+    <Position X="22.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAAAAAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\CenterManaerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.InterventionCenterInfo" Collapsed="true">
+    <Position X="18.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAQAAQAAAIAAAAgBAAAAAA=</HashCode>
+      <FileName>Service\CenterManaerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_PathCutEdit" Collapsed="true">
+    <Position X="8.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\CP_PathCutEditServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_AdviceGroupPathCut" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A4IgBlABECAAEEAAAIAgAAYAAAAAAAAAAAAQ4kAECAg=</HashCode>
+      <FileName>Service\CP_PathCutEditServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.LoginException" Collapsed="true">
+    <Position X="22.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAQAAAACIAAAAAAAAAAAABAAAAAAAAAgAIAA=</HashCode>
+      <FileName>ServiceException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Util" Collapsed="true">
+    <Position X="24" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_AdviceFrequency" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAIACAQAAAAAgAAQAAAAAAAACAAAAoEAEAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_AdviceFrequency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_Anesthesia" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIACAAAAAAAgAAcAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_Anesthesia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_ChargingMinItem" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAYgJAAoACAAAAAAAoAAQAACAQCAACAgAAQEAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_ChargingMinItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_DataCategoryDetail" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAKAAAAAAAAAgIAQAAIAIQAICAAAAABAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_DataCategoryDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_Department" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAgAAIACAEAAAAAgAAQAEAAgAABCQYIABQAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_DrugUseage" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAIACAAAAAAAgAAQAAAAAEAACAAQAAAAACAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_DrugUseage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_LogException" Collapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAADAAAAAAAAgAAAAAAAAAAAAAAAAAAAIAAAAQAAAEA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_LogException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_NurExecToPath" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAgAAAACAAAAAAACAAAAAAAAAAoAAAAAAgAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_NurExecToPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_Operation" Collapsed="true">
+    <Position X="6.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIACAAAAAAAgAAYAAAAAAIBCAAAAAAAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_Operation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_PathDetail" Collapsed="true">
+    <Position X="13.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAIAAAACAAAAAAAAAAAAIACAQAAABAAAAgAABA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_PathDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_PlaceOfDrug" Collapsed="true">
+    <Position X="8.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAJJgBAIACAAAAAAApAAIRQAQgigAGAgIYigAACAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_PlaceOfDrug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_Surgery" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIACAAAAAAAgAAYAAAAhAIBCAAAAAAAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_Surgery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_VariantRecords" Collapsed="true">
+    <Position X="3" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJACBAAAAAAAAEAAAABggICEBAAAAEAAAAAAAAAUAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_VariantRecords.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_VariationToPath" Collapsed="true">
+    <Position X="4.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAgAAAACAEAAAAACAAAEAAAAAAIAAAAAAgAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_VariationToPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.CP_Ward" Collapsed="true">
+    <Position X="13.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAIACAAAAAAAgAAQAAIAAAAQCAQAAAAAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_Ward.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_AdviceAnesthesiaDetail" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoqgAkAJECAAAAAAAIAAAAGApAxAAMECoAGQRgAAAAA=</HashCode>
+      <FileName>Entity\CP_AdviceAnesthesiaDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_AdviceGroupDetail" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>A8qoBlCJUDAAUAAAAYAgBgORpAhAAEEAgAlQ4kAcSAg=</HashCode>
+      <FileName>Entity\CP_AdviceGroupDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_AdviceSuit" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAJAAAgCAAAgoAAYAAAAAAAQCAIAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_AdviceSuit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_AdviceSuitCategory" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAJACAgAAAAAgAARAAAAQAAACAAAAgAAAAAA=</HashCode>
+      <FileName>Entity\CP_AdviceSuitCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_AdviceSuitDetail" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwKgBlAFECAAEAAAAIAgAAYAABAEAAAAAAAQ4kAUCAg=</HashCode>
+      <FileName>Entity\CP_AdviceSuitDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_AppConfig" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAASAAAAAQAAAAAAAAAAACAACAAAAA=</HashCode>
+      <FileName>Entity\CP_AppConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_BeyondDays" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAgACABRAAAgEAAgAABAQJEAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Entity\CP_BeyondDays.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_BeyondFee" Collapsed="true">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIAgACARAAAAgEAAgAAABQIEAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Entity\CP_BeyondFee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ClinicalDiagnosisList" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABAAAAAAAAACAAAAAAAABAAIAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_ClinicalDiagnosisList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ClinicalPathList" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EKhEACBQQBALAAoIAJSoJAQACsBEEAEpQAAAACAAgAw=</HashCode>
+      <FileName>Entity\CP_ClinicalPathList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_DepartmentList" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAAAAAAAMAAAAAAQAAAAAAgAAAIAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_DepartmentList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_Diagnosis_E" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CoABIAAQEIUDAAAQAAAgAAYAABAjBAgCAACSAAAAAAA=</HashCode>
+      <FileName>Entity\CP_Diagnosis_E.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_DiagnosisList" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAQAAEAAAAIAAAAAAQAAAAAAgAAAACCAAAAAAA=</HashCode>
+      <FileName>Entity\CP_DiagnosisList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_DoctorOrder" Collapsed="true">
+    <Position X="22.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>C4KgF1AFUCIAWEAMEIAwBAKAABAAAR0CIIIQ8kBWCAg=</HashCode>
+      <FileName>Entity\CP_DoctorOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_DoctorTaskMessage" Collapsed="true">
+    <Position X="24" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgEgAAAABAAEAACAAAIAIAAAAgAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Entity\CP_DoctorTaskMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ForceToPath" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgACABAAAAgEAAgAAAAQIEAAAAAAAAAAAAGAAAAAA=</HashCode>
+      <FileName>Entity\CP_ForceToPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InPathPatientCondition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAIAAAAQAAEAAAABAAAABgAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_InPathPatientCondition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InPathPatientList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACACABAAAAAEAAgAAAAQAEgAAAgACAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_InPathPatientList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InpatientFeeInfo" Collapsed="true">
+    <Position X="24" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAEBAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_InpatientFee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InPatientPathEnForceDetail" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAAAAAAAAAgEAAAAAAAAAAAAAAAAAAgAAAAQAAAAA=</HashCode>
+      <FileName>Entity\CP_InPatientPathEnForceDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InpatientPhySign" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAQAAAgAIACEAgAEiSgAAAAAgAAEASAAgAAIAAAAA=</HashCode>
+      <FileName>Entity\CP_InpatientPhySign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InpatinetList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hJgkkjuRIBJ0CEemCCFsAWdFgAhCAASLCAEATAaYIgQ=</HashCode>
+      <FileName>Entity\CP_InpatinetList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InpatinetListPaging" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAAAAAACAAAARABCABgACAAAAiAAAAIAkBABA=</HashCode>
+      <FileName>Entity\CP_InpatinetListPaging.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_LongOrderList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ScIrMhALWDMCeGAMCQlkAQAg7glkCRkiAVoB50LEQFg=</HashCode>
+      <FileName>Entity\CP_LongOrderList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MasterDrug2Role" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAIAAAACAAAIAAAAAAAAAAAAAAEQACQA=</HashCode>
+      <FileName>Entity\CP_MasterDrug2Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MasterDrug2User" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEBCAAIAAAACAAAYAAAAAAAAAAAAAAEQAAQA=</HashCode>
+      <FileName>Entity\CP_MasterDrug2User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MasterDrugRoles" Collapsed="true">
+    <Position X="20.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAFAAAAIACAACAAAIAAAAAAAAAAAAAAEQAAQA=</HashCode>
+      <FileName>Entity\CP_MasterDrugRoles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MasterDrugs" Collapsed="true">
+    <Position X="22.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABgBFAAAAIACAACBAAIACAQQAgAAAAAAAAQACQA=</HashCode>
+      <FileName>Entity\CP_MasterDrugs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MedicalTreatmentWarm" Collapsed="true">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ANAABAAAAAAAgMEAAAAAAAIAQAQQAAAAgAAAAAAAAgA=</HashCode>
+      <FileName>Entity\CP_MedicalTreatmentWarm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MedicalTreatmentWarmGroupByTxlx" Collapsed="true">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAgEAAAIAAAgA=</HashCode>
+      <FileName>Entity\CP_MedicalTreatmentWarm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurExecCategory" Collapsed="true">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAACAAAAAQgCAAQAAAAAAAIAgAAAAhAAAAE=</HashCode>
+      <FileName>Entity\CP_NurExecCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurExecItem" Collapsed="true">
+    <Position X="13.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_NurExecItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurExecRecord" Collapsed="true">
+    <Position X="15.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_NurExecRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurExecRecordResult" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Entity\CP_NurExecRecordResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurExecuteResult" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAiACAAAAAAAiAIAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_NurExecuteResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurResult" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAgACAIAAAQACAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\CP_NurResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PathExecVariantRecords" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgAAAAAAAAAAAABAgICAAAAAAAAAAAAAABAgAAA=</HashCode>
+      <FileName>Entity\CP_PathExecVariantRecords.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PathExit" Collapsed="true">
+    <Position X="20.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgACABAAAAgEAAgAAAAQIEAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Entity\CP_PathExit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PCSJ" Collapsed="true">
+    <Position X="3" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAIAAAAAAQAAAAABCABAAAQAAIAAJAAoEAAAAA=</HashCode>
+      <FileName>Entity\CP_PCSJ.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PCSJ_E" Collapsed="true">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAUQIAACAAIAAAAAAAAAQAAAABAAAAAAAAAAAEiAA=</HashCode>
+      <FileName>Entity\CP_PCSJ_E.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_QCProblem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgCAhAAgAgCMAACAgIgAIAgMCqAQEAAAAACAQBAAA=</HashCode>
+      <FileName>Entity\CP_QCProblem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_QCRecordTip" Collapsed="true">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAGABAAAAgEAAgAAAAQIEAAAAAAAAAAAACAAAAIA=</HashCode>
+      <FileName>Entity\CP_QCRecordTip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_QueryPathExecute" Collapsed="true">
+    <Position X="13.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEECABAAAAAEAAgAAACYJEAAACAAAAAIAACAAQAAA=</HashCode>
+      <FileName>Entity\CP_QueryPathExecute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_QueryPathExecuteNoteCompare" Collapsed="true">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAABAAAAAAAAAIAAAACIAAAAAAAAAEAAwAAAAAA=</HashCode>
+      <FileName>Entity\CP_QueryPathExecuteNoteCompare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_TempOrderList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ScILMhAPWDICeGAICQkkAAAA7gnECQkiAFgA50JEQFg=</HashCode>
+      <FileName>Entity\CP_TempOrderList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_NurExecInfo" Collapsed="true">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IJACAAgDAYJgEBIMWAgAASAARiEAIAsBgkAAABCAgAg=</HashCode>
+      <FileName>Entity\NursingModule\CP_NurExecInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_MedicinalEducation" Collapsed="true">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAgkACAAAABAAAAAAAAAAAAAAAAAABAgAAAA=</HashCode>
+      <FileName>Entity\Pass\CP_MedicinalEducation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.DrugInfoPass" Collapsed="true">
+    <Position X="15.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABBhgAAIAAAAAAAAAAEAgAAAACAAAAAAACAAAAAIA=</HashCode>
+      <FileName>Entity\Pass\DrugInfoPass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Expressions" Collapsed="true">
+    <Position X="17" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAEAAAAQAAAAAAAAAAAAAAAACAAAACAAIAAgAA=</HashCode>
+      <FileName>Entity\Pass\Expressions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Medicine" Collapsed="true">
+    <Position X="24" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAECAAAADAAAAAAICaAgAAQAAICEAAAIAgAAAA=</HashCode>
+      <FileName>Entity\Pass\Medicine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.MedicineDirect" Collapsed="true">
+    <Position X="3" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAUAQAgAAQIBAAACAAAAAAACAAAAAAhAAEAAA=</HashCode>
+      <FileName>Entity\Pass\MedicineDirect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ClinicalPathLists" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ClinicalPathLists.CS</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ClinicalPathNode" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAIACAAAAAAAAAAAAAAAAAAEBAFAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ClinicalPathNode.CS</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ClinicalPathNodes" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ClinicalPathNodes.CS</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ExamDictionaryDetail" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAQIADAAQAACAkACAgAAAAAAACAAAABAQAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ExamDictionaryDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ExamSyrq" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAIAAAgAAkAIAABAEAAAAAAAAAABAAAACQAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ExamSyrq.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_ExamSyrqs" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ExamSyrq.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PatientExamItem" Collapsed="true">
+    <Position X="3" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_InpatinetList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PatientExamItems" Collapsed="true">
+    <Position X="4.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_InpatinetList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_InpatinetLists" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_InpatinetLists.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PathEnterJudgeCondition" Collapsed="true">
+    <Position X="15.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAChGAAQIBsAAAALCEACIgAEoiAAQOhIAABIQgAgI=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_PathEnterJudgeCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.SuitCrowdMapScope" Collapsed="true">
+    <Position X="18.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABEAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_PathEnterJudgeCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.SuitCrowsMapScopes" Collapsed="true">
+    <Position X="20.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_PathEnterJudgeCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PathEnterJudgeConditions" Collapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABACAAAAAAAAEAAAAICAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_PathEnterJudgeConditions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.CP_PatientPathEnterJudgeConditionRecord" Collapsed="true">
+    <Position X="24" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJCAAgGBQQQBkEAAAJAAAiAAAAsgAAQOhAAABIQAAAI=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_PatientPathEnterJudgeConditionRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PathEnterJudge" Collapsed="true">
+    <Position X="24" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Entity\PathEnterJudge\PathEnterJudge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Modal_Areas" Collapsed="true">
+    <Position X="4.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAQI=</HashCode>
+      <FileName>Entity\PatientInfo\Modal_Areas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Modal_Diagnosis" Collapsed="true">
+    <Position X="6.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAIAAAAAAAAAgAAQAAAAAAAAAAACCAAAAAAA=</HashCode>
+      <FileName>Entity\PatientInfo\Modal_Diagnosis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Modal_Dictionary" Collapsed="true">
+    <Position X="8.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAgAAQAAAAAAEAAAAAAAIAAAAA=</HashCode>
+      <FileName>Entity\PatientInfo\Modal_Dictionary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Modal_PatientContactsInfo" Collapsed="true">
+    <Position X="10" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAABAAAAAAAAAAJBBUgAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PatientInfo\Modal_PatientContactsInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Modal_PatientInfo" Collapsed="true">
+    <Position X="11.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABABAAAAAAAAAAAACAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Entity\PatientInfo\Modal_PatientInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_ExamDictionary" Collapsed="true">
+    <Position X="6.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PE_ExamDictionary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_ExamDictionaryDetail" Collapsed="true">
+    <Position X="8.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQIADAAQAAAAgACAACAAAAAACAAAABAQAAAA=</HashCode>
+      <FileName>Entity\PE_ExamDictionaryDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_Fun" Collapsed="true">
+    <Position X="10" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAQAAAAAAACAAAAAAAAAEAAQBAAA=</HashCode>
+      <FileName>Entity\PE_Fun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_Role" Collapsed="true">
+    <Position X="11.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Entity\PE_Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_RoleFun" Collapsed="true">
+    <Position X="13.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PE_RoleFun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_UserRole" Collapsed="true">
+    <Position X="15.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\PE_UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.PE_UserRoleList" Collapsed="true">
+    <Position X="17" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABCAAAAAAIAQAAQAAAAAQAAAAAAAMAAAAAA=</HashCode>
+      <FileName>Entity\PE_UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.RPT_PathFinish" Collapsed="true">
+    <Position X="3" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAAAAIIAAAAAA=</HashCode>
+      <FileName>Entity\RPT_PathFinish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Rpt_PathFinishImage" Collapsed="true">
+    <Position X="4.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAQACAQAAoJAAAAIAACEBAIAAgIAAAAAAAAAAEACA=</HashCode>
+      <FileName>Entity\RPT_PathFinish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.RPT_PathFinishList" Collapsed="true">
+    <Position X="6.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAQAAADAIAAAAABgEACABAgQBAIACAQMDfPwAAACA=</HashCode>
+      <FileName>Entity\RPT_PathFinish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Rpt_DataList" Collapsed="true">
+    <Position X="20.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgAAAAAAAAAAAAABAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Entity\RPT_PathQuit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Rpt_PathQuitList" Collapsed="true">
+    <Position X="8.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAAAAAQAAAAgAAABwQBBAAAAAAAAAAACAAEAAA=</HashCode>
+      <FileName>Entity\RPT_PathQuit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Rpt_PathQuitPie" Collapsed="true">
+    <Position X="15.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Entity\RPT_PathQuit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.RPT_PathStatistic" Collapsed="true">
+    <Position X="17" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAggAECQAAKAAAAAIAACABABAQIEAgAAACIAACAAgwQ=</HashCode>
+      <FileName>Entity\RPT_PathStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.RPT_PathVariation" Collapsed="true">
+    <Position X="18.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAiACIACCQAAAIAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\RPT_PathVariation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.ListString" Collapsed="true">
+    <Position X="20.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\RPT_PathVariation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.RW_PatientExamItem" Collapsed="true">
+    <Position X="15.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAQBgEAAAAAAAAAAAAAAAAAIAAAAAAQAAAA=</HashCode>
+      <FileName>Entity\RW_PatientExamItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.SQLMessage" Collapsed="true">
+    <Position X="17" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAEAA=</HashCode>
+      <FileName>Entity\SQLMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.V_PatientExamine" Collapsed="true">
+    <Position X="3" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABACAAQBAAAAABAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\V_PatientExamine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.V_PermissionList" Collapsed="true">
+    <Position X="4.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAQAAAAgAAiAAQAAAAAAAEAABAAA=</HashCode>
+      <FileName>Entity\V_PermissionList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.V_PermissionListFather" Collapsed="true">
+    <Position X="6.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAgAAAgAAAAAAAAABAAA=</HashCode>
+      <FileName>Entity\V_PermissionList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.V_QCRecord" Collapsed="true">
+    <Position X="8.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAgIAQAKAARAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\V_QCRecordList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_AllergyHistory" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACgMAAAAAAAAAAAAAAAABCCAAEAAAAAAI=</HashCode>
+      <FileName>Entity\NursingNotes\CP_AllergyHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_FamilyHistory" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgiEAAAAAAAAAAAAAiAgRKAACAAAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_FamilyHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_IllnessHistory" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAEgEAAEAAAAAEAAAAgAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_IllnessHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_NurseCode" Collapsed="true">
+    <Position X="24" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_NurseCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_NurseCodeCollection" Collapsed="true">
+    <Position X="3" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_NurseCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_NursingNotesRecordCollection" Collapsed="true">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAIQiABAAECAIAgAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_NursingNotesRecord.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_PatientInOutRecordInfo" Collapsed="true">
+    <Position X="22.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAbIwNAEAAAEAACA6CAAQASAAkAoAAIAAAEIAEIFI=</HashCode>
+      <FileName>Entity\NursingNotes\CP_PatientInOutRecordInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_PersonalHistory" Collapsed="true">
+    <Position X="6.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAoAAEwEAAAAAAAQAAAACAEAACEAAAEAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_PersonalHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_SaveNursingNotes" Collapsed="true">
+    <Position X="17" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQDQAAAAAAAIAAAAAgIBBAAAAABAAAIAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_SaveNursingNotes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_SurgeryHistory" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAgEAAAAAAAAEAAAAgAIADACAAAAAAAAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_SurgeryHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_TreatmentFlowInfo" Collapsed="true">
+    <Position X="24" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAaAAAAAAAEEAACAiAQAQAAAAAAgAAAAAAEIAAgAA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_TreatmentFlowInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_VitalSignSpecialRecordInfo" Collapsed="true">
+    <Position X="8.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CJAAaAAAAAAAgEAQCAiAAESAAAAQAgAAAAAAEKAAJQA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_VitalSignSpecialRecordInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_VitalSignsRecordInfo" Collapsed="true">
+    <Position X="10" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAaAAIAAAAAEAACQiAAAQEgAACAgAAAAAAUICEMQA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_VitalSignsRecordInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.NursingNotes.CP_VitalSignsTwMbHx" Collapsed="true">
+    <Position X="11.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAEAAEIQA=</HashCode>
+      <FileName>Entity\NursingNotes\CP_VitalSignsTwMbHx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Pass.ParameterCell" Collapsed="true">
+    <Position X="20.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Entity\Pass\ParameterCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Pass.ParameterProperty" Collapsed="true">
+    <Position X="22.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAIAAAAAYAAAAA=</HashCode>
+      <FileName>Entity\Pass\ParameterProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.Class.CP_ExamDictionary" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAQIABAAQAAAAgAABAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Entity\PathEnterJudge\CP_ExamDictionary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.ReportForms.Rpt_ClinicalDiagnosis" Collapsed="true">
+    <Position X="18.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_ClinicalDiagnosis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.ReportForms.Rpt_InPathPatientFeePercent" Collapsed="true">
+    <Position X="22.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgggIABAAQABAAAACAAAQABAgAAhAACAgAACAAAAAA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_InPathPatientFeePercent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity.ReportForms.Rpt_PathEnterStatistics" Collapsed="true">
+    <Position X="24" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAgIAAAAAAAAEAIAAGBAAAIAAAAAAAAwA=</HashCode>
+      <FileName>Entity\ReportForms\Rpt_PathEnterStatistics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YidanSoft.Tool.WorkFlowTool" Collapsed="true">
+    <Position X="10" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAQAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Tool\WorkFlowTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YidanSoft.Tool.MyRule" Collapsed="true">
+    <Position X="18.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAEAAAACAAAAUAAAAAAAAAAAAAAAAgAAAAAgA=</HashCode>
+      <FileName>Tool\WorkFlowTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YidanSoft.Tool.MyActivity" Collapsed="true">
+    <Position X="15.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAACBAgAQAAAAAAAAAAAAAAAAAAAgQABA=</HashCode>
+      <FileName>Tool\WorkFlowTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YidanSoft.Tool.MyActiveChildren" Collapsed="true">
+    <Position X="13.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAwAAAAAAAAABAAAAAAQAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tool\WorkFlowTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YidanSoft.Tool.MyActivitys" Collapsed="true">
+    <Position X="17" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAEAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Tool\WorkFlowTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yidansoft.Service.Entity2.CP_VariationToPathInfo" Collapsed="true">
+    <Position X="6.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>YidanEHROwnEntity2\CP_VariationToPathInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Yidansoft.Service.ErrorLevel" Collapsed="true">
+    <Position X="3" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAgAABAAAAAAAEAAAA=</HashCode>
+      <FileName>ServiceException.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Yidansoft.Service.OrderType" Collapsed="true">
+    <Position X="4.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAEAAAAAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>YidanEHRDataService.svc.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei" Size="9" />
+</ClassDiagram>

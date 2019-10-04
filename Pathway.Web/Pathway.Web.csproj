@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06C0DE40-5F09-4D60-ACB8-0CE520DB8BB5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pathway.Web</RootNamespace>
+    <AssemblyName>Pathway.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SilverlightApplicationList>{893FF967-3FAB-475F-9589-D73C7B3DDEC4}|..\Pathway\Pathway.csproj|ClientBin|False</SilverlightApplicationList>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Telerik.Reporting, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Telerik\Reporting Q1 2012\Bin\Telerik.Reporting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Service, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Silverlight, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=6.0.12.215, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="autoInstall.js" />
+    <Content Include="ClientBin\logo.jpg" />
+    <Content Include="ClientBin\Pathway.xap" />
+    <Content Include="favicon.ico" />
+    <Content Include="Help\临床路径使用手册.html" />
+    <Content Include="Help\临床路径使用手册\0.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\0.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\0.files\header.html" />
+    <Content Include="Help\临床路径使用手册\0.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\0.html" />
+    <Content Include="Help\临床路径使用手册\1.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\1.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\1.files\header.html" />
+    <Content Include="Help\临床路径使用手册\1.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\1.html" />
+    <Content Include="Help\临床路径使用手册\10.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\10.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\10.files\header.html" />
+    <Content Include="Help\临床路径使用手册\10.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\10.html" />
+    <Content Include="Help\临床路径使用手册\11.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\11.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\11.files\header.html" />
+    <Content Include="Help\临床路径使用手册\11.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\11.html" />
+    <Content Include="Help\临床路径使用手册\12.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\12.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\12.files\header.html" />
+    <Content Include="Help\临床路径使用手册\12.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\12.html" />
+    <Content Include="Help\临床路径使用手册\13.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\13.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\13.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\13.html" />
+    <Content Include="Help\临床路径使用手册\14.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\14.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\14.files\header.html" />
+    <Content Include="Help\临床路径使用手册\14.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\14.html" />
+    <Content Include="Help\临床路径使用手册\15.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\15.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\15.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\15.files\image002.jpg" />
+    <Content Include="Help\临床路径使用手册\15.files\image003.jpg" />
+    <Content Include="Help\临床路径使用手册\15.html" />
+    <Content Include="Help\临床路径使用手册\16.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\16.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\16.files\header.html" />
+    <Content Include="Help\临床路径使用手册\16.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\16.html" />
+    <Content Include="Help\临床路径使用手册\17.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\17.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\17.files\header.html" />
+    <Content Include="Help\临床路径使用手册\17.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\17.files\image002.jpg" />
+    <Content Include="Help\临床路径使用手册\17.html" />
+    <Content Include="Help\临床路径使用手册\18.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\18.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\18.files\header.html" />
+    <Content Include="Help\临床路径使用手册\18.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\18.html" />
+    <Content Include="Help\临床路径使用手册\19.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\19.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\19.files\header.html" />
+    <Content Include="Help\临床路径使用手册\19.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\19.html" />
+    <Content Include="Help\临床路径使用手册\2.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\2.html" />
+    <Content Include="Help\临床路径使用手册\20.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\20.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\20.files\header.html" />
+    <Content Include="Help\临床路径使用手册\20.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\20.files\image002.jpg" />
+    <Content Include="Help\临床路径使用手册\20.html" />
+    <Content Include="Help\临床路径使用手册\21.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\21.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\21.files\header.html" />
+    <Content Include="Help\临床路径使用手册\21.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\21.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\21.html" />
+    <Content Include="Help\临床路径使用手册\22.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\22.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\22.files\header.html" />
+    <Content Include="Help\临床路径使用手册\22.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\22.html" />
+    <Content Include="Help\临床路径使用手册\23.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\23.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\23.files\header.html" />
+    <Content Include="Help\临床路径使用手册\23.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\23.html" />
+    <Content Include="Help\临床路径使用手册\24.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\24.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\24.files\header.html" />
+    <Content Include="Help\临床路径使用手册\24.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\24.html" />
+    <Content Include="Help\临床路径使用手册\25.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\25.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\25.files\header.html" />
+    <Content Include="Help\临床路径使用手册\25.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\25.html" />
+    <Content Include="Help\临床路径使用手册\26.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\26.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\26.files\header.html" />
+    <Content Include="Help\临床路径使用手册\26.html" />
+    <Content Include="Help\临床路径使用手册\27.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\27.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\27.files\header.html" />
+    <Content Include="Help\临床路径使用手册\27.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\27.html" />
+    <Content Include="Help\临床路径使用手册\28.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\28.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\28.files\header.html" />
+    <Content Include="Help\临床路径使用手册\28.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\28.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\28.html" />
+    <Content Include="Help\临床路径使用手册\29.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\29.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\29.files\header.html" />
+    <Content Include="Help\临床路径使用手册\29.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\29.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\29.files\image003.png" />
+    <Content Include="Help\临床路径使用手册\29.html" />
+    <Content Include="Help\临床路径使用手册\3.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\3.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\3.files\header.html" />
+    <Content Include="Help\临床路径使用手册\3.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\3.html" />
+    <Content Include="Help\临床路径使用手册\30.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\30.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\30.files\header.html" />
+    <Content Include="Help\临床路径使用手册\30.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\30.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\30.files\image003.png" />
+    <Content Include="Help\临床路径使用手册\30.files\image004.png" />
+    <Content Include="Help\临床路径使用手册\30.html" />
+    <Content Include="Help\临床路径使用手册\31.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\31.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\31.files\header.html" />
+    <Content Include="Help\临床路径使用手册\31.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\31.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\31.files\image003.png" />
+    <Content Include="Help\临床路径使用手册\31.html" />
+    <Content Include="Help\临床路径使用手册\32.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\32.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\32.files\header.html" />
+    <Content Include="Help\临床路径使用手册\32.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\32.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\32.files\image003.png" />
+    <Content Include="Help\临床路径使用手册\32.files\image004.png" />
+    <Content Include="Help\临床路径使用手册\32.html" />
+    <Content Include="Help\临床路径使用手册\33.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\33.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\33.files\header.html" />
+    <Content Include="Help\临床路径使用手册\33.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\33.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\33.files\image003.png" />
+    <Content Include="Help\临床路径使用手册\33.html" />
+    <Content Include="Help\临床路径使用手册\34.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\34.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\34.files\header.html" />
+    <Content Include="Help\临床路径使用手册\34.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\34.files\image002.png" />
+    <Content Include="Help\临床路径使用手册\34.files\image003.png" />
+    <Content Include="Help\临床路径使用手册\34.html" />
+    <Content Include="Help\临床路径使用手册\4.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\4.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\4.files\header.html" />
+    <Content Include="Help\临床路径使用手册\4.files\image001.png" />
+    <Content Include="Help\临床路径使用手册\4.html" />
+    <Content Include="Help\临床路径使用手册\5.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\5.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\5.files\header.html" />
+    <Content Include="Help\临床路径使用手册\5.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\5.html" />
+    <Content Include="Help\临床路径使用手册\6.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\6.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\6.files\header.html" />
+    <Content Include="Help\临床路径使用手册\6.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\6.html" />
+    <Content Include="Help\临床路径使用手册\7.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\7.html" />
+    <Content Include="Help\临床路径使用手册\8.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\8.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\8.files\header.html" />
+    <Content Include="Help\临床路径使用手册\8.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\8.html" />
+    <Content Include="Help\临床路径使用手册\9.files\colorschememapping.xml" />
+    <Content Include="Help\临床路径使用手册\9.files\filelist.xml" />
+    <Content Include="Help\临床路径使用手册\9.files\header.html" />
+    <Content Include="Help\临床路径使用手册\9.files\image001.jpg" />
+    <Content Include="Help\临床路径使用手册\9.html" />
+    <Content Include="Help\临床路径使用手册\img\base.gif" />
+    <Content Include="Help\临床路径使用手册\img\empty.gif" />
+    <Content Include="Help\临床路径使用手册\img\folder.gif" />
+    <Content Include="Help\临床路径使用手册\img\folderopen.gif" />
+    <Content Include="Help\临床路径使用手册\img\join.gif" />
+    <Content Include="Help\临床路径使用手册\img\joinbottom.gif" />
+    <Content Include="Help\临床路径使用手册\img\line.gif" />
+    <Content Include="Help\临床路径使用手册\img\minus.gif" />
+    <Content Include="Help\临床路径使用手册\img\minusbottom.gif" />
+    <Content Include="Help\临床路径使用手册\img\nolines_minus.gif" />
+    <Content Include="Help\临床路径使用手册\img\nolines_plus.gif" />
+    <Content Include="Help\临床路径使用手册\img\page.gif" />
+    <Content Include="Help\临床路径使用手册\img\plus.gif" />
+    <Content Include="Help\临床路径使用手册\img\plusbottom.gif" />
+    <Content Include="Help\临床路径使用手册\___dtree.css" />
+    <Content Include="Help\临床路径使用手册\___dtree.js" />
+    <Content Include="Help\临床路径使用手册\___left.htm" />
+    <Content Include="ReportService.svc" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="EHRDefault.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EHRDefault.aspx.cs">
+      <DependentUpon>EHRDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EHRDefault.aspx.designer.cs">
+      <DependentUpon>EHRDefault.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PathwayReports\PathwayReports.csproj">
+      <Project>{6FB2FEC8-D2A7-4736-92EB-8EE6704C2ADC}</Project>
+      <Name>PathwayReports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Help\临床路径使用手册\#IDXHDR" />
+    <None Include="Help\临床路径使用手册\#ITBITS" />
+    <None Include="Help\临床路径使用手册\#STRINGS" />
+    <None Include="Help\临床路径使用手册\#SYSTEM" />
+    <None Include="Help\临床路径使用手册\#TOPICS" />
+    <None Include="Help\临床路径使用手册\#URLSTR" />
+    <None Include="Help\临床路径使用手册\#URLTBL" />
+    <None Include="Help\临床路径使用手册\#WINDOWS" />
+    <None Include="Help\临床路径使用手册\0.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\1.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\10.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\11.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\12.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\13.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\14.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\15.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\16.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\17.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\18.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\19.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\20.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\21.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\22.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\23.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\24.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\25.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\26.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\27.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\28.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\29.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\3.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\30.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\31.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\32.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\33.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\34.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\4.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\5.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\6.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\8.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\9.files\themedata.thmx" />
+    <None Include="Help\临床路径使用手册\临床路径使用手册.hhc" />
+    <None Include="Help\临床路径使用手册\临床路径使用手册.hhk" />
+    <None Include="Properties\PublishProfiles\Pathway.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\临床路径使用手册\%24WWAssociativeLinks\" />
+    <Folder Include="Help\临床路径使用手册\%24WWKeywordLinks\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13588</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

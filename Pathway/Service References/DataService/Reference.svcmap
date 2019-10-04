@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="aab40625-e6a3-48af-905f-c6224d891021" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2081/YidanEHRDataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="YidanEHRDataService.disco" MetadataType="Disco" ID="9c82d092-d0ae-4742-baf5-ce2e4ad46712" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?disco" />
+    <MetadataFile FileName="YidanEHRDataService.xsd" MetadataType="Schema" ID="93e107a7-5c7c-44cd-94a7-a95c40396217" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd5" />
+    <MetadataFile FileName="YidanEHRDataService1.xsd" MetadataType="Schema" ID="ad74ae53-a293-4a03-92e6-a03534c3cc35" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd1" />
+    <MetadataFile FileName="YidanEHRDataService2.xsd" MetadataType="Schema" ID="cedd873e-9874-4317-993a-3a31d7187410" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd10" />
+    <MetadataFile FileName="YidanEHRDataService3.xsd" MetadataType="Schema" ID="23ba8739-589f-4a50-9121-5b0e9204011e" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd6" />
+    <MetadataFile FileName="YidanEHRDataService4.xsd" MetadataType="Schema" ID="7d410b9a-d732-467e-8d03-7d8a44e5324d" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="YidanEHRDataService5.xsd" MetadataType="Schema" ID="10779fa5-174d-4e1a-8530-6591cd27af96" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd7" />
+    <MetadataFile FileName="YidanEHRDataService6.xsd" MetadataType="Schema" ID="2bcb4c04-14bf-4b77-8780-bbe329308e7a" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd3" />
+    <MetadataFile FileName="YidanEHRDataService7.xsd" MetadataType="Schema" ID="3aad9942-9cf8-4cef-82ad-22ed90e4d2d0" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd9" />
+    <MetadataFile FileName="YidanEHRDataService8.xsd" MetadataType="Schema" ID="087e791d-9d66-466c-a087-ecfc68be1cd1" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd12" />
+    <MetadataFile FileName="YidanEHRDataService9.xsd" MetadataType="Schema" ID="22c8f923-64e0-4a6c-a775-4c40a5d7eeb3" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd11" />
+    <MetadataFile FileName="YidanEHRDataService10.xsd" MetadataType="Schema" ID="0760666c-8d20-44d3-bfa5-53654e485b36" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd8" />
+    <MetadataFile FileName="YidanEHRDataService11.xsd" MetadataType="Schema" ID="ed567d30-e738-46be-9db8-13fae42b3064" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd4" />
+    <MetadataFile FileName="YidanEHRDataService12.xsd" MetadataType="Schema" ID="4aa9a111-5bfe-4b25-9578-c0fb90b571aa" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="YidanEHRDataService13.xsd" MetadataType="Schema" ID="ca0be1a6-42f0-4bb1-ac75-9cd37ce1dcee" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?xsd=xsd13" />
+    <MetadataFile FileName="YidanEHRDataService.wsdl" MetadataType="Wsdl" ID="e88aea8b-5a19-4265-a9ac-dec084e74cce" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="YidanEHRDataService1.wsdl" MetadataType="Wsdl" ID="55f905b5-da66-4b2b-bb8f-3fee07d03b48" SourceId="1" SourceUrl="http://localhost:2081/YidanEHRDataService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

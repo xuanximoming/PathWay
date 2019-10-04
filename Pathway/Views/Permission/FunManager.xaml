@@ -1,0 +1,202 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.Permission.FunManager" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="800" d:DesignHeight="600"
+           Title="FunManager Page" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <navigation:Page.Resources>
+
+        <Style TargetType="telerik:RadComboBox" x:Key="RadComboBoxStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="Margin" Value="10,0,0,0"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="ClearSelectionButtonContent" Value="清空"></Setter>
+            <Setter Property="ClearSelectionButtonVisibility" Value="Collapsed"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+
+        <DataTemplate x:Key="ComboBoxCustomTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Grid.ColumnSpan="2" Text="{Binding FunName}" />
+                <TextBlock Text="{Binding FunCode}" Visibility="Collapsed"></TextBlock>
+            </Grid>
+        </DataTemplate>
+
+
+    </navigation:Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <!--<telerik:RadTabControl Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="radTabControlPathManager"  VerticalAlignment="Stretch" 
+                               ScrollMode="Viewport" BorderThickness="0" >
+            <telerik:RadTabItem Padding="4 1">
+                <telerik:RadTabItem.Header>
+                    <TextBlock Text="模块管理" Margin="19 2 19 0" />
+                </telerik:RadTabItem.Header>
+                <telerik:RadTabItem.Content>-->
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0">
+            <ScrollViewer.Content>
+                <Grid   Background="#ffffff">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="216" ></RowDefinition>
+                        <RowDefinition Height="68"></RowDefinition>
+                        <RowDefinition Height="211"></RowDefinition>
+                        <RowDefinition Height="31*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <telerik:RadGridView Grid.Row="1" Grid.Column="0" Name="GridView"  IsScrolling="False"  GridLinesVisibility="Both"
+                                     IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                     ShowGroupPanel="False" MinHeight="200" Height="auto" HorizontalAlignment="Stretch" Margin="0,5,0,0"
+                                      RowIndicatorVisibility="Collapsed" SelectionChanged="GridView_SelectionChanged">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="功能编码" DataMemberBinding="{Binding FunCode}" Width="100"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="功能名称" DataMemberBinding="{Binding FunName}" Width="*"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="父节点编码" DataMemberBinding="{Binding FunCodeFather}" Width="100"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="父节点名称" DataMemberBinding="{Binding FunFatherName}" Width="100"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="URL" DataMemberBinding="{Binding FunURL}" MinWidth="300" Width="*"></telerik:GridViewDataColumn>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                    <Grid Grid.Row="2" Height="66" VerticalAlignment="Top">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="360"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <!--<telerik:RadDataPager Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" PageSize="8" Source="{Binding Items, ElementName=GridView}" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="0,0,0,2" HorizontalContentAlignment="Right" />
+
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,0" Background="Transparent">
+                                        <Button  Content="删除" Height="Auto" HorizontalAlignment="Left"  Name="btnDel" 
+                                           VerticalAlignment="Top" Width="50"  Margin="10,2,0,0" Click="btnDel_Click" />
+                                        <Button  Content="修改" Height="Auto" HorizontalAlignment="Left"  Name="btnUpdate" 
+                                           VerticalAlignment="Top" Width="50"  Margin="10,2,0,0" Click="btnUpdate_Click" />
+                                        <Button  Content="添加" Height="Auto" HorizontalAlignment="Left"  Name="btnAdd" 
+                                           VerticalAlignment="Top" Width="50"  Margin="10,2,0,0" Click="btnAdd_Click" />
+                                        <Button   Content="取消" Height="Auto" HorizontalAlignment="Left"  Name="btnClear" 
+                                           VerticalAlignment="Top" Width="50"  Margin="10,2,0,0" IsEnabled="False" Click="btnClear_Click" />
+                                        <Button    Content="保存" Height="Auto" HorizontalAlignment="Right"  Name="btnSave" 
+                                           VerticalAlignment="Top" Width="50"  Margin="10,2,0,0" Click="btnSave_Click" />
+                                        <Button   Content="重置" Height="Auto" HorizontalAlignment="Right"  Name="btnTxtClear" 
+                                           VerticalAlignment="Top" Width="50"  Margin="10,2,0,0" Click="btnTxtClear_Click" />
+                                    </StackPanel>-->
+                        <telerik:RadDataPager BorderThickness="0"   Height="32" PageSize="7" Source="{Binding Items, ElementName=GridView}" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="0,6,0,28" HorizontalContentAlignment="Right" Grid.ColumnSpan="2" />
+                        <StackPanel Orientation="Horizontal" Height="32" Background="Transparent" Margin="0,6,324,28" Grid.ColumnSpan="2">
+
+                            <Button Height="28" Cursor="Hand" HorizontalAlignment="Left" Name="btnAdd" BorderThickness="0" VerticalAlignment="Top" Width="65" Margin="10,2,0,0" Click="btnAdd_Click">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" />
+                            </Button>
+
+                            <Button Height="28" Cursor="Hand" HorizontalAlignment="Left" Name="btnUpdate" BorderThickness="0" VerticalAlignment="Top" Width="65" Margin="10,2,0,0" Click="btnUpdate_Click">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" />
+                            </Button>
+
+                            <Button Height="28" Cursor="Hand" HorizontalAlignment="Left" Name="btnDel" BorderThickness="0" VerticalAlignment="Top" Width="65" Margin="10,2,0,0" Click="btnDel_Click">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Height="281" Margin="0,43,0,0" Grid.RowSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="46"></RowDefinition>
+                            <RowDefinition Height="45*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="296*"></ColumnDefinition>
+                            <ColumnDefinition Width="0*" />
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="296*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <telerik:GroupBox Header="功能模块编辑" Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" FontSize="16" FontWeight="Black"   Grid.RowSpan="6" Height="210" HorizontalAlignment="Stretch" Margin="0,10,0,10" Name="groupBox1" VerticalAlignment="Center"   Grid.ColumnSpan="5" />
+                        <!--<TextBlock Height="30" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="300" Name="textBlock0" Text="模块编辑" VerticalAlignment="Top" Margin="45,5,0,0" FontWeight="Bold" FontSize="18" />-->
+                        <TextBlock Height="23" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock1" Text="功能编码：" VerticalAlignment="Top" Margin="45,9,0,0" />
+                        <TextBlock Height="23" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Name="textBlock2" Text="父功能编码：" VerticalAlignment="Top" Margin="33,9,0,0" />
+                        <TextBlock Height="23" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock3" Text="功能名称：" VerticalAlignment="Top" Margin="45,9,0,0" />
+                        <TextBlock Height="23" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock4" Text="功能URL：" VerticalAlignment="Top" Margin="45,9,0,0" />
+                        <TextBox Grid.Column="1" Grid.Row="1" Height="23" MaxLength="10" HorizontalAlignment="Left" Margin="10,5,0,0" Name="txtFunCode"  VerticalAlignment="Top" Width="196" />
+                        <!--<TextBox Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Height="23" HorizontalAlignment="Left" Margin="5,5,0,0" Name="txtFunCodeFather" VerticalAlignment="Top" Width="120" />-->
+
+
+                        <telerik:RadComboBox Grid.Row="1" Grid.Column="4" Name="cbxFatherCode" Style="{StaticResource RadComboBoxStyle}"
+                                                 SelectedValuePath="FunCode" ItemTemplate = "{StaticResource ComboBoxCustomTemplate}"
+                                             SelectionBoxTemplate = "{StaticResource ComboBoxCustomTemplate}"
+                                                  telerik:TextSearch.TextPath="FunCode" SelectionChanged="cbxFatherCode_SelectionChanged" Width="196" Margin="10,0,0,0">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12" Content="" />
+                            </ToolTipService.ToolTip>
+                            <telerik:RadComboBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel />
+                                </ItemsPanelTemplate>
+                            </telerik:RadComboBox.ItemsPanel>
+                        </telerik:RadComboBox>
+
+
+                        <TextBox Grid.Column="1" Grid.Row="2" Height="23" MaxLength="20" HorizontalAlignment="Left" Margin="10,5,0,0" Name="txtFunName" VerticalAlignment="Top" Width="196" />
+                        <TextBox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="4" MaxLength="50" Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="txtFunURL" VerticalAlignment="Top" Width="400" IsEnabled="False" />
+
+
+
+                        <TextBlock Height="23" Grid.Row="4" Grid.ColumnSpan="5" HorizontalAlignment="Left" Name="labalter" 
+                                       Text="注：1.当添加的为一级菜单时候父编码为空，功能URL为空。" Width="600" VerticalAlignment="Top" Margin="45,25,0,0" />
+                        <TextBlock Height="23" Grid.Row="5" Grid.ColumnSpan="5" HorizontalAlignment="Left" Name="labalter2" 
+                                       Text="      2.当添加的为二级菜单时候父编码为一级编码的功能编码，功能URL为功能对应的页面URL。" Width="600" VerticalAlignment="Top" Margin="45,5,0,0" />
+                        <Button BorderThickness="0" Cursor="Hand" Height="28" HorizontalAlignment="Left" Name="btnSave" VerticalAlignment="Top" Width="65"  Click="btnSave_Click" Grid.Column="4" Grid.Row="3" Margin="10,2,0,0">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" />
+                        </Button>
+                        <Button BorderThickness="0" Cursor="Hand" Height="28" HorizontalAlignment="Left" Name="btnTxtClear" VerticalAlignment="Top" Width="65"   Click="btnTxtClear_Click" Grid.Column="4" Grid.Row="3" Margin="85,1,0,0">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                        </Button>
+
+                        <Button BorderThickness="0" Cursor="Hand" Height="28" HorizontalAlignment="Left" Name="btnClear" VerticalAlignment="Top" Width="65" Grid.Column="4" Grid.Row="3" Margin="170,1,0,0" IsEnabled="False" Click="btnClear_Click">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/cancel.jpg" Width="63" />
+                        </Button>
+                        <sdk:Label Content="*" Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="208,12,0,0" Name="label1" VerticalAlignment="Top" Width="15" Grid.Column="1" Grid.Row="1" />
+                        <sdk:Label Content="*" Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="208,14,0,0" Name="label2" VerticalAlignment="Top" Width="15" Grid.Column="1" Grid.Row="2" />
+                        <sdk:Label Content="*" Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="410,12,0,0" Name="label3" VerticalAlignment="Top" Width="15" Grid.Column="1" Grid.Row="3" />
+                        <sdk:Label Content="提示：带有*的为必填项" Foreground="Red" Height="19" Margin="10,9,147,0" Name="label4" VerticalAlignment="Top" Grid.Column="4" Grid.Row="2" />
+                    </Grid>
+
+                    <Border BorderThickness="1" BorderBrush="Gray" Background="#ECF5FF" >
+                        <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,0" Width="789">
+
+                            <sdk:Label Height="15" HorizontalAlignment="Left" Margin="15,12,0,0" Name="lbQuery1" VerticalAlignment="Top" Width="51">功能名称:</sdk:Label>
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="tbQuery1" VerticalAlignment="Top" Width="196" />
+                            <sdk:Label Content="URL:" Height="15" HorizontalAlignment="Left" Margin="15,12,0,0" Name="lbQuery2" VerticalAlignment="Top" Width="30" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="tbQuery2" VerticalAlignment="Top" Width="196" />
+                            <Button Cursor="Hand" Height="28" HorizontalAlignment="Left" Margin="20,6,0,0" Name="btnQuery" VerticalAlignment="Top" BorderThickness="0" Width="65" Click="btnQuery_Click" >
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" />
+                            </Button>
+                            <Button Cursor="Hand"  Height="28" HorizontalAlignment="Left" Margin="20,6,0,0" Name="btnReset" BorderThickness="0" VerticalAlignment="Top" Width="65" Click="btnReset_Click">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                            </Button>
+                        </StackPanel>
+                    </Border>
+
+                </Grid>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+        <!--</telerik:RadTabItem.Content>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>-->
+
+    </Grid>
+</navigation:Page>

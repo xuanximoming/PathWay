@@ -1,0 +1,2363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{893FF967-3FAB-475F-9589-D73C7B3DDEC4}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YidanEHRApplication</RootNamespace>
+    <AssemblyName>Pathway</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Pathway.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>YidanEHRApplication.App</SilverlightAppEntry>
+    <TestPageFileName>PathwayTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>%24/PathWayNew/Pathway/Pathway</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>http://192.168.2.202:8080/tfs/defaultcollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Pathway.Web\ClientBin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Data.Services.Client, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.ReportViewer.Silverlight">
+      <HintPath>..\dll\Telerik.ReportViewer.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Charting, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.DataServices, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Controls.DataServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Controls.Diagrams.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonBar, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.RibbonBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Diagrams.Core">
+      <HintPath>Bin\Debug\Telerik.Windows.Diagrams.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Metro, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Office_Silver, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Themes.Office_Silver.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Summer, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>Bin\Debug\Telerik.Windows.Themes.Summer.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Transparent, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Themes.Transparent.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Vista, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Themes.Vista.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Windows7, Version=2012.1.215.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files\Telerik\RadControls for Silverlight Q1 2012\Binaries\Silverlight\Telerik.Windows.Themes.Windows7.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\ApplicationStrings.Designer.cs" />
+    <Compile Include="Assets\Resources\ErrorResources.Designer.cs" />
+    <Compile Include="Assets\Resources\SecurityQuestions.Designer.cs" />
+    <Compile Include="ChildWindows\AdviceSuitCategoryManage.xaml.cs">
+      <DependentUpon>AdviceSuitCategoryManage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\ChildMessageBox.xaml.cs">
+      <DependentUpon>ChildMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\ChildWindowChooseNextActivity.xaml.cs">
+      <DependentUpon>ChildWindowChooseNextActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\ChildWindowInputMessage.xaml.cs">
+      <DependentUpon>ChildWindowInputMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\ChildWindowPathVariation.xaml.cs">
+      <DependentUpon>ChildWindowPathVariation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWCopyPath.xaml.cs">
+      <DependentUpon>RWCopyPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWCyXDF.xaml.cs">
+      <DependentUpon>RWCyXDF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWJyJcMx.xaml.cs">
+      <DependentUpon>RWJyJcMx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathHosReport_Print.xaml.cs">
+      <DependentUpon>RWPathHosReport_Print.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathHosReport.xaml.cs">
+      <DependentUpon>RWPathHosReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\HlNurExecCategory.xaml.cs">
+      <DependentUpon>HlNurExecCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\HlNurResult.xaml.cs">
+      <DependentUpon>HlNurResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWDiagNurExecCategory.xaml.cs">
+      <DependentUpon>RWDiagNurExecCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathOrdersAll.xaml.cs">
+      <DependentUpon>RWPathOrdersAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathOrdersAll_Print.xaml.cs">
+      <DependentUpon>RWPathOrdersAll_Print.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathSummary_Print.xaml.cs">
+      <DependentUpon>RWPathSummary_Print.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWAccessNode.xaml.cs">
+      <DependentUpon>RWAccessNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWAccessPath2.xaml.cs">
+      <DependentUpon>RWAccessPath2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWAdviceMaintain.xaml.cs">
+      <DependentUpon>RWAdviceMaintain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWEditQuestion.xaml.cs">
+      <DependentUpon>RWEditQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWEnterConditionMaintain.xaml.cs">
+      <DependentUpon>RWEnterConditionMaintain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWEnterConditionMaintainNode.xaml.cs">
+      <DependentUpon>RWEnterConditionMaintainNode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWLeadInPath.xaml.cs">
+      <DependentUpon>RWLeadInPath.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChildWindows\RWMasterDrugAuthorize.xaml.cs">
+      <DependentUpon>RWMasterDrugAuthorize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWMasterDrugAuthorizeEntrance.xaml.cs">
+      <DependentUpon>RWMasterDrugAuthorizeEntrance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathCutEdit.xaml.cs">
+      <DependentUpon>RWPathCutEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathSummary.xaml.cs">
+      <DependentUpon>RWPathSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPathVariation.xaml.cs">
+      <DependentUpon>RWPathVariation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPatientInfo.xaml.cs">
+      <DependentUpon>RWPatientInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPatientPathInfo.xaml.cs">
+      <DependentUpon>RWPatientPathInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWPatInfo.xaml.cs">
+      <DependentUpon>RWPatInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\RWQuitPath.xaml.cs">
+      <DependentUpon>RWQuitPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\UCUnEnforceReason.xaml.cs">
+      <DependentUpon>UCUnEnforceReason.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\W_AdviceSuitAdd.xaml.cs">
+      <DependentUpon>W_AdviceSuitAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\HlXMNurExecCategory.xaml.cs">
+      <DependentUpon>HlXMNurExecCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChildWindows\ExamCodemanager.xaml.cs">
+      <DependentUpon>ExamCodemanager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BusyIndicator.cs" />
+    <Compile Include="Controls\InpatientDataGrid.cs" />
+    <Compile Include="Helpers\Copy.cs" />
+    <Compile Include="Controls\CustomDataForm.cs" />
+    <Compile Include="Controls\UCChildEditableMessageBox.xaml.cs">
+      <DependentUpon>UCChildEditableMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCChunOrder.xaml.cs">
+      <DependentUpon>UCChunOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCCyXDF.xaml.cs">
+      <DependentUpon>UCCyXDF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCDiagNur.xaml.cs">
+      <DependentUpon>UCDiagNur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCDrug.xaml.cs">
+      <DependentUpon>UCDrug.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCImagePanelControl.xaml.cs">
+      <DependentUpon>UCImagePanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCInPatientCard.xaml.cs">
+      <DependentUpon>UCInPatientCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCInpatientListControl.xaml.cs">
+      <DependentUpon>UCInpatientListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCOrderRemind.xaml.cs">
+      <DependentUpon>UCOrderRemind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCOtherOrder.xaml.cs">
+      <DependentUpon>UCOtherOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCPatientBasicInfo.xaml.cs">
+      <DependentUpon>UCPatientBasicInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCQueryPathInfoControl.xaml.cs">
+      <DependentUpon>UCQueryPathInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCRISLISOrder.xaml.cs">
+      <DependentUpon>UCRISLISOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCSumaryPathInfoControl.xaml.cs">
+      <DependentUpon>UCSumaryPathInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCTextGroupBoxControl.xaml.cs">
+      <DependentUpon>UCTextGroupBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCTextSeparateBoxControl.xaml.cs">
+      <DependentUpon>UCTextSeparateBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCUnNewReason.xaml.cs">
+      <DependentUpon>UCUnNewReason.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UCVariationCheckBox.xaml.cs">
+      <DependentUpon>UCVariationCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="ExtraControl\AutoCompleteBoxExtra.cs" />
+    <Compile Include="ExtraControl\RadMenuItemExtra.cs" />
+    <Compile Include="ExtraControl\RadNumericUpDownExtra.cs" />
+    <Compile Include="ExtraControl\RadWindowExtra.cs" />
+    <Compile Include="Helpers\AutoComboBoxHelper.cs" />
+    <Compile Include="Helpers\Browser.cs" />
+    <Compile Include="Helpers\Converter\ConditionalStyleSelector.cs" />
+    <Compile Include="Helpers\Converter\PathEnForceConvert.cs" />
+    <Compile Include="Helpers\Converter\PathManagerConvert.cs" />
+    <Compile Include="Helpers\Converter\PathStatusConveter.cs" />
+    <Compile Include="Helpers\Converter\PatientDetailInfoConvert.cs" />
+    <Compile Include="Helpers\CopyPathInfo.cs" />
+    <Compile Include="Helpers\DataBindingExtensions.cs" />
+    <Compile Include="Helpers\DataFieldExtensions.cs" />
+    <Compile Include="Helpers\Dataprocessing.cs" />
+    <Compile Include="Helpers\DataType.cs" />
+    <Compile Include="Helpers\Global.cs" />
+    <Compile Include="Helpers\GlobalEnum.cs" />
+    <Compile Include="Helpers\HisEncryption.cs" />
+    <Compile Include="Helpers\NotOperatorValueConverter.cs" />
+    <Compile Include="Helpers\ResourceWrapper.cs" />
+    <Compile Include="Helpers\ServiceHelper.cs" />
+    <Compile Include="Helpers\StringFormatValueConverter.cs" />
+    <Compile Include="Helpers\TargetNullValueConverter.cs" />
+    <Compile Include="Helpers\ToDataSource.cs" />
+    <Compile Include="Helpers\WorkFlowReleation.cs" />
+    <Compile Include="Models\DialogBoxShow.cs" />
+    <Compile Include="Models\OrderTypeName.cs" />
+    <Compile Include="Models\PublicMethod.cs" />
+    <Compile Include="NurModule\ChildWindows\RWNurNotesEntry.xaml.cs">
+      <DependentUpon>RWNurNotesEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\NurExecToPath.xaml.cs">
+      <DependentUpon>NurExecToPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCCheckBox.xaml.cs">
+      <DependentUpon>UCCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCCheckBoxes.xaml.cs">
+      <DependentUpon>UCCheckBoxes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurAdvice.xaml.cs">
+      <DependentUpon>UCNurAdvice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurExecBasicItem.xaml.cs">
+      <DependentUpon>UCNurExecBasicItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurExecChildItem.xaml.cs">
+      <DependentUpon>UCNurExecChildItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurExecItem.xaml.cs">
+      <DependentUpon>UCNurExecItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurExecute.xaml.cs">
+      <DependentUpon>UCNurExecute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurNotesInfo.xaml.cs">
+      <DependentUpon>UCNurNotesInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurNotesRecord.xaml.cs">
+      <DependentUpon>UCNurNotesRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCNurPathEnforce.xaml.cs">
+      <DependentUpon>UCNurPathEnforce.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NurModule\UserControls\UCDiagNurExec.xaml.cs">
+      <DependentUpon>UCDiagNurExec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pagetest.xaml.cs">
+      <DependentUpon>Pagetest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\ClinicalMedicines.xaml.cs">
+      <DependentUpon>ClinicalMedicines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\MedicineDirectsForm.xaml.cs">
+      <DependentUpon>MedicineDirectsForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\MedicinesForm.xaml.cs">
+      <DependentUpon>MedicinesForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\Model\ExpressionForm.xaml.cs">
+      <DependentUpon>ExpressionForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\Model\ObjectCell.cs" />
+    <Compile Include="Pass\Model\UserControlExpression.xaml.cs">
+      <DependentUpon>UserControlExpression.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\PassMainForm.xaml.cs">
+      <DependentUpon>PassMainForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\RWMedicineDirectDetailForm.xaml.cs">
+      <DependentUpon>RWMedicineDirectDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\RWPathMainDetailForm.xaml.cs">
+      <DependentUpon>RWPathMainDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pass\UCMedicinalEducation.xaml.cs">
+      <DependentUpon>UCMedicinalEducation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CP_DiagNurExecCategoryDetailMainPage.xaml.cs">
+      <DependentUpon>CP_DiagNurExecCategoryDetailMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DrugsManagerPage.xaml.cs">
+      <DependentUpon>DrugsManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\InpatientList.xaml.cs">
+      <DependentUpon>InpatientList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InterventionCenter.xaml.cs">
+      <DependentUpon>InterventionCenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LogInPage.xaml.cs">
+      <DependentUpon>LogInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterDrug2Role.xaml.cs">
+      <DependentUpon>MasterDrug2Role.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterDrug2User.xaml.cs">
+      <DependentUpon>MasterDrug2User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterDrugRoles.xaml.cs">
+      <DependentUpon>MasterDrugRoles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterDrugs.xaml.cs">
+      <DependentUpon>MasterDrugs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterDrugUserManager.xaml.cs">
+      <DependentUpon>MasterDrugUserManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NursingNotes\NursingNotesRecord.xaml.cs">
+      <DependentUpon>NursingNotesRecord.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NursingNotes\RWInPatientHistory.xaml.cs">
+      <DependentUpon>RWInPatientHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NursingNotes\RWNursingNotesEntry.xaml.cs">
+      <DependentUpon>RWNursingNotesEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Page_CP_NurExecCategoryDetailMaintain.xaml.cs">
+      <DependentUpon>Page_CP_NurExecCategoryDetailMaintain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathCutQuery.xaml.cs">
+      <DependentUpon>PathCutQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathEnForce.xaml.cs">
+      <DependentUpon>PathEnForce.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathEnForceBack.xaml.cs">
+      <DependentUpon>PathEnForceBack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathEnForceControl\PathEnForceControl.cs" />
+    <Compile Include="Views\PathEnforceLongOrderPrint.xaml.cs">
+      <DependentUpon>PathEnforceLongOrderPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathEnForceTempOrderPrint.xaml.cs">
+      <DependentUpon>PathEnForceTempOrderPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathEnForceZS.cs" />
+    <Compile Include="Views\PathEnForceZS.xaml.cs">
+      <DependentUpon>PathEnForceZS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathEnForce_CY.cs" />
+    <Compile Include="Views\PathManager.xaml.cs">
+      <DependentUpon>PathManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathManagerCondition.xaml.cs">
+      <DependentUpon>PathManagerCondition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathReview.xaml.cs">
+      <DependentUpon>PathReview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PathVariationDetail.xaml.cs">
+      <DependentUpon>PathVariationDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\Appcfg.xaml.cs">
+      <DependentUpon>Appcfg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\CP_CyXDFSuit.xaml.cs">
+      <DependentUpon>CP_CyXDFSuit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\CyxdfPage.xaml.cs">
+      <DependentUpon>CyxdfPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\EhrtoHisApp.xaml.cs">
+      <DependentUpon>EhrtoHisApp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\ExamDictionaryDetailManager.xaml.cs">
+      <DependentUpon>ExamDictionaryDetailManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\FunManager.xaml.cs">
+      <DependentUpon>FunManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\NewUserRoleManager.xaml.cs">
+      <DependentUpon>NewUserRoleManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\PathDiagnosisManager.xaml.cs">
+      <DependentUpon>PathDiagnosisManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\PermissionPage.xaml.cs">
+      <DependentUpon>PermissionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\RoleFunManager.xaml.cs">
+      <DependentUpon>RoleFunManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\RoleManager.xaml.cs">
+      <DependentUpon>RoleManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\RWChangePassword.xaml.cs">
+      <DependentUpon>RWChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\UCUserManager.xaml.cs">
+      <DependentUpon>UCUserManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\UserRoleManager.xaml.cs">
+      <DependentUpon>UserRoleManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\CodeManager.xaml.cs">
+      <DependentUpon>CodeManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\UserRoleManagerNew.xaml.cs">
+      <DependentUpon>UserRoleManagerNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\UserDeptManager.xaml.cs">
+      <DependentUpon>UserDeptManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\BeyondFeeRptPrint.xaml.cs">
+      <DependentUpon>BeyondFeeRptPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\FromManager.xaml.cs">
+      <DependentUpon>FromManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RbiBeyondDaysRptPrint.xaml.cs">
+      <DependentUpon>RbiBeyondDaysRptPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RgvForceToPathPrint.xaml.cs">
+      <DependentUpon>RgvForceToPathPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptInPathPatientFeePercent.xaml.cs">
+      <DependentUpon>RptInPathPatientFeePercent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptInPathPatientFeePercentPrint.xaml.cs">
+      <DependentUpon>RptInPathPatientFeePercentPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathEnterStatistics.xaml.cs">
+      <DependentUpon>RptPathEnterStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathEnterStatisticsPrint.xaml.cs">
+      <DependentUpon>RptPathEnterStatisticsPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathExitListPrint.xaml.cs">
+      <DependentUpon>RptPathExitListPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathFinish.xaml.cs">
+      <DependentUpon>RptPathFinish.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathFinishPrint.xaml.cs">
+      <DependentUpon>RptPathFinishPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathQuit.xaml.cs">
+      <DependentUpon>RptPathQuit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathQuitMonthCompare.xaml.cs">
+      <DependentUpon>RptPathQuitMonthCompare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathQuitMonthComparePrint.xaml.cs">
+      <DependentUpon>RptPathQuitMonthComparePrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathQuitPrint.xaml.cs">
+      <DependentUpon>RptPathQuitPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathStatistics.xaml.cs">
+      <DependentUpon>RptPathStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathStatisticsPrint.xaml.cs">
+      <DependentUpon>RptPathStatisticsPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariation.xaml.cs">
+      <DependentUpon>RptPathVariation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationAnalyse.xaml.cs">
+      <DependentUpon>RptPathVariationAnalyse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationAnalysePrint.xaml.cs">
+      <DependentUpon>RptPathVariationAnalysePrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationMonitor.xaml.cs">
+      <DependentUpon>RptPathVariationMonitor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationMonitorPrint.xaml.cs">
+      <DependentUpon>RptPathVariationMonitorPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationPrint.xaml.cs">
+      <DependentUpon>RptPathVariationPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPrintInPatientAdvice.xaml.cs">
+      <DependentUpon>RptPrintInPatientAdvice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathStatisticsDetail.xaml.cs">
+      <DependentUpon>RptPathStatisticsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationDetail.xaml.cs">
+      <DependentUpon>RptPathVariationDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathFinishDetail.xaml.cs">
+      <DependentUpon>RptPathFinishDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathQuitMonthCompareDetail.xaml.cs">
+      <DependentUpon>RptPathQuitMonthCompareDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathEnterStatisticsDetail.xaml.cs">
+      <DependentUpon>RptPathEnterStatisticsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationAnalyseDetail.xaml.cs">
+      <DependentUpon>RptPathVariationAnalyseDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationMonitorDetail.xaml.cs">
+      <DependentUpon>RptPathVariationMonitorDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathStatisticsDetailPrint.xaml.cs">
+      <DependentUpon>RptPathStatisticsDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationDetailPrint.xaml.cs">
+      <DependentUpon>RptPathVariationDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathFinishDetailPrint.xaml.cs">
+      <DependentUpon>RptPathFinishDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathQuitMonthCompareDetailPrint.xaml.cs">
+      <DependentUpon>RptPathQuitMonthCompareDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationMonitorDetailPrint.xaml.cs">
+      <DependentUpon>RptPathVariationMonitorDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathEnterStatisticsDetailPrint.xaml.cs">
+      <DependentUpon>RptPathEnterStatisticsDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrintForm\RptPathVariationAnalyseDetailPrint.xaml.cs">
+      <DependentUpon>RptPathVariationAnalyseDetailPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QueryPathExecute.xaml.cs">
+      <DependentUpon>QueryPathExecute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWAdviceList.xaml.cs">
+      <DependentUpon>RWAdviceList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWMedicalTreatmentWarm.xaml.cs">
+      <DependentUpon>RWMedicalTreatmentWarm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWPagePrint.xaml.cs">
+      <DependentUpon>RWPagePrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWPathNodeSetting.xaml.cs">
+      <DependentUpon>RWPathNodeSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWPathNodeSettingMS.xaml.cs">
+      <DependentUpon>RWPathNodeSettingMS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWPathVariationClassCode.xaml.cs">
+      <DependentUpon>RWPathVariationClassCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RWQueryPathExecuteNoteCompare.xaml.cs">
+      <DependentUpon>RWQueryPathExecuteNoteCompare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCPatientDetailInfo.xaml.cs">
+      <DependentUpon>UCPatientDetailInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCPatientDetailPhySign.xaml.cs">
+      <DependentUpon>UCPatientDetailPhySign.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCPatientDetailVitalSigns.xaml.cs">
+      <DependentUpon>UCPatientDetailVitalSigns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserCenterManager.xaml.cs">
+      <DependentUpon>UserCenterManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\W_AdviceSuit.xaml.cs">
+      <DependentUpon>W_AdviceSuit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\W_AdviceSuitCategory.xaml.cs">
+      <DependentUpon>W_AdviceSuitCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\ActivityPicture\AutomationActivity.xaml.cs">
+      <DependentUpon>AutomationActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\ActivityPicture\BranchActivity.xaml.cs">
+      <DependentUpon>BranchActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\ActivityPicture\CompletionActivity.xaml.cs">
+      <DependentUpon>CompletionActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\ActivityPicture\IActivityPicture.cs" />
+    <Compile Include="WorkFlow\ActivityPicture\InitialAcitivity.xaml.cs">
+      <DependentUpon>InitialAcitivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\ActivityPicture\InteractoinAcitivity.xaml.cs">
+      <DependentUpon>InteractoinAcitivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\ActivityPicture\MergeActivity.xaml.cs">
+      <DependentUpon>MergeActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Component\ActivityComponent.cs" />
+    <Compile Include="WorkFlow\Component\RuleComponent.cs" />
+    <Compile Include="WorkFlow\Component\SystemConst.cs" />
+    <Compile Include="WorkFlow\Component\Utility.cs" />
+    <Compile Include="WorkFlow\Control\ActivitySetting.xaml.cs">
+      <DependentUpon>ActivitySetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Control\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Control\RuleSetting.xaml.cs">
+      <DependentUpon>RuleSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\Activity.xaml.cs">
+      <DependentUpon>Activity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ActivityMenu.xaml.cs">
+      <DependentUpon>ActivityMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ActivityPictureContainer.xaml.cs">
+      <DependentUpon>ActivityPictureContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\Arrowhead.cs" />
+    <Compile Include="WorkFlow\Designer\Container.xaml.cs">
+      <DependentUpon>Container.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ContainerEdit.xaml.cs">
+      <DependentUpon>ContainerEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ContainerEditPathCut.xaml.cs">
+      <DependentUpon>ContainerEditPathCut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ContainerMenu.xaml.cs">
+      <DependentUpon>ContainerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ContainerShow.xaml.cs">
+      <DependentUpon>ContainerShow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ContainerView.xaml.cs">
+      <DependentUpon>ContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\ErrorTip.xaml.cs">
+      <DependentUpon>ErrorTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\IContainer.cs" />
+    <Compile Include="WorkFlow\Designer\IElement.cs" />
+    <Compile Include="WorkFlow\Designer\Label.xaml.cs">
+      <DependentUpon>Label.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\LabelMenu.xaml.cs">
+      <DependentUpon>LabelMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\Rule.xaml.cs">
+      <DependentUpon>Rule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\RuleMenu.xaml.cs">
+      <DependentUpon>RuleMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Designer\RuleTurnPoint.xaml.cs">
+      <DependentUpon>RuleTurnPoint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Resources\Text.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Text.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\WorkFlow_Extend.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\ActiveChildren.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\ActiveChildrens.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Activitys.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Activity_Extend.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\ElementState.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Flow.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Flows.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Labels.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Rules.cs" />
+    <Compile Include="WorkFlow\WorkFlow_Extend\Rule_Extend.cs" />
+    <Compile Include="YiDanCommon\Ctrs\YidanPathWayMessageBox.xaml.cs">
+      <DependentUpon>YidanPathWayMessageBox.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Assets\BorderStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\GridStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ManyTabControlStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Parameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\StackPanelStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles_Extend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChildWindows\AdviceSuitCategoryManage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\ChildMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\ChildWindowChooseNextActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\ChildWindowInputMessage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\ChildWindowPathVariation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWCopyPath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChildWindows\RWCyXDF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWJyJcMx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathHosReport_Print.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathHosReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\HlNurExecCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\HlNurResult.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWDiagNurExecCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChildWindows\RWPathOrdersAll.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathOrdersAll_Print.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathSummary_Print.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWAccessNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWAccessPath2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWAdviceMaintain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWEditQuestion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWEnterConditionMaintain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWEnterConditionMaintainNode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWLeadInPath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChildWindows\RWMasterDrugAuthorize.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWMasterDrugAuthorizeEntrance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathCutEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathSummary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPathVariation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPatientInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWPatientPathInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChildWindows\RWPatInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\RWQuitPath.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\UCUnEnforceReason.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\W_AdviceSuitAdd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\HlXMNurExecCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChildWindows\ExamCodemanager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\BusyIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCChildEditableMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCChunOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCCyXDF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UCDiagNur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UCDrug.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCImagePanelControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCInPatientCard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCInpatientListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCOrderRemind.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCOtherOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCPatientBasicInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCQueryPathInfoControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCRISLISOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCSumaryPathInfoControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCTextGroupBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCTextSeparateBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCUnNewReason.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UCVariationCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\ChildWindows\RWNurNotesEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\NurExecToPath.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCCheckBoxes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurAdvice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurExecBasicItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurExecChildItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurExecItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurExecute.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurNotesInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurNotesRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCNurPathEnforce.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NurModule\UserControls\UCDiagNurExec.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pagetest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pass\ClinicalMedicines.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\MedicineDirectsForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\MedicinesForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\Model\ExpressionForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\Model\UserControlExpression.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\PassMainForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\RWMedicineDirectDetailForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\RWPathMainDetailForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pass\UCMedicinalEducation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CP_DiagNurExecCategoryDetailMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DrugsManagerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InpatientList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InterventionCenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\LogInPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MasterDrug2Role.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MasterDrug2User.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MasterDrugRoles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MasterDrugs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MasterDrugUserManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NursingNotes\NursingNotesRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NursingNotes\RWInPatientHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NursingNotes\RWNursingNotesEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Page_CP_NurExecCategoryDetailMaintain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathCutQuery.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathEnForce.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathEnForceBack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathEnforceLongOrderPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathEnForceTempOrderPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathEnForceZS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathManagerCondition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathReview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PathVariationDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\Appcfg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\CP_CyXDFSuit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Permission\CyxdfPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Permission\EhrtoHisApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\ExamDictionaryDetailManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\FunManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\NewUserRoleManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\PathDiagnosisManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\PermissionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\RoleFunManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\RoleManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\RWChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\UCUserManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\UserRoleManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\CodeManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\UserRoleManagerNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Permission\UserDeptManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\BeyondFeeRptPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\FromManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RbiBeyondDaysRptPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RgvForceToPathPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptInPathPatientFeePercent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptInPathPatientFeePercentPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathEnterStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathEnterStatisticsPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathExitListPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathFinish.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathFinishPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathQuit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathQuitMonthCompare.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathQuitMonthComparePrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathQuitPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathStatisticsPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationAnalyse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationAnalysePrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationMonitor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationMonitorPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPrintInPatientAdvice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathStatisticsDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathFinishDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathQuitMonthCompareDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathEnterStatisticsDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationAnalyseDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationMonitorDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathStatisticsDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathFinishDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathQuitMonthCompareDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationMonitorDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathEnterStatisticsDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrintForm\RptPathVariationAnalyseDetailPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\QueryPathExecute.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RWAdviceList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RWMedicalTreatmentWarm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RWPagePrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RWPathNodeSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RWPathNodeSettingMS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RWPathVariationClassCode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RWQueryPathExecuteNoteCompare.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UCPatientDetailInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UCPatientDetailPhySign.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UCPatientDetailVitalSigns.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserCenterManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\W_AdviceSuit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\W_AdviceSuitCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\ActivityPicture\AutomationActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\ActivityPicture\BranchActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\ActivityPicture\CompletionActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\ActivityPicture\InitialAcitivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\ActivityPicture\InteractoinAcitivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\ActivityPicture\MergeActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Control\ActivitySetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Control\Loading.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Control\RuleSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\Activity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ActivityMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ActivityPictureContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\Container.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ContainerEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ContainerEditPathCut.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ContainerMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ContainerShow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ContainerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\ErrorTip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\Label.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\LabelMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\Rule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\RuleMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WorkFlow\Designer\RuleTurnPoint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="YiDanCommon\Ctrs\YidanPathWayMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.AboutUS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.APPCFG.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AdviceAnesthesiaDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AdviceFrequency.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AdviceGroupDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AdviceSuit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AdviceSuitCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AdviceSuitDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_AllergyHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_Anesthesia.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_BeyondDays.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_BeyondFee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_ChargingMinItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_ClinicalDiagnosisList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_ClinicalPathList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_CYFUnion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_CYXDF.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_CYXDFMX.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_CyXDFOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DataCategoryDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DepartmentList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DiagnosisList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_Diagnosis_E.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DiagNurExecCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DiagNurExecCategoryDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DiagNurTemplate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DoctorOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DoctorTaskMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_DrugUseage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_ExamDictionaryDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_FamilyHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_ForceToPath.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_IllnessHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InPathPatientList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InPatient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InpatientFeeInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InpatientPathCVInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InpatientPhySign.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InpatinetList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_InpatinetListPaging.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_LongOrderList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MasterDrug2Role.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MasterDrug2User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MasterDrugRoles.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MasterDrugs.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MedicalTreatmentWarm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MedicalTreatmentWarmGroupByTxlx.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_MedicinalEducation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurExecCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurExecCategoryDetailMaintain.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurExecInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurExecItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurExecToPath.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NurseCodeCollection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_NursingNotesRecordCollection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_Operation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathCutEdit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathCutTotal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathEnterJudgeCondition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathExecVariantRecords.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathExit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathOrdersAll.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PathVariation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PCSJ.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PCSJ_E.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PersonalHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_PlaceOfDrug.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_QCProblem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_QCRecordTip.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_QueryPathExecute.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_QueryPathExecuteNoteCompare.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_Surgery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_SurgeryHistory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_TempOrderList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_VariantRecords.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_VariationToPath.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_VariationToPathInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CP_VitalSignsTwMbHx.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.CVersion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.DrugInfoPass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Expressions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.HisSxpz.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.InterventionCenterInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Medicine.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.MedicineDirect.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Modal_Diagnosis.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Modal_PatientContactsInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Modal_PatientInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_CodeList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_CompleteUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_ExamDictionary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_ExamDictionaryDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_Fun.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_Hlxm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_PatientIn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_Role.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_RoleFun.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_UserRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.PE_UserRoleList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_ClinicalDiagnosis.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_DataList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_InPathPatientFeePercent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_PathEnterStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathFinish.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathFinishDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_PathQuitMonthCompare.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathQuitMonthCompareDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathStatistic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathStatisticDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathVariation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_PathVariationAnalyse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathVariationDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_PathVariationMonitor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RPT_PathVariationMonitorDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.Rpt_QueryCondition.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RW_PathSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RW_PathSummary_new.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.RW_PatientExamItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.SQLMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.User2Dept.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.UserCenterManagerInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.V_PatientExamine.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.V_PermissionList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.V_PermissionListFather.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRApplication.DataService.V_QCRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService.wsdl" />
+    <None Include="Service References\DataService\YidanEHRDataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService1.wsdl" />
+    <None Include="Service References\DataService\YidanEHRDataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\YidanEHRDataService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="YiDanCommon\Image\MessageBoxError.png" />
+    <Resource Include="YiDanCommon\Image\MessageBoxMessage.png" />
+    <Resource Include="YiDanCommon\Image\MessageBoxPrompt.png" />
+    <Resource Include="YiDanCommon\Image\MessageBoxWarning.png" />
+    <Resource Include="Images\医嘱执行.png" />
+    <Resource Include="Images\撤销操作.png" />
+    <Resource Include="Images\添加路径节点.png" />
+    <Resource Include="Images\路径维护保存.png" />
+    <Resource Include="Images\重复操作.png" />
+    <Resource Include="Images\重置路径.png" />
+    <Resource Include="Images\护理项目维护.png" />
+    <Resource Include="Images\检查项分类维护.png" />
+    <Resource Include="Images\停止1.png" />
+    <Resource Include="Images\取消.png" />
+    <Resource Include="Images\执行.png" />
+    <Resource Include="Images\iconall.PNG" />
+    <Resource Include="Images\icon全部.PNG" />
+    <Resource Include="Images\icon已停止.PNG" />
+    <Resource Include="Images\icon已取消.PNG" />
+    <Resource Include="Images\icon已审核.PNG" />
+    <Resource Include="Images\icon已执行.PNG" />
+    <Resource Include="Images\icon待审核.PNG" />
+    <Resource Include="Images\查看体温.png" />
+    <Resource Include="Images\查看全部%28天%29.png" />
+    <Resource Include="Images\查看全部%28小时%29.png" />
+    <Resource Include="Images\查看呼吸.png" />
+    <Resource Include="Images\查看脉搏.png" />
+    <Resource Include="Images\查看下一天.png" />
+    <Resource Include="Images\路径执行.png" />
+    <Resource Include="Images\医嘱套餐.png" />
+    <Resource Include="Images\套餐类别.png" />
+    <Resource Include="Images\详细.png" />
+    <Resource Include="Images\向右.PNG" />
+    <Resource Include="Images\向左.PNG" />
+    <Resource Include="Images\住院表单.png" />
+    <Resource Include="Images\查看详细.png" />
+    <Resource Include="Images\隐藏详细.png" />
+    <Resource Include="Images\复制路径.png" />
+    <None Include="Service References\DataService\YidanEHRDataService.disco" />
+    <None Include="Service References\DataService\configuration91.svcinfo" />
+    <None Include="Service References\DataService\configuration.svcinfo" />
+    <None Include="Service References\DataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Images\上移.png" />
+    <Resource Include="Images\下移.png" />
+    <Resource Include="Images\置顶.png" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+    <Resource Include="Images\提交.png" />
+    <Resource Include="Images\自动生成.png" />
+    <Resource Include="Images\路径详细.png" />
+    <Resource Include="Images\Icons\icon_all.jpg" />
+    <Resource Include="Images\Icons\icon_exit.jpg" />
+    <Resource Include="Images\Icons\icon_in.jpg" />
+    <Resource Include="Images\Icons\icon_notallow.jpg" />
+    <Resource Include="Images\Icons\icon_notin.jpg" />
+    <Resource Include="Images\Icons\icon_over.jpg" />
+    <Resource Include="Images\img_right.jpg" />
+    <Resource Include="Images\进入节点.png" />
+    <Resource Include="Images\取消评估.png" />
+    <Resource Include="Images\add.jpg" />
+    <Resource Include="Images\cancel.jpg" />
+    <Resource Include="Images\del.jpg" />
+    <Resource Include="Images\edit.jpg" />
+    <Resource Include="Images\renovate.jpg" />
+    <Resource Include="Images\save - 副本.jpg" />
+    <Resource Include="Images\save - 副本2 - 副本.jpg" />
+    <Resource Include="Images\save - 副本2.jpg" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\下一步路径.png" />
+    <Resource Include="Images\临床路径告知单.png" />
+    <Resource Include="Images\主导航点击后效果.png" />
+    <Resource Include="Images\主导航鼠标移上时效果.png" />
+    <Resource Include="Images\从路径库删除.png" />
+    <Resource Include="Images\保存医嘱.png" />
+    <Resource Include="Images\停用.png" />
+    <Resource Include="Images\入院评估.png" />
+    <Resource Include="Images\全部按钮.png" />
+    <Resource Include="Images\创建编码.png" />
+    <Resource Include="Images\医嘱列表.png" />
+    <Resource Include="Images\医嘱执行与变异跟踪.png" />
+    <Resource Include="Images\反审核.png" />
+    <Resource Include="Images\发送医嘱.png" />
+    <Resource Include="Images\启用.png" />
+    <Resource Include="Images\归类编码.png" />
+    <Resource Include="Images\循环节点上一步.png" />
+    <Resource Include="Images\循环节点下一步.png" />
+    <Resource Include="Images\打印.png" />
+    <Resource Include="Images\护理分类维护.png" />
+    <Resource Include="Images\查看护理信息.png" />
+    <Resource Include="Images\查询 .jpg" />
+    <Resource Include="Images\添加路径诊断库.png" />
+    <Resource Include="Images\病人信息维护.png" />
+    <Resource Include="Images\病人病史信息.png" />
+    <Resource Include="Images\确定.png" />
+    <Resource Include="Images\统计.png" />
+    <Resource Include="Images\维护.png" />
+    <Resource Include="Images\路径完成.png" />
+    <Resource Include="Images\路径总结.png" />
+    <Resource Include="Images\进入路径.png" />
+    <Resource Include="Images\退出.png" />
+    <Resource Include="Images\退出路径.png" />
+    <Resource Include="Images\配置.png" />
+    <Resource Include="Images\add - 副本.jpg" />
+    <Resource Include="Images\查询.png" />
+    <Resource Include="Images\重置.png" />
+    <Resource Include="Images\成组.png" />
+    <Resource Include="Images\使用原因.png" />
+    <Resource Include="Images\取消成组.png" />
+    <Resource Include="Images\套餐类别维护.png" />
+    <Resource Include="Images\计算.png" />
+    <Resource Include="Images\审核.png" />
+    <Resource Include="Images\循环节点上一步2.png" />
+    <Resource Include="Images\循环节点下一步2.png" />
+    <Resource Include="Images\护理结果维护.png" />
+    <Resource Include="Images\新增医嘱.PNG" />
+    <Resource Include="Images\查看详细信息.png" />
+    <Resource Include="Images\Icons\icon_all.png" />
+    <Resource Include="Images\Icons\icon_exit.png" />
+    <Resource Include="Images\Icons\icon_in.png" />
+    <Resource Include="Images\Icons\icon_notallow.png" />
+    <Resource Include="Images\Icons\icon_notin.png" />
+    <Resource Include="Images\Icons\icon_over.png" />
+    <Content Include="Views\PathEnForceControl\路径执行控制示意图.bmp" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Assets\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Images\back.jpg" />
+    <Resource Include="Images\BackGroudNew-All.jpg" />
+    <Resource Include="Images\BackgroudNew.jpg" />
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\Down.png" />
+    <Resource Include="Images\Icons\TreeView1.png" />
+    <Resource Include="Images\Icons\TreeView10.png" />
+    <Resource Include="Images\Icons\TreeView11.png" />
+    <Resource Include="Images\Icons\TreeView12.png" />
+    <Resource Include="Images\Icons\TreeView13.png" />
+    <Resource Include="Images\Icons\TreeView2.png" />
+    <Resource Include="Images\Icons\TreeView3.png" />
+    <Resource Include="Images\Icons\TreeView4.png" />
+    <Resource Include="Images\Icons\TreeView5.png" />
+    <Resource Include="Images\Icons\TreeView6.png" />
+    <Resource Include="Images\Icons\TreeView7.png" />
+    <Resource Include="Images\Icons\TreeView8.png" />
+    <Resource Include="Images\Icons\TreeView9.png" />
+    <Resource Include="Images\Icons\Treeviewitem_hover.png" />
+    <Resource Include="Images\InpatientSexMan.png" />
+    <Resource Include="Images\InpatientSexWoman.png" />
+    <Resource Include="Images\LogIn.jpg" />
+    <Resource Include="Images\LogIn2.jpg" />
+    <Resource Include="Images\LogInCancel.png" />
+    <Resource Include="Images\LogInOK.png" />
+    <Resource Include="Images\LogInOK2.png" />
+    <Resource Include="Images\LoginPanel.jpg" />
+    <Resource Include="Images\loginPanelTop.jpg" />
+    <Resource Include="Images\LogInPsw.jpg" />
+    <Resource Include="Images\LogInUserName.jpg" />
+    <Resource Include="Images\login_img_06.png" />
+    <Resource Include="Images\Logo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LogoBackGround.jpg" />
+    <Resource Include="Images\LogoBackGround_2.jpg" />
+    <Resource Include="Images\Menu-New.jpg" />
+    <Resource Include="Images\menu_bg1.png" />
+    <Resource Include="Images\NursingNotes_Center.png" />
+    <Resource Include="Images\NursingNotes_Left.png" />
+    <Resource Include="Images\NursingNotes_Right.png" />
+    <Resource Include="Images\Pass_FDA妊娠安全性分级.jpg" />
+    <Resource Include="Images\Pass_不良反应分类.jpg" />
+    <Resource Include="Images\Pass_中化人民共和国药典.jpg" />
+    <Resource Include="Images\Pass_医药信息.jpg" />
+    <Resource Include="Images\Pass_医药学常用计算公式.jpg" />
+    <Resource Include="Images\Pass_医药法规.jpg" />
+    <Resource Include="Images\Pass_合理用药与信息化.jpg" />
+    <Resource Include="Images\Pass_抗菌药物临床应用指导员则.jpg" />
+    <Resource Include="Images\Pass_查询中心.jpg" />
+    <Resource Include="Images\Pass_用药教育反面.jpg" />
+    <Resource Include="Images\Pass_用药教育封面.jpg" />
+    <Resource Include="Images\Pass_病人用药教育.jpg" />
+    <Resource Include="Images\Pass_禁忌症分类.jpg" />
+    <Resource Include="Images\Pass_药品说明书.jpg" />
+    <Resource Include="Images\Pass_药物临床信息参考.jpg" />
+    <Resource Include="Images\Pass_药特分类查询.jpg" />
+    <Resource Include="Images\Pass_药理分类.jpg" />
+    <Resource Include="Images\Pass_适应症分类.jpg" />
+    <Resource Include="Images\patient_48.png" />
+    <Resource Include="Images\patInfo.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\top_bt.jpg" />
+    <Resource Include="Images\top_bt.png" />
+    <Resource Include="Images\transparent.png" />
+    <Resource Include="Images\Up.png" />
+    <Resource Include="Images\user-info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx" />
+    <EmbeddedResource Include="Assets\Resources\ErrorResources.resx" />
+    <EmbeddedResource Include="Assets\Resources\SecurityQuestions.resx" />
+    <EmbeddedResource Include="WorkFlow\Resources\Text.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Text.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DataService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YidanSoft.Tool\DrectSoft.Tool.csproj">
+      <Project>{be2137d1-5018-48ea-a3d5-538683588f49}</Project>
+      <Name>DrectSoft.Tool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

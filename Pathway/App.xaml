@@ -1,0 +1,27 @@
+﻿<Application   
+  x:Class="YidanEHRApplication.App"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:app="clr-namespace:YidanEHRApplication"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Styles.xaml"/>
+                <ResourceDictionary Source="Assets/Styles_Extend.xaml"/>
+                <ResourceDictionary Source="Assets/ManyTabControlStyles.xaml"/>
+                <ResourceDictionary Source="Assets/BorderStyles.xaml"/>
+                <ResourceDictionary Source="Assets/GridStyles.xaml"/>
+                <ResourceDictionary Source="Assets/StackPanelStyles.xaml"/>
+                <ResourceDictionary>
+                    <app:ResourceWrapper x:Key="ResourceWrapper" />
+                    <app:NotOperatorValueConverter x:Key="NotOperatorValueConverter" />
+                    <!--<app:PathEnForceForClorConvert x:Key="PathEnForceForClorConver" />此处本想在ConditionConverter里使用,结果发现解析不出来,但是在Convert里可以解析出来，如下面的PathEnForceGridCellEditor-->
+                    <app:PathEnForceGridCellEditor x:Key="PathEnForceGridCellEditor" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

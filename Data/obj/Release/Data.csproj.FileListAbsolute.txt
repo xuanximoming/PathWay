@@ -1,0 +1,4 @@
+F:\Demo\pathway\Pathway\Data\obj\Release\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Manageability.Properties.Resources.resources
+F:\Demo\pathway\Pathway\Data\obj\Release\Microsoft.Practices.EnterpriseLibrary.Data.Properties.Resources.resources
+F:\Demo\pathway\Pathway\Data\obj\Release\Data.csproj.GenerateResource.Cache
+F:\Demo\pathway\Pathway\Data\obj\Release\Microsoft.Practices.EnterpriseLibrary.Data.pdb

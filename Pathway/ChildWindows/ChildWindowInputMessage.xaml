@@ -1,0 +1,18 @@
+﻿<controls:ChildWindow x:Class="YidanEHRApplication.ChildWindowInputMessage"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="400" Height="300" 
+           Title="ChildWindowInputMessage" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" Loaded="ChildWindow_Loaded">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="输入信息" Name="MessageInfo" TextAlignment="Center"  TextWrapping="Wrap"  Margin="10"></TextBlock>
+        <TextBox Name="InputMessage" Width="350"  Height="150" Margin="14,47,14,29" TextWrapping="Wrap" TextChanged="InputMessage_TextChanged"></TextBox>
+        <Button x:Name="CancelButton" Content="取消" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="确定" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+        <sdk:Label Height="28" HorizontalAlignment="Left" Margin="14,198,0,0" Foreground="Red" FontWeight="Bold" Name="ErrorInfo" Visibility="Collapsed" VerticalAlignment="Center"  Width="120" />
+    </Grid>
+</controls:ChildWindow>

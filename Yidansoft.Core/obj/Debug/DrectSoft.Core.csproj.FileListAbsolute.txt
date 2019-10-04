@@ -1,0 +1,5 @@
+F:\Demo\pathway\Pathway\Yidansoft.Core\obj\Debug\DrectSoft.Core.csprojResolveAssemblyReference.cache
+F:\Demo\pathway\publish\DrectSoft.Core.dll
+F:\Demo\pathway\publish\DrectSoft.Core.pdb
+F:\Demo\pathway\Pathway\Yidansoft.Core\obj\Debug\DrectSoft.Core.dll
+F:\Demo\pathway\Pathway\Yidansoft.Core\obj\Debug\DrectSoft.Core.pdb

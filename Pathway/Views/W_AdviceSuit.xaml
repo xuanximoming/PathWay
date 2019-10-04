@@ -1,0 +1,190 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.W_AdviceSuit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+    mc:Ignorable="d"
+	xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+    d:DesignHeight="768" d:DesignWidth="1024" 
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    Title="医嘱套餐" >
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.Resources>
+            <DataTemplate x:Key="lbxKeShi" >
+                <TextBlock Text="{Binding Path=Name}" Width="180" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+            </DataTemplate>
+ 
+        </Grid.Resources>
+        <!--<telerik:RadTabControl>
+            <telerik:RadTabItem>
+                <telerik:RadTabItem.Header >
+                    <TextBlock>医嘱套餐管理</TextBlock>
+                </telerik:RadTabItem.Header>
+                <telerik:RadTabItem.Content>-->
+        <telerik:RadDocking  Name="SettingDetails" telerikQuickStart:ThemeAwareBackgroundBehavior.IsEnabled="True" AllowUnsafeMode="True"  Background="#ECF5FF" >
+            <telerik:RadSplitContainer Name="LeftContainer" InitialPosition="DockedLeft" Width="260"  >
+                <telerik:RadPaneGroup   x:Name="GroupOrder" IsEnabled="True" IsTabStop="True"  
+                                                     IsHitTestVisible="True" UseLayoutRounding="False" 
+                                                     IsTextSearchEnabled="True" PropagateItemDataContextToContent="True" 
+                                                     ReorderTabRows="True" BorderBrush="#FF35629A" IsDropDownOpen="True" 
+                                                     AllowDragOverTab="False">
+                    <telerik:RadPane ContextMenuTemplate="{x:Null}" 
+                            Header="医嘱套餐列表"  BorderBrush="Blue" CanUserClose="False" CanFloat="False" CanUserPin="True"  
+                  CanDockInDocumentHost="True" IsTabStop="True" IsPinned="True" ToolTipService.ToolTip="" IsHitTestVisible="True" IsEnabled="True" UseLayoutRounding="True" HeaderTemplate="{StaticResource OriginsDataTemplate}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Height="30"  HorizontalAlignment="Center" >
+                                <RadioButton Name="chkKeShi" Checked="chk_Checked" CommandParameter="2901" IsChecked="True"   Content="科室套餐"  Margin="0,0,20,0" FlowDirection="LeftToRight" VerticalAlignment="Center" GroupName="taochan"></RadioButton>
+                                <RadioButton Name="chkGeRen" Checked="chk_Checked" CommandParameter="2903" Content="个人套餐" FlowDirection="LeftToRight" VerticalAlignment="Center" GroupName="taochan"></RadioButton>
+                            </StackPanel>
+
+                            <ListBox   MinHeight="370" Grid.Row="1" Grid.Column="0"  VerticalAlignment="Stretch" Name="lbxKeShi" 
+                                                       SelectedValue="{Binding Ctyzxh}" ItemTemplate="{StaticResource lbxKeShi}" SelectionChanged="lbxKeShi_SelectionChanged" IsEnabled="True" Visibility="Collapsed">
+
+                            </ListBox>
+                            <!-- 医嘱套餐树视图 -->
+                            <telerik:RadTreeView Grid.Row="1"
+                                   MinHeight="370" HorizontalAlignment="Stretch" Name="tvList" VerticalAlignment="Stretch" MouseLeftButtonUp="TextBlock_MouseLeftButtonDown" SelectionChanged="tvList_SelectionChanged" IsHitTestVisible="True">
+                            </telerik:RadTreeView>
+                            <telerik:RadToolBar  Grid.Row="2" Height="32" VerticalAlignment="Top">
+                                <!--<Button Content="添加" Name="btnKeShiAdd" Click="btnKeShiAdd_Click"></Button>-->
+
+                                <Button Height="28" Width="65" Name="btnKeShiAdd" Click="btnKeShiAdd_Click"  BorderThickness="0">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />
+                                </Button>
+
+                                <!--<Button Content="删除" Name="btnKeShiDelete" Click="btnKeShiDelete_Click" ></Button>-->
+
+                                <Button Height="28" Width="65" Name="btnKeShiDelete" Click="btnKeShiDelete_Click" BorderThickness="0">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" Cursor="Hand" />
+                                </Button>
+
+                                <!--<Button Content="编辑"  Name="btnKeShiEditDetails" Click="btnKeShiEditDetails_Click"></Button>-->
+
+                                <Button Height="28" Width="65" Name="btnKeShiEditDetails" Click="btnKeShiEditDetails_Click"  BorderThickness="0" Visibility="Collapsed">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" Cursor="Hand" />
+                                </Button>
+
+                                <!--<Button Content="套餐类别维护"  Name="btnCategory" Click="btnCategory_Click"></Button>-->
+
+                                <Button Height="28" Width="92" Name="btnCategory" Click="btnCategory_Click"  BorderThickness="0">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/套餐类别维护.png" Width="92" Cursor="Hand" />
+                                </Button>
+
+
+                                <!--<Button Content="上移" Name="btnKeShiUp" Click="btnKeShiUp_Click" Visibility="Collapsed"></Button>
+                                            <Button Content="下移" Name="btnKeShiDown" Click="btnKeShiDown_Click" Visibility="Collapsed"></Button>-->
+                            </telerik:RadToolBar>
+
+                        </Grid>
+
+                    </telerik:RadPane>
+                </telerik:RadPaneGroup>
+            </telerik:RadSplitContainer>
+            <telerik:RadDocking.DocumentHost>
+                <telerik:RadSplitContainer Name="RightContainer" InitialPosition="DockedLeft">
+                    <telerik:RadPaneGroup x:Name="GroupOrderDetail" VerticalAlignment="Stretch">
+                        <telerik:RadDocumentPane Header="药品医嘱内容" Background="#BDE7F7"  CanFloat="False" CanUserClose="False" CanUserPin="False" UseLayoutRounding="True">
+                            <telerik:RadDocumentPane.Content>
+
+                                <Grid Margin="0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="30"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+
+
+
+                                    <telerik:RadGridView Grid.Row="0" VerticalAlignment="Stretch" MinHeight="395" Name="GridViewYaoPin" IsScrolling="False"  
+                                                         GridLinesVisibility="Both" HorizontalAlignment="Stretch"   AutoGenerateColumns="False" IsTabStop="True" CanUserFreezeColumns="False" CanUserReorderColumns="True" CanUserResizeColumns="True" CanUserSortColumns="False" IsFilteringAllowed="False" IsReadOnly="True" AutoExpandGroups="True"  SelectionMode="Extended" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" >
+                                        <telerik:RadGridView.Columns>
+
+                                            <telerik:GridViewDataColumn Header="医嘱类型" DataMemberBinding="{Binding YzbzName}" IsVisible="True" Width="80"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn  Header="医嘱内容" DataMemberBinding="{Binding Yznr}"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn  Header="执行天数" DataMemberBinding="{Binding Zxts}"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="嘱托" DataMemberBinding="{Binding Ztnr}" IsReadOnly="True" Width="160"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="数量" DataMemberBinding="{Binding Ypjl}" IsReadOnly="True"  Width="50"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Jldw}" IsReadOnly="True" Width="50"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="用法代码" DataMemberBinding="{Binding Yfdm}"  IsReadOnly="True" IsVisible="False"  Width="160"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="用法" DataMemberBinding="{Binding YfdmName}"  IsReadOnly="True" Width="80"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="频次代码" DataMemberBinding="{Binding Pcdm}" IsReadOnly="True" IsVisible="False"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="频次" DataMemberBinding="{Binding PcdmName}" IsReadOnly="True" Width="50"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="项目类别" DataMemberBinding="{Binding Xmlb}" IsReadOnly="True" IsVisible="False"></telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Width="30" Header="" DataMemberBinding="{Binding FzbzSymbol}"></telerik:GridViewDataColumn>
+
+                                        </telerik:RadGridView.Columns>
+                                    </telerik:RadGridView>
+
+                                    <telerik:RadDataPager  BorderThickness="0" Height="30"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  IsEnabled="True" PageSize="15" Source="{Binding Items, ElementName=GridViewYaoPin}" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="2,0,0,2" HorizontalContentAlignment="Right" />
+                                    <!--<telerik:RadToolBar Grid.Row="1" Grid.Column="0" Height="32" Background="Transparent">-->
+                                    <StackPanel Grid.Row="1" Height="30" Width="450" Grid.Column="0" Orientation="Horizontal" Margin="5,0,0,0" HorizontalAlignment="Left" Background="Transparent" >
+                                        <!--<telerik:RadButton Content="添加" Width="60" Height="25" Name="btnKeShiAddDetail" Click="btnKeShiAddDetail_Click" ></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="65" Name="btnKeShiAddDetail" Click="btnKeShiAddDetail_Click"  BorderThickness="0">
+                                            <Image Height="26" Name="image1" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />
+                                        </Button>
+
+                                        <!--<telerik:RadButton Content="修改" Width="60" Name="btnKeShiEditDetail" Click="btnKeShiEditDetail_Click"></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="65" Name="btnKeShiEditDetail" Click="btnKeShiEditDetail_Click"  BorderThickness="0">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" Cursor="Hand" />
+                                        </Button>
+
+                                        <!--<telerik:RadButton Content="删除" Width="60" Name="btnKeShiDeleteDetail" Click="btnKeShiDeleteDetail_Click"></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="65" Name="btnKeShiDeleteDetail" Click="btnKeShiDeleteDetail_Click"  BorderThickness="0">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" Cursor="Hand" />
+                                        </Button>
+
+                                        <!--<telerik:RadButton Content="保存" Width="60" Name="btnKeShiSaveDetail" Click="btnKeShiSaveDetail_Click"></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="65" Name="btnKeShiSaveDetail" Click="btnKeShiSaveDetail_Click"  BorderThickness="0" Visibility="Collapsed" >
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" Cursor="Hand" />
+                                        </Button>
+
+                                        <!--<telerik:RadButton Content="成组" Width="60" Name="btnKeShiGroupDetail" Click="btnKeShiGroupDetail_Click"></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="43" Name="btnKeShiGroupDetail" Click="btnKeShiGroupDetail_Click"  BorderThickness="0">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/成组.png" Width="41" Cursor="Hand" />
+                                        </Button>
+
+                                        <!--<telerik:RadButton Content="取消成组" Width="60" Name="btnKeShiCancelGroupDetail" Click="btnKeShiCancelGroupDetail_Click"></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="78" Name="btnKeShiCancelGroupDetail" Click="btnKeShiCancelGroupDetail_Click"  BorderThickness="0">
+                                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/取消成组.png" Width="76" Cursor="Hand" />
+                                        </Button>
+
+                                        <!--<telerik:RadButton Content="使用原因" Width="60" Name="btnKeShiUserReason" Click="btnKeShiUserReason_Click"></telerik:RadButton>-->
+
+                                        <Button Height="28" Width="78" Name="btnKeShiUserReason" Click="btnKeShiUserReason_Click"  BorderThickness="0">
+                                            <Image Height="26" Name="btnKeShiUserReasonimage" Margin="-2" Source="/Pathway;component/Images/使用原因.png" Width="76" Cursor="Hand" />
+                                        </Button>
+                                    </StackPanel>
+                                    <!--</telerik:RadToolBar >-->
+                                </Grid>
+                            </telerik:RadDocumentPane.Content>
+                        </telerik:RadDocumentPane>
+                    </telerik:RadPaneGroup>
+                </telerik:RadSplitContainer>
+            </telerik:RadDocking.DocumentHost>
+        </telerik:RadDocking>
+        <!--</telerik:RadTabItem.Content>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>-->
+    </Grid>
+</navigation:Page>

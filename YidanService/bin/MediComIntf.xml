@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MediComIntf</name>
+    </assembly>
+    <members>
+        <member name="T:Winning.Emr.MediComIntf.MediIntfDrugInfo">
+            <summary>
+            美康接口药品信息类
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.OrderUniqueCode">
+             <summary>
+            医嘱唯一码，要求能唯一标记医嘱记录
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.DrugCode">
+             <summary>
+            必须传，医嘱中的药品唯一码
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.DrugName">
+             <summary>
+            必须传，医嘱中的药品名称
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.SingleDose">
+             <summary>
+            剂量，表示每次使用剂量的数字部分
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.DoseUnit">
+             <summary>
+            剂量单位，表示每次服用剂量单位，要求与药品配对剂量单位完全一致单位完全一致，否则可能造成剂量审查不正确。
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.Frequency">
+             <summary>
+            频次 ，表示药品服用频次信息。传入要求：n天m次，传"m/n"，例如：1天3次，传"3/1"；7天2次，传"2/7"。
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.StartDate">
+             <summary>
+            开嘱日期，表示开立医嘱日期。格式为"yyyy-mm-dd"，例如开嘱日期为1999年3月12日，则应传入"1999-3-12"。传空时，系统默认为当前日期。
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.EndDate">
+             <summary>
+            停嘱日期 表示停嘱日期，对于未停医嘱，应传为当天日期。格式为"yyyy-mm-dd"，例如停嘱日期为1999年3月12日，则应传入"1999-3-12"。传空时，系统默认为当前日期。
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.RouteName">
+             <summary>
+            必须传，表示给药途径名称，例如"口服"、"静滴"等。注意，由于PASS系统审查与用法关系密切，此参数传入错误，将直接导致审查错误。
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.Warn">
+             <summary>
+            传出，医嘱警示值(可不传此值，主要用于返回审查警示值)
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.GroupTag">
+             <summary>
+            成组医嘱标记，不同，则认为是一组医嘱
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.OrderType">
+             <summary>
+            医嘱类型1 临时 0 长期 
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.OrderDoctorId">
+             <summary>
+            医嘱医生Id
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfDrugInfo.OrderDoctorName">
+            <summary>
+            医嘱医生名称
+            </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.MediIntfPatientInfo">
+            <summary>
+            美康接口病人信息类
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.PatientID">
+             <summary>
+            病人ID
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.VisitID">
+             <summary>
+            住院次数,如果传''，则系统认为是'1'
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.PatientName">
+             <summary>
+            病人姓名
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.Sex">
+             <summary>
+            病人性别,格式为"男"、"女"、"不详"等。
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.Birthday">
+             <summary>
+            病人出生日期,格式为"yyyy-mm-dd"
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.Weight">
+             <summary>
+            体重,表示病人以公斤为单位的体重值
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.Height">
+             <summary>
+            身高,表示病人以厘米为单位的身高值
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.DeptName">
+             <summary>
+            科室名称,表示病人当前所在科室或病区名称
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.Doctor">
+             <summary>
+            医生姓名
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.PatientType">
+             <summary>
+            病人类型 "0"住院,"1"门诊，"2"配制中心或其它
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.MediIntfPatientInfo.UseDate">
+             <summary>
+            表示病人用药审查日期，格式为"yyyy-mm-dd"，传空时，系统默认为当前日期
+             </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.PassCheckHelper">
+            <summary>
+            配伍禁忌辅助类(美康)
+            </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            构造,并初始化
+            </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.HasPatient">
+            <summary>
+            是否已经传入了病人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassRegisterAndInit">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassEnable">
+            <summary>
+            Pass连接是否可用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassPopMenuEnable(System.String)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassSetPatient(Winning.Emr.MediComIntf.MediIntfPatientInfo)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassSetRecipeInfos(System.Collections.Generic.IList{Winning.Emr.MediComIntf.MediIntfDrugInfo})">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassSetRecipeInfo(System.String,Winning.Emr.MediComIntf.MediIntfDrugInfo)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.DoPassCheck(Winning.Emr.MediComIntf.PassCheckType)">
+            <summary>
+            美康接口检查,当前的病人信息和药品信息
+            </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.DoCommand(System.Int32)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassSetWarnDrug(System.String)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.GetWarnBmp(Winning.Emr.MediComIntf.PassWarnType)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassCheckHelper.PassQueryDrugInfo(System.String,System.String,System.String,System.String,System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            查询用药信息
+            </summary>
+            <param name="drugCode">药品编码</param>
+            <param name="drugName">药品名称</param>
+            <param name="doseUnit">剂量单位</param>
+            <param name="routeName">用法名称</param>
+            <param name="leftTop"></param>
+            <param name="rightBottom"></param>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassCheckHelper.CurrentDrugIndex">
+            <summary>
+            当前的药品索引(默认采用行号)
+            </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassCheckHelper.CurrentDrugInfos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassCheckHelper.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassCheckHelper.CurrentPatientInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.PassWarnType">
+            <summary>
+            美康接口返回的警告级别,注意其中顺序与数字不完全一致
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Error">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Filter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.NoWatch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Pass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Lower">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Normal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Higher">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassWarnType.Critical">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.PassCheckType">
+            <summary>
+            审查类型
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassCheckType.HospSaveAuto">
+            <summary>
+            住院医生站保存自动审查
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassCheckType.HospSubmitAuto">
+            <summary>
+            住院医生站提交自动审查
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassCheckType.ManulCheck">
+            <summary>
+            手工检查
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassCheckType.RecipeSaveAuto">
+            <summary>
+            门诊医生站保存自动审查
+            </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassCheckType.RecipeSubmitAuto">
+            <summary>
+            门诊医生站提交自动审查
+            </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.PassComponent">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassComponent.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassComponent.#ctor(System.ComponentModel.IContainer)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassComponent.InitializePassIntf(System.String,System.String,System.String,System.String)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassComponent._passContextMenu_Opened(System.Object,System.EventArgs)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Winning.Emr.MediComIntf.PassComponent.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassComponent.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassComponent.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassComponent.PassContextMenu">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassComponent.PassCheckHelper">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.PassMenu">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassMenu.#ctor">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Winning.Emr.MediComIntf.PassMenu.#ctor(Winning.Emr.MediComIntf.PassCheckHelper)">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.PassMenu.PassCheckhlp">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:Winning.Emr.MediComIntf.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Winning.Emr.MediComIntf.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

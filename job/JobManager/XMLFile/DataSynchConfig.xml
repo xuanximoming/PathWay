@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<JobConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.YidanSoft.com.cn/">
+  <System Name="电子病历">
+    <Job Name="基础数据同步" Description="从HIS同步基础数据" Enable="true" Visible="true" Class="YidanSoft.JobManager.BasisDataSynchronous" Library="YidanSoft.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>false</Repeatly>
+          <TimeOfExecOnce>02:00:00</TimeOfExecOnce>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-08-01</StartDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+    <Job Name="病历自动归档" Description="对已出院病人的病历自动归档" Enable="true" Visible="true" Class="YidanSoft.JobManager.PatientRecordArchive" Library="YidanSoft.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>false</Repeatly>
+          <TimeOfExecOnce>02:30:00</TimeOfExecOnce>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-08-01</StartDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+    <Job Name="住院病人和床位数据同步" Description="从HIS读取病人和床位数据" Enable="true" Visible="true" Class="YidanSoft.JobManager.PatInfoSynchronous_EHR" Library="YidanSoft.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>true</Repeatly>
+          <Interval>5</Interval>
+          <IntervalUnit>Minute</IntervalUnit>
+          <StartTime>00:00:00</StartTime>
+          <EndTime>23:59:59</EndTime>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-08-01</StartDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+    <Job Name="时限质量数据更新" Description="定期更新病历书写时限情况" Enable="true" Visible="true" Class="YidanSoft.JobManager.TimeQcManager" Library="YidanSoft.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>true</Repeatly>
+          <Interval>30</Interval>
+          <IntervalUnit>Minute</IntervalUnit>
+          <StartTime>00:00:00</StartTime>
+          <EndTime>23:59:59</EndTime>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-01-01</StartDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+  </System>
+</JobConfig>

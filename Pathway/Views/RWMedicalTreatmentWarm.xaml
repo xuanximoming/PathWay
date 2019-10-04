@@ -1,0 +1,74 @@
+﻿<telerik:RadWindow xmlns:my1="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"  
+                   xmlns:my="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input" 
+                   x:Class="YidanEHRApplication.Views.RWMedicalTreatmentWarm"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+           xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           mc:Ignorable="d"
+           d:DesignWidth="860" d:DesignHeight="500"
+           Width="860" Height="500" 
+            Loaded="ChildWindow_Loaded"  Header="提醒中心" WindowStartupLocation="CenterScreen">
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+        
+        <Grid x:Name="LayoutRoot" Margin="2">
+        
+            <Border BorderThickness="1,1,1,1" CornerRadius="6,6,6,6"  Grid.Row="0" Grid.Column="0">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                        <GradientStop Color="#46A3FF" Offset="1"/>
+                        <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border BorderThickness="7,7,7,7" CornerRadius="2,2,2,2" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                    <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                        <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="#ECF5FF">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                    <GradientStop Color="#FF515151" Offset="0.008"/>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                            <Grid      VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                    <telerik:RadGridView  Grid.Row="0"   Name="grdCP_MedicalTreatmentWarm" IsReadOnly="True" AutoGenerateColumns="False" VerticalAlignment="Stretch" 
+                                                          IsFilteringAllowed="False" ShowGroupPanel="False"   RowIndicatorVisibility="Collapsed" Margin="3,0,0,0"   GridLinesVisibility="Both"  >
+                                    <telerik:RadGridView.Columns>
+                                      
+                                        <telerik:GridViewColumn Width="100">
+                                            <telerik:GridViewColumn.Header>
+                                                <CheckBox HorizontalAlignment="Center" Content="已阅"  VerticalAlignment="Center" x:Name="chkHead" Checked="chkHead_Checked" Unchecked="chkHead_Unchecked" ></CheckBox>
+                                            </telerik:GridViewColumn.Header>
+                                            <telerik:GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Name="chkContent"  IsChecked="{Binding TxztBoolean,Mode=TwoWay}" Tag="{Binding ID}" Checked="chkRow_Checked" Unchecked="chkRow_Unchecked"   />
+                                                </DataTemplate>
+                                            </telerik:GridViewColumn.CellTemplate>
+                                        </telerik:GridViewColumn>
+                                        <telerik:GridViewDataColumn Header="下一节点" DataMemberBinding="{Binding jdmc}" Width="*" />
+                                        <telerik:GridViewDataColumn Header="项目类别" DataMemberBinding="{Binding TxlxName}"  Width="*"/>
+                                        <telerik:GridViewDataColumn Header="项目名称" DataMemberBinding="{Binding mc}"  Width="*"/>
+                                        <telerik:GridViewDataColumn Width="*" />
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                                <telerik:RadButton Content="保存已阅" Grid.Row="1" Margin="0 10 0 0" Height="Auto" HorizontalAlignment="Center"  Name="btnSave" VerticalAlignment="Top" Width="90" Click="btnSave_Click" />
+                                <TextBlock Grid.Row="2" Name="txttianshu" Margin="30 0 0 0"></TextBlock>
+                                <TextBlock Grid.Row="3" Name="txtfeiyong" Margin="30 0 0 0"></TextBlock>
+                            </Grid>
+                        </Border>
+                    </Border>
+                </Border>
+            </Border>
+
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow >

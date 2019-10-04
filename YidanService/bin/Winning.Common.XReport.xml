@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Winning.Common.XReport</name>
+    </assembly>
+    <members>
+        <member name="F:Winning.Common.Report.TestXReport.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Winning.Common.Report.TestXReport.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Winning.Common.Report.TestXReport.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Winning.Common.Report.XReport">
+            <summary>
+            报表类
+            TODO: 有关STREAM的处理待改进
+            </summary>
+        </member>
+        <member name="F:Winning.Common.Report.XReport.AUTOSAVE">
+            <summary>
+            设计时自动保存
+            </summary>
+        </member>
+        <member name="F:Winning.Common.Report.XReport.m_NeedRunDesign">
+            <summary>
+            是否需要在调用浏览时先调用一次设计界面
+            </summary>
+        </member>
+        <member name="F:Winning.Common.Report.XReport.m_Save2File">
+            <summary>
+            是：保存到文件中。否：保存到Stream中
+            </summary>
+        </member>
+        <member name="F:Winning.Common.Report.XReport.m_NewControls">
+            <summary>
+            需要向设计器的工具箱中插入的新控件
+            </summary>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.#ctor(System.Data.DataTable,System.String)">
+            <summary>
+            指定要打印的数据集合和文件名，文件名可以是不存在的（自动在第一次使用时根据文件名创建文件）
+            </summary>
+            <param name="dt">数据集合</param>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.#ctor(System.Data.DataSet,System.String)">
+            <summary>
+            指定要打印的数据集合和文件名
+            ，文件名可以是不存在的
+            </summary>
+            <param name="ds"></param>
+            <param name="filename">文件名</param>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.#ctor(System.Data.DataTable,System.IO.Stream)">
+            <summary>
+            
+            </summary>
+            <param name="dt"></param>
+            <param name="reportStream"></param>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.#ctor(System.String,System.Data.DataSet)">
+            <summary>
+            
+            </summary>
+            <param name="compressReportStream"></param>
+            <param name="ds"></param>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.#ctor(System.String,System.Data.DataTable)">
+            <summary>
+            
+            </summary>
+            <param name="compressReportStream"></param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.SetFileReport(DevExpress.XtraReports.UI.XtraReport@)">
+            <summary>
+            试图从文件中创建报表，若不能则创建新的报表
+            不绑定数据集
+            </summary>
+            <param name="rp">输出报表</param>
+            <returns>返回值为真表示文件不存在，是新创建的文件</returns>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.SetStreamReport(DevExpress.XtraReports.UI.XtraReport@)">
+            <summary>
+            从流中创建报表，若不能创建新的报表，不绑定数据集
+            </summary>
+            <param name="rp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.ExpandToolBox(System.Collections.ObjectModel.Collection{System.Type})">
+            <summary>
+            向报表设计界面的工具箱中插入自定义的控件(需要在显示Design前调用)
+            </summary>
+            <param name="newControls"></param>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.ShowPreview">
+            <summary>
+            给出预览界面
+            </summary>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.Design">
+            <summary>
+            给出设计界面
+            </summary>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.ConvertReportToImage">
+            <summary>
+            将报表转换成图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Winning.Common.Report.XReport.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="P:Winning.Common.Report.XReport.FileName">
+            <summary>
+            报表文件名，应该包含路径信息
+            注意：改变文件名将改变报表的布局,将改变报表对象<see cref="P:Winning.Common.Report.XReport.CurrentReport"/>
+            </summary>
+        </member>
+        <member name="P:Winning.Common.Report.XReport.ReportStream">
+            <summary>
+            报表流
+            </summary>
+        </member>
+        <member name="P:Winning.Common.Report.XReport.CompressReportStream">
+            <summary>
+            经过压缩的报表模板
+            </summary>
+        </member>
+        <member name="P:Winning.Common.Report.XReport.CurrentReport">
+            <summary>
+            当前的报表，修改<see cref="P:Winning.Common.Report.XReport.FileName"/>文件名将自动修改报表      
+            </summary>
+        </member>
+        <member name="P:Winning.Common.Report.XReport.DataSource">
+            <summary>
+            设置/取得当前报表<see cref="P:Winning.Common.Report.XReport.CurrentReport"/>的数据源      
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,5 @@
+F:\Demo\pathway\publish\YidanSoft.Tool.dll
+F:\Demo\pathway\publish\YidanSoft.Tool.pdb
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Debug\YidanSoft.Tool.csprojResolveAssemblyReference.cache
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Debug\YidanSoft.Tool.dll
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Debug\YidanSoft.Tool.pdb

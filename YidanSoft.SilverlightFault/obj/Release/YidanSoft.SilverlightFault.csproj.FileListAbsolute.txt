@@ -1,0 +1,4 @@
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\bin\Release\YidanSoft.SilverlightFault.dll
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\bin\Release\YidanSoft.SilverlightFault.pdb
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\obj\Release\YidanSoft.SilverlightFault.dll
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\obj\Release\YidanSoft.SilverlightFault.pdb

@@ -1,0 +1,5 @@
+18-4-28 15:27:20 0328	True 	[开始]	（信息）                	0    	0    
+18-4-28 15:27:20 6318	True 	[]	INPATIENT           	446  	0    
+18-4-28 15:27:20 6468	False	[列“ID”不属于表 bed。   在 System.Data.DataRow.GetDataColumn(String columnName)   在 System.Data.DataRow.get_Item(String columnName)   在 DrectSoft.JobManager.PatInfoSynchronous.MergeBedInfo(DataTable changedData, Boolean initialized)类型：System.Data.DataRow方法：GetDataColumn所属程序集：System.Data]	（错误）                	0    	0    
+18-4-28 15:27:20 6898	True 	[]	BED                 	408  	0    
+18-4-28 15:27:20 6898	True 	[结束]	（信息）                	0    	0    

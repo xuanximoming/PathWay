@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\Users\Administrator\Desktop\临床路径发布文件\YidanService" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="yidanservice" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="05/29/2012 14:18:26" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="03/13/2009 10:38:33" />
+    <file relUrl="bin/Winning.Common.Library.ShowList.dll" publishTime="03/13/2009 10:38:30" />
+    <file relUrl="bin/Winning.Wordbook.dll" publishTime="03/13/2009 10:38:31" />
+    <file relUrl="bin/Yidansoft.Common.OrderFactory.dll" publishTime="06/16/2011 17:30:42" />
+    <file relUrl="bin/Winning.Interface.ReportQueryBlock.dll" publishTime="12/02/2009 22:46:16" />
+    <file relUrl="bin/Winning.Common.XReport.dll" publishTime="12/08/2009 13:15:48" />
+    <file relUrl="bin/Winning.Emr.RequestOrderInterface.dll" publishTime="03/18/2009 15:58:10" />
+    <file relUrl="bin/Microsoft.Practices.ObjectBuilder.dll" publishTime="03/13/2009 10:38:33" />
+    <file relUrl="bin/App_Code.dll" publishTime="05/15/2012 14:52:39" />
+    <file relUrl="bin/Winning.Framework.dll" publishTime="12/02/2009 22:46:07" />
+    <file relUrl="bin/Winning.IExchangeInfo.dll" publishTime="09/01/2009 17:34:33" />
+    <file relUrl="bin/Winning.Emr.RequestOrder.dll" publishTime="03/18/2009 09:42:14" />
+    <file relUrl="bin/Winning.Resource.dll" publishTime="12/02/2009 22:46:35" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll" publishTime="03/13/2009 10:38:33" />
+    <file relUrl="Service1.asmx" publishTime="05/29/2012 14:18:26" />
+    <file relUrl="bin/OrderFactory.dll" publishTime="06/16/2011 15:38:56" />
+    <file relUrl="bin/MediComIntf.dll" publishTime="03/13/2009 10:38:30" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll" publishTime="02/04/2009 10:01:30" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="03/13/2009 10:38:33" />
+    <file relUrl="bin/Winning.EMR.DoctorAdvice.dll" publishTime="03/18/2009 09:42:00" />
+    <file relUrl="bin/WebService2.pdb" publishTime="05/29/2012 21:08:29" />
+    <file relUrl="bin/Winning.Emr.OperationQuery.dll" publishTime="02/04/2009 10:01:32" />
+    <file relUrl="bin/WebService2.dll" publishTime="05/29/2012 21:08:29" />
+    <file relUrl="bin/Winning.Emr.TimeQC.dll" publishTime="03/13/2009 10:38:34" />
+  </publishProfile>
+</publishData>

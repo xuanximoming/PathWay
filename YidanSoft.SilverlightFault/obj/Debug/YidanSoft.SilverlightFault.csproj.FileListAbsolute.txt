@@ -1,0 +1,5 @@
+F:\Demo\pathway\publish\YidanSoft.SilverlightFault.dll
+F:\Demo\pathway\publish\YidanSoft.SilverlightFault.pdb
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\obj\Debug\YidanSoft.SilverlightFault.dll
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\obj\Debug\YidanSoft.SilverlightFault.pdb
+F:\Demo\pathway\Pathway\YidanSoft.SilverlightFault\obj\Debug\YidanSoft.SilverlightFault.csprojResolveAssemblyReference.cache

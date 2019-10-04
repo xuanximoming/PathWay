@@ -1,0 +1,39 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.ReportForms.FromManager" 
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="900" d:DesignHeight="480"
+           Title="报表统计"
+           xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+    <Grid x:Name="Layout"  Loaded="LayoutRoot_Loaded">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="38"></ColumnDefinition>
+            <ColumnDefinition Width="122" />
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Background="#FFDAE9F7"-->
+        <telerik:RadMenu Orientation="Vertical"   HorizontalAlignment="Stretch" Name="radMenu" Background="#FFDAE9F7" Foreground="Black"   Width="160" FlowDirection="LeftToRight" Grid.ColumnSpan="2" Margin="0,0,0,0" Visibility="Collapsed">
+        </telerik:RadMenu>
+
+        <ScrollViewer Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+                <navigation:Frame x:Name="ContentFrame" 
+Source="/Views/PrintForm/RptPathStatistics.xaml" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                    <navigation:Frame.UriMapper>
+                        <uriMapper:UriMapper>
+                            <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/{pageName}"/>
+                        </uriMapper:UriMapper>
+                    </navigation:Frame.UriMapper>
+                </navigation:Frame>
+            </ScrollViewer.Content>
+        </ScrollViewer >
+    </Grid>
+</navigation:Page>

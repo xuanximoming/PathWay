@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\inetpub\wwwroot\WebService" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="配置文件1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="10/24/2015 11:52:09" />
+    <file relUrl="bin/WebService.dll" publishTime="10/24/2015 11:52:08" />
+    <file relUrl="bin/Yidansoft.Core.pdb" publishTime="10/24/2015 11:52:03" />
+    <file relUrl="bin/Microsoft.Practices.ObjectBuilder.dll" publishTime="12/30/2014 14:30:37" />
+    <file relUrl="bin/YidanSoft.Tool.pdb" publishTime="10/24/2015 11:52:04" />
+    <file relUrl="bin/SendOrder.pdb" publishTime="10/24/2015 11:52:05" />
+    <file relUrl="bin/SendOrder.dll" publishTime="10/24/2015 11:52:05" />
+    <file relUrl="bin/YidanSoft.Core.dll" publishTime="10/24/2015 11:52:03" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll" publishTime="12/30/2014 14:30:37" />
+    <file relUrl="bin/YidanSoft.Tool.dll" publishTime="10/24/2015 11:52:04" />
+    <file relUrl="clientaccesspolicy.xml" publishTime="12/30/2014 13:58:45" />
+    <file relUrl="YidanEHRDataService.svc" publishTime="12/30/2014 13:58:44" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="12/30/2014 14:30:36" />
+    <file relUrl="bin/YidanSoft.SilverlightFault.dll" publishTime="10/24/2015 11:52:05" />
+    <file relUrl="Service/Pass/XML/ExpressionsConfig.xml" publishTime="12/30/2014 14:38:15" />
+    <file relUrl="bin/YidanSoft.SilverlightFault.pdb" publishTime="10/24/2015 11:52:05" />
+    <file relUrl="bin/WebService.pdb" publishTime="10/24/2015 11:52:08" />
+    <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll" publishTime="12/30/2014 14:30:35" />
+  </publishProfile>
+</publishData>

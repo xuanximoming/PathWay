@@ -1,0 +1,969 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExpressionsConfig>
+  <!-- 公式类型 -->
+  <ExpressionsGroupType value="内生肌酐清除率的计算方法" >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="Ccr=(140-年龄)×体重(k g)/72×Scr(mg/dl)" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(140-A)*W/72*S" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="kg*mg/dl" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="正常值：108±15.1mL/min·1.73m2。40岁以后
+                           逐渐减低;肾移植后病人内生肌酐清除率如大于 50 则正常，
+                           最佳值是大于 70，有些医院考虑到环孢肾毒性，如大于45且
+                           稳定，也属正常。" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="年龄" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg):" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="血肌酐Scr(mg/dl):" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="S"/>
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="男性Ccr=[(140-年龄)×体重(k g)]/[0.818×Scr(umol/L)]" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="（(140-A)*W)/(0.818*S)" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="kg*mg/dl" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="正常值：108±15.1mL/min·1.73m2。40岁以后
+                           逐渐减低;肾移植后病人内生肌酐清除率如大于 50 则正常，
+                           最佳值是大于 70，有些医院考虑到环孢肾毒性，如大于45且
+                           稳定，也属正常。" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="年龄" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg):" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="血肌酐Scr(mg/dl):" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="S"/>
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="女性Ccr={[(140-年龄)×体重(k g)]/[0.818×Scr(umol/L)]}×0.85" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(((140-A)*W)/(0.818*S))*0.85" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="kg*mg/dl" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="女性按计算结果×0.85；正常值：108±15.1mL/min·1.73m2。40岁以后
+                           逐渐减低;肾移植后病人内生肌酐清除率如大于 50 则正常，
+                           最佳值是大于 70，有些医院考虑到环孢肾毒性，如大于45且
+                           稳定，也属正常。" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="年龄" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg):" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="血肌酐Scr(mg/dl):" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="S"/>
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="体表面积(BSA)计算方法 " >
+    <Expressions>
+      <ExpressionsName value="＜1 岁：BSA=H0.655×W0.478×95.68" />
+      <ExpressionsProcess value="H*0.655*W*0.478*95.68" />
+      <ExpressionsReusltUnit value="m^2" />
+      <ExpressionsDescribe value="注：A=BSA（m2）,H=身高（cm），W=体重(kg)" />
+      <ExpressionsParameterGroup >
+        <ExpressionsParameter text="身高(cm):" >
+          <Property name="Tag" value="H"/>
+          <Property name="Minimum" value="10"/>
+          <Property name="Maximum" value="50"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg):" >
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="10"/>
+          <Property name="Maximum" value="50"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+    <Expressions>
+      <ExpressionsName value="1～5 岁:A=H0.362×W0.428×381.89" />
+      <ExpressionsProcess value="H*0.362*W*0.428*381.89" />
+      <ExpressionsReusltUnit value="m^2" />
+      <ExpressionsDescribe value="注：A=BSA（m2）,H=身高（cm），W=体重(kg)" />
+      <ExpressionsParameterGroup >
+        <ExpressionsParameter text="身高(cm):" >
+          <Property name="Tag" value="H"/>
+          <Property name="Minimum" value="10"/>
+          <Property name="Maximum" value="50"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg):" >
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="10"/>
+          <Property name="Maximum" value="50"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="低渗性脱水(缺钠)的补钠计算方法(男性选用公式) " >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补钠总量（mmol）=[142-病人血Na+(mmol/L)]×体重(kg)×0.6" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*0.6" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="mmol" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补氯化钠总量（g）=[142-病人血Na+(mmol/L)] ×体重(kg) ×0.035" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*0.035" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="g" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补生理盐水（ml）=[142-病人血Na+（mmol/L）] ×体重(kg)×3.888" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*3.888" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补3％氯化钠=[142-病人血Na+(mmol/L)] ×体重(kg)×1.1666" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*1.1666" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补5％氯化钠(ml) =[142-病人血Na+(mmol/L)] ×体重(kg)×0.7" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*0.7" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="低渗性脱水(缺钠)的补钠计算方法(女性选用公式) " >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补钠总量（mmol）=[142-病人血Na+(mmol/L)]×体重(kg)×0.5" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*0.5" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="mmol" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补氯化钠总量（g）=[142-病人血Na+(mmol/L)] ×体重(kg) ×0.03" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*0.03" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="g" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补生理盐水（ml）=[142-病人血Na+（mmol/L）] ×体重(kg)×3.311" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*3.311" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补3％氯化钠=[142-病人血Na+(mmol/L)] ×体重(kg)×3.311" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*3.311" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="应补5％氯化钠(ml) =[142-病人血Na+(mmol/L)] ×体重(kg)×0.596" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(142-Na)*W*0.596" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：①上述式中142为正常血Na+值，以mmol/L计。 
+                                       ②按公式求得的结果，一般可先总量的1/2～1/3，然后再根据 
+                                       临床情况及检验结果调整下一步治疗方案。 
+                                       ③单位换算： 
+                                            钠：mEq/L×2.299=mg/dlmg/dl×0.435=mEq/L 
+                                                mEq/L×1/化合价=mmol/L 
+                                            氯化钠：g×17=mmol或mEq,（mmol）×0.0585=g/L" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="病人血Na+" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="Na"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+
+    </Expressions>
+
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="不同年龄每日需水量计算方法 " >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="每日补水公式=体重(kg)×[40(ml)--160(ml)]" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="W*P" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="注：年龄 每日需水量计算式 
+                           成人 体重(kg)×40(ml) 
+                           10～14岁 体重(kg)×[50～80(ml)] 
+                           8～9岁 体重(kg)×[70～100(ml)] 
+                           4～7岁 体重(kg)×[90～110(ml)] 
+                           2～3岁 体重(kg)×[100～110（ml)] 
+                           1～2岁 体重(kg)×[120～160(ml)]" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="参数(ml)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="P"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="40"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="静息能量消耗计算方法 " >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="女性：REE（Kcal/d）=655+9.6*体重(Kg)+1.7*身高(cm)-4.7年龄(岁) " />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="655+9.6*W+1.7*H-4.7*A" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="静息能量消耗计算 
+                                    Harris-Benedict计算公式： 
+                                    女性：REE（Kcal/d）=655+9.6W+1.7H-4.7A 
+                                    男性：REE（Kcal/d）=66+13.7W+5.0H-6.8A 
+                                    [W=体重（Kg）；H=身高（cm）；A=年龄（岁）]" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="身高(cm)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="H"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="30"/>
+          <Property name="Maximum" value="240"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="年龄(岁)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="男性：REE（Kcal/d）=66+13.7*体重(Kg)+5.0*身高(cm)-6.8年龄(岁) " />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="66+13.7*W+5.0*H-6.8*A" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="静息能量消耗计算 
+                                    Harris-Benedict计算公式： 
+                                    女性：REE（Kcal/d）=655+9.6W+1.7H-4.7A 
+                                    男性：REE（Kcal/d）=66+13.7W+5.0H-6.8A 
+                                    [W=体重（Kg）；H=身高（cm）；A=年龄（岁）]" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="身高(cm)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="H"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="30"/>
+          <Property name="Maximum" value="240"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="年龄(岁)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="电解质补充计算方法 " >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="mmol/L=（正常mmol/L-测得mmol/L）×体重(kg) ×0.6 " />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(D-C)*W*0.6" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="mmol/L" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="电解质补充计算
+                                    某种电解质缺少的总量：
+                                    mmol/L=（正常mmol/L-测得mmol/L）×体重(kg) ×0.6
+
+　　                                     （正常mmol/L-测得mmol/L）×体重(kg)×0.6
+                                    克数=----------------------------------------------------------
+　　　　　　                                    1g电解质所含mmol数
+                                    " />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="正常mmol/L" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="D"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="测得mmol/L" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="C"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="克数=[（正常mmol/L-测得mmol/L）×体重(kg) ×0.6]/ 1g电解质所含mmol数" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="(D-C)*W*0.6/R" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="mmol/L" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="电解质补充计算
+                                    某种电解质缺少的总量：
+                                    mmol/L=（正常mmol/L-测得mmol/L）×体重(kg) ×0.6
+　　                                克数=【正常mmol/L-测得mmol/L）×体重(kg)×0.6】/ 1g电解质所含mmol数
+                                    " />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="正常mmol/L" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="D"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="测得mmol/L" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="C"/>
+          <!-- 参数值范围控件属性值 -->
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="160"/>
+          <!-- 参数值范围程序判断公式  -->
+          <![CDATA[Property name="Range" value="1<=value & value<=500"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="体重(kg)" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="电解质密度" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="R"/>
+          <!--<Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="120"/>-->
+          <!-- 参数值范围公式 -->
+          <![CDATA[Property name="Range" value="1<=value & value<=120"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="补液计算方法 " >
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="根据血细胞比积计算输液量：输液量=正常血容量×（正常红细胞比积/患者红细胞比积）" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="A*(B/C)" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="根据血清钠判断脱水性质：   
+脱水性质血 Na+mmol/L   
+低渗性脱水 >130   
+等渗性脱水 130～150   
+高渗性脱水 >150 " />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="正常血容量:" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+        </ExpressionsParameter>
+        <ExpressionsParameter text="正常红细胞比积:" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="B"/>
+        </ExpressionsParameter>
+        <ExpressionsParameter text="患者红细胞比积:" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="C"/>
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="体表面积计算补液量" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="休克早期800～1200ml/(m2·d)；   
+体克晚期1000～1400ml（m2·d）；   
+休克纠正后补生理需要量的50～70%。 " />
+    </Expressions>
+    <!-- 公式属性 -->
+    <Expressions>
+      <!-- 公式名称 -->
+      <ExpressionsName value="一般补液公式：补液量=1/2累计损失量+当天额外损失量+每天正常需要量" />
+      <!-- 转换后台处理公式 -->
+      <ExpressionsProcess value="A/2+B+C" />
+      <!-- 计算结果单位 -->
+      <ExpressionsReusltUnit value="ml" />
+      <!-- 公式描述 -->
+      <ExpressionsDescribe value="" />
+      <!-- 公式参数控件属性集 -->
+      <ExpressionsParameterGroup >
+        <!-- lable标签显示内容 -->
+        <ExpressionsParameter text="累计损失量:" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="A"/>
+        </ExpressionsParameter>
+        <ExpressionsParameter text="额外损失量:" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="B"/>
+        </ExpressionsParameter>
+        <ExpressionsParameter text="正常需要量:" >
+          <!-- 参数输入控件属性集 -->
+          <!-- 参数值替换公式值标识 -->
+          <Property name="Tag" value="C"/>
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+  </ExpressionsGroupType>
+
+  <ExpressionsGroupType value="补铁计算方法 " >
+    <Expressions>
+      <ExpressionsName value="总缺铁量[mg]=体重[kg]x(Hb目标值-Hb实际值)[g/l]x0.238+贮存铁量[ mg]" />
+      <ExpressionsProcess value="W*(A-B)*0.238+C" />
+      <ExpressionsReusltUnit value="mg" />
+      <ExpressionsDescribe value="贮存铁量=10mg/kg体重(小于700mg)   
+如果总需要量超过了最大单次给药剂量，则应分次给药。如果给药后1-2周观察 
+到血液学参数无变化，则应重新考虑最初的诊断。" />
+      <ExpressionsParameterGroup >
+        <ExpressionsParameter text="体重(kg):" >
+          <Property name="Tag" value="W"/>
+          <Property name="Minimum" value="1"/>
+          <Property name="Maximum" value="500"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="Hb目标值(g/l):" >
+          <Property name="Tag" value="A"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="Hb实际值(g/l):" >
+          <Property name="Tag" value="B"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+        <ExpressionsParameter text="贮存铁量(mg):" >
+          <Property name="Tag" value="C"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+    <Expressions>
+      <ExpressionsName value="计算失血和支持自体捐血的患者铁补充的剂量[mg]=失血单位量x200 " />
+      <ExpressionsProcess value="A*200" />
+      <ExpressionsReusltUnit value="mg" />
+      <ExpressionsDescribe value="" />
+      <ExpressionsParameterGroup >
+        <ExpressionsParameter text="失血单位量:" >
+          <Property name="Tag" value="A"/>
+          <![CDATA[Property name="Range" value="10<=value & value<=50"]]> />
+        </ExpressionsParameter>
+      </ExpressionsParameterGroup>
+    </Expressions>
+  </ExpressionsGroupType>
+
+</ExpressionsConfig>

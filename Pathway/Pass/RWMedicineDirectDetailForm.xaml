@@ -1,0 +1,47 @@
+﻿<telerik:RadWindow
+    x:Class="YidanEHRApplication.Pass.RWMedicineDirectDetailForm" 
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+                xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+                Width="Auto" Height="Auto" 
+    Style="{StaticResource RadWindowStyle}"
+    Header="说明书"
+                 xmlns:telerikDocumentModel="clr-namespace:Telerik.Windows.Documents.Model;assembly=Telerik.Windows.Documents"
+                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                 xmlns:Third="clr-namespace:Divelements.SilverlightTools;assembly=Divelements.SilverlightTools">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Border Style="{StaticResource BorderStyle}" Margin="5"  >
+        
+            <Border BorderThickness="7,7,7,7" CornerRadius="2,2,2,2" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                    <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="#ECF5FF">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                <GradientStop Color="#FF515151" Offset="0.008"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+                        <StackPanel Orientation="Horizontal" >
+                            <StackPanel.Resources>
+                                <Style x:Key="styleTextBolck" TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="20,0,0,0" ></Setter>
+                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock  Style="{StaticResource styleTextBolck}">说明书名称:</TextBlock>
+                            <TextBlock  Style="{StaticResource styleTextBolck}" Name="lblDirectTitle"></TextBlock>
+                            <TextBlock  Style="{StaticResource styleTextBolck}">所属公司:</TextBlock>
+                            <TextBlock  Style="{StaticResource styleTextBolck}" Name="lblCompany"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Border>
+            </Border>
+        </Border>
+        <telerik:RadRichTextBox Name="radRichTextBox1" Width="1000">
+        </telerik:RadRichTextBox>
+    </StackPanel>
+</telerik:RadWindow>

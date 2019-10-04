@@ -1,0 +1,149 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.ChildWindows.RWEnterConditionMaintain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+        xmlns:YDSoft="clr-namespace:YidanEHRApplication.ExtraControl"
+        Style="{StaticResource RadWindowStyle}"
+        Header="进入条件维护" Height="600" Width="800" Loaded="RadWindow_Loaded" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." >
+        <Grid x:Name="LayoutRoot" Margin="2" Background="#ECF5FF">
+            <Grid.Resources>
+                <DataTemplate x:Key="autoCompleteICD10Temp">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Zdbs}" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding Name}" Grid.Column="1"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="autoCompleteNonICD10Temp">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Jcmc}" Grid.Column="1"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <telerik:RadGridView RowIndicatorVisibility="Collapsed" Grid.Row="0"  Background="Transparent"
+                                                          Margin="2"  GridLinesVisibility="Both"
+                                                         HorizontalAlignment="Stretch" Name="GrdConditonList" 
+                                                         ShowColumnHeaders="True" CanUserFreezeColumns="False"  
+                                                         CanUserResizeColumns="False" AutoExpandGroups="True" AutoGenerateColumns="False" 
+                                                         ShowGroupPanel="False" IsReadOnly="False" SelectionMode="Single" IsFilteringAllowed="False" AlternateRowBackground="#FFE24040" SelectionChanged="GrdConditonList_SelectionChanged">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewSelectColumn  />
+                    <telerik:GridViewDataColumn Header="条件类别" DataMemberBinding="{Binding XmlbName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="名称" DataMemberBinding="{Binding JcxmName}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="开始范围" DataMemberBinding="{Binding Ksfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="结束范围" DataMemberBinding="{Binding Jsfw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Dw}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>
+                    <telerik:GridViewColumn Width="75" Header="操作">
+                        <telerik:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Content="删除"  Click="btnDeleteCondition_Click" Tag="{Binding ID}">
+                                  
+
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewColumn.CellTemplate>
+                    </telerik:GridViewColumn>
+                    <!--<telerik:GridViewDataColumn Header="适用人群" DataMemberBinding="{Binding Syrq}" IsReadOnly="True" Width="*"></telerik:GridViewDataColumn>-->
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <Border BorderBrush="#959595" Grid.Row="1" BorderThickness="1" Height="1" ></Border>
+            <Grid Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" ></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition >
+                        <RowDefinition Height="30" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <toolkit:WrapPanel Grid.Row="0" HorizontalAlignment="Left"  Name="wrapPanel1" Width="700"  >
+                        <TextBlock Text="条件类型：" FontWeight="Bold" Margin="0,5" ></TextBlock>
+                        <telerik:RadComboBox Name="cmbConditionType"  Width="200" SelectionChanged="cmbConditionType_SelectionChanged">
+                        </telerik:RadComboBox>
+                        <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkICD10">
+                            <TextBlock Text="ICD-10：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <sdk:AutoCompleteBox FilterMode="None"  ItemTemplate="{StaticResource autoCompleteICD10Temp}"   IsTextCompletionEnabled="False" Name="autoCompleteICD10" Width="200" ToolTipService.ToolTip="输入关键字检索...">
+                            </sdk:AutoCompleteBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,0" Name="stkNonICD10">
+                            <TextBlock Text="检查项：" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <sdk:AutoCompleteBox FilterMode="None"  ItemTemplate="{StaticResource autoCompleteNonICD10Temp}"   IsTextCompletionEnabled="False" Name="autoCompleteNonICD10" Width="200" ToolTipService.ToolTip="输入关键字检索..."  SelectionChanged="autoCompleteNonICD10_SelectionChanged">
+                            </sdk:AutoCompleteBox>
+                        </StackPanel>
+                    </toolkit:WrapPanel>
+                    <toolkit:WrapPanel Grid.Row="1" HorizontalAlignment="Left"  Name="wrpNonICD"  Width="360" >
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0" >
+                            <TextBlock Text="范围：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_1" Minimum="0" />
+                            <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_1" Minimum="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed" >
+                            <TextBlock Text="成人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_2" Minimum="0" />
+                            <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_2" Minimum="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                            <TextBlock Text="男人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_3" Minimum="0" />
+                            <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_3" Minimum="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                            <TextBlock Text="女人：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_4" Minimum="0" />
+                            <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_4" Minimum="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                            <TextBlock Text="儿童：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_5" Minimum="0" />
+                            <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_5" Minimum="0" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Visibility="Collapsed">
+                            <TextBlock Text="婴儿：" FontWeight="Bold" Margin="0,5" Width="37"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numStart_6" Minimum="0" />
+                            <TextBlock Text="~" FontWeight="Bold" Margin="0,5"></TextBlock>
+                            <YDSoft:RadNumericUpDownExtra ShowButtons="False" Width="150" x:Name="numEnd_6" Minimum="0" />
+                        </StackPanel>
+                    </toolkit:WrapPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                        <Button  Name="btnAdd" Click="btnAdd_Click" Height="28" BorderThickness="0" Cursor="Hand" Width="65" Margin="20,0">
+                            <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/add.jpg" Width="63" />
+                        </Button>
+                        <Button   Name="btnSave" Click="btnSave_Click" Height="28" BorderThickness="0" Cursor="Hand" Width="65"  Margin="20,0">
+                            <Image Height="26" Margin="-2,-2" Source="/Pathway;component/Images/save.png" Width="63" />
+                        </Button>
+
+
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+            <Border BorderBrush="#959595" Grid.Row="3" BorderThickness="1" Height="1" ></Border>
+            <TextBlock Name="txtOperationState" Grid.Row="4" FontWeight="Bold"></TextBlock>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow>

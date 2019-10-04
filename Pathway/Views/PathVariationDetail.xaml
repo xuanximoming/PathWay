@@ -1,0 +1,281 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.PathVariationDetail" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+           xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	       xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:dragAndDrop="clr-namespace:Telerik.Windows.Controls.DragDrop;assembly=Telerik.Windows.Controls"
+           d:DesignWidth="1160" d:DesignHeight="680"
+                 xmlns:local="clr-namespace:YidanEHRApplication.ViewsViews.Tool"
+           Width="Auto"  Height="AUTO"
+           Title="临床路径变异编码" Loaded="Page_Loaded" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <navigation:Page.Resources>
+        <Style  TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Normal"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style  TargetType="TextBox">
+            <Setter Property="Width" Value="90" />
+            <Setter Property="FontSize" Value="10"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+        <Style TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        <Style  TargetType="telerik:RadButton">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Width" Value="50"></Setter>
+        </Style>
+        <local:CP_PathVariationClients x:Key="Items">
+        </local:CP_PathVariationClients>
+        <local:ObjectToFalseConverter x:Key="ObjectToFalseConverter" />
+        <telerik:HierarchicalDataTemplate x:Key="ItemTemplate" ItemsSource="{Binding Children}">
+            <TextBlock Text="{Binding DisplayProperty}" />
+        </telerik:HierarchicalDataTemplate>
+    </navigation:Page.Resources>
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+        <Grid x:Name="LayoutRoot">
+            <!--<telerik:RadTabControl HorizontalAlignment="Stretch" Name="radTabControlPathVariation" VerticalAlignment="Stretch" 
+                               DropDownDisplayMode="Visible" ScrollMode="Viewport" BorderThickness="0" >
+                <telerik:RadTabItem Padding="4 1" DropDownContent="路径变异编码">
+                    <telerik:RadTabItem.Header>
+                        <TextBlock Text="路径变异编码" Margin="19 2 19 0" />
+                    </telerik:RadTabItem.Header>
+                    <telerik:RadTabItem.Content>-->
+            <Grid x:Name="Main"  Margin="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="34"/>
+                    <RowDefinition Height="130"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border  BorderThickness="1,1, 1,1" CornerRadius="6,6,6,6" Margin="5" Grid.Row="0" >
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                            <GradientStop Color="#46A3FF" Offset="1"/>
+                            <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border BorderThickness="7,7,7,7" CornerRadius="2,2,2,2" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                        <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                            <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="White">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                        <GradientStop Color="#FF515151" Offset="0.008"/>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Grid     VerticalAlignment="Top" Background="#ECF5FF">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="3"></RowDefinition>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                        <!--<RowDefinition Height="15"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>-->
+                                        <RowDefinition Height="5"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65"   ></ColumnDefinition>
+                                        <ColumnDefinition Width="130"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="95"></ColumnDefinition>
+                                        <ColumnDefinition Width="65" ></ColumnDefinition>
+                                        <ColumnDefinition Width="95"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="95"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="95"></ColumnDefinition>
+                                        <ColumnDefinition Width="85"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="76"></ColumnDefinition>
+                                        <ColumnDefinition Width="76"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Rectangle  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="15" Fill="Black"  StrokeThickness="1" Height="1" Margin="10,0"  VerticalAlignment="Center"   />-->
+                                    <TextBlock Text="编码类型:" Grid.Column="4" Grid.Row="1" />
+                                    <TextBlock Text="查询类型:" Grid.Column="0" Grid.Row="1" />
+                                    <TextBlock Text="编码状态:" Grid.Column="6" Grid.Row="1" />
+                                    <TextBlock Text="变异编码:" Grid.Column="8" Grid.Row="1" />
+                                    <TextBlock Text="编码范围:" Grid.Column="2" Grid.Row="1" />
+                                    <telerik:RadComboBox Name="cbxVQueryType" Grid.Column="1" Grid.Row="1" Width="120" >
+                                        <telerik:RadComboBoxItem Content="精确查询"  />
+                                        <telerik:RadComboBoxItem Content="模糊查询" IsSelected="True"/>
+                                    </telerik:RadComboBox>
+                                    <telerik:RadComboBox Name="cbxVariationType" Grid.Column="3" Grid.Row="1" Width="90" >
+                                    </telerik:RadComboBox>
+                                    
+                                    <telerik:RadComboBox Name="cbxQueryCodeType" Grid.Column="5" Grid.Row="1" Width="90" >
+                                        <telerik:RadComboBoxItem Content="全部" IsSelected="True" />
+                                        <telerik:RadComboBoxItem Content="一级编码"  />
+                                        <telerik:RadComboBoxItem Content="二级编码" />
+                                        <telerik:RadComboBoxItem Content="三级编码" />
+                                    </telerik:RadComboBox>
+                                    <telerik:RadComboBox Name="cbxQueryCodeState" Grid.Column="7" Grid.Row="1" Width="90" >
+                                        <telerik:RadComboBoxItem Content="全部"  IsSelected="True" />
+                                        <telerik:RadComboBoxItem Content="启用" />
+                                        <telerik:RadComboBoxItem Content="停用" />
+                                    </telerik:RadComboBox>
+                                    <!--<telerik:RadComboBox Name="cbxCodeType" Grid.Column="1" Grid.Row="3" Width="90" SelectionChanged="cbxCodeType_SelectionChanged">
+                                                    <telerik:RadComboBoxItem Content="一级编码" IsSelected="True" />
+                                                    <telerik:RadComboBoxItem Content="二级编码" />
+                                                    <telerik:RadComboBoxItem Content="三级编码" />
+                                                </telerik:RadComboBox>-->
+                                    <TextBox x:Name="txtCode" Grid.Column="9" Grid.Row="1"  />
+                                    <Button Grid.Row="1" Grid.Column="10" Name="btnQueryCode" Cursor="Hand"  Click="btnQueryCode_Click" Height="28" Width="65" Margin="-20" BorderThickness="0" >
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" />
+                                    </Button>
+                                    <Button Grid.Row="1" Grid.Column="11" Name="btnClearCode" Cursor="Hand"  Click="btnClearCode_Click" Height="28" Width="65" Margin="-20" BorderThickness="0" >
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </Border>
+                    </Border>
+                </Border>
+                <telerik:RadGridView  Name="GridViewPathVariation"  Grid.Row="1"  Margin="5,0,5,0"  GridLinesVisibility="Both"
+                                         IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                         ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed" HorizontalAlignment="Stretch" >
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewColumn IsVisible="False" >
+                            <telerik:GridViewColumn.Header>
+                                <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="checkBoxAll" Checked="checkBoxAll_Checked" Unchecked="checkBoxAll_Unchecked" />
+                            </telerik:GridViewColumn.Header>
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  HorizontalAlignment="Center" VerticalAlignment="Center" Tag="{Binding Bydm}" Loaded="CheckBox_Loaded" />
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                        <telerik:GridViewDataColumn Header="变异编码" Width="100*" DataMemberBinding="{Binding Bydm}" >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Bydm}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="变异名称" Width="100*" DataMemberBinding="{Binding Bymc}" >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Bymc}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="拼音码" Width="100*" DataMemberBinding="{Binding Py}">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Py}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="变异描述" Width="200*" DataMemberBinding="{Binding Byms}"  >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Byms}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="状态"  Width="100*" DataMemberBinding="{Binding State}" x:Name="State"/>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadDataPager BorderThickness="0"   Grid.ColumnSpan="2" x:Name="radDataPager" Source="{Binding Items, ElementName=GridViewPathVariation}"
+                     Height="34"       Margin="5,0,5,0"         PageSize="18"  DisplayMode="FirstLastPreviousNextNumeric"  IsTotalItemCountFixed="True" HorizontalContentAlignment="Right" />
+
+                    <Button Width="78" Cursor="Hand"  Name="btnClassCode"  Click="btnClassCode_Click" BorderThickness="0" Height="28"  HorizontalAlignment="Left" Margin="15,3,0,3">
+                        <Image Height="26" Margin="-3" Source="/Pathway;component/Images/归类编码.png" Width="76" />
+                    </Button>
+                    <Button Width="65" Cursor="Hand"  Name="btnEnableCode"  Click="btnEnableCode_Click" BorderThickness="0" Height="28"  HorizontalAlignment="Left" Margin="115,3,0,3">
+                        <Image Height="26" Margin="-3" Source="/Pathway;component/Images/启用.png" Width="63" />
+                    </Button>
+                    <Button Width="65" Cursor="Hand"  Name="btnDisableCode"  Click="btnEnableCode_Click" BorderThickness="0" Height="28"  HorizontalAlignment="Left" Margin="215,3,0,3">
+                        <Image Height="26" Margin="-3" Source="/Pathway;component/Images/停用.png" Width="63" />
+                    </Button>
+                    <!--<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,0" Background="Transparent">
+                                        <telerik:RadButton  Content="修改" Height="Auto" HorizontalAlignment="Left"  Name="btnUpdate" 
+                                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0" />
+                                        <telerik:RadButton  Content="添加" Height="Auto" HorizontalAlignment="Left"  Name="btnAdd" 
+                                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0"  />
+                                        <telerik:RadButton  Grid.Row="3" Content="取消" Height="Auto" HorizontalAlignment="Left"  Name="btnClear" 
+                                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0"   Grid.Column="3" />
+                                        <telerik:RadButton Grid.Row="2" Content="保存" Height="Auto" HorizontalAlignment="Right"  Name="btnSave" 
+                                                           VerticalAlignment="Top" Width="50"  Margin="20,2,0,0" Grid.Column="1" />
+                                    </StackPanel>-->
+
+                </Grid>
+                <Grid Grid.Row="3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*" />
+                        <RowDefinition Height="35*" />
+                    </Grid.RowDefinitions>
+
+                    <telerik:GroupBox Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" Header="新增编码" FontSize="16" FontWeight="ExtraBold" Grid.ColumnSpan="5" Grid.RowSpan="2" Height="120" HorizontalAlignment="Stretch" Margin="10,10,10,0" Name="groupBox1" Width="auto" VerticalAlignment="Top"  />
+
+                    <Button Width="65" Cursor="Hand" Name="btnCreateCode" BorderThickness="0" Margin="80,20,0,0"  Click="btnCreateCode_Click" Height="28" HorizontalAlignment="Left"  Grid.Row="1" Grid.Column="2">
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" />
+                    </Button>
+                    <Button BorderThickness="0" Cursor="Hand" Height="28" HorizontalAlignment="Left" Name="btnTxtClear" Click="btnTxtClear_Click" Grid.Column="2" Grid.Row="1"  VerticalAlignment="Stretch" Width="65" Margin="180,20,0,0">
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                    </Button>
+
+                    <TextBlock Text="编码分类:" HorizontalAlignment="Left"  Margin="29,45,0,0" Height="20" />
+                    <telerik:RadDropDownButton Width="196" Height="Auto" Name="ddbBydm" HorizontalAlignment="Left" VerticalAlignment="Top" IsOpen="{Binding SelectedItem, Converter={StaticResource ObjectToFalseConverter}, 
+                                               ElementName=TreeView, Mode=TwoWay}" Content="{Binding SelectedItem.Bymc, FallbackValue='请选择...', ElementName=TreeView}" 
+                                               Tag="{Binding SelectedItem.Bydm, FallbackValue='', ElementName=TreeView}" Margin="88,43,0,0">
+                        <telerik:RadDropDownButton.DropDownContent>
+                            <ScrollViewer Width="196"  MaxHeight="200" HorizontalScrollBarVisibility="Auto">
+                                <telerik:RadTreeView x:Name="TreeView" ItemsSource="{StaticResource Items}" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="TreeView_SelectionChanged" />
+                            </ScrollViewer>
+                        </telerik:RadDropDownButton.DropDownContent>
+                    </telerik:RadDropDownButton>
+                    <TextBlock Text="变异编码:" Margin="18,46,0,1" Grid.Column="1" HorizontalAlignment="Left" />
+                    <TextBox x:Name="txtBydm" IsReadOnly="False" Margin="77,42,0,0" Grid.Column="1" HorizontalAlignment="Left" Width="196" />
+                    <TextBlock Text="变异名称:" Grid.Row="1" Margin="29,0,0,0" HorizontalAlignment="Left" />
+                    <TextBlock Text="变异描述:" Margin="19,45,0,2" Grid.Column="2" HorizontalAlignment="Left"/>
+                    <TextBlock Text="拼音码:"   Grid.Row="1" Grid.Column="1" Margin="31,0,0,0" HorizontalAlignment="Left" />
+                    <TextBox x:Name="txtByms" MaxLength="120" Margin="79,42,0,0" Grid.Column="2" Height="23" HorizontalAlignment="Left" Width="196" />
+                    <TextBox x:Name="txtBymc" MaxLength="32"  Grid.Row="1" Margin="88,0,0,0" HorizontalAlignment="Left" Width="196" />
+                    <TextBox x:Name="txtPym" MaxLength="8"  Grid.Row="1" Grid.Column="1" Margin="77,0,0,0" HorizontalAlignment="Left" Width="196" />
+                    <sdk:Label Content="*"  Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="279,47,0,0" Name="label3" VerticalAlignment="Top" Width="15" Grid.Column="1" />
+                    <sdk:Label Content="*"  Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="290,27,0,0" Name="label1" VerticalAlignment="Top" Width="15" Grid.Row="1" />
+                    <sdk:Label Content="*"  Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="279,27,0,0" Name="label2" VerticalAlignment="Top" Width="15" Grid.Column="1" Grid.Row="1" />
+                    <sdk:Label Content="*"  Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="281,47,0,0" Name="label4" VerticalAlignment="Top" Width="15" Grid.Column="2" />
+                    <sdk:Label Content="提示：带有*的为必填项"  Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="79,6,0,0" Name="label5" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1" />
+                </Grid>
+
+            </Grid>
+            <!--</telerik:RadTabItem.Content>
+                </telerik:RadTabItem>
+            </telerik:RadTabControl>-->
+        </Grid>
+    </telerik:RadBusyIndicator>
+</navigation:Page>

@@ -1,0 +1,78 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Pass.MedicineDirectsForm" 
+                xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+                xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+                xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+                Width="Auto" Height="Auto" 
+                 xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">-->
+        <Border Style="{StaticResource BorderStyle}" Margin="5"  Grid.Row="0">
+               
+                <Border BorderThickness="7,7,7,7" CornerRadius="2,2,2,2" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                    <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                        <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="#ECF5FF">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                    <GradientStop Color="#FF515151" Offset="0.008"/>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
+                            <StackPanel Orientation="Horizontal" >
+                                <StackPanel.Resources>
+                                    <Style x:Key="styleTextBolck" TargetType="TextBlock">
+                                        <Setter Property="Margin" Value="20,0,0,0" ></Setter>
+                                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                    </Style>
+                                    <Style x:Key="styleButton" TargetType="telerik:RadButton">
+                                        <Setter Property="Margin" Value="20,0,0,0" ></Setter>
+                                    </Style>
+                                    <Style x:Key="styleTitleTextBolck" TargetType="TextBlock">
+                                        <Setter Property="Margin" Value="20,0,0,0" ></Setter>
+                                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                        <Setter Property="FontSize" Value="18"></Setter>
+                                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock Style="{StaticResource styleTitleTextBolck}"  >药品说明书查询</TextBlock>
+
+                                <TextBlock  Style="{StaticResource styleTextBolck}">药品名称:</TextBlock>
+                                <sdk:AutoCompleteBox  Width="200"  IsTextCompletionEnabled="False" Name="atTxt" TextChanged="atTxt_TextChanged" FilterMode="None" SelectionChanged="atTxt_SelectionChanged">
+                                    <sdk:AutoCompleteBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding DirectTitle2}"></TextBlock>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </sdk:AutoCompleteBox.ItemTemplate>
+                                </sdk:AutoCompleteBox>
+
+
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </Border>
+            </Border>
+          
+            <telerik:RadGridView  SelectionChanged="GridView_SelectionChanged" Grid.Row="1"   IsReadOnly="True" IsFilteringAllowed="False" Name="GridView" 
+                        AutoGenerateColumns="False" SelectionMode="Single"   GridLinesVisibility="Both"
+                        CanUserFreezeColumns="False" AutoExpandGroups="True"  CanUserResizeColumns="True"  ShowGroupPanel="False" IsScrolling="False" Height="Auto" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Width="300"   Header="说明书名称" DataMemberBinding="{Binding DirectTitle2}" ></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Width="300" Header="所属公司名称" DataMemberBinding="{Binding Company}" ></telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="剂型" DataMemberBinding="{Binding Doseform}" ></telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            
+        <!--</StackPanel>-->
+   
+    </Grid>
+</navigation:Page>

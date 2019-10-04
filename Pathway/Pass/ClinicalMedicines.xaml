@@ -1,0 +1,84 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Pass.ClinicalMedicines" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="药品咨询" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Loaded="Page_Loaded">
+    <telerik:RadBusyIndicator Name="radBusyIndicator" Background="Transparent" BusyContent="数据加载中...">
+        <Grid x:Name="LayoutRoot">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Name="LayoutLeft" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="420*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                    <StackPanel Grid.Row="0"  Orientation="Horizontal">
+                        <sdk:Label Height="28" Name="label1" Width="70" Content="拼音码" HorizontalAlignment="Center"  FontSize="12" />
+                        <sdk:AutoCompleteBox Height="28" Name="autoCompleteBox1" Width="178"  SelectionChanged="autoCompleteBox1_SelectionChanged" ValueMemberBinding="{Binding}">
+                            <sdk:AutoCompleteBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="170" MinWidth="170">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock  HorizontalAlignment="Left"  Foreground="Black"  Text="{Binding Ypspm}" Grid.Row="0"  Width="170" Grid.Column="0" />
+                                    </Grid>
+                                </DataTemplate>
+                            </sdk:AutoCompleteBox.ItemTemplate>
+                        </sdk:AutoCompleteBox>
+                    </StackPanel>
+                
+                <telerik:RadTreeView Grid.Row="1"  HorizontalAlignment="Stretch" Margin="6,10,10,10" Name="radTreeView1"  FontSize="12" VerticalAlignment="Stretch" 
+                                     HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+            </Grid>
+            <telerik:RadTabControl Grid.Column="1"   HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Stretch"  FontSize="12">
+                <telerik:RadTabItem Header="药物信息"  Height="25" Background="White" HorizontalAlignment="Left" Name="RadTabItemInfo" VerticalAlignment="Top" Width="100" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                    <Grid Name="drugifo" ShowGridLines="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="85*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                            <sdk:Label Content="[药品通用名]" Name="lbl_Tym" Height="36" Grid.Row="0" Grid.Column="0" HorizontalAlignment="left"></sdk:Label>
+                            <TextBlock Name="txt_DrugTym" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Text="" Grid.Column="2" Grid.Row="0"></TextBlock>
+                            <sdk:Label Content="[药品商品名]" Name="lbl_Spm" Height="36"  Grid.Row="1" Grid.Column="0"></sdk:Label>
+                            <TextBlock Name="txt_DrugSpm"  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBlock>
+                             
+                            <sdk:Label Content="[药品类别]" Name="lbl_Lb" Height="36" Grid.Row="2" Grid.Column="0"></sdk:Label>
+                            <TextBlock Name="txt_DrugLb"  Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBlock>
+                            
+                            <sdk:Label Content="[药品用法用量]" Name="lbl_Yf" Height="36" Grid.Row="3" Grid.Column="0"></sdk:Label>
+                        <TextBlock Name="txt_DrugYf" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBlock>
+
+                        <sdk:Label Content="[药品适用症]" Name="lbl_Syz" Height="36" VerticalAlignment="Top" Grid.Row="4" Grid.Column="0"></sdk:Label>
+                            <TextBlock Name="txt_DrugSyz" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" TextAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBlock>
+
+                        <sdk:Label Content="[药品不适用症]" Name="lbl_Jjz" Height="36" VerticalAlignment="Top"  Grid.Row="5" Grid.Column="0"></sdk:Label>
+                            <TextBlock Name="txt_DrugJjz" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBlock>
+                    </Grid>
+                </telerik:RadTabItem>
+                <!--<telerik:RadTabItem Header="相互作用" Height="50" HorizontalAlignment="Left" Name="RadTabItemEffect" VerticalAlignment="Top" Width="100"   />
+                <telerik:RadTabItem Header="其他名称" Height="50" HorizontalAlignment="Left" Name="RadTabItemOther" VerticalAlignment="Top" Width="100" />-->
+            </telerik:RadTabControl>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</navigation:Page>

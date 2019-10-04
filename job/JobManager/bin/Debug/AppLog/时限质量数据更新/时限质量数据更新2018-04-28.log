@@ -1,0 +1,6 @@
+18-4-28 15:27:20 6908	True 	[开始]	（信息）                	0    	0    
+18-4-28 15:27:22 4609	False	[该字符串未被识别为有效的 DateTime。]	（错误）                	0    	0    
+18-4-28 15:27:22 4619	False	[该字符串未被识别为有效的 DateTime。   在 DrectSoft.JobManager.TimeQcManager.Execute()   在 DrectSoft.JobManager.JobDespatch.DoJobThread(Job job)类型：DrectSoft.JobManager.TimeQcManager方法：Execute所属程序集：DrectSoft.Core.JobTasks]	（错误）                	0    	0    
+18-4-28 15:27:32 4645	True 	[开始]	（信息）                	0    	0    
+18-4-28 15:27:32 6555	False	[该字符串未被识别为有效的 DateTime。]	（错误）                	0    	0    
+18-4-28 15:27:32 6555	False	[该字符串未被识别为有效的 DateTime。   在 DrectSoft.JobManager.TimeQcManager.Execute()   在 DrectSoft.JobManager.JobDespatch.DoJobThread(Job job)类型：DrectSoft.JobManager.TimeQcManager方法：Execute所属程序集：DrectSoft.Core.JobTasks]	（错误）                	0    	0    

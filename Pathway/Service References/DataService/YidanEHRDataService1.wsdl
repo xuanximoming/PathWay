@@ -1,0 +1,3973 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="YidanEHRDataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="" location="http://localhost:2081/YidanEHRDataService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_YidanEHRDataService" type="YidanEHRDataService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNurExecInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNurExecInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNurExecToPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveNurExecToPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurToPathInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNurToPathInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurPathBasicInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNurPathBasicInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNurExecRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveNurExecRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNurExecuteRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveNurExecuteRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathVariationInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathVariationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOtherPathVariationInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetOtherPathVariationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QuitPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/QuitPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePathStaus">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePathStaus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRISLISOrderInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRISLISOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CP_LogExceptionFault">
+        <soap:fault use="literal" name="CP_LogExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNormalOrderInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNormalOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CP_LogExceptionFault">
+        <soap:fault use="literal" name="CP_LogExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLogException">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertLogException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientIp">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetClientIp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault use="literal" name="FaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppConifgType">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAppConifgType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EhrtoHisAppInsert">
+      <soap:operation soapAction="urn:YidanEHRDataService/EhrtoHisAppInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EhrToHisAppUpdate">
+      <soap:operation soapAction="urn:YidanEHRDataService/EhrToHisAppUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEhrToHisApp">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetEhrToHisApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EhrtoHisAppDel">
+      <soap:operation soapAction="urn:YidanEHRDataService/EhrtoHisAppDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_InPathPatient">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_InPathPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathQuitMonthCompare">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathQuitMonthCompare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathQuitMonthDetailCompareDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathQuitMonthDetailCompareDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagNurTemplateInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDiagNurTemplateInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigNurToPathInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDigNurToPathInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDiagNurTemp">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertDiagNurTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiagNurTemp">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateDiagNurTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelDiagNurTemp">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelDiagNurTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCP_PatientPathEnterJudgeConditionRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCP_PatientPathEnterJudgeConditionRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCP_PatientNodeEnterJudgeConditionRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCP_PatientNodeEnterJudgeConditionRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Eval">
+      <soap:operation soapAction="urn:YidanEHRDataService/Eval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadExpressionsConfigXML">
+      <soap:operation soapAction="urn:YidanEHRDataService/ReadExpressionsConfigXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReadExpressionsConfigXMLByDB">
+      <soap:operation soapAction="urn:YidanEHRDataService/ReadExpressionsConfigXMLByDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathVariationBasInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathVariationBasInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVariationToPathInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetVariationToPathInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVariationToPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveVariationToPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurExecItemList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNurExecItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNurExecCategoryInsert">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckNurExecCategoryInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNurExecCategoryUpdate">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckNurExecCategoryUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAndSelectNurExecCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertAndSelectNurExecCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNurExecCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateNurExecCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNurExecCategoryDelete">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckNurExecCategoryDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNurExecCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteNurExecCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAndSelectCP_MedicalTreatmentWarmGroupByTxlx">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertAndSelectCP_MedicalTreatmentWarmGroupByTxlx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAndSelectCP_MedicalTreatmentWarm">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateAndSelectCP_MedicalTreatmentWarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainCP_MasterDrug">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainCP_MasterDrug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainCP_MasterDrugRoles">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainCP_MasterDrugRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainCP_MasterDrug2Role">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainCP_MasterDrug2Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainCP_MasterDrug2RoleUpdate">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainCP_MasterDrug2RoleUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainP_MasterDrug2User">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainP_MasterDrug2User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainP_MasterDrug2UserUpdate">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainP_MasterDrug2UserUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MaintainP_MasterDrug2UserSelect">
+      <soap:operation soapAction="urn:YidanEHRDataService/MaintainP_MasterDrug2UserSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MasterDrugsSynthesisQuery">
+      <soap:operation soapAction="urn:YidanEHRDataService/MasterDrugsSynthesisQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCyxdfInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCyxdfInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCYXDF">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCYXDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCYXDF">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCYXDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelCYXDF">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelCYXDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PathCutTotal">
+      <soap:operation soapAction="urn:YidanEHRDataService/PathCutTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigNurRecordInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDigNurRecordInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagNurRecordInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDiagNurRecordInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDiagNurRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertDiagNurRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PLInsertDiagNurRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/PLInsertDiagNurRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiagExecRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateDiagExecRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelDiagNurRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelDiagNurRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PLDelDiagNurRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/PLDelDiagNurRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetV_PermissionList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetV_PermissionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetV_PermissionListFather">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetV_PermissionListFather" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathCP_PathEnterJudgeConditionAll">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathCP_PathEnterJudgeConditionAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNodeCP_PathEnterJudgeConditionAll">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNodeCP_PathEnterJudgeConditionAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInsertCP_PathEnterJudgeCondition">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInsertCP_PathEnterJudgeCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateCP_PathEnterJudgeCondition">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetUpdateCP_PathEnterJudgeCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteCP_PathEnterJudgeCondition">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDeleteCP_PathEnterJudgeCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetValidClinicalPathList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetValidClinicalPathList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPassDrugInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPassDrugInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVitalSignsRecordTimeSet">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetVitalSignsRecordTimeSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNurseCode">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNurseCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveNursingNotes">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveNursingNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVitalSign">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveVitalSign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SavePatientIn">
+      <soap:operation soapAction="urn:YidanEHRDataService/SavePatientIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SavePatientOut">
+      <soap:operation soapAction="urn:YidanEHRDataService/SavePatientOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTreatmentFlow">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveTreatmentFlow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVitalSignSpecialRecord">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveVitalSignSpecialRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_FamilyHistoryList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_FamilyHistoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OperateCP_FamilyHistory">
+      <soap:operation soapAction="urn:YidanEHRDataService/OperateCP_FamilyHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLongOrderListBelongToSomeOne">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetLongOrderListBelongToSomeOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLongOrderListYzzt">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateLongOrderListYzzt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryCondition">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetQueryCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRpt_InPathPatientFeePercent">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRpt_InPathPatientFeePercent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalysePatient_CanEnterPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAnalysePatient_CanEnterPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalysePatients_CanEnterPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAnalysePatients_CanEnterPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalysePatient_CanEnterNode">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAnalysePatient_CanEnterNode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicines">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicines" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicineCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinesName">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicinesName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="urn:YidanEHRDataService/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetEmployeeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnection">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseSettingStr">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetBaseSettingStr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBaseSettingStream">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetBaseSettingStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRoot">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckRoot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientFeeInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientFeeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientPhySign">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientPhySign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientPathCVInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientPathCVInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagnosisListInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDiagnosisListInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinicalPathListInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetClinicalPathListInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentListInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDepartmentListInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinicalDiagnosis">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetClinicalDiagnosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinicalPathList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetClinicalPathList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCPList">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCPList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCPList">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCPList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkFlowXML">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateWorkFlowXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathInitOrder">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathInitOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathEnforcedOrder">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathEnforcedOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEnforceXmlOrder">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveEnforceXmlOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEnForceInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateEnForceInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePathStatusDone">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePathStatusDone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderToHis">
+      <soap:operation soapAction="urn:YidanEHRDataService/SendOrderToHis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_DiagnosisList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_DiagnosisList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_PathDiagnosisList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_PathDiagnosisList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CopyCP_DiagnosisToPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/CopyCP_DiagnosisToPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelCP_DiagnosisFromPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelCP_DiagnosisFromPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IsHaveCP_PathDiagnosis">
+      <soap:operation soapAction="urn:YidanEHRDataService/IsHaveCP_PathDiagnosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_EmployeeByKeyWords">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_EmployeeByKeyWords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="urn:YidanEHRDataService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_SurgeryListByKeyword">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_SurgeryListByKeyword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinicalPathByLjdm">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetClinicalPathByLjdm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_UserRoleInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_UserRoleInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataCategoryInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDataCategoryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathStatistic">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathStatistic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathStatisticDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathStatisticDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathQuitList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathQuitList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathExecVariantRecordList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathExecVariantRecordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQCRecordTipList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetQCRecordTipList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeyondDaysList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetBeyondDaysList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBeyondFeeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetBeyondFeeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetForceToPathList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetForceToPathList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathExitList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathExitList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddQuestionCenter">
+      <soap:operation soapAction="urn:YidanEHRDataService/AddQuestionCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQCProblemList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetQCProblemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AuditQuestion">
+      <soap:operation soapAction="urn:YidanEHRDataService/AuditQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrapDropAdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDrapDropAdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRW_PathSummary">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRW_PathSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRW_PathSummary_new">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRW_PathSummary_new" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathOrdersAll">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathOrdersAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_AllergyHistoryList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_AllergyHistoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OperCP_AllergyHistory">
+      <soap:operation soapAction="urn:YidanEHRDataService/OperCP_AllergyHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetJyJcMXInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetJyJcMXInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCTbySxmdm">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCTbySxmdm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSxmdmbyID">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetSxmdmbyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCP_AdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/AddCP_AdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditCP_AdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/EditCP_AdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCP_AdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteCP_AdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_AdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_AdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GroupCP_AdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GroupCP_AdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancleGroupCP_AdviceSuitDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/CancleGroupCP_AdviceSuitDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_NurExecCategoryDetailMaintain">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_NurExecCategoryDetailMaintain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DisAboutUS">
+      <soap:operation soapAction="urn:YidanEHRDataService/DisAboutUS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser2DeptList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetUser2DeptList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelUser2Dept">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelUser2Dept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser2Dept">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertUser2Dept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDeptByUserID">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetUserDeptByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathVariationAnalyse">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathVariationAnalyse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathVariationAnalyseDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathVariationAnalyseDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryNursingNotesInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/QueryNursingNotesInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="NursingNotesRecordCancel">
+      <soap:operation soapAction="urn:YidanEHRDataService/NursingNotesRecordCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCheckInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCheckInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAndSelectCP_AdviceSuitCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertAndSelectCP_AdviceSuitCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheckInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCheckInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCP_AdviceSuitCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCP_AdviceSuitCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCheckInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteCheckInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCP_AdviceSuitCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteCP_AdviceSuitCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientCount">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientListPaging">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientListPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInpatientInfoByCondition">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInpatientInfoByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientContactsInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePatientContactsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectFirstPationContactsInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/SelectFirstPationContactsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePatInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPatInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/SelectPatInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRyzdListByFilter">
+      <soap:operation soapAction="urn:YidanEHRDataService/SelectRyzdListByFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBasicInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetBasicInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentByFilter">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDepartmentByFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartment4AutoComboBox">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDepartment4AutoComboBox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRpt_PathEnterStatistics">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRpt_PathEnterStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRpt_PathEnterStatisticsDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRpt_PathEnterStatisticsDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRpt_ClinicalDiagnosis">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRpt_ClinicalDiagnosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientInHospital">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPatientInHospital" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_IllnessHistoryList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_IllnessHistoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OperCP_IllnessHistory">
+      <soap:operation soapAction="urn:YidanEHRDataService/OperCP_IllnessHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTempOrderListBelongToSomeOne">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetTempOrderListBelongToSomeOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTempOrderListYzzt">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateTempOrderListYzzt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrugUseage">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDrugUseage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoAdviceGroup">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertIntoAdviceGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoAdviceGroupList">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertIntoAdviceGroupList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoCyAdviceGroup">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertIntoCyAdviceGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdviceGroupDetailInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAdviceGroupDetailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelAdviceGroupDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelAdviceGroupDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelSSAdviceDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelSSAdviceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDropDownInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDropDownInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StructureDropDown">
+      <soap:operation soapAction="urn:YidanEHRDataService/StructureDropDown" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdviceGroup">
+      <soap:operation soapAction="urn:YidanEHRDataService/AdviceGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisAdviceGroup">
+      <soap:operation soapAction="urn:YidanEHRDataService/DisAdviceGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdviceGroupDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateAdviceGroupDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOperationInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetOperationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnesthesiaInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAnesthesiaInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertIntoAdviceAnesthesiaDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertIntoAdviceAnesthesiaDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdviceAnesthesiaDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAdviceAnesthesiaDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSSAdviceDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateSSAdviceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPathVariationList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDataPathVariationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPathVariationListAll">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDataPathVariationListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPathVariationCodeState">
+      <soap:operation soapAction="urn:YidanEHRDataService/SetPathVariationCodeState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVariationCode">
+      <soap:operation soapAction="urn:YidanEHRDataService/AddVariationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantRecords">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetVariantRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantRecords">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateVariantRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThirdCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetThirdCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirstCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetFirstCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppCfgInsert">
+      <soap:operation soapAction="urn:YidanEHRDataService/AppCfgInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="APPCFGUpdate">
+      <soap:operation soapAction="urn:YidanEHRDataService/APPCFGUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppCfg">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAppCfg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="APPCFGDel">
+      <soap:operation soapAction="urn:YidanEHRDataService/APPCFGDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="APPCFGHidDel">
+      <soap:operation soapAction="urn:YidanEHRDataService/APPCFGHidDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_ExamDictionaryDetailAll">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_ExamDictionaryDetailAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_PersonalHistoryList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_PersonalHistoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OperateCP_PersonalHistory">
+      <soap:operation soapAction="urn:YidanEHRDataService/OperateCP_PersonalHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCyfUnionInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCyfUnionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCP_AdviceSuit">
+      <soap:operation soapAction="urn:YidanEHRDataService/AddCP_AdviceSuit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EditCP_AdviceSuit">
+      <soap:operation soapAction="urn:YidanEHRDataService/EditCP_AdviceSuit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCP_AdviceSuit">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteCP_AdviceSuit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_AdviceSuit">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_AdviceSuit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserCenterManagerInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetUserCenterManagerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterventionCenterInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetInterventionCenterInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinesDirects">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicinesDirects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinesDirectsTitle">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicinesDirectsTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinesDirect">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicinesDirect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_PathDiagnosisListByKey">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_PathDiagnosisListByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_PathDiagnosisListAll">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_PathDiagnosisListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployee">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeWard">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetEmployeeWard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompleteEmployeeWard">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCompleteEmployeeWard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathVariation">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathVariation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathVariationDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathVariationDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathFinish">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathFinish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathFinishDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathFinishDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_RoleList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_RoleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPE_Role">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertPE_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePE_Role">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePE_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelPE_Role">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelPE_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_RoleFunList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_RoleFunList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_FunList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_FunList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_FunFatherList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_FunFatherList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_FunSunList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_FunSunList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPE_Fun">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertPE_Fun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePE_Fun">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePE_Fun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelPE_Fun">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelPE_Fun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSunPE_FunList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetSunPE_FunList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_FunListByRoleCode">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_FunListByRoleCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPE_RoleFun">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertPE_RoleFun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelPE_RoleFun">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelPE_RoleFun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_CodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_CodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAddCodeBeing">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckAddCodeBeing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_HlxmList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_HlxmList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAddHlxmCodeBeing">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckAddHlxmCodeBeing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHlxmCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertHlxmCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHlxmCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateHlxmCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelHlxmCodeList">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelHlxmCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPE_UserRoleList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPE_UserRoleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoleByUserID">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetUserRoleByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPE_UserRole">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertPE_UserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePE_UserRole">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePE_UserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelPE_UserRole">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelPE_UserRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppCfgInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAppCfgInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagNurExecCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDiagNurExecCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDiagNurCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertDiagNurCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiagNurExecCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateDiagNurExecCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagNurExecCategoryDetails">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDiagNurExecCategoryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDiagNurCategoryDetails">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertDiagNurCategoryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDiagNurExecCategoryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateDiagNurExecCategoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSfsyState">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateSfsyState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelDiagNurExecCategoryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelDiagNurExecCategoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelDiagNurExecCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelDiagNurExecCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiagNurExecCategoryInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDiagNurExecCategoryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetandCopyPathData">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetandCopyPathData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAndSelectPatientExamItem">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertAndSelectPatientExamItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientExamItem">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdatePatientExamItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePatientExamItem">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeletePatientExamItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckExamItems">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckExamItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathVariationMonitor">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathVariationMonitor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetRptPathVariationMonitorDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetRptPathVariationMonitorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCyxdfMXInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCyxdfMXInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCyxdfMXInfoById">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCyxdfMXInfoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCYXDFMX">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCYXDFMX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCYXDFMX">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCYXDFMX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DelCYXDFMX">
+      <soap:operation soapAction="urn:YidanEHRDataService/DelCYXDFMX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_SurgeryHistoryList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_SurgeryHistoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OperCP_SurgeryHistory">
+      <soap:operation soapAction="urn:YidanEHRDataService/OperCP_SurgeryHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNurResultInsert">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckNurResultInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNurReaultUpdate">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckNurReaultUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAndSelectNurResult">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertAndSelectNurResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNurResult">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateNurResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckNurResultDelete">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckNurResultDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteNurResult">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteNurResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorTaskMessage">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDoctorTaskMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCyXDFOrderListBelongToSomeOne">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCyXDFOrderListBelongToSomeOne" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathInitCYOrder">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathInitCYOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPathInitCYOrder2">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetPathInitCYOrder2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCyXDFOrderListYzzt">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateCyXDFOrderListYzzt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAddCYOrder">
+      <soap:operation soapAction="urn:YidanEHRDataService/SaveAddCYOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetV_QCRecordList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetV_QCRecordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAndSelectExamDictionaryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertAndSelectExamDictionaryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SelectExamDictionaryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/SelectExamDictionaryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetExamDictionary">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetExamDictionary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExamDictionaryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/UpdateExamDictionaryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExamDictionaryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteExamDictionaryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAddExamDictionaryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckAddExamDictionaryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUpdateExamDictionaryDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/CheckUpdateExamDictionaryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetV_PatientExamineList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetV_PatientExamineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EMRInsertCP_InPathPatient">
+      <soap:operation soapAction="urn:YidanEHRDataService/EMRInsertCP_InPathPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicinalEducationInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetMedicinalEducationInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetNursingNotesVitalSigns">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetNursingNotesVitalSigns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryPathExecuteList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetQueryPathExecuteList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetClinicalPathListByCondition">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetClinicalPathListByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryPathExecuteNoteCompare">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetQueryPathExecuteNoteCompare" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCP_ClinicalPath">
+      <soap:operation soapAction="urn:YidanEHRDataService/InsertCP_ClinicalPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CutXML">
+      <soap:operation soapAction="urn:YidanEHRDataService/CutXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdviceGroupDetail">
+      <soap:operation soapAction="urn:YidanEHRDataService/DeleteAdviceGroupDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginExceptionFault">
+        <soap:fault use="literal" name="LoginExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCP_DataCategoryDetailCategory">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCP_DataCategoryDetailCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTempOrderList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetTempOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLongOrderList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetLongOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCyXDFOrderList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetCyXDFOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetLoginInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataCategoryObject">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDataCategoryObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataCategoryList">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDataCategoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrugInfo">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetDrugInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdviceFrequency">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetAdviceFrequency" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYfjh">
+      <soap:operation soapAction="urn:YidanEHRDataService/GetYfjh" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="YidanEHRDataService">
+    <wsdl:port name="BasicHttpBinding_YidanEHRDataService" binding="tns:BasicHttpBinding_YidanEHRDataService">
+      <soap:address location="http://localhost:2081/YidanEHRDataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

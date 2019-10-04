@@ -1,0 +1,275 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.Page_CP_NurExecCategoryDetailMaintain" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+           xmlns:telerikGrid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+	       xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:dragAndDrop="clr-namespace:Telerik.Windows.Controls.DragDrop;assembly=Telerik.Windows.Controls"
+           d:DesignWidth="1024" d:DesignHeight="680"
+                 xmlns:local="clr-namespace:YidanEHRApplication.ViewsViews.Tool"
+           Width="Auto"  Height="AUTO"
+           Title="护理维护" Loaded="Page_Loaded" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <navigation:Page.Resources>
+        <DataTemplate x:Key="ComboBoxCustomTemplate1">
+            <Grid Background="Transparent" >
+                <CheckBox x:Name="chkHljg" Cursor="Hand" Grid.ColumnSpan="2" Content="{Binding Name}"    Tag="{Binding Jgbh}" Checked="chkHljg_Checked"  Loaded="chkHljg_Loaded" Unchecked="chkHljg_Unchecked" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ComboBoxSimpleTemplate1">
+            <Grid Background="Transparent">
+                <CheckBox  Foreground="Black" Cursor="Hand" Content="{Binding Name}" />
+            </Grid>
+        </DataTemplate>
+        <Style  TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Normal"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style  TargetType="TextBox">
+            <Setter Property="Width" Value="90" />
+            <Setter Property="FontSize" Value="10"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+        <Style TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        <Style  TargetType="telerik:RadButton">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Width" Value="50"></Setter>
+        </Style>
+        <local:CP_PathVariationClients x:Key="Items">
+        </local:CP_PathVariationClients>
+        <local:ObjectToFalseConverter x:Key="ObjectToFalseConverter" />
+        <telerik:HierarchicalDataTemplate x:Key="ItemTemplate" ItemsSource="{Binding Children}">
+            <TextBlock Text="{Binding DisplayProperty}" />
+        </telerik:HierarchicalDataTemplate>
+        <Style x:Key="RadComboBoxStyle" TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center" ></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="ClearSelectionButtonContent" Value="清空"></Setter>
+            <Setter Property="ClearSelectionButtonVisibility" Value="Collapsed"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        <DataTemplate x:Key="ComboBoxCustomTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Grid.ColumnSpan="2" Text="{Binding LbxhName}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ComboBoxSimpleTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Foreground="Black" Text="{Binding LbxhName}"  />
+            </Grid>
+        </DataTemplate>
+    </navigation:Page.Resources>
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+        <Grid x:Name="LayoutRoot">
+            <Grid x:Name="Main"  Margin="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="69"/>
+                    <RowDefinition Height="540*"/>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border  BorderThickness="1,1,1,1" CornerRadius="6,6,6,6" Margin="5" Grid.Row="0" >
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                            <GradientStop Color="#46A3FF" Offset="1"/>
+                            <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Border BorderThickness="7,7,7,7" CornerRadius="2,2,2,2" BorderBrush="{StaticResource Office_BluePictureFrame}">
+                        <Border Margin="-1,-1,-1,-1" Width="Auto" BorderBrush="#FFFFFFFF" BorderThickness="1,1,1,1" CornerRadius="2,2,2,2">
+                            <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Background="#ECF5FF">
+                                <Border.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF2F2F2F" Offset="1"/>
+                                        <GradientStop Color="#FF515151" Offset="0.008"/>
+                                    </LinearGradientBrush>
+                                </Border.BorderBrush>
+                                <Grid     VerticalAlignment="Top"  >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="5"></RowDefinition>
+                                        <RowDefinition Height="35"></RowDefinition>
+                                        <!--<RowDefinition Height="8"></RowDefinition>
+                                        <RowDefinition Height="20"></RowDefinition>-->
+                                        <RowDefinition Height="5"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65"   ></ColumnDefinition>
+                                        <ColumnDefinition Width="150"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="95" ></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="95"></ColumnDefinition>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="92"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Rectangle  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="15" Fill="Black"  StrokeThickness="1" Height="1" Margin="10,0"  VerticalAlignment="Center"   />-->
+                                    <TextBlock Text="护理分类:" Grid.Column="0" Grid.Row="1" />
+                                    <TextBlock Text="护理状态:" Grid.Column="3" Grid.Row="1" />
+                                    <TextBlock Text="是否使用:" Grid.Column="6" Grid.Row="1" />
+                                    <Button Grid.Column="2" Grid.Row="1" Width="43" Height="28" BorderThickness="0" Cursor="Hand" Name="btWh" Click="btnHlflWh_Click" Visibility="Collapsed">
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/维护.png" Width="41" />
+                                    </Button>
+                                    <telerik:RadComboBox SelectedValuePath="LbxhName" telerik:TextSearch.TextPath="Lbxh" TextSearchMode="Contains" Style="{StaticResource RadComboBoxStyle}"
+                                                         ItemTemplate = "{StaticResource ComboBoxCustomTemplate}"   SelectionBoxTemplate = "{StaticResource ComboBoxSimpleTemplate}"
+                                                         Name="cbxQuery" Grid.Column="1" Grid.Row="1" Width="200" Grid.ColumnSpan="2" ></telerik:RadComboBox>
+                                    <telerik:RadComboBox  Name="cbxYxjlQuery" Grid.Column="4" Grid.Row="1" Width="150" Style="{StaticResource RadComboBoxStyle}" Grid.ColumnSpan="2">
+                                        <telerik:RadComboBoxItem Content="停用"  />
+                                        <telerik:RadComboBoxItem Content="有效" />
+                                    </telerik:RadComboBox>
+                                    <telerik:RadComboBox Name="cbxSfsyQuery" Grid.Column="7" Grid.Row="1" Width="150" Grid.ColumnSpan="2"  Style="{StaticResource RadComboBoxStyle}" >
+                                        <!--SelectionChanged="cbxSfsyQuery_SelectionChanged"-->
+                                        <telerik:RadComboBoxItem Content="未用" />
+                                        <telerik:RadComboBoxItem Content="使用中"  />
+                                    </telerik:RadComboBox>
+                                    <Button Grid.Row="1" Grid.Column="9" Width="65" Height="28" HorizontalAlignment="Left"  BorderThickness="0" Cursor="Hand" Name="btnQueryCode"  Click="btnQuery_Click" >
+                                        <Image Height="26" Margin="-3" Source="/Pathway;component/Images/查询.png" Width="63" />
+                                    </Button>
+                                    <Button Grid.Row="1" Grid.Column="10" Name="btnClearCode" Cursor="Hand"  Click="btnClearCode_Click" Height="28" Width="65" Margin="-20,0,0,0" BorderThickness="0" >
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </Border>
+                    </Border>
+                </Border>
+                <telerik:RadGridView  Name="GridViewNur"  Grid.Row="1"  Margin="5,0,5,0"
+                                         GridLinesVisibility="Both" IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                         ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed" HorizontalAlignment="Stretch" >
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Header="护理编号" Width="200*" DataMemberBinding="{Binding Mxxh}" IsVisible="False">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate >
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Mxxh}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="护理分类" Width="100*" DataMemberBinding="{Binding LbxhName}" >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding LbxhName}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="护理名称" Width="200*" DataMemberBinding="{Binding MxxhName}">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding MxxhName}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="状态"  Width="100*" DataMemberBinding="{Binding Yxjl}" >
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Yxjl}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="是否使用"  Width="100*" DataMemberBinding="{Binding Sfsy}" x:Name="State">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding Sfsy}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                        <telerik:GridViewDataColumn Header="护理结果"  Width="150*" DataMemberBinding="{Binding JgName}">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock HorizontalAlignment="Left" Text="{Binding JgName}"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewDataColumn>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+                <telerik:RadDataPager BorderThickness="0"     Grid.Row="2" x:Name="radDataPager" Source="{Binding Items, ElementName=GridViewNur}" Height="36"
+                                        PageSize="14"  DisplayMode="FirstLastPreviousNextNumeric"  AutoEllipsisMode="Both"  NumericButtonCount="10" 
+                                        IsTotalItemCountFixed="True"  Margin="5,2,5,0" HorizontalContentAlignment="Right"  />
+
+
+
+                <Button Grid.Row="2" Width="94" Name="btnHlflWh" Click="btnHlflWh_Click" Height="28"   HorizontalAlignment="Left" Margin="20,-2" BorderThickness="0" Cursor="Hand">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/护理分类维护.png" Width="92" />
+                </Button>
+                <Button Grid.Row="2" Width="94" Name="btnHljgWh" Click="btnHljgWh_Click" Height="28"   HorizontalAlignment="Left" Margin="130,-2" BorderThickness="0" Cursor="Hand">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/护理结果维护.png" Width="92" />
+                </Button>
+                <Button Grid.Row="2" Width="65" Name="btnEnableCode" Click="btnEnable_Click" Height="28"   HorizontalAlignment="Left" Margin="240,-2" BorderThickness="0" Cursor="Hand">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/启用.png" Width="63" />
+                </Button>
+                <Button Grid.Row="2" Width="65" Name="btnDisableCode" Click="btnStop_Click" Height="28"   HorizontalAlignment="Left" Margin="320,-2" BorderThickness="0" Cursor="Hand">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/停用.png" Width="63" />
+                </Button>
+                <Button Grid.Row="2" Width="65" Name="btnClassCode" Click="btnDel_Click" Height="28"   HorizontalAlignment="Left" Margin="400,-2" BorderThickness="0" Cursor="Hand">
+                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" />
+                </Button>
+                <Grid Grid.Row="3" >
+
+
+
+                    <telerik:GroupBox Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" Header="护理编辑" FontSize="16" FontWeight="ExtraBold" Height="105" HorizontalAlignment="Stretch" Margin="10,10,10,0" Name="groupBox1" Width="auto" VerticalAlignment="Top"  />
+                    <Button Width="65" Name="btnCreateCode" Height="28"  Click="btnCreate_Click"  HorizontalAlignment="Left" Margin="543,71,0,21" BorderThickness="0" Cursor="Hand">
+
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" />
+                    </Button>
+                    <Button Name="btnClear" Cursor="Hand"  Click="btnClear_Click" Height="28" Width="65" HorizontalAlignment="Left"  Margin="673,71,0,21" BorderThickness="0" >
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                    </Button>
+                    <TextBlock Text="护理分类:" Margin="75,45,0,57" HorizontalAlignment="Left" />
+                    <TextBlock Text="护理名称:" Margin="477,45,0,57"  HorizontalAlignment="Left" />
+                    <TextBlock Text="护理结果:" Margin="75,77,0,25"  HorizontalAlignment="Left" />
+                    <telerik:RadComboBox SelectedValuePath="LbxhName" telerik:TextSearch.TextPath="Lbxh" TextSearchMode="Contains"  HorizontalAlignment="Left" Name="cbxInsert" ItemTemplate="{StaticResource ComboBoxCustomTemplate}" SelectionBoxTemplate="{StaticResource ComboBoxSimpleTemplate}" Width="196" Margin="141,41,0,57"></telerik:RadComboBox>
+                    <TextBox x:Name="txtInsert" Margin="543,43,0,55" MaxLength="50" HorizontalAlignment="Left" Width="396" />
+                    <telerik:RadComboBox Name="cmbHljg" Style="{StaticResource RadComboBoxStyle}" SelectionChanged="cmbHljg_SelectionChanged" SelectedValuePath="Name" ItemTemplate="{StaticResource ComboBoxCustomTemplate1}" SelectionBoxTemplate="{StaticResource ComboBoxSimpleTemplate1}" telerik:TextSearch.TextPath="Name" TextSearchMode="Contains" VerticalAlignment="Center" HorizontalContentAlignment="Stretch"  HorizontalAlignment="Left" Margin="141,75,0,23" Width="196">
+                        <!--SelectionBoxTemplate="{StaticResource ComboBoxSimpleTemplate1}"-->
+                        <telerik:RadComboBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel HorizontalAlignment="Stretch"/>
+                            </ItemsPanelTemplate>
+                        </telerik:RadComboBox.ItemsPanel>
+                    </telerik:RadComboBox>
+                    <sdk:Label Content="*" Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="343,47,0,0" Name="label1" VerticalAlignment="Top" Width="15" />
+                    <sdk:Label Content="*" Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="945,49,0,0" Name="label2" VerticalAlignment="Top" Width="15" />
+                    <sdk:Label Content="*" Foreground="Red" Height="14" HorizontalAlignment="Left" Margin="343,80,0,0" Name="label3" VerticalAlignment="Top" Width="15" />
+                    <sdk:Label Content="提示：带有*的为必填项" Foreground="Red" Height="23" HorizontalAlignment="Left" Margin="822,71,0,0" Name="label4" VerticalAlignment="Top" />
+                </Grid>
+            </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</navigation:Page>

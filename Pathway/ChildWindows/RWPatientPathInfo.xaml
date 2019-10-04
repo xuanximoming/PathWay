@@ -1,0 +1,82 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.RWPatientPathInfo"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="1400" Height="600" 
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" Header="临床路径变异信息统计" 
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" WindowStartupLocation="CenterScreen" Loaded="RadWindow_Loaded">
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+        <Grid x:Name="LayoutRoot" Margin="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="32"/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <ControlTemplate x:Key="myRowTemplate" TargetType="telerik:GridViewRow">
+                    <Border x:Name="myRowContainer"  BorderThickness="2">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Xmlb}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            </TextBox>
+                            <StackPanel Grid.Row="0" Grid.Column="1">
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+                <Style  TargetType="telerik:RadButton">
+                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                    <Setter Property="Width" Value="Auto"></Setter>
+                    <Setter Property="FontSize" Value="12"></Setter>
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Setter Property="Width" Value="50"></Setter>
+                </Style>
+            </Grid.Resources>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0">
+                <sdk:Label Height="28" Width="60" Content="引入路径:" />
+                <sdk:Label Height="28" Name="labelPath" Width="120" Content="通用临床路径" />
+                <sdk:Label Height="28" Width="60" Content="患者姓名：" />
+                <sdk:Label Height="28" Name="labelPatientName" Width="100" Content="患者姓名" />
+                <sdk:Label Height="28" Width="60" Content="执行时间：" />
+                <sdk:Label Height="28" Name="labelEnForceTime" Width="120" Content="执行时间" />
+ 
+                <telerik:RadButton Content="打印" Margin="50,0,0,0" Name="btnPrint"/>
+                <sdk:Label Content="显示执行路径" FontSize="12" Margin="10,0,10,0" VerticalAlignment="Center" Foreground="CadetBlue" MouseEnter="hlkButtonShowPaht_MouseEnter" x:Name="hlkButtonShowPaht"></sdk:Label>
+            </StackPanel>
+            <Canvas x:Name="gridWorkFlowShow" Visibility="Collapsed" Grid.Row="0" Margin="10,2,0,0" Height="auto" Canvas.ZIndex="90000" Background="#F7F7F7" >
+                <StackPanel>
+                    <Grid  Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,0" Visibility="Collapsed" MouseLeave="gridWorkFlowShow_MouseLeave" Canvas.ZIndex="100000" Background="#F7F7F7" Opacity="5"></Grid>
+                </StackPanel>
+            </Canvas>
+            <!--执行路径显示区域-->
+            <telerik:RadGridView  Name="GridViewPathExec"  Grid.Row="1" Grid.Column="0"  Margin="5,0"  GridLinesVisibility="Both"
+                                         IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                         ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed"    MinHeight="400" HorizontalAlignment="Stretch" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="变异类别" DataMemberBinding="{Binding Blbmc}" Width="120" />
+                    <telerik:GridViewDataColumn Header="变异原因" DataMemberBinding="{Binding Byyy}" MinWidth="150" Width="*"/>
+                    <telerik:GridViewDataColumn Header="变异内容" DataMemberBinding="{Binding Bynr}" MinWidth="150" Width="*"/>
+                    <telerik:GridViewDataColumn Header="项目名称" DataMemberBinding="{Binding Xmmc}" Width="150"/>
+                    <telerik:GridViewDataColumn Header="变异时间" DataMemberBinding="{Binding Bysj}" MinWidth="150" Width="*"/>
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <telerik:RadDataPager BorderThickness="0"     Grid.Row="2" Grid.Column="0"   VerticalContentAlignment="Top" 
+								               x:Name="radDataPager"
+                                                Source="{Binding Items, ElementName=GridViewPathExec}"
+                                                PageSize="10"
+
+								               DisplayMode="All"
+								               AutoEllipsisMode="Both"
+								               NumericButtonCount="10"
+								               IsTotalItemCountFixed="True"/>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow>

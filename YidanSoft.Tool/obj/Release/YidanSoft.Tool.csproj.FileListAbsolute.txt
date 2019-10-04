@@ -1,0 +1,4 @@
+F:\Demo\pathway\Pathway\YidanSoft.Tool\Bin\Release\YidanSoft.Tool.dll
+F:\Demo\pathway\Pathway\YidanSoft.Tool\Bin\Release\YidanSoft.Tool.pdb
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Release\YidanSoft.Tool.dll
+F:\Demo\pathway\Pathway\YidanSoft.Tool\obj\Release\YidanSoft.Tool.pdb

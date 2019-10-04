@@ -1,0 +1,5 @@
+F:\Demo\pathway\publish\Pathway.Web.dll
+F:\Demo\pathway\publish\Pathway.Web.pdb
+F:\Demo\pathway\Pathway\Pathway.Web\obj\Debug\Pathway.Web.csprojResolveAssemblyReference.cache
+F:\Demo\pathway\Pathway\Pathway.Web\obj\Debug\Pathway.Web.dll
+F:\Demo\pathway\Pathway\Pathway.Web\obj\Debug\Pathway.Web.pdb

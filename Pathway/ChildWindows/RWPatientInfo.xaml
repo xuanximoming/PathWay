@@ -1,0 +1,27 @@
+﻿<telerik:RadWindow x:Class="YidanEHRApplication.Views.ChildWindows.RWPatientInfo"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+  xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Style="{StaticResource RadWindowStyle}" ResizeMode="NoResize"
+        Header="病患详细信息" Height="650" Width="860">
+    <Grid Name="PatientDetailInfo">
+        <ScrollViewer  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer.Content>
+                <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}"  Margin="0,0,0,0" BorderThickness="0">
+                    <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" Margin="0,0,0,0"
+                              JournalOwnership="OwnsJournal" 
+                              Source="/UCPatientDetailInfo" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                        <navigation:Frame.UriMapper>
+                            <uriMapper:UriMapper>
+                                <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                            </uriMapper:UriMapper>
+                        </navigation:Frame.UriMapper>
+                    </navigation:Frame>
+                </Border>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+
+    </Grid>
+</telerik:RadWindow>

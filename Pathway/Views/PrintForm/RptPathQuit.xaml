@@ -1,0 +1,220 @@
+﻿<navigation:Page xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"  x:Class="YidanEHRApplication.Views.ReportForms.RptPathQuit" 
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"          
+           mc:Ignorable="d"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls"
+           d:DesignWidth="1000" d:DesignHeight="800"
+           Height="Auto" Width="Auto" 
+           Title="临床路径退出统计" Loaded="Page_Loaded">
+    <navigation:Page.Resources>
+
+        <Style x:Key="RadComboBoxStyle" TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center" ></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="ClearSelectionButtonContent" Value="清空"></Setter>
+            <Setter Property="ClearSelectionButtonVisibility" Value="Collapsed"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+        <Style  TargetType="telerik:RadButton">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Width" Value="50"></Setter>
+        </Style>
+        <DataTemplate x:Key="ComboBoxCustomTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Grid.ColumnSpan="2" Text="{Binding Name}" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ComboBoxSimpleTemplate">
+            <Grid Background="Transparent">
+                <TextBlock Foreground="Black" Text="{Binding Name}"  />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ComboBoxCustomTemplate1">
+            <Grid Background="Transparent">
+                <CheckBox x:Name="chkPath" Grid.ColumnSpan="2" Content="{Binding Name}" Tag="Ljdm" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ComboBoxSimpleTemplate1">
+            <Grid Background="Transparent">
+                <CheckBox  Foreground="Black" Content="{Binding Name}"  />
+            </Grid>
+        </DataTemplate>
+    </navigation:Page.Resources>
+    <telerik:RadBusyIndicator Name="radBusyIndicator"  BusyContent="数据加载中..." Background="Transparent">
+        <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}">
+            <Grid x:Name="LayoutRoot" >
+
+                <!--<telerik:RadTabControl Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" Name="radTabControlPathVariation" VerticalAlignment="Stretch" 
+                               DropDownDisplayMode="Visible" ScrollMode="Viewport" BorderThickness="0" >
+                    <telerik:RadTabItem Padding="4 1" DropDownContent="临床路径退出统计">
+                        <telerik:RadTabItem.Header>
+                            <TextBlock Text="临床路径退出统计" Margin="19 2 19 0" />
+                        </telerik:RadTabItem.Header>
+                        <telerik:RadTabItem.Content>-->
+
+                <Grid x:Name="main"  Margin="5"    >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Operation Start -->
+                    <Border BorderThickness="1,1,1,1" Background="#ECF5FF" CornerRadius="1,1,1,1" Margin="0,0,0,0">
+                        <Border.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
+                                <GradientStop Color="#46A3FF" Offset="1"/>
+                                <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
+                            </LinearGradientBrush>
+                        </Border.BorderBrush>
+
+                        <Grid     VerticalAlignment="Top" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition Height="5"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="22*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="开始日期:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  />
+                            <TextBlock Text="结束日期:" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Text="临床科室:" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"  />
+                            <TextBlock Text="路径名称:" Grid.Column="6" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="1" 
+                                            HorizontalAlignment="Left"  VerticalAlignment="Center"
+                                            Width="100" x:Name="dtpStartDate" InputMode="DatePicker" />
+                            <telerik:RadDateTimePicker Grid.Column="3" Grid.Row="1" 
+                                            HorizontalAlignment="Left"  VerticalAlignment="Center"
+                                            Width="100" x:Name="dtpEndDate" InputMode="DatePicker" />
+                            <telerik:RadComboBox Grid.Column="5" Grid.Row="1" Name="cmbOffice" Style="{StaticResource RadComboBoxStyle}"
+                                             ItemTemplate = "{StaticResource ComboBoxCustomTemplate}"
+                                             SelectionBoxTemplate = "{StaticResource ComboBoxSimpleTemplate}"
+                                             telerik:TextSearch.TextPath="Ksdm" TextSearchMode="Contains" >
+                                <telerik:RadComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </telerik:RadComboBox.ItemsPanel>
+                            </telerik:RadComboBox>
+                            <sdk:AutoCompleteBox  Grid.Column="7" FilterMode="None" Height="23" 
+                                              HorizontalAlignment="Left"  VerticalAlignment="Center"  
+                                              IsTextCompletionEnabled="False"  ToolTipService.ToolTip="根据拼音首字母检索项目..."
+                                              Name="autoPath"  Width="200" 
+                                              Grid.ColumnSpan="2" Grid.Row="1" >
+
+                            </sdk:AutoCompleteBox>
+
+
+                            <!--<telerik:RadComboBox Grid.Column="7" Grid.Row="1" Name="cmbPath" Style="{StaticResource RadComboBoxStyle}"  
+                                                                         ItemTemplate = "{StaticResource ComboBoxCustomTemplate}"  SelectionBoxTemplate = "{StaticResource ComboBoxSimpleTemplate}"
+                                                                         telerik:TextSearch.TextPath="Ljdm" TextSearchMode="Contains" >
+                                                        <telerik:RadComboBox.ItemsPanel>-->
+                            <!--<ItemsPanelTemplate>
+                                                                <VirtualizingStackPanel />
+                                                            </ItemsPanelTemplate>
+                                                        </telerik:RadComboBox.ItemsPanel>
+                                                    </telerik:RadComboBox>-->
+                            <!--<telerik:RadButton Grid.Row="1" Grid.Column="8" Name="btnStat"  Content="统计" Click="btnStat_Click" />-->
+
+                            <Button Grid.Row="1" Grid.Column="8" Width="65" Name="btnStat" Click="btnStat_Click" Height="28"   HorizontalAlignment="Left" Margin="10,0,0,0" BorderThickness="0" Cursor="Hand">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/统计.png" Width="63" />
+                            </Button>
+                            <Button Grid.Row="1" Grid.Column="9" Width="65" Name="btnClear" Click="btnClear_Click" Height="28"   HorizontalAlignment="Left" Margin="10,0,0,0" BorderThickness="0" Cursor="Hand">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                            </Button>
+                            <!--<telerik:RadButton Grid.Row="1" Grid.Column="9" Name="btnPrint"  Content="打印" Click="btnPrint_Click" />-->
+
+                            <Button Grid.Row="1" Grid.Column="10" Width="65" Name="btnPrint" Click="btnPrint_Click" Height="28"   HorizontalAlignment="Left" Margin="10,0,0,0" BorderThickness="0" Cursor="Hand">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/打印.png" Width="63" />
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <!-- Operation End -->
+                    <!-- Show path quit result Start -->
+                    <Grid Grid.Row="1" Grid.Column="0"  Margin="0,2,0,0" >
+                        <!-- 临床路径、执行情况、时间间隔、实施例数、入径率、平均住院天数、标准住院天数、平均住院费用、标准住院费用、退出例数和退出率 -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="302"/>
+                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition x:Name="Row1" Height="30"/>
+                            <RowDefinition x:Name="Row2" Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical"  > -->
+                        <telerik:RadGridView  Name="GridViewPathQuitList"  Grid.Row="0" Grid.Column="0"  Height="300"   GridLinesVisibility="Both"
+                                         IsReadOnly="True"      AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                         ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed"  HorizontalAlignment="Stretch">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="临床路径" DataMemberBinding="{Binding Name}"  MinWidth="200" Width="Auto"/>
+                                <telerik:GridViewDataColumn Header="病人名称" DataMemberBinding="{Binding Hzxm}" MinWidth="100" Width="Auto"/>
+                                <telerik:GridViewDataColumn Header="科室" DataMemberBinding="{Binding Dept}" MinWidth="100" Width="Auto"/>
+                                <telerik:GridViewDataColumn Header="医护人员" DataMemberBinding="{Binding DName}" MinWidth="100" Width="Auto" />
+                                <telerik:GridViewDataColumn Header="退出原因" DataMemberBinding="{Binding Tcyy}" MinWidth="200" Width="Auto"/>
+                                <telerik:GridViewDataColumn Header="入径日期" DataMemberBinding="{Binding Jrsj}" MinWidth="100" Width="Auto"/>
+                                <telerik:GridViewDataColumn Header="退出日期" DataMemberBinding="{Binding Tcsj}" MinWidth="100" Width="Auto"/>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <telerik:RadDataPager BorderThickness="0"     Grid.Row="1" Grid.Column="0"  
+								               x:Name="radDataPager"
+                                                Source="{Binding Items, ElementName=GridViewPathQuitList}"
+                                                PageSize="10" 
+								               AutoEllipsisMode="Both"
+								               NumericButtonCount="10"
+                                                DisplayMode="FirstLastPreviousNextNumeric" Margin="0,0,0,0" 
+                                                HorizontalContentAlignment="Right"
+								               IsTotalItemCountFixed="True"/>
+                        <!-- Chart Start -->
+
+
+                        <toolkit:Expander Header="隐藏图表"  Grid.Column="0" Grid.Row="3" Margin="10,0,0,0"  x:Name="Expander1" HorizontalAlignment="Left" Foreground="Blue"  Width="Auto" Collapsed="Expander1_Collapsed" Expanded="Expander1_Expanded" />
+                        <telerik:RadChart x:Name="RadChartPathQuit"  Grid.Row="4" Grid.Column="0"  Height="200"
+                                                          telerikQuickStart:ThemeAwareBackgroundBehavior.IsEnabled="False"  BorderBrush="Transparent"/>
+
+                        <!-- Chart End -->
+                    </Grid>
+                    <!-- Show path quit result End -->
+
+                </Grid>
+                <!--</telerik:RadTabItem.Content>
+                    </telerik:RadTabItem>
+                </telerik:RadTabControl>-->
+            </Grid>
+        </ScrollViewer>
+
+    </telerik:RadBusyIndicator>
+
+
+</navigation:Page>

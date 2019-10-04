@@ -1,0 +1,126 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.Permission.EhrtoHisApp" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+           xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="800" d:DesignHeight="600"
+           Title="与医院His接口参数配置">
+    <Grid x:Name="LayoutRoot">
+         
+        
+        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,2,0,0">
+            <ScrollViewer.Content>
+                <Grid Background="#ffffff">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="250"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="250*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Margin="5,0,5,0">
+                        <!--<Border  Style="{StaticResource BorderStyle}" Margin="5">-->
+                        <Border BorderThickness="1" BorderBrush="Gray" Background="#ECF5FF" Margin="0,0,0,4" HorizontalAlignment="Stretch" >
+                            <StackPanel  HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="0"  >
+
+                                <sdk:Label Height="15" HorizontalAlignment="Left" Margin="5,12,0,0" Name="lbQuery1" VerticalAlignment="Top" Width="68">Ehr接口字段:</sdk:Label>
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="txt_Ehrzd" VerticalAlignment="Top" Width="100" />
+                                <sdk:Label Content="Ehr接口字段描述:" Height="15" HorizontalAlignment="Left" Margin="5,12,0,0" Name="lbQuery2" VerticalAlignment="Top" Width="90" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="txt_Ehrzdms" VerticalAlignment="Top" Width="125" />
+                                <sdk:Label Content="Ehr接口字段来源:" Height="15" HorizontalAlignment="Left" Margin="5,12,0,0" Name="lbQuery3" VerticalAlignment="Top" Width="90" />
+                                <TextBox Height="23" HorizontalAlignment="Left" Margin="5,8,0,0" Name="txt_Ehrzdly" VerticalAlignment="Top" Width="130" />
+                                <Button Cursor="Hand" Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="btnQuery" VerticalAlignment="Top" BorderThickness="0" Width="65" Click="btnQuery_Click" >
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" />
+                                </Button>
+                                <Button Cursor="Hand"  Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="btnReset" BorderThickness="0" VerticalAlignment="Top" Width="65" Click="btnReset_Click">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" />
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <telerik:RadGridView Grid.Row="1" Grid.Column="0" Name="GridView" IsScrolling="False" IsReadOnly="True" 
+                                         AutoGenerateColumns="False" IsFilteringAllowed="False" Margin="5,5,5,0" 
+                                          GridLinesVisibility="Both"
+                                         ShowGroupPanel="False" MinHeight="250" Height="auto" RowIndicatorVisibility="Collapsed" 
+                                         SelectionChanged="GridView_SelectionChanged" RowLoaded="GridView_RowLoaded">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="编号" DataMemberBinding="{Binding ID}"  IsVisible="False" ></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="EHR接口字段" DataMemberBinding="{Binding EhrKey}" ></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="EHR接口字段描述" DataMemberBinding="{Binding Ehr_Keyms}"   Width="*"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="对应HIS字段" DataMemberBinding="{Binding HisKey}" MaxWidth="100" ></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="对应HIS字段描述" DataMemberBinding="{Binding His_Keyms}"   Width="*"></telerik:GridViewDataColumn>
+                            <telerik:GridViewDataColumn Header="Ehr接口字段来源" DataMemberBinding="{Binding EhrSource}" Width="*"></telerik:GridViewDataColumn>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                    <Grid Grid.Row="2" Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadDataPager  BorderThickness="1" Height="30"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  PageSize="8" Source="{Binding Items, ElementName=GridView}" IsTotalItemCountFixed="True" DisplayMode="FirstLastPreviousNextNumeric" Margin="5,0,0,2" HorizontalContentAlignment="Right" />
+                        <StackPanel Grid.Row="0" Height="30" Grid.Column="0" Orientation="Horizontal" Margin="5,0,0,0" Background="Transparent">
+
+                            <Button Height="28" Width="65" Name="btnAdd" Click="btnAdd_Click" HorizontalAlignment="Left" Margin="10,0,0,0" BorderThickness="0" Visibility="Visible">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/add.jpg" Width="63" Cursor="Hand" />
+                            </Button>
+
+                            <Button Height="28" Width="65" Name="btnUpdate"   Click="btnUpdate_Click" HorizontalAlignment="Left" Margin="10,0,0,0"   BorderThickness="0">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/edit.jpg" Width="63" Cursor="Hand" />
+                            </Button>
+
+                            <Button Height="28"  Cursor="Hand" HorizontalAlignment="Left" Name="btnDel" BorderThickness="0" VerticalAlignment="Top" Width="65" Margin="10,0,0,0" Click="btnDel_Click">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/del.jpg" Width="63" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="110" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:GroupBox Header="配置医院His接口字段信息" Background="#ECF5FF" Foreground="Black" BorderBrush="#42A5FF" FontSize="16" FontWeight="Black"   Grid.RowSpan="5" Height="240" HorizontalAlignment="Stretch" Margin="5,5,5,0" Name="groupBox1" VerticalAlignment="Center"   Grid.ColumnSpan="5" />
+                        <TextBlock Height="23" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock1" Text="EHR接口字段：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBlock Height="23" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" Name="textBlock2" Text="EHR接口字段描述：" VerticalAlignment="Top" Margin="0,5,0,0" Grid.ColumnSpan="2" />
+                        <TextBox Name="txtEhrKey" Grid.Row="1" Height="23" Grid.Column="1" HorizontalAlignment="Left"  Width="190" Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="1" Grid.Column="1"   HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Top" Margin="194,8,0,0" />
+                        <TextBox  Name="txtEhrKeyms" Grid.Row="1" Height="23" Grid.Column="4" HorizontalAlignment="Left" Width="195" Margin="2,2,0,2"></TextBox>
+                        <TextBlock Height="23" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Name="textBlock3" Text="对应HIS字段：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBlock Height="23" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Name="textBlock4" Text="对应HIS字段描述：" VerticalAlignment="Top" Margin="0,5,0,0" Grid.ColumnSpan="2" />
+                        <TextBox Name="txtHisKey" Height="23" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"  Width="190" Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="2" Grid.Column="1"   HorizontalAlignment="Left"  Foreground="Red"   Text="*" VerticalAlignment="Top" Margin="194,8,0,0" Visibility="Collapsed" />
+                        <TextBox  Name="txtHisKeyms" Height="23" Grid.Row="2" Grid.Column="4"   HorizontalAlignment="Left" Width="195" Margin="2,2,0,2"></TextBox>
+                        <TextBlock   Grid.Row="4" Grid.Column="1"   HorizontalAlignment="Left"  Foreground="Red"   Text="提示：带有*的为必填项" VerticalAlignment="Top" Margin="0,8,0,0" />
+
+                        <TextBlock   Grid.Row="3" Grid.Column="0"   HorizontalAlignment="Left"     Text="EHR字段来源：" VerticalAlignment="Top" Margin="20,5,0,0" />
+                        <TextBox  Name="txtEhrZdly" Height="23" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="4"  HorizontalAlignment="Left" Width="500" Margin="2,2,0,2"></TextBox>
+
+                        <Button Height="28" Width="65" Name="btnSave" Grid.Row="4" Grid.Column="4"  Click="btnSave_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="5,0,0,0"  BorderThickness="0">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/save.png" Width="63" Cursor="Hand" />
+                        </Button>
+
+                        <Button Height="28" Width="57" Name="btnClear" Grid.Row="4" Grid.Column="4"  Click="btnClear_Click" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="100,0,0,0"  BorderThickness="0">
+                            <Image Height="26" Margin="-2" Source="/Pathway;component/Images/取消.png" Width="55" Cursor="Hand" />
+                        </Button>
+                    </Grid>
+                </Grid>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+    </Grid>
+</navigation:Page>

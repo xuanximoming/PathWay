@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\wwwroot\pathway</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="autoInstall.js">
+      <publishTime>12/30/2014 13:58:17</publishTime>
+    </File>
+    <File Include="bin/DrectSoft.Core.dll">
+      <publishTime>10/04/2019 13:08:25</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>10/04/2019 13:06:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ObjectBuilder.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ObjectBuilder2.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>09/01/2019 15:29:45</publishTime>
+    </File>
+    <File Include="bin/Oracle.DataAccess.dll">
+      <publishTime>08/16/2005 00:33:12</publishTime>
+    </File>
+    <File Include="bin/Pathway.Web.dll">
+      <publishTime>10/04/2019 13:17:30</publishTime>
+    </File>
+    <File Include="bin/PathwayReports.dll">
+      <publishTime>10/04/2019 13:08:29</publishTime>
+    </File>
+    <File Include="bin/SendOrder.dll">
+      <publishTime>10/04/2019 13:08:25</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.dll">
+      <publishTime>02/15/2012 16:57:12</publishTime>
+    </File>
+    <File Include="bin/Telerik.Reporting.Service.dll">
+      <publishTime>02/15/2012 16:58:22</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.Silverlight.dll">
+      <publishTime>02/15/2012 16:58:26</publishTime>
+    </File>
+    <File Include="bin/Telerik.ReportViewer.WebForms.dll">
+      <publishTime>02/15/2012 16:58:00</publishTime>
+    </File>
+    <File Include="bin/WebService.dll">
+      <publishTime>10/04/2019 13:08:27</publishTime>
+    </File>
+    <File Include="bin/Yidansoft.Core.dll">
+      <publishTime>09/26/2019 20:46:01</publishTime>
+    </File>
+    <File Include="bin/YidanSoft.Tool.dll">
+      <publishTime>10/04/2019 11:32:39</publishTime>
+    </File>
+    <File Include="ClientBin/logo.jpg">
+      <publishTime>12/30/2014 14:06:54</publishTime>
+    </File>
+    <File Include="ClientBin/Pathway.xap">
+      <publishTime>10/04/2019 13:16:03</publishTime>
+    </File>
+    <File Include="EHRDefault.aspx">
+      <publishTime>10/04/2019 11:31:38</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>12/30/2014 13:58:18</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册.html">
+      <publishTime>12/30/2014 14:06:55</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/0.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/0.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/0.files/header.html">
+      <publishTime>12/30/2014 14:37:18</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/0.files/image001.png">
+      <publishTime>12/30/2014 14:37:20</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/0.html">
+      <publishTime>12/30/2014 14:27:38</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/1.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:20</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/1.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:20</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/1.files/header.html">
+      <publishTime>12/30/2014 14:37:20</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/1.files/image001.png">
+      <publishTime>12/30/2014 14:37:22</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/1.html">
+      <publishTime>12/30/2014 14:27:38</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/10.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:23</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/10.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:23</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/10.files/header.html">
+      <publishTime>12/30/2014 14:37:23</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/10.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:23</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/10.html">
+      <publishTime>12/30/2014 14:27:38</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/11.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:23</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/11.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:24</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/11.files/header.html">
+      <publishTime>12/30/2014 14:37:24</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/11.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:24</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/11.html">
+      <publishTime>12/30/2014 14:27:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/12.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:24</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/12.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:24</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/12.files/header.html">
+      <publishTime>12/30/2014 14:37:25</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/12.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:25</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/12.html">
+      <publishTime>12/30/2014 14:27:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/13.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:25</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/13.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:25</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/13.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:26</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/13.html">
+      <publishTime>12/30/2014 14:27:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/14.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:26</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/14.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:26</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/14.files/header.html">
+      <publishTime>12/30/2014 14:37:26</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/14.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:26</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/14.html">
+      <publishTime>12/30/2014 14:27:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/15.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:27</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/15.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:27</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/15.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:27</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/15.files/image002.jpg">
+      <publishTime>12/30/2014 14:37:28</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/15.files/image003.jpg">
+      <publishTime>12/30/2014 14:37:28</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/15.html">
+      <publishTime>12/30/2014 14:27:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/16.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:28</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/16.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:28</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/16.files/header.html">
+      <publishTime>12/30/2014 14:37:29</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/16.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:29</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/16.html">
+      <publishTime>12/30/2014 14:27:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/17.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:29</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/17.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:29</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/17.files/header.html">
+      <publishTime>12/30/2014 14:37:30</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/17.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:30</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/17.files/image002.jpg">
+      <publishTime>12/30/2014 14:37:30</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/17.html">
+      <publishTime>12/30/2014 14:27:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/18.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:31</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/18.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:31</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/18.files/header.html">
+      <publishTime>12/30/2014 14:37:31</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/18.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:31</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/18.html">
+      <publishTime>12/30/2014 14:27:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/19.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:32</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/19.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:32</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/19.files/header.html">
+      <publishTime>12/30/2014 14:37:32</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/19.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:32</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/19.html">
+      <publishTime>12/30/2014 14:27:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/2.files/image001.png">
+      <publishTime>12/30/2014 14:37:33</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/2.html">
+      <publishTime>12/30/2014 14:27:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/20.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:34</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/20.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:34</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/20.files/header.html">
+      <publishTime>12/30/2014 14:37:34</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/20.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:34</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/20.files/image002.jpg">
+      <publishTime>12/30/2014 14:37:34</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/20.html">
+      <publishTime>12/30/2014 14:27:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/21.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:35</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/21.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:35</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/21.files/header.html">
+      <publishTime>12/30/2014 14:37:35</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/21.files/image001.png">
+      <publishTime>12/30/2014 14:37:36</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/21.files/image002.png">
+      <publishTime>12/30/2014 14:37:37</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/21.html">
+      <publishTime>12/30/2014 14:27:42</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/22.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:38</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/22.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:38</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/22.files/header.html">
+      <publishTime>12/30/2014 14:37:38</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/22.files/image001.png">
+      <publishTime>12/30/2014 14:37:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/22.html">
+      <publishTime>12/30/2014 14:27:42</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/23.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/23.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/23.files/header.html">
+      <publishTime>12/30/2014 14:37:39</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/23.files/image001.jpg">
+      <publishTime>12/30/2014 14:37:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/23.html">
+      <publishTime>12/30/2014 14:27:42</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/24.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/24.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/24.files/header.html">
+      <publishTime>12/30/2014 14:37:40</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/24.files/image001.png">
+      <publishTime>12/30/2014 14:37:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/24.html">
+      <publishTime>12/30/2014 14:27:43</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/25.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/25.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:41</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/25.files/header.html">
+      <publishTime>12/30/2014 14:37:42</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/25.files/image001.png">
+      <publishTime>12/30/2014 14:37:42</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/25.html">
+      <publishTime>12/30/2014 14:27:43</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/26.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:43</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/26.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:43</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/26.files/header.html">
+      <publishTime>12/30/2014 14:37:43</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/26.html">
+      <publishTime>12/30/2014 14:27:43</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/27.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/27.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/27.files/header.html">
+      <publishTime>12/30/2014 14:37:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/27.files/image001.png">
+      <publishTime>12/30/2014 14:37:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/27.html">
+      <publishTime>12/30/2014 14:27:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/28.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:45</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/28.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:45</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/28.files/header.html">
+      <publishTime>12/30/2014 14:37:45</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/28.files/image001.png">
+      <publishTime>12/30/2014 14:37:46</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/28.files/image002.png">
+      <publishTime>12/30/2014 14:37:46</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/28.html">
+      <publishTime>12/30/2014 14:27:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:46</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.files/header.html">
+      <publishTime>12/30/2014 14:37:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.files/image001.png">
+      <publishTime>12/30/2014 14:37:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.files/image002.png">
+      <publishTime>12/30/2014 14:37:48</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.files/image003.png">
+      <publishTime>12/30/2014 14:37:49</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/29.html">
+      <publishTime>12/30/2014 14:27:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/3.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:49</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/3.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:49</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/3.files/header.html">
+      <publishTime>12/30/2014 14:37:50</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/3.files/image001.png">
+      <publishTime>12/30/2014 14:37:52</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/3.html">
+      <publishTime>12/30/2014 14:27:44</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:52</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:52</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/header.html">
+      <publishTime>12/30/2014 14:37:52</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/image001.png">
+      <publishTime>12/30/2014 14:37:53</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/image002.png">
+      <publishTime>12/30/2014 14:37:53</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/image003.png">
+      <publishTime>12/30/2014 14:37:54</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.files/image004.png">
+      <publishTime>12/30/2014 14:37:54</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/30.html">
+      <publishTime>12/30/2014 14:27:45</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:55</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:55</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.files/header.html">
+      <publishTime>12/30/2014 14:37:55</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.files/image001.png">
+      <publishTime>12/30/2014 14:37:56</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.files/image002.png">
+      <publishTime>12/30/2014 14:37:57</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.files/image003.png">
+      <publishTime>12/30/2014 14:37:58</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/31.html">
+      <publishTime>12/30/2014 14:27:45</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:37:58</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/filelist.xml">
+      <publishTime>12/30/2014 14:37:58</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/header.html">
+      <publishTime>12/30/2014 14:37:58</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/image001.png">
+      <publishTime>12/30/2014 14:37:59</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/image002.png">
+      <publishTime>12/30/2014 14:38:00</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/image003.png">
+      <publishTime>12/30/2014 14:38:00</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.files/image004.png">
+      <publishTime>12/30/2014 14:38:01</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/32.html">
+      <publishTime>12/30/2014 14:27:45</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:01</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:01</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.files/header.html">
+      <publishTime>12/30/2014 14:38:02</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.files/image001.png">
+      <publishTime>12/30/2014 14:38:02</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.files/image002.png">
+      <publishTime>12/30/2014 14:38:03</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.files/image003.png">
+      <publishTime>12/30/2014 14:38:03</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/33.html">
+      <publishTime>12/30/2014 14:27:46</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:04</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:04</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.files/header.html">
+      <publishTime>12/30/2014 14:38:04</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.files/image001.png">
+      <publishTime>12/30/2014 14:38:04</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.files/image002.png">
+      <publishTime>12/30/2014 14:38:05</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.files/image003.png">
+      <publishTime>12/30/2014 14:38:05</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/34.html">
+      <publishTime>12/30/2014 14:27:46</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/4.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:06</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/4.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:06</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/4.files/header.html">
+      <publishTime>12/30/2014 14:38:06</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/4.files/image001.png">
+      <publishTime>12/30/2014 14:38:07</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/4.html">
+      <publishTime>12/30/2014 14:27:46</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/5.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:07</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/5.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:07</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/5.files/header.html">
+      <publishTime>12/30/2014 14:38:08</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/5.files/image001.jpg">
+      <publishTime>12/30/2014 14:38:08</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/5.html">
+      <publishTime>12/30/2014 14:27:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/6.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:08</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/6.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:09</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/6.files/header.html">
+      <publishTime>12/30/2014 14:38:09</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/6.files/image001.jpg">
+      <publishTime>12/30/2014 14:38:09</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/6.html">
+      <publishTime>12/30/2014 14:27:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/7.files/image001.jpg">
+      <publishTime>12/30/2014 14:38:09</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/7.html">
+      <publishTime>12/30/2014 14:27:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/8.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:10</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/8.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:10</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/8.files/header.html">
+      <publishTime>12/30/2014 14:38:10</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/8.files/image001.jpg">
+      <publishTime>12/30/2014 14:38:10</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/8.html">
+      <publishTime>12/30/2014 14:27:47</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/9.files/colorschememapping.xml">
+      <publishTime>12/30/2014 14:38:11</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/9.files/filelist.xml">
+      <publishTime>12/30/2014 14:38:11</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/9.files/header.html">
+      <publishTime>12/30/2014 14:38:11</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/9.files/image001.jpg">
+      <publishTime>12/30/2014 14:38:11</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/9.html">
+      <publishTime>12/30/2014 14:27:48</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/base.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/empty.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/folder.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/folderopen.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/join.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/joinbottom.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/line.gif">
+      <publishTime>12/30/2014 14:38:12</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/minus.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/minusbottom.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/nolines_minus.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/nolines_plus.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/page.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/plus.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/img/plusbottom.gif">
+      <publishTime>12/30/2014 14:38:13</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/___dtree.css">
+      <publishTime>12/30/2014 14:27:48</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/___dtree.js">
+      <publishTime>12/30/2014 14:27:48</publishTime>
+    </File>
+    <File Include="Help/临床路径使用手册/___left.htm">
+      <publishTime>12/30/2014 14:27:48</publishTime>
+    </File>
+    <File Include="PathwayTestPage.aspx">
+      <publishTime>12/30/2014 13:57:50</publishTime>
+    </File>
+    <File Include="PathwayTestPage.html">
+      <publishTime>12/30/2014 13:57:50</publishTime>
+    </File>
+    <File Include="ReportService.svc">
+      <publishTime>12/30/2014 13:57:50</publishTime>
+    </File>
+    <File Include="Silverlight.js">
+      <publishTime>12/30/2014 13:57:50</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/04/2019 13:17:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

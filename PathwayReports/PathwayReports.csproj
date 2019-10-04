@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FB2FEC8-D2A7-4736-92EB-8EE6704C2ADC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PathwayReports</RootNamespace>
+    <AssemblyName>PathwayReports</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=4.1.10.714, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Telerik\Reporting Q1 2012\Bin\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Service, Version=4.1.10.714, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Telerik\Reporting Q1 2012\Bin\Telerik.Reporting.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=4.1.10.714, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Telerik\Reporting Q1 2012\Bin\Telerik.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=4.1.10.714, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Telerik\Reporting Q1 2012\Bin\Telerik.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ReportSubRWPathHosReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportSubRWPathHosReport.designer.cs">
+      <DependentUpon>ReportSubRWPathHosReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRWPathHosReportTemp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportRWPathHosReportTemp.designer.cs">
+      <DependentUpon>ReportRWPathHosReportTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRWPathHosReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportRWPathHosReport.designer.cs">
+      <DependentUpon>ReportRWPathHosReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report1.Designer.cs">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportInPathPatientFeePercent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportInPathPatientFeePercent.designer.cs">
+      <DependentUpon>ReportInPathPatientFeePercent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportInPatientAdvice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportInPatientAdvice.designer.cs">
+      <DependentUpon>ReportInPatientAdvice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPagePring.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPagePring.designer.cs">
+      <DependentUpon>ReportPagePring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathEnForceLongOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathEnForceLongOrder.designer.cs">
+      <DependentUpon>ReportPathEnForceLongOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathEnForceTempOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathEnForceTempOrder.designer.cs">
+      <DependentUpon>ReportPathEnForceTempOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathEnterStatistics.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathEnterStatistics.designer.cs">
+      <DependentUpon>ReportPathEnterStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathFinish.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathFinish.designer.cs">
+      <DependentUpon>ReportPathFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathQuit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathQuit.designer.cs">
+      <DependentUpon>ReportPathQuit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathQuitMonthCompare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathQuitMonthCompare.designer.cs">
+      <DependentUpon>ReportPathQuitMonthCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathStatistics.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathStatistics.designer.cs">
+      <DependentUpon>ReportPathStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathVariation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathVariation.designer.cs">
+      <DependentUpon>ReportPathVariation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathVariationAnalyse.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathVariationAnalyse.designer.cs">
+      <DependentUpon>ReportPathVariationAnalyse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathVariationMonitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathVariationMonitor.designer.cs">
+      <DependentUpon>ReportPathVariationMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSqlHelp.cs" />
+    <Compile Include="PathSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PathSummary.designer.cs">
+      <DependentUpon>PathSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportRWPathOrdersAlls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportRWPathOrdersAlls.designer.cs">
+      <DependentUpon>ReportRWPathOrdersAlls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathStatisticsDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathStatisticsDetail.Designer.cs">
+      <DependentUpon>ReportPathStatisticsDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathVariationDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathVariationDetail.Designer.cs">
+      <DependentUpon>ReportPathVariationDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathFinishDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathFinishDetail.Designer.cs">
+      <DependentUpon>ReportPathFinishDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathQuitMonthCompareDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathQuitMonthCompareDetail.Designer.cs">
+      <DependentUpon>ReportPathQuitMonthCompareDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathVariationMonitorDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathVariationMonitorDetail.Designer.cs">
+      <DependentUpon>ReportPathVariationMonitorDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathEnterStatisticsDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathEnterStatisticsDetail.Designer.cs">
+      <DependentUpon>ReportPathEnterStatisticsDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPathVariationAnalyseDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPathVariationAnalyseDetail.Designer.cs">
+      <DependentUpon>ReportPathVariationAnalyseDetail.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReportSubRWPathHosReport.resx">
+      <DependentUpon>ReportSubRWPathHosReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportRWPathHosReportTemp.resx">
+      <DependentUpon>ReportRWPathHosReportTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportRWPathHosReport.resx">
+      <DependentUpon>ReportRWPathHosReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.resx">
+      <DependentUpon>Report1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportInPathPatientFeePercent.resx">
+      <DependentUpon>ReportInPathPatientFeePercent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportInPatientAdvice.resx">
+      <DependentUpon>ReportInPatientAdvice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPagePring.resx">
+      <DependentUpon>ReportPagePring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathEnForceLongOrder.resx">
+      <DependentUpon>ReportPathEnForceLongOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathEnForceTempOrder.resx">
+      <DependentUpon>ReportPathEnForceTempOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathEnterStatistics.resx">
+      <DependentUpon>ReportPathEnterStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathFinish.resx">
+      <DependentUpon>ReportPathFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathQuit.resx">
+      <DependentUpon>ReportPathQuit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathQuitMonthCompare.resx">
+      <DependentUpon>ReportPathQuitMonthCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathStatistics.resx">
+      <DependentUpon>ReportPathStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathVariation.resx">
+      <DependentUpon>ReportPathVariation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathVariationAnalyse.resx">
+      <DependentUpon>ReportPathVariationAnalyse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathVariationMonitor.resx">
+      <DependentUpon>ReportPathVariationMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PathSummary.resx">
+      <DependentUpon>PathSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportRWPathOrdersAlls.resx">
+      <DependentUpon>ReportRWPathOrdersAlls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathStatisticsDetail.resx">
+      <DependentUpon>ReportPathStatisticsDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathVariationDetail.resx">
+      <DependentUpon>ReportPathVariationDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathFinishDetail.resx">
+      <DependentUpon>ReportPathFinishDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathQuitMonthCompareDetail.resx">
+      <DependentUpon>ReportPathQuitMonthCompareDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathVariationMonitorDetail.resx">
+      <DependentUpon>ReportPathVariationMonitorDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathEnterStatisticsDetail.resx">
+      <DependentUpon>ReportPathEnterStatisticsDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPathVariationAnalyseDetail.resx">
+      <DependentUpon>ReportPathVariationAnalyseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebService\WebService.csproj">
+      <Project>{F1033F6C-0E27-4EA3-BCF2-FCCE6C3C282E}</Project>
+      <Name>WebService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yidansoft.Core\DrectSoft.Core.csproj">
+      <Project>{9d612a3a-9acf-4b0b-88d2-57a9df726747}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

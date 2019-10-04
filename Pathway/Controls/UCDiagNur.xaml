@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="YidanEHRApplication.Views.UserControls.UCDiagNur"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"  Loaded="UserControl_Loaded"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    d:DesignHeight="250" d:DesignWidth="900" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <telerik:RadBusyIndicator x:Name="radBusyIndicator" Background="Transparent">
+        <Grid x:Name="LayoutRoot" Background="White">
+            <Grid.Resources>
+                <Style x:Name="RadComboBoxStyle" TargetType="telerik:RadComboBox">
+                    <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+                    <Setter Property="IsEditable" Value="False"></Setter>
+                    <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+                    <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+                    <Setter Property="IsReadOnly" Value="False"></Setter>
+                    <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+                    <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+                    <!--<Setter Property="ClearSelectionButtonContent" Value="清空"></Setter>-->
+                    <Setter Property="ClearSelectionButtonVisibility" Value="Collapsed"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                </Style>
+
+                <Style x:Key="TextBlockStyle" TargetType="TextBlock" >
+                    <Setter Property="Padding" Value="8,4,4,5"></Setter>
+                    <Setter Property="FontSize" Value="11"></Setter>
+                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+                    <Setter Property="LineHeight" Value="2"></Setter>
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                </Style>
+
+                <DataTemplate x:Key="ComboBoxOrderTypeTemplate">
+                    <Grid>
+                        <TextBlock Foreground="#003366" Text="{Binding OrderName}"/>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="ComboBoxOrderTypeSimpleTemplate">
+                    <Grid Background="Transparent">
+                        <TextBlock Text="{Binding OrderName}" x:Name="textComText"/>
+                    </Grid>
+                </DataTemplate>
+
+
+                <DataTemplate x:Key="ComboBoxDrugUnitTypeTemplate">
+                    <Grid>
+                        <TextBlock Foreground="#003366" Text="{Binding UnitName}"/>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate x:Key="ComboBoxDrugUnitTypeSimpleTemplate">
+                    <Grid Background="Transparent">
+                        <TextBlock Text="{Binding UnitName}"/>
+                    </Grid>
+                </DataTemplate>
+
+
+                <!--药品项目-->
+                <DataTemplate x:Name="ComboBoxXmTemplate">
+                    <Grid Margin="0 3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="名称:" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Name}" Foreground="#003366"   />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="单位:" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Foreground="#003366"  Text="{Binding Xmdw}" />
+                    </Grid>
+
+                </DataTemplate>
+                <DataTemplate x:Name="ComboBoxXmSimpleTemplate">
+                    <Grid Background="Transparent">
+                        <TextBlock Text="{Binding Name}" x:Name="textComText"/>
+                    </Grid>
+                </DataTemplate>
+            </Grid.Resources>
+            <Grid Style="{StaticResource GridBackColor}">
+                <Grid Grid.Row="0" Name="YPGrid"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="#ECF5FF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="类型:" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Margin="0,8,0,0" FontWeight="Normal"></TextBlock>
+                    <telerik:RadComboBox Name="cbxZlHlLB" Grid.Column="1" SelectedValuePath="OrderValue"
+                                      ItemTemplate="{StaticResource ComboBoxOrderTypeTemplate}" Width="190"
+						              SelectionBoxTemplate="{StaticResource ComboBoxOrderTypeSimpleTemplate}"
+                                     Style="{StaticResource RadComboBoxStyle}" Height="23" VerticalAlignment="Top" SelectedIndex="0" TabIndex="0" StaysOpenOnEdit="True" HorizontalAlignment="Left" Margin="8,8,0,0" SelectionChanged="cbxZlHlLB_SelectionChanged">
+                    </telerik:RadComboBox>
+                    <TextBlock Text="是否必选:" Name="txtisby" Style="{StaticResource TextBlockStyle}" Grid.Row="0" Grid.Column="3" Margin="0,8,0,0" FontWeight="Normal" Visibility="Collapsed">
+                    </TextBlock>
+                    <RadioButton Content="是" GroupName="isby" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="1" Height="16" HorizontalAlignment="Left" Margin="3,8,0,0" Name="radbx" VerticalAlignment="Center"  Visibility="Collapsed" />
+                    <RadioButton Content="否" GroupName="isby" Grid.Row="0" Grid.Column="4" Height="16" HorizontalAlignment="Right" Margin="0,8,3,0" Name="radkx"  VerticalAlignment="Center" Visibility="Collapsed" />
+                    <TextBlock Text="项 目:" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Margin="0,8,0,0" FontWeight="Normal"></TextBlock>
+
+                    <sdk:AutoCompleteBox FilterMode="None" Height="23" HorizontalAlignment="Left" ToolTipService.ToolTip="根据拼音首字母检索项目..."
+                                                       Grid.Row="1"   Grid.ColumnSpan="6" Grid.Column="1" Width="600" SelectionChanged="autoCompleteBoxDigNur_SelectionChanged"
+                                                        IsTextCompletionEnabled="False" Name="autoCompleteBoxDigNur" VerticalAlignment="Top" TabIndex="1" Margin="8,8,0,0" />
+
+                    <TextBlock Text="数 量:" Visibility="Collapsed"   Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Margin="0,8,0,0" FontWeight="Normal"></TextBlock>
+                    <telerik:RadNumericUpDown  Visibility="Collapsed"  IsInteger="False" Name="nudMDSL" Minimum="0" Grid.Row="2" Grid.Column="1" Width="100" HorizontalAlignment="Left" TabIndex="2" Margin="8,8,0,0" Height="23" />
+                    <TextBox  Name="txtUnitName" Visibility="Collapsed"  Grid.Row="2" Grid.Column="1" Width="90" IsEnabled="False" Margin="108,8,0,0" HorizontalAlignment="Left" Height="23"></TextBox>
+
+
+                    <TextBlock Text="计价类型:" Name="txtjjlx"  Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBlockStyle}" Margin="0,8,0,0" FontWeight="Normal" Visibility="Visible"></TextBlock>
+                    <telerik:RadComboBox Name="cbxJJLX" Grid.Row="3" Grid.Column="1" Width="90" Height="23" HorizontalAlignment="Left" Grid.ColumnSpan="1"  SelectedValuePath="OrderValue"
+                                      ItemTemplate="{StaticResource ComboBoxOrderTypeTemplate}"
+						              SelectionBoxTemplate="{StaticResource ComboBoxOrderTypeSimpleTemplate}"
+                                     Style="{StaticResource RadComboBoxStyle}" TabIndex="0" Margin="8,8,0,0" Visibility="Visible">
+                    </telerik:RadComboBox>
+
+                    <TextBlock Text="执行科室:" Name="txtzxks"  Style="{StaticResource TextBlockStyle}" Grid.Row="3" Grid.Column="1" Margin="0,8,0,0" FontWeight="Normal"></TextBlock>
+                    <sdk:AutoCompleteBox  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" FilterMode="None" Height="23" HorizontalAlignment="Left" Margin="8,8,0,0" 
+                                                        IsTextCompletionEnabled="False" Name="autoCompleteBoxDept" VerticalAlignment="Top" ToolTipService.ToolTip="请输入拼音码检索..." Visibility="Visible" Width="105"/>
+
+                    <TextBlock Text="备注:" Style="{StaticResource TextBlockStyle}" Grid.Row="4" Grid.Column="0" Margin="0,8,0,0" FontWeight="Normal"></TextBlock>
+                    <TextBox  Name="txtZTNR" Grid.Row="4" Grid.ColumnSpan="6" ToolTipService.ToolTip="备注内容最长为500个汉字..." Height="23" Grid.Column="1" Width="600"  TabIndex="3" HorizontalAlignment="Left" Margin="8,8,0,0" MaxLength="1500"></TextBox>
+                     
+                    <Button Height="28" Width="65" Name="btnMDXYZ"  Margin="10,8,0,0" HorizontalAlignment="Right"
+                                            Click="btnMDXYZ_Click" Grid.Row="4"   Grid.Column="8" TabIndex="5" BorderThickness="0">
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/重置.png" Width="63" Cursor="Hand" />
+                    </Button>
+
+                    <Button Height="28" Width="65" Name="btnMDQD"   HorizontalAlignment="Right" 
+                                           Click="btnMDQD_Click" Grid.Row="4" Grid.Column="7"  Margin="10,8,0,0" TabIndex="4" BorderThickness="0">
+                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/确定.png" Width="63" Cursor="Hand" />
+                    </Button>
+                </Grid>
+                 
+
+            </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

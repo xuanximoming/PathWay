@@ -1,0 +1,307 @@
+﻿<navigation:Page x:Class="YidanEHRApplication.Views.UserCenterManager" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="1100" d:DesignHeight="780"
+           Width="Auto" Height="Auto"
+           xmlns:my="clr-namespace:YidanEHRApplication.Controls"
+           Title="用户中心" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                 xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+    <navigation:Page.Resources>
+        <Style x:Key="StyleRadButton" TargetType="telerik:RadButton">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="MinWidth" Value="50"></Setter>
+        </Style>
+        <Style x:Key="StyleRadComboBox" TargetType="telerik:RadComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
+            <Setter Property="TextSearchMode" Value="StartsWith"></Setter>
+            <Setter Property="IsEditable" Value="False"></Setter>
+            <Setter Property="IsFilteringEnabled" Value="True"></Setter>
+            <Setter Property="OpenDropDownOnFocus" Value="True"></Setter>
+            <Setter Property="IsReadOnly" Value="False"></Setter>
+            <Setter Property="CanAutocompleteSelectItems" Value="False"></Setter>
+            <Setter Property="CanKeyboardNavigationSelectItems" Value="False"></Setter>
+        </Style>
+    </navigation:Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <telerik:RadTabControl>
+            <telerik:RadTabItem>
+                <telerik:RadTabItem.Header >
+                    <TextBlock>用户中心</TextBlock>
+                </telerik:RadTabItem.Header>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>-->
+        <telerik:RadTileView  MinHeight="480"  MinimizedColumnWidth="200" MinimizedRowHeight="120" IsAutoScrollingEnabled="True" >
+            <telerik:RadTileViewItem Header="病历时限信息(提示)" TileState="Restored" x:Name="radTileViewBlsx"   SelectionChanged="radTileViewBlsx_SelectionChanged">
+                <telerik:RadTileViewItem.Content>
+                    <telerik:RadBusyIndicator Name="busyBLSXXX" Background="Transparent" BusyContent="数据加载中...">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!--<RowDefinition Height="25"></RowDefinition>-->
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="25"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="信息条数" Grid.Row="0"  HorizontalAlignment="Left" x:Name="labMessageCont1" FontSize="14" Foreground="Red" VerticalAlignment="Center" Visibility="Collapsed" />
+
+                            <telerik:RadGridView Grid.Row="0" Name="GridViewBLSXXX" GridLinesVisibility="Both" BorderThickness="1"  HorizontalAlignment="Stretch" IsFilteringAllowed="False" RowIndicatorVisibility="Collapsed" IsScrolling="False" ShowGroupPanel="False" AutoGenerateColumns="False" >
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="病人名字" DataMemberBinding="{Binding InPatientName}"/>
+                                    <telerik:GridViewDataColumn Header="提示信息" DataMemberBinding="{Binding MessageInfo}"/>
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                            <telerik:RadDataPager Grid.Row="2" PageSize="15" BorderThickness="0" Source="{Binding Items, ElementName=GridViewBLSXXX}" IsTotalItemCountFixed="True" 
+                                                  HorizontalContentAlignment="Right" DisplayMode="FirstLastPreviousNextNumeric" Height="146" MinWidth="30" MaxHeight="30"></telerik:RadDataPager>
+                        </Grid>
+                    </telerik:RadBusyIndicator>
+                </telerik:RadTileViewItem.Content>
+            </telerik:RadTileViewItem>
+            <telerik:RadTileViewItem Header="病历时限信息(警告)" TileState="Restored" x:Name="radTileViewBljg" BorderThickness="1"  SelectionChanged="radTileViewBljg_SelectionChanged">
+                <telerik:RadTileViewItem.Content>
+                    <telerik:RadBusyIndicator Name="busyBLSXXXJG" Background="Transparent" BusyContent="数据加载中...">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!--<RowDefinition Height="25"></RowDefinition>-->
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="25"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="信息条数" Grid.Row="0"  HorizontalAlignment="Left" x:Name="labMessageCont2" FontSize="14" Foreground="Red" VerticalAlignment="Center" Visibility="Collapsed" />
+                            <telerik:RadGridView Grid.Row="0"  Name="GridViewBLSXXXJG" GridLinesVisibility="Both" BorderThickness="1" HorizontalAlignment="Stretch" IsFilteringAllowed="False" RowIndicatorVisibility="Collapsed" IsScrolling="False" ShowGroupPanel="False" AutoGenerateColumns="False" >
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="病人名字" DataMemberBinding="{Binding InPatientName}"/>
+                                    <telerik:GridViewDataColumn Header="提示信息" DataMemberBinding="{Binding MessageInfo}"/>
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView>
+                            <telerik:RadDataPager Grid.Row="2" PageSize="15" BorderThickness="0" Source="{Binding Items, ElementName=GridViewBLSXXXJG}" IsTotalItemCountFixed="True" 
+                                                  HorizontalContentAlignment="Right" DisplayMode="FirstLastPreviousNextNumeric" Height="146" MinWidth="30" MaxHeight="30"></telerik:RadDataPager>
+                        </Grid>
+                    </telerik:RadBusyIndicator>
+                </telerik:RadTileViewItem.Content>
+            </telerik:RadTileViewItem>
+            <!-- 分管病人 -->
+            <telerik:RadTileViewItem Header="分管病人" TileState="Restored" x:Name="rtviInpatient" TileStateChanged="rtviInpatient_TileStateChanged">
+                <telerik:RadTileViewItem.Content>
+                        <my:UCInpatientListControl x:Name="InpatientListControl1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"   ></my:UCInpatientListControl>
+                </telerik:RadTileViewItem.Content>
+            </telerik:RadTileViewItem>
+            <telerik:RadTileViewItem Header="分管病人检验报告数据" TileState="Restored"  x:Name="radTileViewBljy" SelectionChanged="radTileViewBljy_SelectionChanged">
+                <telerik:RadBusyIndicator Name="busyExamine" Background="Transparent" BusyContent="数据加载中...">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <!--<RowDefinition Height="25"></RowDefinition>-->
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                             
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel  Grid.Row="0">
+                        <TextBlock Text="病人检验报告数据"  HorizontalAlignment="Left" x:Name="labMessageCont4" FontSize="14" Foreground="Red" VerticalAlignment="Center" Visibility="Collapsed" />
+                        </StackPanel>
+                        <telerik:RadGridView  Name="GridViewExmanine" BorderThickness="1"  GridLinesVisibility="Both" IsScrolling="False"   IsReadOnly="True"
+                                    HorizontalAlignment="Stretch" IsFilteringAllowed="False" RowIndicatorVisibility="Collapsed"   ShowGroupPanel="False" AutoGenerateColumns="False"  ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="病人名字" DataMemberBinding="{Binding PatientName}" Width="100*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="检查类别" DataMemberBinding="{Binding Lb}" Width="100*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="检查日期" DataMemberBinding="{Binding Jcrq}" Width="150*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="检查项" DataMemberBinding="{Binding Jcxm}" Width="150*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="检查结果" DataMemberBinding="{Binding Jcjg}" Width="200*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="正常范围" DataMemberBinding="{Binding Zcfw}" Width="150*"></telerik:GridViewDataColumn>
+                                <telerik:GridViewDataColumn Header="单位" DataMemberBinding="{Binding Dw}" Width="150*"></telerik:GridViewDataColumn>
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <telerik:RadDataPager Grid.Row="2" PageSize="15" BorderThickness="0" Source="{Binding Items, ElementName=GridViewExmanine}" IsTotalItemCountFixed="True" 
+                                                  HorizontalContentAlignment="Right" DisplayMode="FirstLastPreviousNextNumeric" Height="30" MinWidth="30" MaxHeight="30"></telerik:RadDataPager>
+                    </Grid>
+                </telerik:RadBusyIndicator>
+            </telerik:RadTileViewItem>
+            <telerik:RadTileViewItem Header="医师任务信息"    x:Name="rtviDoctorTaskMessage" TileState="Restored" TileStateChanged="rtviTaskMess_TileStateChanged">
+                <telerik:RadBusyIndicator Name="radDocTastBusy" Background="Transparent" BusyContent="数据加载中...">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition> 
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel  Grid.Row="0">
+                            <TextBlock Text="任务信息条数"  HorizontalAlignment="Left" x:Name="labMessageCont" FontSize="14" Foreground="Red" VerticalAlignment="Center" Visibility="Collapsed" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" x:Name="panel_Query" Visibility="Collapsed" Grid.Row="1">
+                            <TextBlock Text="任务日期:"  HorizontalAlignment="Left" VerticalAlignment="Center"  />
+                            <telerik:RadDatePicker  HorizontalAlignment="Left"  Name="radRwsj" VerticalAlignment="Top" Width="100" Margin="0,4,0,0" DataContext="{Binding}" DisplayDate="12/1/2010" />
+                            <TextBlock Text="任务状态:"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0,0,0" />
+                            <telerik:RadComboBox x:Name="cmbRwzt" Width="60" ToolTipService.ToolTip="查询问题处理状态" Style="{StaticResource StyleRadComboBox}">
+                                <telerik:RadComboBoxItem Content="全部" />
+                                <telerik:RadComboBoxItem Content="未完成" IsSelected="True"/>
+                                <telerik:RadComboBoxItem Content="已完成" />
+                            </telerik:RadComboBox>
+                            <!--<telerik:RadButton x:Name="btnQueryDocTaskMessage" Content="查询" Margin="10,4,10,4" Style="{StaticResource StyleRadButton}" Click="btnQueryDocTaskMessage_Click" />-->
+
+                            <Button Height="28" Width="65" Name="btnQueryDocTaskMessage" Grid.Row="3" Grid.Column="8" Click="btnQueryDocTaskMessage_Click" HorizontalAlignment="Left" Margin="10,0,0,0" TabIndex="9" BorderThickness="0">
+                                <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" Cursor="Hand" />
+                            </Button>
+                            
+                        </StackPanel>
+
+
+                        <telerik:RadGridView x:Name="rgdDoctorTaskMessage" IsScrolling="False" 
+                                     IsReadOnly="True" ShowGroupPanel="False" GridLinesVisibility="Both" BorderThickness="1" AutoGenerateColumns="False" IsFilteringAllowed="False" 
+                                      RowIndicatorVisibility="Collapsed"  >
+                            <telerik:RadGridView.GroupDescriptors >
+                                <telerik:GroupDescriptor Member="group_col" >
+                                    <telerik:GroupDescriptor.DisplayContent>
+                                        <TextBlock Text="时间段"></TextBlock>
+                                    </telerik:GroupDescriptor.DisplayContent>
+                                    <telerik:GroupDescriptor.AggregateFunctions>
+                                        <telerik:CountFunction Caption="任务数：" />
+                                    </telerik:GroupDescriptor.AggregateFunctions>
+                                </telerik:GroupDescriptor>
+                                <telerik:GroupDescriptor Member="Yzlb" >
+                                    <telerik:GroupDescriptor.DisplayContent>
+                                        <TextBlock Text="医嘱类别"></TextBlock>
+                                    </telerik:GroupDescriptor.DisplayContent>
+                                </telerik:GroupDescriptor>
+                            </telerik:RadGridView.GroupDescriptors>
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="床位号" DataMemberBinding="{Binding Cycw}" Width="70" IsVisible="False"/>
+                                <telerik:GridViewDataColumn Header="病人名称" DataMemberBinding="{Binding Hzxm}" Width="70" />
+                                <telerik:GridViewDataColumn Header="路径名称" DataMemberBinding="{Binding Ljmc}" Width="150" IsVisible="False"/>
+                                <telerik:GridViewDataColumn Header="医嘱类别" DataMemberBinding="{Binding Yzlb}" Width="100" IsVisible="False"/>
+                                <telerik:GridViewDataColumn Header="床位医生" DataMemberBinding="{Binding Ysxm}" Width="70" IsVisible="False"/>
+                                <telerik:GridViewDataColumn Header="提示内容" DataMemberBinding="{Binding Mess}"  MinWidth="70" Width="*"/>
+                                <telerik:GridViewDataColumn Header="预期完成时间" DataMemberBinding="{Binding Yqsj}" Width="130" IsVisible="False"/>
+                                <telerik:GridViewDataColumn Header="任务状态" DataMemberBinding="{Binding Rwzt}" Width="60" IsVisible="False"/>
+                                <!--<telerik:GridViewDataColumn Header="时间段" DataMemberBinding="{Binding group_col}"></telerik:GridViewDataColumn>-->
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView >
+                        <telerik:RadDataPager Grid.Row="1" BorderThickness="0" PageSize="15" Source="{Binding Items, ElementName=GridViewExmanine}" IsTotalItemCountFixed="True" 
+                                                  HorizontalContentAlignment="Right" DisplayMode="FirstLastPreviousNextNumeric" Height="30" MinWidth="30" MaxHeight="30"></telerik:RadDataPager>
+                    </Grid>
+                </telerik:RadBusyIndicator>
+            </telerik:RadTileViewItem>
+
+            <!-- 医务处登记信息-->
+            <telerik:RadTileViewItem x:Name="rtviAnswer" Header="医生异常问题处理信息"  TileState="Restored" TileStateChanged="rtviAnswer_TileStateChanged">
+                <telerik:RadTileViewItem.Content>
+                    <telerik:RadBusyIndicator Name="busyAnswer"  BusyContent="数据加载中..." Background="Transparent">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="*" MinHeight="400"/>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel  Grid.Row="0">
+                                <TextBlock Text=""  HorizontalAlignment="Left" x:Name="labMessageCont5" FontSize="14" Foreground="Red" VerticalAlignment="Center" Visibility="Collapsed" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Name="YcclPlan"  Visibility="Visible">
+                                <TextBlock Text="问题状态:"  HorizontalAlignment="Right" VerticalAlignment="Center"  />
+                                <telerik:RadComboBox x:Name="cmbQueryState" Width="60" ToolTipService.ToolTip="查询问题处理状态" Style="{StaticResource StyleRadComboBox}">
+                                    <telerik:RadComboBoxItem Content="全部"  IsSelected="True"/>
+                                    <telerik:RadComboBoxItem Content="待回复"/>
+                                    <telerik:RadComboBoxItem Content="已答复" />
+                                    <telerik:RadComboBoxItem Content="已完成" />
+                                </telerik:RadComboBox>
+                                <TextBlock Text="最近天数:"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,4,0,4" />
+                                <telerik:RadComboBox x:Name="cmbQueryDays" Width="60" ToolTipService.ToolTip="按问题登记日期查询" Style="{StaticResource StyleRadComboBox}">
+                                    <telerik:RadComboBoxItem Content="全部"  IsSelected="True"/>
+                                    <telerik:RadComboBoxItem Content="1天" />
+                                    <telerik:RadComboBoxItem Content="2天" />
+                                    <telerik:RadComboBoxItem Content="3天" />
+                                    <telerik:RadComboBoxItem Content="4天" />
+                                    <telerik:RadComboBoxItem Content="5天" />
+                                    <telerik:RadComboBoxItem Content="6天" />
+                                    <telerik:RadComboBoxItem Content="7天" />
+                                </telerik:RadComboBox>
+                                <!--<telerik:RadButton x:Name="rbtnQueryQuestion" Content="查询" ToolTipService.ToolTip="按时间段查询" Margin="10,4,10,4" Click="rbtnQuery_Click" Style="{StaticResource StyleRadButton}"/>-->
+
+                                <Button Height="28" Width="65" Name="rbtnQueryQuestion" Grid.Row="3" ToolTipService.ToolTip="按时间段查询" Grid.Column="8" Click="rbtnQuery_Click" HorizontalAlignment="Left" Margin="10,0,0,0" TabIndex="9" BorderThickness="0">
+                                    <Image Height="26" Margin="-2" Source="/Pathway;component/Images/查询.png" Width="63" Cursor="Hand" />
+                                </Button>
+                                
+                            </StackPanel>
+                            <telerik:RadGridView x:Name="rgvQuestion" GridLinesVisibility="Both" BorderThickness="1" Grid.Row="1" VerticalAlignment="Top" IsReadOnly="True" 
+                                                              AutoGenerateColumns="False" IsFilteringAllowed="False"  
+                                                              ShowGroupPanel="False" RowIndicatorVisibility="Collapsed" SelectionChanged="rgvQuestion_SelectionChanged" MinHeight="400">
+                                <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="病人编号" DataMemberBinding="{Binding Syxh}" Width="70"/>
+                                    <telerik:GridViewDataColumn Header="病人名称" DataMemberBinding="{Binding Hzxm}" Width="70" />
+                                    <telerik:GridViewDataColumn Header="路径名称" DataMemberBinding="{Binding Ljmc}" Width="150"/>
+                                    <telerik:GridViewDataColumn Header="床位医生" DataMemberBinding="{Binding Ysxm}" Width="70"/>
+                                    <telerik:GridViewDataColumn Header="问题状态" DataMemberBinding="{Binding Qczt}"  Width="60"/>
+                                    <telerik:GridViewDataColumn Header="问题内容" DataMemberBinding="{Binding Wtnr}" Width="200"/>
+                                    <telerik:GridViewDataColumn Header="回复内容" DataMemberBinding="{Binding Dfnr}" Width="200"/>
+                                    <telerik:GridViewDataColumn Header="审核内容" DataMemberBinding="{Binding Shnr}" Width="200"/>
+                                    <telerik:GridViewDataColumn Header="登记日期" DataMemberBinding="{Binding Djrq}" Width="150"/>
+                                    <telerik:GridViewDataColumn Header="登记人员" DataMemberBinding="{Binding Djryxm}" Width="70"/>
+                                    <telerik:GridViewDataColumn Header="回复日期" DataMemberBinding="{Binding Dfrq, Mode=TwoWay}" Width="150"/>
+                                    <telerik:GridViewDataColumn Header="回复医生" DataMemberBinding="{Binding Dfysxm, Mode=TwoWay}" Width="70"/>
+                                    <telerik:GridViewDataColumn Header="审核状态" DataMemberBinding="{Binding Shzt}" Width="60"/>
+                                    <telerik:GridViewDataColumn Header="审核日期" DataMemberBinding="{Binding Shrq}" Width="150"/>
+                                    <telerik:GridViewDataColumn Header="审核人员" DataMemberBinding="{Binding Shryxm}" Width="70"/>
+                                    <telerik:GridViewDataColumn Header="作废日期" DataMemberBinding="{Binding Zfrq}" Width="150"/>
+                                    <telerik:GridViewDataColumn Header="作废人员" DataMemberBinding="{Binding Zfryxm}" Width="70" />
+                                </telerik:RadGridView.Columns>
+                            </telerik:RadGridView >
+                            <telerik:RadDataPager VerticalAlignment="Top"  BorderThickness="0" Grid.Row="2" Grid.Column="0" 
+								               x:Name="radDataPager"
+                                                Source="{Binding Items, ElementName=rgvQuestion}"
+                                                PageSize="20"
+								               DisplayMode="FirstLastPreviousNextNumeric"
+								               AutoEllipsisMode="Both"
+								               NumericButtonCount="10"
+                                                  HorizontalContentAlignment="Right"
+								               IsTotalItemCountFixed="True"/>
+
+                            <Grid x:Name="gridAudit" Grid.Column="0" Grid.Row="3" Visibility="Collapsed"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="90"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="问题内容:" Grid.Column="0" Grid.Row="0" Margin="5,0,0,0" />
+                                <TextBlock Text="回复内容:" Grid.Column="1" Grid.Row="0"  Margin="5,0,0,0"/>
+                                <TextBlock Text="审核内容:" Grid.Column="2" Grid.Row="0"  Margin="5,0,0,0"/>
+                                <TextBox x:Name="txtQuestionContent" Grid.Column="0"  Grid.Row="1" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"  MaxLength="600" Margin="5,0,0,5" />
+                                <TextBox x:Name="txtAnswerContent" Grid.Column="1"  Grid.Row="1" Margin="5,0,0,5" IsReadOnly="True"  TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" MaxLength="1600"  />
+                                <TextBox x:Name="txtAuditContent" Grid.Column="2"  Grid.Row="1" Margin="5,0,0,5" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" MaxLength="600" />
+                                <StackPanel x:Name="StackPanelAudit" Grid.Column="3" Grid.Row="1" Orientation="Vertical" Margin="5,0,5,5">
+                                    <!--<telerik:RadButton x:Name="rbtnSubmit" Content="提交" ToolTipService.ToolTip="提交编辑的记录" Margin="5,30" IsEnabled="False"  Click="rbtnSubmit_Click" Style="{StaticResource StyleRadButton}" />-->
+
+                                    <Button Height="28" Width="65" Name="rbtnSubmit" Grid.Row="3" ToolTipService.ToolTip="提交编辑的记录" Grid.Column="8" Click="rbtnSubmit_Click" HorizontalAlignment="Left" Margin="10,2,0,4" TabIndex="9" BorderThickness="0">
+                                        <Image Height="26" Margin="-2" Source="/Pathway;component/Images/提交.png" Width="63" Cursor="Hand" />
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </telerik:RadBusyIndicator>
+                </telerik:RadTileViewItem.Content>
+            </telerik:RadTileViewItem>
+        </telerik:RadTileView>
+    </Grid>
+</navigation:Page>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Yidansoft.Service.YidanEHRDataService" CodeBehind="YidanEHRDataService.svc.cs" %>
