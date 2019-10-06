@@ -1,4 +1,3 @@
-F:\Demo\pathway\Pathway\Pathway\obj\Debug\Pathway.g.resources
 F:\Demo\pathway\Pathway\Pathway.Web\ClientBin\Pathway.dll
 F:\Demo\pathway\Pathway\Pathway.Web\ClientBin\Pathway.pdb
 F:\Demo\pathway\Pathway\Pathway.Web\ClientBin\AppManifest.xaml
@@ -53,9 +52,9 @@ F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCInpatientListControl.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCOrderRemind.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCOtherOrder.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCPatientBasicInfo.g.cs
+F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCQcPatientInfoControl.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCQueryPathInfoControl.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCRISLISOrder.g.cs
-F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCSumaryPathInfoControl.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCTextGroupBoxControl.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCTextSeparateBoxControl.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\Controls\UCUnNewReason.g.cs
@@ -205,6 +204,7 @@ F:\Demo\pathway\Pathway\Pathway\obj\Debug\WorkFlow\Designer\Rule.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\WorkFlow\Designer\RuleMenu.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\WorkFlow\Designer\RuleTurnPoint.g.cs
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YiDanCommon\Ctrs\YidanPathWayMessageBox.g.cs
+F:\Demo\pathway\Pathway\Pathway\obj\Debug\Pathway.g.resources
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YidanEHRApplication.Assets.Resources.ApplicationStrings.resources
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YidanEHRApplication.Assets.Resources.ErrorResources.resources
 F:\Demo\pathway\Pathway\Pathway\obj\Debug\YidanEHRApplication.Assets.Resources.SecurityQuestions.resources

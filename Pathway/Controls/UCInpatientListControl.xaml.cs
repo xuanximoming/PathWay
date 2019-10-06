@@ -80,32 +80,26 @@ namespace YidanEHRApplication.Controls
             if (agrs.Status == PathStatus.None)//全部空
             {
                 ljzt = string.Empty;
-                //radGridViewInpatient.ItemsSource = m_InpatientList;
             }
             else if (agrs.Status == PathStatus.NotIn)
             {
                 ljzt = Convert.ToString((int)PathStatus.NotIn);
-                //radGridViewInpatient.ItemsSource = m_InpatientList.Where(cp => cp.Ljzt == Convert.ToString((int)PathStatus.NotIn));
             }
             else if (agrs.Status == PathStatus.New)//未引入-1
             {
                 ljzt = Convert.ToString((int)PathStatus.New);
-                //radGridViewInpatient.ItemsSource = m_InpatientList.Where(cp => cp.Ljzt == Convert.ToString((int)PathStatus.New));
             }
             else if (agrs.Status == PathStatus.InPath)
             {
                 ljzt = Convert.ToString((int)PathStatus.InPath);
-                //radGridViewInpatient.ItemsSource = m_InpatientList.Where(cp => cp.Ljzt == Convert.ToString((int)PathStatus.InPath));
             }
             else if (agrs.Status == PathStatus.QuitPath)
             {
                 ljzt = Convert.ToString((int)PathStatus.QuitPath);
-                //radGridViewInpatient.ItemsSource = m_InpatientList.Where(cp => cp.Ljzt == Convert.ToString((int)PathStatus.QuitPath));
             }
             else if (agrs.Status == PathStatus.DonePath)//完成1
             {
                 ljzt = Convert.ToString((int)PathStatus.DonePath);
-                //radGridViewInpatient.ItemsSource = m_InpatientList.Where(cp => cp.Ljzt == Convert.ToString((int)PathStatus.DonePath));
             }
             QcEventArgs qcargs = new QcEventArgs();
 
@@ -130,14 +124,7 @@ namespace YidanEHRApplication.Controls
             if (qcargs == null) return;
             this.radBusyIndicator.IsBusy = true;
             GetPageCount(qcargs, ljzt);
-            //string ljzt = string.Empty;
-            //GetInpatientList2(Global.LogInEmployee.Ksdm, m_DoctorID, qcargs.Hzxm, qcargs.Zyhm, qcargs.BedNo, qcargs.StartDate, qcargs.EndDate);
             bandDataGrid(1, ljzt);
-
-            //QcEventArgs qcargs = e as QcEventArgs;
-            //if (qcargs == null) return;
-            //this.radBusyIndicator.IsBusy = true;
-            //GetInpatientList2(Global.LogInEmployee.Ksdm, m_DoctorID, qcargs.Hzxm, qcargs.Zyhm, qcargs.BedNo, qcargs.StartDate, qcargs.EndDate);
         }
         private void radGridViewInpatient_RowActivated(object sender, Telerik.Windows.Controls.GridView.RowEventArgs e)
         {
@@ -161,31 +148,9 @@ namespace YidanEHRApplication.Controls
                 }
                 else
                 {
-                    //2013-05-10,WangGuojin, add it in order to show inpatient information
-                    //PublicMethod.RadAlterBox("请选择已经引入路径的病人!", "提示");
-                    //return;
                     RWPatInfo pathInfoView = new RWPatInfo(cp, 2);
                     pathInfoView.ShowDialog();
                     pathInfoView.Closed += new EventHandler<WindowClosedEventArgs>(w_Closed);
-                    /*
-                    int iChange = 0;
-                    if (pathInfoView.isRyzdChanged == true)
-                        iChange = 1;
-                    PublicMethod.RadAlterBox(pathInfoView.m_iaccess.ToString(), "提示");
-                    if (pathInfoView.m_iaccess > 0)
-                    {
-                        accessWindow = new RWAccessPath2(pathInfoView.m_CurrentPat, pathInfoView.m_iPage);
-                        accessWindow.Closed += new EventHandler<WindowClosedEventArgs>(accessWindow_Closed);
-                        accessWindow.ShowDialog();
-                    }
-                    //2013-05-13,WangGuojin
-                    //refresh current page if pathinfo.ryzd has been changed.
-                    if (iChange > 0)
-                    {
-                        //
-                    }
-                    */
-
                 }
 
 
@@ -478,13 +443,10 @@ namespace YidanEHRApplication.Controls
                     this.radBusyIndicator.IsBusy = false;
                     if (ea.Error == null)
                     {
-                        //CP_InpatinetList result = ea.Result;
                         m_InpatientList = ea.Result.ToList();
 
                         radGridViewInpatient.ItemsSource = m_InpatientList;
                         queryPathInfoControl1.mtxtBedNo.Focus();
-                        //qcPatientInfoControl1.InpatientList = m_InpatientList;
-                        //qcPatientInfoControl1.UCQcPatientInfoControlBind(result.QuitPath, result.NotIn, result.New, result.InPath, result.DonePath, result.AllCount.ToString());                    //GetTempInpatient();
                     }
                     else
                     {
@@ -499,15 +461,13 @@ namespace YidanEHRApplication.Controls
             //add by luff 20130227 
             string ksdm = "";
             string brzt = "";
-            //referenceClient.GetInpatientListPagingAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate);
-            //if (queryPathInfoControl1.type == 0) 
-            //{ 
+
             hzxm = queryPathInfoControl1.Hzxm.Replace(" ", "");
-            //}if(queryPathInfoControl1.type == 1){
+
             zyhm = queryPathInfoControl1.Zyhm.Replace(" ", "");
-            //}if(queryPathInfoControl1.type == 2){
+
             bedno = queryPathInfoControl1.BedNo.Replace(" ", "");
-            //}
+
 
             //若科室代码为空的时候 就用全局的科室代码否则就用子控制的科室代码
             ksdm = queryPathInfoControl1.Ksdm == "" ? Global.LogInEmployee.Ksdm : queryPathInfoControl1.Ksdm;
@@ -586,15 +546,9 @@ namespace YidanEHRApplication.Controls
                         }
 
                         qcPatientInfoControl1.getCount(e.Result.Split(',')[1], e.Result.Split(',')[2], e.Result.Split(',')[3], e.Result.Split(',')[4], e.Result.Split(',')[5]);
-                        //if (qcargs.Hzxm != "" || qcargs.BedNo != "" || qcargs.Zyhm != "")
-                        //{
-                        //    itemCount.Clear();
-                        //    itemCount.Add(1);
-                        //}
+
                         PagedCollectionView pvw = new PagedCollectionView(itemCount);
                         datePage.Source = pvw;
-                        //qcPatientInfoControl1.InpatientList = m_InpatientList;
-                        //GetTempInpatient();
                         queryPathInfoControl1.mtxtBedNo.Focus();
                     }
                     else
@@ -609,18 +563,13 @@ namespace YidanEHRApplication.Controls
             //add by luff 20130227 
             string ksdm = "";
             string brzt = "";//病人状态
-            //referenceClient.GetInpatientListPagingAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate);
-            //if (queryPathInfoControl1.type == 0)
-            //{
+
             hzxm = queryPathInfoControl1.Hzxm.Replace(" ", "");
-            //} if (queryPathInfoControl1.type == 1)
-            //{
+
             zyhm = queryPathInfoControl1.Zyhm.Replace(" ", "");
-            //} if (queryPathInfoControl1.type == 2)
-            //{
+
             bedno = queryPathInfoControl1.BedNo.Replace(" ", "");
-            //}
-            //若科室代码为空的时候 就用全局的科室代码否则就用子控制的科室代码
+
             ksdm = queryPathInfoControl1.Ksdm == "" ? Global.LogInEmployee.Ksdm : queryPathInfoControl1.Ksdm;
 
             //获得病人状态
@@ -643,66 +592,29 @@ namespace YidanEHRApplication.Controls
         /// <param name="strBedNo">床位号</param>
         /// <param name="strStartDate">开始日期</param>
         /// <param name="strEndDate">结束日期</param>
-        private void GetInpatientList(String strKsdm, String strDoctorID, String strHzxm, String strZyhm, String strBedNo, String strStartDate, String strEndDate, String strBrzt)
-        {
-            YidanEHRDataServiceClient referenceClient = PublicMethod.YidanClient;
-            referenceClient.GetInpatientListCompleted +=
-                (obj, e) =>
-                {
-                    this.radBusyIndicator.IsBusy = false;
-                    if (e.Error == null)
-                    {
-                        m_InpatientList = e.Result.ToList();
-                        radGridViewInpatient.ItemsSource = m_InpatientList;
-                        //qcPatientInfoControl1.InpatientList = m_InpatientList;
-                        GetTempInpatient();
-                    }
-                    else
-                    {
-                        PublicMethod.RadWaringBox(e.Error);
-                    }
-                };
-            int querykind = string.IsNullOrEmpty(strDoctorID) ? 3 : 2;
+        //private void GetInpatientList(String strKsdm, String strDoctorID, String strHzxm, String strZyhm, String strBedNo, String strStartDate, String strEndDate, String strBrzt)
+        //{
+        //    YidanEHRDataServiceClient referenceClient = PublicMethod.YidanClient;
+        //    referenceClient.GetInpatientListCompleted +=
+        //        (obj, e) =>
+        //        {
+        //            this.radBusyIndicator.IsBusy = false;
+        //            if (e.Error == null)
+        //            {
+        //                m_InpatientList = e.Result.ToList();
+        //                radGridViewInpatient.ItemsSource = m_InpatientList;
+        //                GetTempInpatient();
+        //            }
+        //            else
+        //            {
+        //                PublicMethod.RadWaringBox(e.Error);
+        //            }
+        //        };
+        //    int querykind = string.IsNullOrEmpty(strDoctorID) ? 3 : 2;
 
-            referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate, strBrzt, "", 18, 1);
-            referenceClient.CloseAsync();
-        }
-
-        /// <summary>
-        ///  获取病患列表
-        ///  add by xjt,20110210
-        /// </summary>
-        /// <param name="strKsdm">科室代码</param>
-        /// <param name="strDoctorID">医生工号</param>
-        /// <param name="strHzxm"></param>
-        /// <param name="strZyhm"></param>
-        /// <param name="strBedNo">床位号</param>
-        /// <param name="strStartDate">开始日期</param>
-        /// <param name="strEndDate">结束日期</param>
-        private void GetInpatientList2(String strKsdm, String strDoctorID, String strHzxm, String strZyhm, String strBedNo, String strStartDate, String strEndDate, String strBrzt)
-        {
-            YidanEHRDataServiceClient referenceClient = PublicMethod.YidanClient;
-            referenceClient.GetInpatientListCompleted +=
-                (obj, e) =>
-                {
-                    this.radBusyIndicator.IsBusy = false;
-                    if (e.Error == null)
-                    {
-                        m_InpatientList = e.Result.ToList();
-                        radGridViewInpatient.ItemsSource = m_InpatientList;
-                        //qcPatientInfoControl1.InpatientList = m_InpatientList;
-                        //GetTempInpatient();
-                    }
-                    else
-                    {
-                        PublicMethod.RadWaringBox(e.Error);
-                    }
-                };
-            int querykind = string.IsNullOrEmpty(strDoctorID) ? 3 : 2;
-
-            referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate, strBrzt, "", 18, 0);
-            referenceClient.CloseAsync();
-        }
+        //    referenceClient.GetInpatientListAsync(querykind, strKsdm, strDoctorID, strHzxm, strZyhm, strBedNo, strStartDate, strEndDate, strBrzt, "", 18, 1);
+        //    referenceClient.CloseAsync();
+        //}
 
 
         /// <summary>

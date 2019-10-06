@@ -177,8 +177,6 @@ namespace YidanEHRApplication.Views
                                                 ShowWaringInfo("保存成功");
                                                 CurrentState = OperationState.VIEW;
                                                 Reset();
-                                                //增加定位新增记录的功能.2013-04-08
-                                                //radGridViewPathList                                               
                                             }
                                         }
                                         else
@@ -325,13 +323,6 @@ namespace YidanEHRApplication.Views
                     Reset();
                     return;
                 }
-                //string strLjdm = ((RadButton)sender).Tag.ToString();
-                // List<CP_ClinicalPathList> listPathInfo = new List<CP_ClinicalPathList>(); //(List<CP_ClinicalPathShowInfo>)this.radGridViewPathList.ItemsSource;
-                //foreach (var infos in radGridViewPathList.Items)
-                //{
-                //    listPathInfo.Add(infos as CP_ClinicalPathList);
-                //}
-                // var path = listPathInfo.Where(pt => pt.Ljdm.Equals(strLjdm)).FirstOrDefault<CP_ClinicalPathList>();
                 var path = radGridViewPathList.SelectedItem as CP_ClinicalPathList;
                 #region  add by luff 20130815 根据配置参数进入第三方控件的路径维护明细页还是微软控件的路径维护明细页
                 List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("PathWh") > -1).ToList();
@@ -633,19 +624,6 @@ namespace YidanEHRApplication.Views
                 return false;
             }
 
-            //else if (this.radGridViewDisease.Items.Count == 0)
-            //{
-            //    ShowWaringInfo("请选择病种");
-            //    this.autoCompleteBoxDiagnosis.Focus();
-            //    return false;
-            //}
-            //else if (this.radGridViewAddCondtion.Items.Count == 0)
-            //{
-            //    ShowWaringInfo("请填写路径条件");
-            //    this.textBoxConditon.Focus();
-            //    return false;
-            //}
-            //radGridViewPathList
             foreach (CP_ClinicalPathList item in radGridViewPathList.Items)
             {
                 if (item.Name == textBoxPathName.Text.Trim())
@@ -720,6 +698,7 @@ namespace YidanEHRApplication.Views
             return ((info.QueryName.StartsWith(strFilter.ToUpper())) || (info.QueryName.Contains(strFilter.ToUpper())));
         }
         #endregion
+
         #region 1选择病种   radComboBoxDiagnosis
         public bool DiagnosisFilter(string strFilter, object item)
         {
@@ -741,6 +720,7 @@ namespace YidanEHRApplication.Views
             return cpList;
         }
         #endregion
+
         #region 路径状态 radComboBoxStatus
         /// <summary>
         ///   INIT路径状态
@@ -766,6 +746,7 @@ namespace YidanEHRApplication.Views
             }
         }
         #endregion
+
         #region 2科室   radComboBoxDept
         /// <summary>
         /// INIT科室
@@ -810,6 +791,7 @@ namespace YidanEHRApplication.Views
             return ((deptList.QueryName.StartsWith(strFilter.ToUpper())) || (deptList.QueryName.Contains(strFilter.ToUpper())));
         }
         #endregion
+
         #region 3,4 路径列表，和 对应的病种
         /// <summary>
         /// INIT路径列表的实体，主要是拼显示的病种名称
@@ -872,11 +854,8 @@ namespace YidanEHRApplication.Views
                     }
                     path.Bzmc = strBzMc;
                 }
-                // radGridViewPathList.SelectionChanged -= new EventHandler<SelectionChangeEventArgs>(radGridViewPathList_SelectionChanged);
                 radGridViewPathList.ItemsSource = m_ClinicalPathList;
-                //radGridViewPathList.SelectedItem = null;
                 radGridViewPathList.SelectedItem = m_ClinicalPathList.Last();
-                // radGridViewPathList.SelectionChanged += new EventHandler<SelectionChangeEventArgs>(radGridViewPathList_SelectionChanged);
             }
             catch (Exception ex)
             {
@@ -918,7 +897,6 @@ namespace YidanEHRApplication.Views
         {
             try
             {
-                //this.radGridViewPathList.SelectionChanged -= new EventHandler<SelectionChangeEventArgs>(radGridViewPathList_SelectionChanged);
                 IntiComboBoxStatus(false);
                 textBoxPathName.Text = string.Empty;
                 radNumericUpDownVersion.Value = 1;
@@ -941,8 +919,6 @@ namespace YidanEHRApplication.Views
                 //m_PathconditionListDel.Clear();
                 //this.textBoxConditon.Text = string.Empty;
                 m_CopyWorkXml = string.Empty;
-                //this.radGridViewPathList.SelectionChanged += new EventHandler<SelectionChangeEventArgs>(radGridViewPathList_SelectionChanged);
-                //GrdConditonList.ItemsSource = null;              
 
             }
             catch (Exception ex)

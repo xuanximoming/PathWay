@@ -1,30 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
+using System.Reflection;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Telerik.Windows.Controls;
-using System.IO;
-using System.Windows.Media.Imaging;
-using YidanEHRApplication.Views;
-using Telerik.Windows.Controls.GridView;
-using System.Windows.Data;
-using System.Collections.ObjectModel;
-using System.Windows.Resources;
-using System.Reflection;
-using YidanEHRApplication.Models;
-using YidanEHRApplication.Helpers;
 using YidanEHRApplication.Controls;
-using System.Text;
 using YidanEHRApplication.DataService;
-using YidanEHRApplication;
 
 namespace YidanEHRApplication.Views
 {
@@ -51,7 +39,7 @@ namespace YidanEHRApplication.Views
             this.InpatientListControl1.AfterNavigateToPage += new Controls.UCInpatientListControl.NavigateToPage(InpatientListControl1_AfterNavigateToPage);
             this.InpatientListControl1.InitPage();//初始化数据  
             this.InpatientListControl1.PathZx.Visibility = Visibility;
-      
+
             #region 非界面登录中使用
             if (!String.IsNullOrWhiteSpace(Global.Syxh))
             {
@@ -92,7 +80,7 @@ namespace YidanEHRApplication.Views
                 #region add by luff 20130807 根据配置表判断进入哪个路径执行界面 0或空值进入第三方控件路径执行页面，1则进入微软控件路径执行页面
                 try
                 {
-                    
+
                     List<APPCFG> t_listApp = Global.mAppCfg.Select(s => s).Where(s => s.Configkey.IndexOf("PathEnter") > -1).ToList();
                     if (t_listApp.Count > 0)
                     {
@@ -117,7 +105,7 @@ namespace YidanEHRApplication.Views
 
                     throw ex;
                 }
-                
+
                 #endregion
                 //else
                 //    AddTabItem("路径执行【" + Global.InpatientListCurrent.Hzxm + "】", "/Views/PathEnForce.xaml",true);
@@ -276,14 +264,14 @@ namespace YidanEHRApplication.Views
         /// </summary>
         private void CheckEnPath()
         {
-            
+
 
         }
 
 
     }
 
-     
+
     #region 图片相关与XAML配合使用 暂不使用
     public class GridImageConvert : IValueConverter
     {

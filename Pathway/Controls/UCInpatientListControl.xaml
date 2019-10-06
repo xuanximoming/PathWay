@@ -16,21 +16,6 @@
     <telerik:RadBusyIndicator Name="radBusyIndicator" Background="Transparent" BusyContent="数据加载中..." >
         <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded" >
             <Grid.Resources>
-                <!--<Style x:Key="NewStyle" TargetType="telerik:GridViewCell">
-                    <Setter Property="Background" Value="#FF3DBCC7" />
-                </Style>
-                <Style x:Key="CompelteStyle" TargetType="telerik:GridViewCell">
-                    <Setter Property="Background" Value="#FF53B119" />
-                </Style>
-                <Style x:Key="QuitStyle" TargetType="telerik:GridViewCell">
-                    <Setter Property="Background" Value="Red" />
-                </Style>
-                <Style x:Key="NotInStyle" TargetType="telerik:GridViewCell">
-                    <Setter Property="Background" Value="#FFA112AD" />
-                </Style>
-                <Style x:Key="DoStyle" TargetType="telerik:GridViewCell">
-                    <Setter Property="Background" Value="#CC6752" />
-                </Style>-->
                 <Style x:Key="NewStyle" TargetType="TextBox">
                     <Setter Property="Background" Value="#FF3DBCC7" />
                 </Style>
@@ -77,8 +62,6 @@
                         </Conveter:ConditionalStyleRule>
                     </Conveter:ConditionalStyleSelector.Rules>
                 </Conveter:ConditionalStyleSelector>
-                
-                 
             </Grid.Resources>
             <Grid.RowDefinitions>
                 <RowDefinition Height="110"></RowDefinition>
@@ -92,67 +75,25 @@
             <Border>
                 <StackPanel  Orientation="Vertical" Height="110">
                     <Border BorderThickness="1,1,1,1" CornerRadius="1,1,1,1" Margin="0,5,0,5">
-                        <Border.BorderBrush>
+                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.933220924036204,0.903735795235198" StartPoint="0.0687608619440813,0.315483972696259">
                                 <GradientStop Color="#46A3FF" Offset="1"/>
                                 <GradientStop Color="#97CBFF" Offset="0.35294289873343759"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
-                        <!--<StackPanel  Orientation="Vertical" Height="80" Background="#ECF5FF">-->
-                        <Grid  Height="110" Background="#ECF5FF">
-                            <Grid.ColumnDefinitions>
+                         <Grid  Height="110" Background="#ECF5FF">
+                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="12" />
                                 <ColumnDefinition Width="1100" />
-                                <!--<ColumnDefinition Width="*" />-->
                             </Grid.ColumnDefinitions>
-                            
-                            <my:UCQcPatientInfoControl HorizontalAlignment="Left" x:Name="qcPatientInfoControl1" Height="35" Margin="0,0,0,77" Grid.ColumnSpan="2" />
+
+                             <my:UCQcPatientInfoControl HorizontalAlignment="Left" x:Name="qcPatientInfoControl1" Height="35" Margin="0,0,0,77" Grid.ColumnSpan="2" />
                             <my:UCQueryPathInfoControl   HorizontalAlignment="Left"  Margin="0,37,0,0" x:Name="queryPathInfoControl1" VerticalAlignment="Top" Height="60" Grid.ColumnSpan="2" />
                         </Grid>
-                        <!--</StackPanel>-->
                     </Border>
                     <my:UCPatientBasicInfo x:Name="uCPatientBasicInfo1" HorizontalAlignment="Left"  Margin="5,0,0,0"  Height="0" Width="800" Visibility="Collapsed"/>
                 </StackPanel>
             </Border>
-            <!--<ScrollViewer x:Name="PageScrollViewer" Margin="0,6,0,0" Grid.Row="1" VerticalScrollBarVisibility="Hidden" >-->
-                <!--<telerik:RadGridView  Grid.Row="1" BorderThickness="1" Width="auto"  ShowGroupPanel="False" AutoGenerateColumns="False" x:Name="radGridViewInpatient" VerticalAlignment="Top" 
-							  CanUserResizeColumns="True"  ShowColumnHeaders="true" IsReadOnly="True" GridLinesVisibility="Both"   
-                                         HorizontalAlignment="Stretch" IsFilteringAllowed="False" RowIndicatorVisibility="Collapsed"     RowActivated="radGridViewInpatient_RowActivated" SelectionChanged="radGridViewInpatient_SelectionChanged" IsScrolling="False" ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <telerik:RadGridView.Columns>
-                        <telerik:GridViewDataColumn Header="首页序号" DataMemberBinding="{Binding Syxh}" IsVisible="False">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="病历号" DataMemberBinding="{Binding Zyhm}" Width="70">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="床号" DataMemberBinding="{Binding Bed}" Width="50">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="患者姓名" DataMemberBinding="{Binding Hzxm}" Width="60">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="性别" DataMemberBinding="{Binding Brxb}" Width="35">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="年龄" DataMemberBinding="{Binding Xsnl}" Width="40">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="入院诊断" DataMemberBinding="{Binding Ryzd}" Width="100*" MinWidth="100">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="状态" Width="40" CellStyleSelector="{StaticResource selector}" >
-                        </telerik:GridViewDataColumn >
-                        <telerik:GridViewDataColumn Header="说明" Width="55" DataMemberBinding="{Binding LjztName}">
-                        </telerik:GridViewDataColumn >
-                        <telerik:GridViewDataColumn Header="路径名称" DataMemberBinding="{Binding Ljmc}" Width="180*">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="科室" DataMemberBinding="{Binding CyksName}" Width="50">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="病区" DataMemberBinding="{Binding CybqName}" Width="60">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="入院日期" DataMemberBinding="{Binding Ryrq}" Width="145">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="出院日期" DataMemberBinding="{Binding Cyrq}" Width="125">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="管床医生" DataMemberBinding="{Binding Zyys}" Width="65">
-                        </telerik:GridViewDataColumn>
-                        <telerik:GridViewDataColumn Header="病人状态" DataMemberBinding="{Binding Status}" IsVisible="False" Width="65">
-                        </telerik:GridViewDataColumn>
-                </telerik:RadGridView.Columns>
-                </telerik:RadGridView>-->
             <sdk:DataGrid  Grid.Row="1" BorderThickness="1" Width="auto" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Top" AutoGenerateColumns="False"  Name="radGridViewInpatient"  SelectionChanged="radGridViewInpatient_SelectionChanged" LoadingRow="ResultsGrid_LoadingRow" 
                     CanUserSortColumns="False"     RowDetailsVisibilityMode="Collapsed"   ScrollViewer.HorizontalScrollBarVisibility="auto" ScrollViewer.VerticalScrollBarVisibility="Auto" >
                 <sdk:DataGrid.Columns>
@@ -196,7 +137,6 @@
                     </sdk:DataGridTextColumn>
                 </sdk:DataGrid.Columns>
             </sdk:DataGrid>
-            <!--</ScrollViewer>-->
             <telerik:RadDataPager BorderThickness="0"   x:Name="datePage" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,0,0"  Grid.Row="2" PageSize="18"  AutoEllipsisMode="Both"  DisplayMode="FirstLastPreviousNextNumeric" NumericButtonCount="10" PageIndexChanged="RadDataPager1_PageIndexChanged" IsTotalItemCountFixed="True" />
             <StackPanel x:Name="StackPanelHide" Grid.Row="2" FlowDirection="LeftToRight" VerticalAlignment="Top" Orientation="Horizontal" Visibility="Visible" Margin="2,5,434,16">
                 <Button Margin="10,-3" BorderThickness="0" Name="PathZx" Width="78" Height="28" Click="PathZx_Click" Visibility="Collapsed"  Cursor="Hand" >

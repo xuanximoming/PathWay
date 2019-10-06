@@ -302,6 +302,9 @@
     </Compile>
     <Compile Include="Controls\BusyIndicator.cs" />
     <Compile Include="Controls\InpatientDataGrid.cs" />
+    <Compile Include="Controls\UCQcPatientInfoControl.xaml.cs">
+      <DependentUpon>UCQcPatientInfoControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Copy.cs" />
     <Compile Include="Controls\CustomDataForm.cs" />
     <Compile Include="Controls\UCChildEditableMessageBox.xaml.cs">
@@ -342,9 +345,6 @@
     </Compile>
     <Compile Include="Controls\UCRISLISOrder.xaml.cs">
       <DependentUpon>UCRISLISOrder.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UCSumaryPathInfoControl.xaml.cs">
-      <DependentUpon>UCSumaryPathInfoControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\UCTextGroupBoxControl.xaml.cs">
       <DependentUpon>UCTextGroupBoxControl.xaml</DependentUpon>
@@ -1083,15 +1083,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\UCQcPatientInfoControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\UCQueryPathInfoControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\UCRISLISOrder.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\UCSumaryPathInfoControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

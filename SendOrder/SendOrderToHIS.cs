@@ -66,12 +66,10 @@ namespace SendOrder
         }
 
         #region 检查医嘱保存
-
-
         /// <summary>
         /// 检查医嘱保存
         /// </summary>
-        /// <param name="wkdz"></param>
+        /// <param name="wkdz">macaddress</param>
         /// <param name="syxh"></param>
         /// <param name="xmlcqdata"></param>
         /// <param name="iscqls"></param>
@@ -93,8 +91,8 @@ namespace SendOrder
             //}
             try
             {
-                _sqlhelper.BeginUseSingleConnection();
-                _sqlhelper.BeginTransaction();
+                //_sqlhelper.BeginUseSingleConnection();
+                //_sqlhelper.BeginTransaction();
                 sqlcmd = "exec usp_Emr_CheckDoctorAdvice '" + wkdz + "',1," + syxh;
                 DataTable dtret = _sqlhelper.ExecuteDataTable(sqlcmd, CommandType.Text);
                 if ((dtret == null) || (dtret.Rows.Count == 0))
@@ -108,14 +106,14 @@ namespace SendOrder
                 }
                 if (string.IsNullOrEmpty(spRet) || (spRet[0] == 'F'))
                 {
-                    _sqlhelper.EndUseSingleConnection();
+                    //_sqlhelper.EndUseSingleConnection();
                     return spRet;
                 }
                 errMsg = errMsg + "\r\n" + sqlcmd + " exec step1 ";
             }
             catch (Exception e)
             {
-                _sqlhelper.EndUseSingleConnection();
+                // _sqlhelper.EndUseSingleConnection();
                 return (e.Message + errMsg);
             }
             if (iscqls)
@@ -245,7 +243,7 @@ namespace SendOrder
             }
             try
             {
-                _sqlhelper.BeginUseSingleConnection();
+                // _sqlhelper.BeginUseSingleConnection();
                 sqlcmd = "exec usp_Emr_SaveDoctorAdvice '" + wkdz + "',1," + syxh;
                 DataTable dtret = _sqlhelper.ExecuteDataTable(sqlcmd, CommandType.Text);
                 if ((dtret == null) || (dtret.Rows.Count == 0))
@@ -259,14 +257,14 @@ namespace SendOrder
                 }
                 if (string.IsNullOrEmpty(spRet) || (spRet[0] == 'F'))
                 {
-                    _sqlhelper.EndUseSingleConnection();
+                    //_sqlhelper.EndUseSingleConnection();
                     return spRet;
                 }
                 errMsg = errMsg + "\r\n" + sqlcmd + " exec step1 ";
             }
             catch (Exception e)
             {
-                _sqlhelper.EndUseSingleConnection();
+                //_sqlhelper.EndUseSingleConnection();
                 return (e.Message + errMsg);
             }
             if (!iscqls)
@@ -1115,8 +1113,15 @@ namespace SendOrder
 
         #endregion
 
-
-        //bool iscqls = true;  //临时医嘱  false  长期医嘱  true
+        /// <summary>
+        /// 根据传入的信息保存到HIS系统中
+        /// </summary>
+        /// <param name="syxh">HIS号码</param>
+        /// <param name="changedTable"></param>
+        /// <param name="executorCode">执行人</param>
+        /// <param name="macAddress"></param>
+        /// <param name="iscqls">临时医嘱  false  长期医嘱  true</param>
+        /// <returns></returns>
         public DataTable SendOrder(string syxh, DataTable changedTable, string executorCode, string macAddress, bool iscqls)
         {
 
@@ -1128,11 +1133,11 @@ namespace SendOrder
             //byte[] data = new byte[source.Length];
             //source.Read(data, 0, (int)source.Length);
 
-            // 3 调用接口检查数据 
-            //bool iscqls = true;  //临时医嘱  false  长期医嘱
+            // 1 调用接口检查数据 
+            ////临时医嘱  false  长期医嘱
             string mess = CheckAdvises(macAddress, syxh, changedTable, iscqls, "utf-8");
 
-            // 4 调用接口同步数据
+            // 2 调用接口同步数据
             if (mess.IndexOf("T") > -1 && mess.IndexOf("T") < 5)
                 //20130507 这个是调用JSD His保存医嘱
                 mess = SaveAdvises(macAddress, syxh, changedTable, iscqls, "utf-8", "");

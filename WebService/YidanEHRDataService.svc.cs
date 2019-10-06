@@ -1,79 +1,34 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Activation;
-using System.Data.SqlClient;
-using System.Data;
+﻿using DrectSoft.Tool;
+using SendOrder;
+using System;
 using System.Collections.Generic;
-using Yidansoft.Service.Entity;
-using System.Collections;
-using System.Xml.Linq;
-using System.Text;
+using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.IO.Compression;
-using System.Configuration;
-using System.ServiceModel.Channels;
+using System.Linq;
 using System.Runtime.InteropServices;
-using DrectSoft.Tool;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.ServiceModel;
+using System.ServiceModel.Activation;
+using System.ServiceModel.Channels;
+using System.Text;
+using System.Xml.Linq;
+using Yidansoft.Service.Entity;
 using YidanSoft.Core;
-using System.Web.Hosting;
-using System.Collections.ObjectModel;
-using SendOrder;
 namespace Yidansoft.Service
 {
     [ServiceContract(Namespace = "")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public partial class YidanEHRDataService
     {
-        public static string m_ConnectionString = "";// @"Database=YidanEHR_New;Server=192.168.2.202\two;user id=sa;password=sa";
-        private static string m_ConnectionStringEMR = "";// @"Database=YidanEMR;Server=192.168.2.202\two;user id=sa;password=sa";
-        private static string m_ConnectionHISString = "";// @"Database=THIS4_LY;Server=192.168.2.202\two;user id=sa;password=sa";
-        public static IDataAccess SqlHelper = DataAccessFactory.GetSqlDataAccess("EHRDB");//GetSqlDataAccess();
+        public static string m_ConnectionString = "";
+        private static string m_ConnectionStringEMR = "";
+        private static string m_ConnectionHISString = "";
+        public static IDataAccess SqlHelper = DataAccessFactory.GetSqlDataAccess("EHRDB");
         public static IDataAccess HISHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
         IDataAccess emrsql = DataAccessFactory.GetSqlDataAccess("EMRDB");
-        // 
-        //String tt = ConfigurationManager.ConnectionStrings["EHR"];
-        //public static SqlDataAccess GetSqlDataAccess()
-        //{
-        //    SqlDataAccess da;
-        //    try
-        //    {
-        //          da = new SqlDataAccess("EHR");
-        //    }
-        //    catch
-        //    {
-        //        throw new Exception("SqlDataAccess New Error");
-
-        //    }
-        //    try
-        //    {
-        //        da.IsConnectDB();
-        //    }
-        //    catch
-        //    {
-        //        throw new Exception("IsConnectDB Error");
-
-        //    }
-        //   if(da==null)
-        //        throw new Exception("SqlDataAccess null");
-
-
-
-        //    return da;
-        //}
-
-        //#if DEBUG
-
-        //     public static string m_ConnectionString = @"Database=YidanEHR_New;Server=192.168.2.202\two;user id=sa;password=sa";
-        //     private static string m_ConnectionStringEMR = @"Database=YidanEMR;Server=192.168.2.202\two;user id=sa;password=sa";
-        //     private static string m_ConnectionHISString = @"Database=THIS4_LY;Server=192.168.2.202\two;user id=sa;password=sa";
-        //#else
-        //        private static string m_ConnectionStringEMR = ConfigurationManager.AppSettings["EMRDB"].ToString();
-        //        public static string m_ConnectionString = ConfigurationManager.AppSettings["EHRDB"].ToString();
-        //        private static string m_ConnectionHISString = System.Configuration.ConfigurationManager.AppSettings["HISDB"].ToString();
-        //#endif
         const string AdviceGroupInfo = "成套医嘱添加成功";
         const string DelMessage = "删除成功";
         const string DelMessageFail = "删除失败";
@@ -889,79 +844,6 @@ namespace Yidansoft.Service
             //}
         }       // zm 8.25 Oracle
 
-
-        /// <summary>
-        /// 路径
-        /// </summary>
-        /// <returns></returns>
-        //[OperationContract]
-        //[FaultContract(typeof(LoginException))]
-        //public List<CP_ClinicalPathList> GetClinicalPathListPage(string strTimeFrom, string strTimeTo, string strKsdm, string strLjdm, string strYxjl)
-        //{
-        //    //using (SqlConnection myConnection = new SqlConnection(m_ConnectionString))
-        //    //{
-        //        try
-        //        {
-        //            //DataTable dataTable = new DataTable();
-
-        //            //SqlCommand myCommand = new SqlCommand("usp_CP_ClinicalPathList", myConnection);
-        //            //myCommand.CommandType = CommandType.StoredProcedure;
-        //            //添加输入查询参数、赋予值
-
-        //            SqlParameter[] parameters = new SqlParameter[] 
-        //            {
-        //                new SqlParameter("@Kssj",strTimeFrom),
-        //                new SqlParameter("@Jssj",strTimeTo),
-        //                new SqlParameter("@Ksdm",strKsdm),
-        //                new SqlParameter("@Ljdm",strLjdm),
-        //                new SqlParameter("@Yxjl",strYxjl)
-        //            };
-
-        //            //myCommand.Parameters.Add("@Kssj", SqlDbType.VarChar, 19);
-        //            //myCommand.Parameters.Add("@Jssj", SqlDbType.VarChar, 19);
-        //            //myCommand.Parameters.Add("@Ksdm", SqlDbType.VarChar, 12);
-        //            //myCommand.Parameters.Add("@Ljdm", SqlDbType.VarChar, 12);
-        //            //myCommand.Parameters.Add("@Yxjl", SqlDbType.VarChar, 12);
-        //            //myCommand.Parameters["@Kssj"].Value = strTimeFrom;
-        //            //myCommand.Parameters["@Jssj"].Value = strTimeTo;
-        //            //myCommand.Parameters["@Ksdm"].Value = strKsdm;
-        //            //myCommand.Parameters["@Ljdm"].Value = strLjdm;
-        //            //myCommand.Parameters["@Yxjl"].Value = strYxjl;
-        //            //SqlParameter CurrentPage = new SqlParameter("@CurrentPage", 2);
-        //            //CurrentPage.Direction = ParameterDirection.Output;
-
-        //            //SqlDataAdapter dataAdapter = new System.Data.SqlClient.SqlDataAdapter(myCommand);
-
-
-        //            //if (dataTable != null)
-        //            //{
-        //            //    dataAdapter.Fill(dataTable);
-        //            //}
-        //            DataTable dataTable = SqlHelper.ExecuteDataTable(m_ConnectionString, CommandType.StoredProcedure, "usp_CP_ClinicalPathList", parameters);
-
-
-        //            List<CP_ClinicalPathList> clinPathListInfo = new List<CP_ClinicalPathList>();
-        //            foreach (DataRow row in dataTable.Rows)
-        //            {
-        //                CP_ClinicalPathList cliListInfo = new CP_ClinicalPathList(row["Ljdm"].ToString(), row["Name"].ToString(), row["Ljms"].ToString(),
-        //                    decimal.Parse(row["Zgts"].ToString()), decimal.Parse(row["Jcfy"].ToString()), decimal.Parse(row["Vesion"].ToString()),
-        //                    row["Cjsj"].ToString(), row["Shsj"].ToString(), row["Syks"].ToString(), row["Yxjl"].ToString(),
-        //                    row["Syks"].ToString(), row["DeptName"].ToString(), row["ShysName"].ToString(), int.Parse(row["YxjlId"].ToString()),
-        //                    UnzipContent(row["WorkFlowXML"].ToString()));
-        //                cliListInfo.LjSyqk = row["LjSyqk"].ToString();
-        //                cliListInfo.LjSysl = decimal.Parse(row["LjSySl"].ToString());
-        //                clinPathListInfo.Add(cliListInfo);
-        //            }
-        //            //   long l = GetSpaceForObject(clinPathListInfo);
-        //            return clinPathListInfo;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw ex;
-        //        }
-        //    //}
-        //}         // zm 8.25
-
         private string UnzipContent(string emrContent)
         {
             try
@@ -1032,33 +914,6 @@ namespace Yidansoft.Service
                         new SqlParameter("@Syks",strSyks),
                         new SqlParameter("@Bzdm",listAddBzdm[0].Bzdm.ToString())
                     };
-
-                    //myCommand.Parameters.Add("@Name", SqlDbType.VarChar, 64);
-                    //myCommand.Parameters.Add("@Ljms", SqlDbType.VarChar, 255);
-                    //myCommand.Parameters.Add("@Zgts", SqlDbType.Decimal);
-                    //myCommand.Parameters.Add("@Jcfy", SqlDbType.Decimal);
-                    //myCommand.Parameters.Add("@Vesion", SqlDbType.Decimal);
-                    //myCommand.Parameters.Add("@Shys", SqlDbType.VarChar, 6);
-                    //myCommand.Parameters.Add("@Yxjl", SqlDbType.Decimal);
-                    //myCommand.Parameters.Add("@Syks", SqlDbType.VarChar, 12);
-                    //myCommand.Parameters.Add("@Bzdm", SqlDbType.VarChar, 12);
-                    //myCommand.Parameters["@Name"].Value = strName;
-                    //myCommand.Parameters["@Ljms"].Value = strLjms;
-                    //myCommand.Parameters["@Zgts"].Value = zgts;
-                    //myCommand.Parameters["@Jcfy"].Value = jcfy;
-                    //myCommand.Parameters["@Vesion"].Value = version;
-                    //myCommand.Parameters["@Shys"].Value = strShys;
-                    //myCommand.Parameters["@Yxjl"].Value = yxjl;
-                    //myCommand.Parameters["@Syks"].Value = strSyks;
-                    //myCommand.Parameters["@Bzdm"].Value = listAddBzdm[0].Bzdm.ToString();
-
-                    //SqlDataAdapter DataAdapter = new System.Data.SqlClient.SqlDataAdapter(myCommand);
-                    //DataTable dataTable = new DataTable();
-                    //DataAdapter.Fill(dataTable);
-
-
-                    //strLjdm = myCommand.ExecuteScalar().ToString();
-
                     //ZM 标记 oracle 事务没写，暂时取消事务  9.9
 
                     DataTable dt = SqlHelper.ExecuteDataTable("usp_CP_InsertClinicalPathInfo", parameters, CommandType.StoredProcedure);
@@ -1116,13 +971,8 @@ namespace Yidansoft.Service
                 //判断修改的数据是否在数据库存在
                 //修改时间：2013年8月13日 10:09:56
                 //修改人：Jhonny
-                string sql = string.Format("SELECT COUNT(NAME) FROM CP_Clinicalpath WHERE NAME ='{0}'",strName);
-                //myConnection.Open();
-                //sqlTrans = myConnection.BeginTransaction();//事务开始   
-                //SqlCommand myCommand = new SqlCommand("usp_CP_UpdateClinicalPathInfo", myConnection, sqlTrans);
-                //myCommand.CommandType = CommandType.StoredProcedure;
-                //添加输入查询参数、赋予值              
-                
+                string sql = string.Format("SELECT COUNT(NAME) FROM CP_Clinicalpath WHERE NAME ='{0}'", strName);
+                //添加输入查询参数、赋予值
                 SqlParameter[] parameters = new SqlParameter[] 
                     {
                         new SqlParameter("@Ljdm",strLjdm),
@@ -1136,23 +986,23 @@ namespace Yidansoft.Service
                         new SqlParameter("@Syks",strSyks)
                     };
                 //判断修改后的数据在数据库存在的数量  update 2013年8月13日 10:26:35  Jhonny
-                count =Convert.ToInt32(SqlHelper.ExecuteScalar(sql));
+                count = Convert.ToInt32(SqlHelper.ExecuteScalar(sql));
 
                 SqlHelper.ExecuteNoneQuery("usp_CP_UpdateClinicalPathInfo", parameters, CommandType.StoredProcedure);
 
-                if (count ==0)
+                if (count == 0)
                 {
-                foreach (CP_ClinicalDiagnosisList lists in listAddBzdm)
-                {
-                    InsertCPListDiagnoise(strLjdm, lists.Bzdm, lists.Bzmc);
-                }
+                    foreach (CP_ClinicalDiagnosisList lists in listAddBzdm)
+                    {
+                        InsertCPListDiagnoise(strLjdm, lists.Bzdm, lists.Bzmc);
+                    }
 
-                foreach (CP_ClinicalDiagnosisList lists in listDelBzdm)
-                {
-                    DeletCPListDiagnoise(strLjdm, lists.Bzdm);
-                }
-                
-                InsertCPListLog(strLjdm, strZgdm);
+                    foreach (CP_ClinicalDiagnosisList lists in listDelBzdm)
+                    {
+                        DeletCPListDiagnoise(strLjdm, lists.Bzdm);
+                    }
+
+                    InsertCPListLog(strLjdm, strZgdm);
                 }
                 //SqlHelper.CommitTransaction();
                 //sqlTrans.Commit();//事务提交   
@@ -1446,7 +1296,7 @@ namespace Yidansoft.Service
                     //foreach (XElement node in partNos)
                     //{
                     //    InsertIntoWorkRule(sqlTrans, myConnection, node);
-                    
+
                     //}
 
                     // sqlTrans.Commit();
@@ -1637,16 +1487,16 @@ namespace Yidansoft.Service
             //    strTime = Convert.ToString(DateTime.Now.AddDays(1).Date + new TimeSpan(8, 0, 0));
             //else
             //{
-                int hour = DateTime.Now.Hour;
-                int minute = DateTime.Now.Minute;
-                if (minute <= 30)
-                    minute = 30;
-                else
-                {
-                    hour += 1;
-                    minute = 0;
-                }
-                strTime = Convert.ToString(DateTime.Today + new TimeSpan(hour, minute, 0));
+            int hour = DateTime.Now.Hour;
+            int minute = DateTime.Now.Minute;
+            if (minute <= 30)
+                minute = 30;
+            else
+            {
+                hour += 1;
+                minute = 0;
+            }
+            strTime = Convert.ToString(DateTime.Today + new TimeSpan(hour, minute, 0));
             //}
             return strTime;
         }
@@ -1806,12 +1656,8 @@ namespace Yidansoft.Service
             Boolean isLeadIn, List<string> listLjdm)
         {
             //保存成功后将 currentList.Ljts, currentList.EnForceWorkFlowXml  更新
-
-            //SqlHelper.BeginTransaction();
             try
             {
-                //myConnection.Open();
-                //sqlTrans = myConnection.BeginTransaction();//事务开始 
                 UpdatePatientPathEnForce(currentList, ZipContent(strEnforceXml));
                 SaveOrder(listOrderAdd, listOrderModify, listOrderDel, currentList, strActivityID, strActivityChildID, strLjdm);
 
@@ -1834,23 +1680,11 @@ namespace Yidansoft.Service
                     foreach (String str in listLjdm)
                         InsertPathLeadInRecord(currentList, str);
                 }
-                //SqlHelper.CommitTransaction();
-
-                //sqlTrans.Commit();//事务提交   
             }
             catch (Exception ex)
             {
-                //sqlTrans.Rollback();
                 ThrowException(ex);
-                //SqlHelper.RollbackTransaction();
             }
-
-            //finally
-            //{
-            //    if (myConnection.State != System.Data.ConnectionState.Closed)
-            //        myConnection.Close();
-            //}
-
 
         }
 
@@ -1899,14 +1733,11 @@ namespace Yidansoft.Service
         [OperationContract]
         [FaultContract(typeof(LoginException))]
         public void UpdateEnForceInfo(CP_InpatinetList currentList, string strEnforceXml, String strActivityChildID, List<CP_VariantRecords> listUnEnforceReason,
-        List<CP_VariantRecords> listNewOrderReason, List<CP_VariantRecords> listOtherReason, Boolean isLeadIn, List<string> listLjdm, String ActivityUniqueID,String sVal)
+        List<CP_VariantRecords> listNewOrderReason, List<CP_VariantRecords> listOtherReason, Boolean isLeadIn, List<string> listLjdm, String ActivityUniqueID, String sVal)
         {
 
             try
             {
-                //SqlHelper.BeginTransaction();
-                //myConnection.Open();
-                //sqlTrans = myConnection.BeginTransaction();
                 string strSql = @"UPDATE CP_InPatientPathEnForce SET EnFroceXml = @EnforceXml WHERE Ljxh = @Ljxh;
                                   UPDATE CP_InPathPatient SET Ljts = @Ljts WHERE Id = @Ljxh";
                 #region 更新路径执行的明细
@@ -1937,7 +1768,7 @@ namespace Yidansoft.Service
 
                 if (listUnEnforceReason != null)
                 {
-                    
+
                     foreach (CP_VariantRecords reason in listUnEnforceReason)
                     {
                         //add by luff 20130725
@@ -1945,7 +1776,7 @@ namespace Yidansoft.Service
                         {
                             reason.xmlb = "0";
                         }
-                        else if(sVal == "1") //草药列表下的变异标识
+                        else if (sVal == "1") //草药列表下的变异标识
                         {
                             reason.xmlb = "99";
                         }
@@ -1979,8 +1810,6 @@ namespace Yidansoft.Service
             }
             catch (Exception ex)
             {
-                //SqlHelper.RollbackTransaction();
-                //sqlTrans.Rollback();
                 ThrowException(ex);
             }
             finally
@@ -2012,17 +1841,6 @@ namespace Yidansoft.Service
                     new SqlParameter("@Ljdm",strLjdm),
                     new SqlParameter("@Zgm",currentList.CurOper)
                 };
-
-                //myCommand.Parameters.Add("@Ljxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("@Syxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("@Ljdm", SqlDbType.VarChar, 12);
-                //myCommand.Parameters.Add("@Zgm", SqlDbType.VarChar, 6);
-                //myCommand.Parameters["@Ljxh"].Value = currentList.Ljxh;
-                //myCommand.Parameters["@Syxh"].Value = ConvertMy.ToDecimal(currentList.Syxh);
-                //myCommand.Parameters["@Ljdm"].Value = strLjdm;
-                //myCommand.Parameters["@Zgm"].Value = currentList.CurOper;
-                //myCommand.ExecuteNoneQuery();
-
                 SqlHelper.ExecuteNoneQuery("usp_CP_InsertPathLeadInRecord", parameters, CommandType.StoredProcedure);
 
             }
@@ -2031,30 +1849,6 @@ namespace Yidansoft.Service
                 throw ex;
             }
         }       // zm 8.25 Oracle
-
-
-        ///// <summary>
-        ///// 完成路径
-        ///// </summary>
-        ///// <param name="sqlTrans"></param>
-        ///// <param name="myConnection"></param>
-        ///// <param name="currentList"></param>
-        ///// <param name="strEnforceXml"></param>
-        //private void UpdateLjts(SqlTransaction sqlTrans, SqlConnection myConnection, CP_InpatinetList currentList)
-        //{
-        //    try
-        //    {
-        //        string strSql = @"UPDATE CP_InPathPatient SET Ljts = {0} WHERE Syxh ={1} AND Ljdm='{2}'";
-        //        string strCmd = string.Format(strSql, (int.Parse(currentList.Ljts) + 1),int.Parse(currentList.Syxh), currentList.Ljdm);
-        //        SqlCommand myCommand = new SqlCommand(strCmd, myConnection, sqlTrans);
-        //        myCommand.ExecuteNoneQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-
 
         /// <summary>
         /// 完成路径
@@ -2080,7 +1874,7 @@ namespace Yidansoft.Service
                 //add by luff 20130323 保存医嘱变异信息
                 if (listUnEnforceReason != null)
                 {
-                   
+
                     foreach (CP_VariantRecords reason in listUnEnforceReason)
                     {
                         //add by luff 20130725
@@ -2156,19 +1950,8 @@ namespace Yidansoft.Service
             {
 
                 DataTable changeTable = new DataTable("changeOrder");
+                #region 初始化医嘱表列对象
 
-                #region
-
-                //new SqlParameter("@yzxh",dr["yzxh"].ToString()),
-                //       new SqlParameter("@yzbz",dr["yzbz"].ToString()),
-                //       new SqlParameter("@NoOfRecord",dr["NoOfRecord"].ToString()),
-                //       new SqlParameter("@Syxh",dr["Syxh"].ToString()),
-                //       new SqlParameter("@PatID",dr["PatID"].ToString()),
-
-                //       new SqlParameter("@ksmc",dr["ksmc"].ToString()),
-                //       new SqlParameter("@Qxrq",dr["Qxrq"].ToString()),
-                //       new SqlParameter("@Qxysdm",dr["Qxysdm"].ToString()),
-                //       new SqlParameter("@OutBed",dr["OutBed"].ToString()),
                 DataColumn yzxh = new DataColumn("yzxh", Type.GetType("System.String"));//医嘱序号
                 DataColumn ctyzxh = new DataColumn("ctyzxh", Type.GetType("System.String"));//成套医嘱序号
                 DataColumn yzbz = new DataColumn("yzbz", Type.GetType("System.String"));//医嘱标志
@@ -2240,18 +2023,17 @@ namespace Yidansoft.Service
                 DataColumn memo = new DataColumn("memo", Type.GetType("System.String"));
                 DataColumn Ctmxxh = new DataColumn("Ctmxxh", Type.GetType("System.String"));//成套明细序号
                 DataColumn Ypgg = new DataColumn("Ypgg", Type.GetType("System.String"));//
-
-
                 //计价标准、执行科室
                 DataColumn Jjlx = new DataColumn("Jjlx", Type.GetType("System.String"));
                 DataColumn Zxksdm = new DataColumn("Zxksdm", Type.GetType("System.String"));//执行科室代码
                 //记录发送是否成功、以及发送信息、未成功原因
                 DataColumn FS_Flag = new DataColumn("FS_Flag", Type.GetType("System.String"));
                 DataColumn FS_Mess = new DataColumn("FS_Mess", Type.GetType("System.String"));
-
                 //操作员工号
                 DataColumn Czyh = new DataColumn("Czyh", Type.GetType("System.String"));
+                #endregion
 
+                #region 添加医嘱datatable列名
                 changeTable.Columns.Add(yzxh);
                 changeTable.Columns.Add(ctyzxh);
                 changeTable.Columns.Add(yzbz);
@@ -2328,7 +2110,9 @@ namespace Yidansoft.Service
                 changeTable.Columns.Add(FS_Mess);
 
                 changeTable.Columns.Add(Czyh);
+                #endregion
 
+                #region listOrderAdd 转换成 changeTable
                 foreach (CP_DoctorOrder order in listOrderAdd)
                 {
                     DataRow dr = changeTable.NewRow();
@@ -2415,42 +2199,37 @@ namespace Yidansoft.Service
 
 
                 string mess = "";
+
+                #region 判断HIS厂商
                 //add luff 20130326 根据APPCFG配置参数，得到不同厂家his标识，调用不同发送医嘱的方法
                 //获得厂家his标识
                 List<APPCFG> hiscfg = GetAppCfg("HISTYPE");
                 if (hiscfg.Count > 0)
                 {
                     string sHisBs = hiscfg[0].Value.ToUpper().Trim();
-                    #region 隐藏列表列
+
                     //隐藏数据列
                     switch (sHisBs)
                     {
                         case "XJ": //新疆医院His厂商标识
-
                             mess = SendOrderTableToHis_XJ(changeTable);
                             break;
-
                         case "BT": //漯河医院His厂商标识（金仕达His）
-
                             mess = SendOrderTableToHis_BT(changeTable);
                             break;
-
-                        case "WINNING": //钟山医院His厂商标识（金仕达His）
+                        case "WINNING": //钟山医院His厂商标识（卫宁）
                             mess = SendOrderTableToHis(inpatient.Hissyxh, changeTable, executorCode, macAddress);
                             break;
-
                         default:
                             mess = SendOrderTableToHis(inpatient.Hissyxh, changeTable, executorCode, macAddress);
                             break;
                     }
-                    #endregion
-
                 }
                 else
                 {
                     mess = SendOrderTableToHis(inpatient.Hissyxh, changeTable, executorCode, macAddress);
                 }
-
+                #endregion
 
                 return mess;
             }
@@ -2474,18 +2253,6 @@ namespace Yidansoft.Service
                 //"临时医嘱"  2702
                 DataTable longorder = changeTable.Clone();
                 DataTable temporder = changeTable.Clone();
-
-                //foreach (DataRow dr in changeTable.Select("FS_Flag='1'"))
-                //{
-                //    if (dr["yzbz"].ToString() == "2703")
-                //    {
-                //        longorder.Rows.Add(dr.ItemArray);
-                //    }
-                //    else
-                //    {
-                //        temporder.Rows.Add(dr.ItemArray);
-                //    }
-                //}
 
                 //更新同步标志
 
@@ -2607,7 +2374,12 @@ namespace Yidansoft.Service
                 }
             }
         }
-        //add by luff 20130131 通用接口方法
+
+        /// <summary>
+        ///通用接口方法
+        /// </summary>
+        /// <param name="changeTable"></param>
+        /// <returns></returns>
         public string SendOrderTableToAllHis(DataTable changeTable)
         {
             try
@@ -2672,12 +2444,10 @@ namespace Yidansoft.Service
 
         }
 
-        SendOrderToHIS m_SendOrderHelper;
-
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="syxh"></param>
+        /// <param name="syxh">HIS号码</param>
         /// <param name="changedTable"></param>
         /// <param name="executorCode"></param>
         /// <param name="macAddress"></param>
@@ -2732,7 +2502,7 @@ namespace Yidansoft.Service
                 {
                     t_temporder.Rows.Add(dr.ItemArray);
                 }
- 
+
 
                 //更新同步标志
 
@@ -2769,39 +2539,6 @@ namespace Yidansoft.Service
             {
                 return e.Message;
             }
-
-
-
-            ////"长期医嘱"  2703
-            ////"临时医嘱"  2702
-            //DataTable longorder = changedTable.Clone();
-            //DataTable temporder = changedTable.Clone();
-
-            //foreach (DataRow dr in changedTable.Rows)
-            //{
-            //    if (dr["yzbz"].ToString() == "2703")
-            //    {
-            //        longorder.Rows.Add(dr.ItemArray);
-            //    }
-            //    else
-            //    {
-            //        temporder.Rows.Add(dr.ItemArray);
-            //    }
-            //}
-
-
-            //string mess = "";
-            //if (m_SendOrderHelper == null) m_SendOrderHelper = new SendOrderToHIS();
-            //mess = m_SendOrderHelper.SendOrder(syxh, longorder, executorCode, macAddress, false);
-            //mess = mess + m_SendOrderHelper.SendOrder(syxh, temporder, executorCode, macAddress, true);
-
-            ////更新同步标志
-
-            //UpdateSynchFlagToTrue(longorder, false);
-            //UpdateSynchFlagToTrue(temporder, true);
-            //return mess;
-
-
         }
 
         /// <summary>
@@ -3066,89 +2803,6 @@ namespace Yidansoft.Service
                     new SqlParameter("@ActivityChildID",strActivityChildID),
                     new SqlParameter("@Ljxh",currentList.Ljxh)
                 };
-
-                //myCommand.Parameters.Add("Syxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Fzxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Fzbz", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Bqdm", SqlDbType.VarChar, 12);
-                //myCommand.Parameters.Add("Ksdm", SqlDbType.VarChar, 12);
-                //myCommand.Parameters.Add("Lrysdm", SqlDbType.VarChar, 6);
-                //myCommand.Parameters.Add("Lrrq", SqlDbType.VarChar, 19);
-                //myCommand.Parameters.Add("Cdxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Ggxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Lcxh", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Ypdm", SqlDbType.VarChar, 12);
-                //myCommand.Parameters.Add("Ypmc", SqlDbType.VarChar, 64);
-                //myCommand.Parameters.Add("Xmlb", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Zxdw", SqlDbType.VarChar, 8);
-                //myCommand.Parameters.Add("Ypjl", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Jldw", SqlDbType.VarChar, 8);
-                //myCommand.Parameters.Add("Dwxs", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Dwlb", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Yfdm", SqlDbType.VarChar, 2);
-                //myCommand.Parameters.Add("Pcdm", SqlDbType.VarChar, 2);
-                //myCommand.Parameters.Add("Zxcs", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Zxzq", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Zxzqdw", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Zdm", SqlDbType.VarChar, 7);
-                //myCommand.Parameters.Add("Zxsj", SqlDbType.VarChar, 64);
-                //myCommand.Parameters.Add("Ztnr", SqlDbType.VarChar, 64);
-                //myCommand.Parameters.Add("Yzlb", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Yzzt", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Tsbj", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Yznr", SqlDbType.VarChar, 255);
-                //myCommand.Parameters.Add("Tbbz", SqlDbType.Decimal);
-                //myCommand.Parameters.Add("Memo", SqlDbType.VarChar, 64);
-                //myCommand.Parameters.Add("Ksrq", SqlDbType.VarChar, 19);
-                //myCommand.Parameters.Add("Ypgg", SqlDbType.VarChar, 32);
-                //myCommand.Parameters.Add("Ctmxxh", SqlDbType.Decimal); //to do 赋值
-                //myCommand.Parameters.Add("Ljdm", SqlDbType.VarChar, 12);
-                //myCommand.Parameters.Add("ActivityID", SqlDbType.VarChar, 50);
-                //myCommand.Parameters.Add("ActivityChildID", SqlDbType.VarChar, 50);
-                //myCommand.Parameters.Add("Ljxh", SqlDbType.Decimal);
-
-                //myCommand.Parameters["Syxh"].Value = orderAdd.Syxh;
-                //myCommand.Parameters["Fzxh"].Value = orderAdd.Fzxh;
-                //myCommand.Parameters["Fzbz"].Value = orderAdd.Fzbz;
-                //myCommand.Parameters["Bqdm"].Value = orderAdd.Bqdm;
-                //myCommand.Parameters["Ksdm"].Value = orderAdd.Ksdm;
-                //myCommand.Parameters["Lrysdm"].Value = orderAdd.Lrysdm;
-                //myCommand.Parameters["Lrrq"].Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:dd");
-                //myCommand.Parameters["Cdxh"].Value = orderAdd.Cdxh;
-                //myCommand.Parameters["Ggxh"].Value = orderAdd.Ggxh;
-                //myCommand.Parameters["Lcxh"].Value = orderAdd.Lcxh;
-                //myCommand.Parameters["Ypdm"].Value = orderAdd.Ypdm;
-                //myCommand.Parameters["Ypmc"].Value = orderAdd.Ypmc;
-                //myCommand.Parameters["Xmlb"].Value = orderAdd.Xmlb;
-                //myCommand.Parameters["Zxdw"].Value = orderAdd.Zxdw == null ? string.Empty : orderAdd.Zxdw;
-                //myCommand.Parameters["Ypjl"].Value = orderAdd.Ypjl;
-                //myCommand.Parameters["Jldw"].Value = orderAdd.Jldw == null ? string.Empty : orderAdd.Jldw;
-                //myCommand.Parameters["Dwxs"].Value = orderAdd.Dwxs;
-                //myCommand.Parameters["Dwlb"].Value = orderAdd.Dwlb;
-                //myCommand.Parameters["Yfdm"].Value = orderAdd.Yfdm == null ? string.Empty : orderAdd.Yfdm;
-                //myCommand.Parameters["Pcdm"].Value = orderAdd.Pcdm == null ? string.Empty : orderAdd.Pcdm;
-                //myCommand.Parameters["Zxcs"].Value = orderAdd.Zxcs;
-                //myCommand.Parameters["Zxzq"].Value = orderAdd.Zxzq;
-                //myCommand.Parameters["Zxzqdw"].Value = orderAdd.Zxzqdw;
-                //myCommand.Parameters["Zdm"].Value = orderAdd.Zdm == null ? string.Empty : orderAdd.Zdm;
-                //myCommand.Parameters["Zxsj"].Value = orderAdd.Zxsj == null ? string.Empty : orderAdd.Zxsj;
-                //myCommand.Parameters["Ztnr"].Value = orderAdd.Ztnr == null ? string.Empty : orderAdd.Ztnr;
-                //myCommand.Parameters["Yzlb"].Value = orderAdd.Yzlb;
-                //myCommand.Parameters["Yzzt"].Value = orderAdd.Yzzt;
-                //myCommand.Parameters["Tsbj"].Value = orderAdd.Tsbj;
-                //myCommand.Parameters["Yznr"].Value = orderAdd.Yznr == null ? string.Empty : orderAdd.Yznr;
-                //myCommand.Parameters["Tbbz"].Value = orderAdd.Tbbz;
-                //myCommand.Parameters["Memo"].Value = orderAdd.Memo == null ? string.Empty : orderAdd.Memo;
-                //myCommand.Parameters["Ksrq"].Value = orderAdd.Ksrq;
-                //myCommand.Parameters["Ypgg"].Value = orderAdd.Ypgg;
-                //myCommand.Parameters["Ctmxxh"].Value = orderAdd.Ctmxxh;//to do
-                //myCommand.Parameters["Ljdm"].Value = strLjdm;
-                //myCommand.Parameters["ActivityID"].Value = strActivityID;
-                //myCommand.Parameters["ActivityChildID"].Value = strActivityChildID;
-                //myCommand.Parameters["Ljxh"].Value = currentList.Ljxh;
-                //return (decimal)myCommand.ExecuteScalar();
-
-                // return (decimal)SqlHelper.ExecuteScalar(sqlTrans, CommandType.StoredProcedure, "usp_CP_InsertLongOrder", parameters);
 
                 Decimal decimalReturn = -1;
                 DataTable dt = SqlHelper.ExecuteDataTable("usp_CP_InsertLongOrder", parameters, CommandType.StoredProcedure);
@@ -3542,7 +3196,7 @@ namespace Yidansoft.Service
             string strCmd = "INSERT INTO CP_VariantRecords(Syxh ,Ljdm ,Mxdm ,Ypdm ,Bylb ,Bynr ,Bydm,Byyy ,Bysj,Bylx,Ljxh,PahtDetailID,xmlb )"
                             + @" VALUES  ( {0},'{1}' , '{2}','{3}' , '{4}' , '{5}' ,'{6}' , '{7}',getdate(),'{8}',{9} ,'{10}','{11}')";
             string strSql = string.Format(strCmd, int.Parse(currentList.Syxh), currentList.Ljdm, Mxdm, reason.Ypdm,
-                                          reason.Bylb, reason.Bynr, reason.Bydm, reason.Byyy, reason.Bylx, currentList.Ljxh, PathDetailID,reason.xmlb);
+                                          reason.Bylb, reason.Bynr, reason.Bydm, reason.Byyy, reason.Bylx, currentList.Ljxh, PathDetailID, reason.xmlb);
 
             SqlHelper.ExecuteNoneQuery(strSql);
         }       // zm 8.25 Oracle

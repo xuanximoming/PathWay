@@ -9,7 +9,7 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://42.51.202.133:82/YidanEHRDataService.svc"
+            <endpoint address="http://127.0.0.1:82/YidanEHRDataService.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_YidanEHRDataService"
                 contract="DataService.YidanEHRDataService" name="BasicHttpBinding_YidanEHRDataService" />
         </client>
