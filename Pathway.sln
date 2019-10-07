@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrectSoft.Tool", "YidanSoft
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{D349B6D8-992F-443F-BB57-57E50DD98794}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication2", "WindowsFormsApplication2\WindowsFormsApplication2.csproj", "{703A2101-8BF7-40F1-8F49-E12982193775}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -134,6 +136,16 @@ Global
 		{D349B6D8-992F-443F-BB57-57E50DD98794}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D349B6D8-992F-443F-BB57-57E50DD98794}.Release|x86.ActiveCfg = Release|x86
 		{D349B6D8-992F-443F-BB57-57E50DD98794}.Release|x86.Build.0 = Release|x86
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{703A2101-8BF7-40F1-8F49-E12982193775}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2002,8 +2002,8 @@ namespace Yidansoft.Service
                 DataColumn tsbj = new DataColumn("tsbj", Type.GetType("System.String"));//特殊标记
                 DataColumn tzxh = new DataColumn("tzxh", Type.GetType("System.String"));//停嘱序号
 
-                //停止日期
-                DataColumn tzrq = new DataColumn("tzrq", Type.GetType("System.String"));
+
+                DataColumn tzrq = new DataColumn("tzrq", Type.GetType("System.String"));//停止日期
                 DataColumn Lrrq = new DataColumn("Lrrq", Type.GetType("System.String"));//录入日期
 
                 DataColumn sqdxh = new DataColumn("sqdxh", Type.GetType("System.String"));//申请单序号
@@ -2221,13 +2221,13 @@ namespace Yidansoft.Service
                             mess = SendOrderTableToHis(inpatient.Hissyxh, changeTable, executorCode, macAddress);
                             break;
                         default:
-                            mess = SendOrderTableToHis(inpatient.Hissyxh, changeTable, executorCode, macAddress);
+                            mess = SendOrderTableToAllHis(changeTable);
                             break;
                     }
                 }
                 else
                 {
-                    mess = SendOrderTableToHis(inpatient.Hissyxh, changeTable, executorCode, macAddress);
+                    mess = SendOrderTableToAllHis(changeTable);
                 }
                 #endregion
 

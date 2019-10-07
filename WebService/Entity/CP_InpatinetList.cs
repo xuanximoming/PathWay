@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Data;
-using DrectSoft.Tool;
 
 namespace Yidansoft.Service.Entity
 {
@@ -460,7 +455,7 @@ namespace Yidansoft.Service.Entity
             get;
             set;
         }
-        
+
         //add by luff 20130305 添加 病人状态属性
         /// <summary>
         /// Status 病人状态 1501 在院,1503 出院
@@ -471,8 +466,8 @@ namespace Yidansoft.Service.Entity
             get;
             set;
         }
-        
-        
+
+
 
         /// <summary>
         /// InCount
@@ -486,13 +481,13 @@ namespace Yidansoft.Service.Entity
 
 
         /// <summary>
-        /// 疾病名称
+        /// 患者名称
         /// </summary>
         [DataMember()]
         public string Name
         {
             set { ;}
-            get { return "患者姓名：" + Hzxm + "住院号码：【" + Zyhm + "】"; }
+            get { return Hzxm; }
         }
 
         public CP_InpatinetList(string strSyxh, string strHissyxh, string strZyhm, string strHzxm, string strBrxb,
@@ -515,7 +510,7 @@ namespace Yidansoft.Service.Entity
             Ljzt = strLjzt;
             Pgqk = strPgqk;
             Ljmc = strLjmc;
-            LjztName = RemoveNumber(strLjztName.Replace('(',')').Replace(')','0'));
+            LjztName = RemoveNumber(strLjztName.Replace('(', ')').Replace(')', '0'));
             LqljId = strLqljId;
             Bed = strBed;
             Csrq = strCsrq;
@@ -527,8 +522,8 @@ namespace Yidansoft.Service.Entity
             WorkFlowXml = strWorkFlow;
             EnForceWorkFlowXml = strEnFroceXml;
 
-            NoOfRecord =  strNoOfRecord;
-            patID =  strpatID;
+            NoOfRecord = strNoOfRecord;
+            patID = strpatID;
             NoofClinic = strNoofClinic;
             Status = strStatus;
             InCount = strInCount;

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Runtime.Serialization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.ServiceModel;
 
 namespace Yidansoft.Service.Entity
 {
@@ -479,7 +473,7 @@ namespace Yidansoft.Service.Entity
             set { m_IsModify = value; }
         }
 
-    
+
         /// <summary>
         /// 用来分
         /// </summary>
@@ -489,7 +483,7 @@ namespace Yidansoft.Service.Entity
             get;
             set;
         }
-           
+
         /// <summary>
         /// 结点
         /// </summary>
@@ -498,7 +492,7 @@ namespace Yidansoft.Service.Entity
         {
             get;
             set;
-        }  
+        }
 
         /// <summary>
         ///  成套明细序号
@@ -582,13 +576,13 @@ namespace Yidansoft.Service.Entity
         public CP_DoctorOrder()
         { }
 
-       
+
 
         public CP_DoctorOrder(decimal yzxh, decimal syxh, decimal fzxh, decimal fzbz,
                             string strBqdm, string strKsdm, string strLrysdm, string strLrrq, string strShczy,
                             string strShrq, string strZxczy, string strZxrq, string strQxysdm, string strQxrq,
                             string strtzysdm, string strTzrq, string strtzshhs, string strtzshrq, string strKsrq,
-                           decimal mq, decimal cdxh, decimal ggxh, decimal lcxh,decimal xmdj, string strYpdm,
+                           decimal mq, decimal cdxh, decimal ggxh, decimal lcxh, decimal xmdj, string strYpdm,
                           string strYpmc, string strYpgg, decimal xmlb, string strZxdw, decimal ypjl, string strJldw, decimal dwxs,
                          decimal dwlb, string strYfdm, string strYfdmName, string strPcdm, string strPcdmName, decimal zxcs, decimal zxzq, decimal zxzqdw,
                         string strZdm, string strZxsj, string strZxks, string strZtnr, decimal yzlb, decimal yzzt, decimal tsbj,
@@ -656,7 +650,6 @@ namespace Yidansoft.Service.Entity
             Ypzsl = ypzsl;
             Tzxh = tzxh;
             Sqdxh = sqdxh;
-
             Yzbz = yzbz;
             YzbzName = stryzbzName;
             FromTable = strFromTable;

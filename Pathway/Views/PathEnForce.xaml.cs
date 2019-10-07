@@ -4332,7 +4332,6 @@ namespace YidanEHRApplication.Views
             ObservableCollection<CP_DoctorOrder> sendOrder = new ObservableCollection<CP_DoctorOrder>();
             foreach (CP_DoctorOrder order in Orderlist)
             {
-
                 if (order.Tbbz == 0)
                     sendOrder.Add(order);
             }

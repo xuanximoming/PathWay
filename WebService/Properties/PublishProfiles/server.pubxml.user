@@ -10,19 +10,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DrectSoft.Core.dll">
-      <publishTime>10/04/2019 13:08:25</publishTime>
+      <publishTime>10/07/2019 13:31:02</publishTime>
     </File>
     <File Include="bin/DrectSoft.SilverlightFault.dll">
       <publishTime>10/04/2019 15:27:00</publishTime>
     </File>
     <File Include="bin/DrectSoft.Tool.dll">
-      <publishTime>10/04/2019 14:19:22</publishTime>
+      <publishTime>10/06/2019 12:56:13</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
       <publishTime>09/01/2019 15:29:45</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
-      <publishTime>10/04/2019 13:06:43</publishTime>
+      <publishTime>10/04/2019 13:56:10</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Logging.dll">
       <publishTime>09/01/2019 15:29:45</publishTime>
@@ -40,10 +40,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/16/2005 00:33:12</publishTime>
     </File>
     <File Include="bin/SendOrder.dll">
-      <publishTime>10/04/2019 15:27:00</publishTime>
+      <publishTime>10/07/2019 13:31:05</publishTime>
     </File>
     <File Include="bin/WebService.dll">
-      <publishTime>10/04/2019 15:27:03</publishTime>
+      <publishTime>10/07/2019 13:31:10</publishTime>
     </File>
     <File Include="bin/Yidansoft.Core.dll">
       <publishTime>09/26/2019 20:46:01</publishTime>

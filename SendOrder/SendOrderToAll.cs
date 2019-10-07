@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Xml;
 using YidanSoft.Core;
 
 namespace SendOrder
 {
     public class SendOrderToAll
     {
-       
-        public static IDataAccess SqlHelper = DataAccessFactory.GetSqlDataAccess("EHRDB");//GetSqlDataAccess();
+
+        public static IDataAccess SqlHelper = DataAccessFactory.GetSqlDataAccess("EHRDB");
         public static IDataAccess HISHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
-        //public SendOrderToHis_BT()
-        //{
-        //    Hishelper = DataAccessFactory.GetSqlDataAccess("HISDB");
-        //}
         /// <summary>
         /// 
         /// </summary>
@@ -31,6 +25,10 @@ namespace SendOrder
         }
 
 
+        /// <summary>
+        ///验证医嘱到HIS, His去调用这个方法确定库存等信息
+        /// </summary>
+        /// <param name="orderAdd">需要发送HIS医嘱信息</param>
         private void CheckOrder(DataTable orderAdd)
         {
             foreach (DataRow dr in orderAdd.Select("yzlb='3100'"))
@@ -43,11 +41,9 @@ namespace SendOrder
                     new SqlParameter("@sl",dr["ypjl"].ToString()),
                 };
 
-                DataTable dt = HISHelper.ExecuteDataTable("Up_CheckStockQuantity", parameters, CommandType.StoredProcedure);
+                DataTable dt = SqlHelper.ExecuteDataTable("Up_CheckStockQuantity", parameters, CommandType.StoredProcedure);
                 // 0	--够用
-		
-		        // 1	--不够用
-
+                // 1	--不够用
                 if (dt != null && dt.Rows.Count > 0 && dt.Rows[0][0].ToString() == "1")
                 {
                     foreach (DataRow row in orderAdd.Select("yzlb='3100'"))
@@ -86,58 +82,116 @@ namespace SendOrder
                 string sSql = "select * from HisSxpz where HisKey<>''";
                 DataTable dtPara = SqlHelper.ExecuteDataTable(sSql);
                 int iCount = dtPara.Rows.Count;
-                //获取Appcfg配置表His保存医嘱的存取过程名
-                string sHispro = GetAppCfgType("HisOrderProc");
+
+
+
+
+
+
                 foreach (DataRow dr in orderAdd.Select("FS_Flag='1'"))
                 {
-                    string iscqyz = string.Empty;
-
-
+                    //string iscqyz = string.Empty;
                     //"长期医嘱"  2703
                     //"临时医嘱"  2702
                     if (dr["yzbz"].ToString() == "2703")
                     {
-                        iscqyz = "0";
+                        dr["yzbz"] = "1";
+                        //iscqyz = "0";
                     }
                     else
                     {
-                        iscqyz = "1";
+                        dr["yzbz"] = "0";
+                        //iscqyz = "1";
                     }
 
                     //医嘱分类（1-西药,2-其他,3-文字医嘱）
-                    string OrderClass = string.Empty;
+                    //string OrderClass = string.Empty;
                     if (dr["yzlb"].ToString() == "3100")
                     {
-                        OrderClass = "1";
+                        dr["yzlb"] = "0";
+                        //OrderClass = "1";
                     }
                     else if (dr["yzlb"].ToString() == "3119")
                     {
-                        OrderClass = "3";
+                        dr["yzlb"] = "4";
+                        //OrderClass = "3";
                     }
                     else
                     {
-                        OrderClass = "2";
+                        dr["yzlb"] = "10";
+                        //OrderClass = "10";
                     }
-
-
+                    if (dr["yzzt"].ToString() == "3200")
+                    {
+                        dr["yzzt"] = "0";
+                        //OrderClass = "1";
+                    }
+                    //3200
                     #region 用HisSxpz表的数据
 
-                    SqlParameter[] parameters = new SqlParameter[iCount];
+                    //1、创建一个XML文档
+                    XmlDocument doc = new XmlDocument();
+                    //2、创建第一行描述信息
+                    XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "utf-16", null);
+                    //3、将创建的第一行描述信息添加到文档中
+                    doc.AppendChild(dec);
+                    //4、给文档添加根节点
+                    XmlElement XMLData = doc.CreateElement("XMLData");
+                    doc.AppendChild(XMLData);
+                    //创建YZInfo节点
+                    XmlElement YZInfo = doc.CreateElement("YZInfo");
+
+                    XMLData.AppendChild(YZInfo);
+                    XmlElement PatInfo = doc.CreateElement("PatInfo");
+
+                    //循环创建YZ节点
+                    XmlElement YZ = doc.CreateElement("YZ");
+
+
                     for (int i = 0; i < dtPara.Rows.Count; i++)//DataRow pararow in dtPara.Rows)
                     {
-                        //foreach (DataColumn col in orderAdd.Columns)
                         for (int j = 0; j < orderAdd.Columns.Count; j++)
                         {
-                            if (dtPara.Rows[i]["EhrKey"].ToString().ToUpper().Trim().Equals(orderAdd.Columns[j].ColumnName.ToUpper().Trim()))
+
+                            if (dtPara.Rows[i]["EhrKey"].ToString().ToUpper().Trim().Equals(orderAdd.Columns[j].ColumnName.ToUpper().Trim()) &&
+                                dtPara.Rows[i]["HisKey"].ToString().Split('-').Length == 1)
                             {
-                                parameters[i] = new SqlParameter("@" + dtPara.Rows[i]["HisKey"].ToString(), dr[orderAdd.Columns[j].ColumnName].ToString());
+                                string[] tt = dtPara.Rows[i]["EhrKey"].ToString().Split('-');
+                                int o = tt.Length;
+                                YZ.SetAttribute(dtPara.Rows[i]["HisKey"].ToString(), dr[orderAdd.Columns[j].ColumnName].ToString());
                                 break;
                             }
+                            else if (dtPara.Rows[i]["EhrKey"].ToString().ToUpper().Trim().Equals(orderAdd.Columns[j].ColumnName.ToUpper().Trim()) &&
+                                dtPara.Rows[i]["HisKey"].ToString().Split('-').Length > 1)
+                            {
+                                PatInfo.SetAttribute(dtPara.Rows[i]["HisKey"].ToString().Split('-')[1], dr[orderAdd.Columns[j].ColumnName].ToString());
+                                break;
+                            }
+
+                        }
+                        if (dtPara.Rows[i]["EhrKey"].ToString() == "?" && dtPara.Rows[i]["HisKey"].ToString().Split('-').Length == 1)
+                        {
+                            YZ.SetAttribute(dtPara.Rows[i]["HisKey"].ToString(), "");
+                        }
+                        else if (dtPara.Rows[i]["EhrKey"].ToString() == "?" && dtPara.Rows[i]["HisKey"].ToString().Split('-').Length > 1)
+                        {
+                            PatInfo.SetAttribute(dtPara.Rows[i]["HisKey"].ToString().Split('-')[1], "");
                         }
                     }
+                    YZ.SetAttribute("ZHCode", "YZ_2923");
+                    XMLData.AppendChild(PatInfo);
+                    YZInfo.AppendChild(YZ);
+                    SqlParameter[] parameters = new SqlParameter[] 
+                {
+                    new SqlParameter("@InputXML",doc.OuterXml),
+                };
+                    string ss = doc.OuterXml;
+
                     #endregion
 
                     #region 判断Appcfg中得到His保存医嘱的存取过程名是否有值 空字符串表示没有值
+                    //获取Appcfg配置表His保存医嘱的存取过程名
+                    string sHispro = GetAppCfgType("HisOrderProc");
                     if (sHispro != "")
                     {
                         DataTable dt = HISHelper.ExecuteDataTable(sHispro, parameters, CommandType.StoredProcedure);
@@ -167,23 +221,20 @@ namespace SendOrder
                         //所有医嘱都不发送
                         foreach (DataRow row in orderAdd.Select("FS_Flag='1'"))
                         {
-                             
+
                             row["FS_Flag"] = "0";
                             row["FS_Mess"] = "发送医嘱失败！";
-                             
+
                         }
                     }
                     #endregion
-                    
-
-                   
                 }
                 //return orderAdd;
             }
             catch (Exception ex)
             {
-                throw(ex);
-                
+                throw (ex);
+
             }
             return orderAdd;
         }
@@ -193,7 +244,7 @@ namespace SendOrder
         /// <summary>
         /// 判断HIS参数类型是否有值
         /// </summary>
-        
+
         public string GetAppCfgType(string sKey)
         {
             string s_appconfigValue = string.Empty;
@@ -222,4 +273,3 @@ namespace SendOrder
         #endregion
     }
 }
- 
