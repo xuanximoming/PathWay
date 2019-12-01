@@ -18,7 +18,7 @@ namespace SendOrder
         /// <returns></returns>
         public DataTable SendOrder(DataTable ordertable)
         {
-            CheckOrder(ordertable);
+            //CheckOrder(ordertable);
 
             SaveOrder(ordertable);
             return ordertable;

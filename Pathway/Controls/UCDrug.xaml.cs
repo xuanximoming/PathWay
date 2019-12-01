@@ -467,7 +467,6 @@ namespace YidanEHRApplication.Views.UserControls
                             if (ea.Error == null)
                             {
                                 cbxPC.ItemsSource = ea.Result;
-                                //cbxPC.SelectedValue = _cp_AdviceGroupDetail.Pcdm;
                                 if (ea.Result.Count > 0)
                                 {
                                     cbxPC.SelectedIndex = 0;

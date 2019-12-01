@@ -1,14 +1,4 @@
-﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-
+﻿
 namespace YidanEHRApplication.Helpers
 {
     public abstract class GlobalEnum
@@ -85,7 +75,6 @@ namespace YidanEHRApplication.Helpers
         /// 退出
         /// </summary>
         QuitPath = 2,
-
         /// <summary>
         /// 完成
         /// </summary>
@@ -96,7 +85,7 @@ namespace YidanEHRApplication.Helpers
         NotIn = 4
 
 
- 
+
 
     }
 
@@ -109,22 +98,18 @@ namespace YidanEHRApplication.Helpers
         /// 录入
         /// </summary>
         OrderInptut = 3200,
-
         /// <summary>
         /// 已审核
         /// </summary>  
         OrderVerify = 3201,
-
         /// <summary>
         ///  已执行
         /// </summary>
         OrderEnforce = 3202,
-
         /// <summary>
         ///  被取消DC
         /// </summary>
         OrderDC = 3203,
-
         /// <summary>
         /// 已停止
         /// </summary>
@@ -303,9 +288,9 @@ namespace YidanEHRApplication.Helpers
         /// </summary>
         EnterCondition = 9999,
 
-    
 
-        
+
+
 
     }
 

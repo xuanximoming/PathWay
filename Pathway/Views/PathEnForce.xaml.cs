@@ -1580,22 +1580,10 @@ namespace YidanEHRApplication.Views
             #region 之前的逻辑，暂时保留
             foreach (CP_DoctorOrder order in listOrder)
             {
-                //if (order.Yzxh == 0)
-                //{
-                //    if (IsCheckBoxChecked(order.OrderGuid))
-                //    {
-                //        order.Tbbz = 1;//有效记录
-                //        order.Tsbj = 0x01;
-                //        listOrderAdd.Add(order);
-                //    }
-                //}
-                //else
-                //{
                 if (order.IsModify == true)
                 {
                     listOrderModify.Add(order);
                 }
-                //}
             }
             #endregion
             if (radGridViewOrderList.SelectedItems != null)
@@ -1604,7 +1592,6 @@ namespace YidanEHRApplication.Views
                 {
                     if (order.Yzxh == 0)
                     {
-                        //order.Tbbz = 1;//有效记录
                         order.Tsbj = 0;
                         listOrderAdd.Add(order);
                     }

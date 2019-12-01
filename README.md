@@ -1,3 +1,12 @@
+PathWay_Drug  药品字典   CP_PlaceOfDrug
+PathWay_ChargingMinItem  常规医嘱   CP_ChargingMinItem
+
+
+
+
+   SOAPAction: "urn:YidanEHRDataService/GetLongOrderListBelongToSomeOne"
+   
+   SOAPAction: "urn:YidanEHRDataService/GetPathEnforcedOrder"
 # PathWay
 yzxh //医嘱序号
 ctyzxh //成套医嘱序号

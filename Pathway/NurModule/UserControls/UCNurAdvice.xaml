@@ -312,7 +312,7 @@
                                                         <HyperlinkButton Content="已停止" Tag="3204" Margin="0,18,20,15" x:Name="lblTingZhiLong" Foreground="Blue" Click="LinkButtonLong_Click" ></HyperlinkButton>
                                                         <!--<TextBlock Text="已停止" Margin="0,0,20,0"></TextBlock>-->
 
-                                                        <telerik:RadDropDownButton x:Name="MenuDropDownLong" Padding="5" Visibility="Collapsed" Width="187" VerticalAlignment="Center" Content="操作"  >
+                                                        <telerik:RadDropDownButton x:Name="MenuDropDownLong" Padding="5" Visibility="Visible" Width="187" VerticalAlignment="Center" Content="操作"  >
                                                             <telerik:RadDropDownButton.DropDownContent>
                                                                 <telerikNavigation:RadContextMenu Width="188" ItemClick="MenuDropDownLong_ItemClick" Margin="0 0 -3 -3" BorderThickness="0">
                                                                     <RadExtraControl:RadMenuItemExtra Header="审核"  ExterProperty="3200" ExterProperty2="3201">

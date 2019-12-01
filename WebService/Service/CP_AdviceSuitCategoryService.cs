@@ -1,12 +1,10 @@
-﻿using System;
+﻿using DrectSoft.Tool;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ServiceModel;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using System.ServiceModel;
 using Yidansoft.Service.Entity;
-using DrectSoft.Tool;
 
 namespace Yidansoft.Service
 {
@@ -150,17 +148,6 @@ namespace Yidansoft.Service
         {
             try
             {
-                //原先的代码注释   2013年8月14日 15:30:29  Jhonny
-                //SqlParameter[] parameters = new SqlParameter[] 
-                //{ 
-                //    new SqlParameter("@sqlType","UpdateCheckInfo"),
-                //    new SqlParameter("@Name",Name),
-                //    new SqlParameter("@CategoryId",CategoryId)
-                //};
-                ////usp_CP_AdviceSuitCategoryManage laolaowhn NeedFix 存储过程名字太长，删掉了usp_ 
-                //DataSet ds = SqlHelper.ExecuteDataSet("usp_CP_AdviceSuitCategoryManage", parameters, CommandType.StoredProcedure);
-                //return ds.Tables[0].Rows.Count;
-
                 //用新方法代替原有的存储过程
                 //修改时间：2013年8月14日 15:11:52
                 //修改人：Jhonny
@@ -182,7 +169,7 @@ namespace Yidansoft.Service
         [OperationContract]
         public List<CP_AdviceSuitCategory> UpdateCP_AdviceSuitCategory(CP_AdviceSuitCategory adviceSuitCategory)
         {
-            string sql="SELECT * FROM CP_AdviceSuitCategory WHERE 1=1";
+            string sql = "SELECT * FROM CP_AdviceSuitCategory WHERE 1=1";
             List<CP_AdviceSuitCategory> categoryList = new List<CP_AdviceSuitCategory>();
             List<CP_AdviceSuit> adviceSuitList = new List<CP_AdviceSuit>();
             try
@@ -204,7 +191,7 @@ namespace Yidansoft.Service
                 return GetList(sql);
                 //return 1;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 throw ex;
             }
